@@ -18,7 +18,6 @@
     },
     {
       "name": "gcc-native-debug",
-      "displayName": "gcc / native / Debug",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -27,7 +26,6 @@
     },
     {
       "name": "gcc-native-relwithdebinfo",
-      "displayName": "gcc / native / RelWithDebInfo",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo",
@@ -36,7 +34,6 @@
     },
     {
       "name": "gcc-native-release",
-      "displayName": "gcc / native / Release",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -45,7 +42,6 @@
     },
     {
       "name": "gcc-native-release-lto",
-      "displayName": "gcc / native / Release + LTO/IPO",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -55,7 +51,6 @@
     },
     {
       "name": "gcc-native-release-tuned",
-      "displayName": "gcc / native / Release tuned for this CPU",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -64,7 +59,6 @@
     },
     {
       "name": "gcc-native-debug-asan",
-      "displayName": "gcc / native / Debug + AddressSanitizer",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -74,7 +68,6 @@
     },
     {
       "name": "gcc-native-debug-analyzer",
-      "displayName": "gcc / native / Debug + GCC static analyzer",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -83,7 +76,6 @@
     },
     {
       "name": "gcc-x86-debug",
-      "displayName": "gcc / x86 / Debug",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -93,7 +85,6 @@
     },
     {
       "name": "gcc-x86-relwithdebinfo",
-      "displayName": "gcc / x86 / RelWithDebInfo",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo",
@@ -103,7 +94,6 @@
     },
     {
       "name": "gcc-x86-release",
-      "displayName": "gcc / x86 / Release",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -113,7 +103,6 @@
     },
     {
       "name": "gcc-x86-release-lto",
-      "displayName": "gcc / x86 / Release + LTO/IPO",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -124,7 +113,6 @@
     },
     {
       "name": "gcc-x86-debug-asan",
-      "displayName": "gcc / x86 / Debug + AddressSanitizer",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -134,7 +122,6 @@
     },
     {
       "name": "gcc-x86-debug-analyzer",
-      "displayName": "gcc / x86 / Debug + GCC static analyzer",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -144,7 +131,6 @@
     },
     {
       "name": "gcc-x64-debug",
-      "displayName": "gcc / x64 / Debug",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -154,7 +140,6 @@
     },
     {
       "name": "gcc-x64-relwithdebinfo",
-      "displayName": "gcc / x64 / RelWithDebInfo",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo",
@@ -164,7 +149,6 @@
     },
     {
       "name": "gcc-x64-release",
-      "displayName": "gcc / x64 / Release",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -174,7 +158,6 @@
     },
     {
       "name": "gcc-x64-release-lto",
-      "displayName": "gcc / x64 / Release + LTO/IPO",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -185,7 +168,6 @@
     },
     {
       "name": "gcc-x64-debug-asan",
-      "displayName": "gcc / x64 / Debug + AddressSanitizer",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -195,7 +177,6 @@
     },
     {
       "name": "gcc-x64-debug-analyzer",
-      "displayName": "gcc / x64 / Debug + GCC static analyzer",
       "inherits": "gcc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -215,7 +196,6 @@
     },
     {
       "name": "clang-native-debug",
-      "displayName": "clang / native / Debug",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -224,7 +204,6 @@
     },
     {
       "name": "clang-native-relwithdebinfo",
-      "displayName": "clang / native / RelWithDebInfo",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo",
@@ -233,7 +212,6 @@
     },
     {
       "name": "clang-native-release",
-      "displayName": "clang / native / Release",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -242,7 +220,6 @@
     },
     {
       "name": "clang-native-release-lto",
-      "displayName": "clang / native / Release + LTO/IPO",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -252,7 +229,6 @@
     },
     {
       "name": "clang-native-release-tuned",
-      "displayName": "clang / native / Release tuned for this CPU",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -261,7 +237,6 @@
     },
     {
       "name": "clang-native-debug-asan",
-      "displayName": "clang / native / Debug + AddressSanitizer",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -271,7 +246,6 @@
     },
     {
       "name": "clang-x86-debug",
-      "displayName": "clang / x86 / Debug",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -281,7 +255,6 @@
     },
     {
       "name": "clang-x86-relwithdebinfo",
-      "displayName": "clang / x86 / RelWithDebInfo",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo",
@@ -291,7 +264,6 @@
     },
     {
       "name": "clang-x86-release",
-      "displayName": "clang / x86 / Release",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -301,7 +273,6 @@
     },
     {
       "name": "clang-x86-release-lto",
-      "displayName": "clang / x86 / Release + LTO/IPO",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -312,7 +283,6 @@
     },
     {
       "name": "clang-x86-debug-asan",
-      "displayName": "clang / x86 / Debug + AddressSanitizer",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -322,7 +292,6 @@
     },
     {
       "name": "clang-x64-debug",
-      "displayName": "clang / x64 / Debug",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -332,7 +301,6 @@
     },
     {
       "name": "clang-x64-relwithdebinfo",
-      "displayName": "clang / x64 / RelWithDebInfo",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo",
@@ -342,7 +310,6 @@
     },
     {
       "name": "clang-x64-release",
-      "displayName": "clang / x64 / Release",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -352,7 +319,6 @@
     },
     {
       "name": "clang-x64-release-lto",
-      "displayName": "clang / x64 / Release + LTO/IPO",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -363,7 +329,6 @@
     },
     {
       "name": "clang-x64-debug-asan",
-      "displayName": "clang / x64 / Debug + AddressSanitizer",
       "inherits": "clang-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -388,7 +353,6 @@
     },
     {
       "name": "msvc-native-debug",
-      "displayName": "msvc / native / Debug",
       "inherits": "msvc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
@@ -397,7 +361,6 @@
     },
     {
       "name": "msvc-native-relwithdebinfo",
-      "displayName": "msvc / native / RelWithDebInfo",
       "inherits": "msvc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo",
@@ -406,7 +369,6 @@
     },
     {
       "name": "msvc-native-release",
-      "displayName": "msvc / native / Release",
       "inherits": "msvc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -415,7 +377,6 @@
     },
     {
       "name": "msvc-native-release-lto",
-      "displayName": "msvc / native / Release + LTO/IPO",
       "inherits": "msvc-base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
@@ -427,158 +388,197 @@
   "buildPresets": [
     {
       "name": "gcc-native-debug",
+      "displayName": "gcc / native / Debug",
       "configurePreset": "gcc-native-debug"
     },
     {
       "name": "gcc-native-relwithdebinfo",
+      "displayName": "gcc / native / RelWithDebInfo",
       "configurePreset": "gcc-native-relwithdebinfo"
     },
     {
       "name": "gcc-native-release",
+      "displayName": "gcc / native / Release",
       "configurePreset": "gcc-native-release"
     },
     {
       "name": "gcc-native-release-lto",
+      "displayName": "gcc / native / Release + LTO/IPO",
       "configurePreset": "gcc-native-release-lto"
     },
     {
       "name": "gcc-native-release-tuned",
+      "displayName": "gcc / native / Release tuned for this CPU",
       "configurePreset": "gcc-native-release-tuned"
     },
     {
       "name": "gcc-native-debug-asan",
+      "displayName": "gcc / native / Debug + AddressSanitizer",
       "configurePreset": "gcc-native-debug-asan"
     },
     {
       "name": "gcc-native-debug-analyzer",
+      "displayName": "gcc / native / Debug + GCC static analyzer",
       "configurePreset": "gcc-native-debug-analyzer"
     },
     {
       "name": "gcc-x86-debug",
+      "displayName": "gcc / x86 / Debug",
       "configurePreset": "gcc-x86-debug"
     },
     {
       "name": "gcc-x86-relwithdebinfo",
+      "displayName": "gcc / x86 / RelWithDebInfo",
       "configurePreset": "gcc-x86-relwithdebinfo"
     },
     {
       "name": "gcc-x86-release",
+      "displayName": "gcc / x86 / Release",
       "configurePreset": "gcc-x86-release"
     },
     {
       "name": "gcc-x86-release-lto",
+      "displayName": "gcc / x86 / Release + LTO/IPO",
       "configurePreset": "gcc-x86-release-lto"
     },
     {
       "name": "gcc-x86-debug-asan",
+      "displayName": "gcc / x86 / Debug + AddressSanitizer",
       "configurePreset": "gcc-x86-debug-asan"
     },
     {
       "name": "gcc-x86-debug-analyzer",
+      "displayName": "gcc / x86 / Debug + GCC static analyzer",
       "configurePreset": "gcc-x86-debug-analyzer"
     },
     {
       "name": "gcc-x64-debug",
+      "displayName": "gcc / x64 / Debug",
       "configurePreset": "gcc-x64-debug"
     },
     {
       "name": "gcc-x64-relwithdebinfo",
+      "displayName": "gcc / x64 / RelWithDebInfo",
       "configurePreset": "gcc-x64-relwithdebinfo"
     },
     {
       "name": "gcc-x64-release",
+      "displayName": "gcc / x64 / Release",
       "configurePreset": "gcc-x64-release"
     },
     {
       "name": "gcc-x64-release-lto",
+      "displayName": "gcc / x64 / Release + LTO/IPO",
       "configurePreset": "gcc-x64-release-lto"
     },
     {
       "name": "gcc-x64-debug-asan",
+      "displayName": "gcc / x64 / Debug + AddressSanitizer",
       "configurePreset": "gcc-x64-debug-asan"
     },
     {
       "name": "gcc-x64-debug-analyzer",
+      "displayName": "gcc / x64 / Debug + GCC static analyzer",
       "configurePreset": "gcc-x64-debug-analyzer"
     },
     {
       "name": "clang-native-debug",
+      "displayName": "clang / native / Debug",
       "configurePreset": "clang-native-debug"
     },
     {
       "name": "clang-native-relwithdebinfo",
+      "displayName": "clang / native / RelWithDebInfo",
       "configurePreset": "clang-native-relwithdebinfo"
     },
     {
       "name": "clang-native-release",
+      "displayName": "clang / native / Release",
       "configurePreset": "clang-native-release"
     },
     {
       "name": "clang-native-release-lto",
+      "displayName": "clang / native / Release + LTO/IPO",
       "configurePreset": "clang-native-release-lto"
     },
     {
       "name": "clang-native-release-tuned",
+      "displayName": "clang / native / Release tuned for this CPU",
       "configurePreset": "clang-native-release-tuned"
     },
     {
       "name": "clang-native-debug-asan",
+      "displayName": "clang / native / Debug + AddressSanitizer",
       "configurePreset": "clang-native-debug-asan"
     },
     {
       "name": "clang-x86-debug",
+      "displayName": "clang / x86 / Debug",
       "configurePreset": "clang-x86-debug"
     },
     {
       "name": "clang-x86-relwithdebinfo",
+      "displayName": "clang / x86 / RelWithDebInfo",
       "configurePreset": "clang-x86-relwithdebinfo"
     },
     {
       "name": "clang-x86-release",
+      "displayName": "clang / x86 / Release",
       "configurePreset": "clang-x86-release"
     },
     {
       "name": "clang-x86-release-lto",
+      "displayName": "clang / x86 / Release + LTO/IPO",
       "configurePreset": "clang-x86-release-lto"
     },
     {
       "name": "clang-x86-debug-asan",
+      "displayName": "clang / x86 / Debug + AddressSanitizer",
       "configurePreset": "clang-x86-debug-asan"
     },
     {
       "name": "clang-x64-debug",
+      "displayName": "clang / x64 / Debug",
       "configurePreset": "clang-x64-debug"
     },
     {
       "name": "clang-x64-relwithdebinfo",
+      "displayName": "clang / x64 / RelWithDebInfo",
       "configurePreset": "clang-x64-relwithdebinfo"
     },
     {
       "name": "clang-x64-release",
+      "displayName": "clang / x64 / Release",
       "configurePreset": "clang-x64-release"
     },
     {
       "name": "clang-x64-release-lto",
+      "displayName": "clang / x64 / Release + LTO/IPO",
       "configurePreset": "clang-x64-release-lto"
     },
     {
       "name": "clang-x64-debug-asan",
+      "displayName": "clang / x64 / Debug + AddressSanitizer",
       "configurePreset": "clang-x64-debug-asan"
     },
     {
       "name": "msvc-native-debug",
+      "displayName": "msvc / native / Debug",
       "configurePreset": "msvc-native-debug"
     },
     {
       "name": "msvc-native-relwithdebinfo",
+      "displayName": "msvc / native / RelWithDebInfo",
       "configurePreset": "msvc-native-relwithdebinfo"
     },
     {
       "name": "msvc-native-release",
+      "displayName": "msvc / native / Release",
       "configurePreset": "msvc-native-release"
     },
     {
       "name": "msvc-native-release-lto",
+      "displayName": "msvc / native / Release + LTO/IPO",
       "configurePreset": "msvc-native-release-lto"
     }
   ]
