@@ -1,19 +1,85 @@
-CMakeLists.txt.user
-CMakeCache.txt
-CMakeFiles
-CMakeScripts
-Testing
-Makefile
-cmake_install.cmake
-install_manifest.txt
-compile_commands.json
-CTestTestfile.cmake
-_deps
-CMakeUserPresets.json
 
-# CLion
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#cmake-build-*
+# ==========================================
+# CMake / Ninja
+# ==========================================
+
+# Build directories
+/build/
+/cmake-build-*/
+
+# Local CMake configuration
+CMakeUserPresets.json
+CMakeLists.txt.user
+
+# CMake-generated files (in-source build protection)
+/CMakeCache.txt
+/CMakeFiles/
+/CMakeScripts/
+/Testing/
+/cmake_install.cmake
+/install_manifest.txt
+/CTestTestfile.cmake
+/compile_commands.json
+/_deps/
+
+# Ninja-generated files (in-source build protection)
+/build.ninja
+/.ninja_deps
+/.ninja_log
+
+# ==========================================
+# JetBrains / CLion
+# ==========================================
+
+# User-specific workspace settings
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries/
+.idea/**/shelf/
+
+# Generated IDE metadata
+.idea/**/contentModel.xml
+
+# Local database and plugin settings
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+
+# IDE HTTP client and query files
+.idea/**/httpRequests/
+.idea/**/queries/
+http-client.private.env.json
+
+# Legacy JetBrains workspace files
+*.iws
+
+# ==========================================
+# Profiling / Coverage
+# ==========================================
+
+# GCC / Clang coverage
+*.gcda
+*.gcno
+*.gcov
+
+# LLVM profiling
+*.profraw
+*.profdata
+
+# ==========================================
+# Project generator
+# ==========================================
+
+# Interrupted generator temporary files
+*.projectgen-tmp
+
+
+
+# exclude clion stuff fully
+/.idea/
+/cmake-build-*/

@@ -1,0 +1,585 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 23,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "gcc-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "g++",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true
+      }
+    },
+    {
+      "name": "gcc-native-debug",
+      "displayName": "gcc / native / Debug",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op"
+      }
+    },
+    {
+      "name": "gcc-native-relwithdebinfo",
+      "displayName": "gcc / native / RelWithDebInfo",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op"
+      }
+    },
+    {
+      "name": "gcc-native-release",
+      "displayName": "gcc / native / Release",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op"
+      }
+    },
+    {
+      "name": "gcc-native-release-lto",
+      "displayName": "gcc / native / Release + LTO/IPO",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op",
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION": true
+      }
+    },
+    {
+      "name": "gcc-native-release-tuned",
+      "displayName": "gcc / native / Release tuned for this CPU",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op -march=native -mtune=native"
+      }
+    },
+    {
+      "name": "gcc-native-debug-asan",
+      "displayName": "gcc / native / Debug + AddressSanitizer",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op -fsanitize=address -fno-omit-frame-pointer",
+        "CMAKE_EXE_LINKER_FLAGS": "-fsanitize=address"
+      }
+    },
+    {
+      "name": "gcc-native-debug-analyzer",
+      "displayName": "gcc / native / Debug + GCC static analyzer",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op -fanalyzer"
+      }
+    },
+    {
+      "name": "gcc-x86-debug",
+      "displayName": "gcc / x86 / Debug",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op -m32",
+        "CMAKE_EXE_LINKER_FLAGS": "-m32"
+      }
+    },
+    {
+      "name": "gcc-x86-relwithdebinfo",
+      "displayName": "gcc / x86 / RelWithDebInfo",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op -m32",
+        "CMAKE_EXE_LINKER_FLAGS": "-m32"
+      }
+    },
+    {
+      "name": "gcc-x86-release",
+      "displayName": "gcc / x86 / Release",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op -m32",
+        "CMAKE_EXE_LINKER_FLAGS": "-m32"
+      }
+    },
+    {
+      "name": "gcc-x86-release-lto",
+      "displayName": "gcc / x86 / Release + LTO/IPO",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op -m32",
+        "CMAKE_EXE_LINKER_FLAGS": "-m32",
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION": true
+      }
+    },
+    {
+      "name": "gcc-x86-debug-asan",
+      "displayName": "gcc / x86 / Debug + AddressSanitizer",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op -m32 -fsanitize=address -fno-omit-frame-pointer",
+        "CMAKE_EXE_LINKER_FLAGS": "-m32 -fsanitize=address"
+      }
+    },
+    {
+      "name": "gcc-x86-debug-analyzer",
+      "displayName": "gcc / x86 / Debug + GCC static analyzer",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op -m32 -fanalyzer",
+        "CMAKE_EXE_LINKER_FLAGS": "-m32"
+      }
+    },
+    {
+      "name": "gcc-x64-debug",
+      "displayName": "gcc / x64 / Debug",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op -m64",
+        "CMAKE_EXE_LINKER_FLAGS": "-m64"
+      }
+    },
+    {
+      "name": "gcc-x64-relwithdebinfo",
+      "displayName": "gcc / x64 / RelWithDebInfo",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op -m64",
+        "CMAKE_EXE_LINKER_FLAGS": "-m64"
+      }
+    },
+    {
+      "name": "gcc-x64-release",
+      "displayName": "gcc / x64 / Release",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op -m64",
+        "CMAKE_EXE_LINKER_FLAGS": "-m64"
+      }
+    },
+    {
+      "name": "gcc-x64-release-lto",
+      "displayName": "gcc / x64 / Release + LTO/IPO",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op -m64",
+        "CMAKE_EXE_LINKER_FLAGS": "-m64",
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION": true
+      }
+    },
+    {
+      "name": "gcc-x64-debug-asan",
+      "displayName": "gcc / x64 / Debug + AddressSanitizer",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op -m64 -fsanitize=address -fno-omit-frame-pointer",
+        "CMAKE_EXE_LINKER_FLAGS": "-m64 -fsanitize=address"
+      }
+    },
+    {
+      "name": "gcc-x64-debug-analyzer",
+      "displayName": "gcc / x64 / Debug + GCC static analyzer",
+      "inherits": "gcc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align=strict -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -Wduplicated-cond -Wduplicated-branches -Wlogical-op -m64 -fanalyzer",
+        "CMAKE_EXE_LINKER_FLAGS": "-m64"
+      }
+    },
+    {
+      "name": "clang-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true
+      }
+    },
+    {
+      "name": "clang-native-debug",
+      "displayName": "clang / native / Debug",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference"
+      }
+    },
+    {
+      "name": "clang-native-relwithdebinfo",
+      "displayName": "clang / native / RelWithDebInfo",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference"
+      }
+    },
+    {
+      "name": "clang-native-release",
+      "displayName": "clang / native / Release",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference"
+      }
+    },
+    {
+      "name": "clang-native-release-lto",
+      "displayName": "clang / native / Release + LTO/IPO",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference",
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION": true
+      }
+    },
+    {
+      "name": "clang-native-release-tuned",
+      "displayName": "clang / native / Release tuned for this CPU",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -march=native -mtune=native"
+      }
+    },
+    {
+      "name": "clang-native-debug-asan",
+      "displayName": "clang / native / Debug + AddressSanitizer",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -fsanitize=address -fno-omit-frame-pointer",
+        "CMAKE_EXE_LINKER_FLAGS": "-fsanitize=address"
+      }
+    },
+    {
+      "name": "clang-x86-debug",
+      "displayName": "clang / x86 / Debug",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -m32",
+        "CMAKE_EXE_LINKER_FLAGS": "-m32"
+      }
+    },
+    {
+      "name": "clang-x86-relwithdebinfo",
+      "displayName": "clang / x86 / RelWithDebInfo",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -m32",
+        "CMAKE_EXE_LINKER_FLAGS": "-m32"
+      }
+    },
+    {
+      "name": "clang-x86-release",
+      "displayName": "clang / x86 / Release",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -m32",
+        "CMAKE_EXE_LINKER_FLAGS": "-m32"
+      }
+    },
+    {
+      "name": "clang-x86-release-lto",
+      "displayName": "clang / x86 / Release + LTO/IPO",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -m32",
+        "CMAKE_EXE_LINKER_FLAGS": "-m32",
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION": true
+      }
+    },
+    {
+      "name": "clang-x86-debug-asan",
+      "displayName": "clang / x86 / Debug + AddressSanitizer",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -m32 -fsanitize=address -fno-omit-frame-pointer",
+        "CMAKE_EXE_LINKER_FLAGS": "-m32 -fsanitize=address"
+      }
+    },
+    {
+      "name": "clang-x64-debug",
+      "displayName": "clang / x64 / Debug",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -m64",
+        "CMAKE_EXE_LINKER_FLAGS": "-m64"
+      }
+    },
+    {
+      "name": "clang-x64-relwithdebinfo",
+      "displayName": "clang / x64 / RelWithDebInfo",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -m64",
+        "CMAKE_EXE_LINKER_FLAGS": "-m64"
+      }
+    },
+    {
+      "name": "clang-x64-release",
+      "displayName": "clang / x64 / Release",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -m64",
+        "CMAKE_EXE_LINKER_FLAGS": "-m64"
+      }
+    },
+    {
+      "name": "clang-x64-release-lto",
+      "displayName": "clang / x64 / Release + LTO/IPO",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -m64",
+        "CMAKE_EXE_LINKER_FLAGS": "-m64",
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION": true
+      }
+    },
+    {
+      "name": "clang-x64-debug-asan",
+      "displayName": "clang / x64 / Debug + AddressSanitizer",
+      "inherits": "clang-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wconversion -Wsign-conversion -Wformat=2 -Wnull-dereference -m64 -fsanitize=address -fno-omit-frame-pointer",
+        "CMAKE_EXE_LINKER_FLAGS": "-m64 -fsanitize=address"
+      }
+    },
+    {
+      "name": "msvc-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "cl.exe",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "msvc-native-debug",
+      "displayName": "msvc / native / Debug",
+      "inherits": "msvc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "/W4 /permissive- /Zc:__cplusplus /w14242 /w14254 /w14263 /w14265 /w14287 /w14296 /w14311 /w14640 /w14826"
+      }
+    },
+    {
+      "name": "msvc-native-relwithdebinfo",
+      "displayName": "msvc / native / RelWithDebInfo",
+      "inherits": "msvc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_CXX_FLAGS": "/W4 /permissive- /Zc:__cplusplus /w14242 /w14254 /w14263 /w14265 /w14287 /w14296 /w14311 /w14640 /w14826"
+      }
+    },
+    {
+      "name": "msvc-native-release",
+      "displayName": "msvc / native / Release",
+      "inherits": "msvc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "/W4 /permissive- /Zc:__cplusplus /w14242 /w14254 /w14263 /w14265 /w14287 /w14296 /w14311 /w14640 /w14826"
+      }
+    },
+    {
+      "name": "msvc-native-release-lto",
+      "displayName": "msvc / native / Release + LTO/IPO",
+      "inherits": "msvc-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "/W4 /permissive- /Zc:__cplusplus /w14242 /w14254 /w14263 /w14265 /w14287 /w14296 /w14311 /w14640 /w14826",
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION": true
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "gcc-native-debug",
+      "configurePreset": "gcc-native-debug"
+    },
+    {
+      "name": "gcc-native-relwithdebinfo",
+      "configurePreset": "gcc-native-relwithdebinfo"
+    },
+    {
+      "name": "gcc-native-release",
+      "configurePreset": "gcc-native-release"
+    },
+    {
+      "name": "gcc-native-release-lto",
+      "configurePreset": "gcc-native-release-lto"
+    },
+    {
+      "name": "gcc-native-release-tuned",
+      "configurePreset": "gcc-native-release-tuned"
+    },
+    {
+      "name": "gcc-native-debug-asan",
+      "configurePreset": "gcc-native-debug-asan"
+    },
+    {
+      "name": "gcc-native-debug-analyzer",
+      "configurePreset": "gcc-native-debug-analyzer"
+    },
+    {
+      "name": "gcc-x86-debug",
+      "configurePreset": "gcc-x86-debug"
+    },
+    {
+      "name": "gcc-x86-relwithdebinfo",
+      "configurePreset": "gcc-x86-relwithdebinfo"
+    },
+    {
+      "name": "gcc-x86-release",
+      "configurePreset": "gcc-x86-release"
+    },
+    {
+      "name": "gcc-x86-release-lto",
+      "configurePreset": "gcc-x86-release-lto"
+    },
+    {
+      "name": "gcc-x86-debug-asan",
+      "configurePreset": "gcc-x86-debug-asan"
+    },
+    {
+      "name": "gcc-x86-debug-analyzer",
+      "configurePreset": "gcc-x86-debug-analyzer"
+    },
+    {
+      "name": "gcc-x64-debug",
+      "configurePreset": "gcc-x64-debug"
+    },
+    {
+      "name": "gcc-x64-relwithdebinfo",
+      "configurePreset": "gcc-x64-relwithdebinfo"
+    },
+    {
+      "name": "gcc-x64-release",
+      "configurePreset": "gcc-x64-release"
+    },
+    {
+      "name": "gcc-x64-release-lto",
+      "configurePreset": "gcc-x64-release-lto"
+    },
+    {
+      "name": "gcc-x64-debug-asan",
+      "configurePreset": "gcc-x64-debug-asan"
+    },
+    {
+      "name": "gcc-x64-debug-analyzer",
+      "configurePreset": "gcc-x64-debug-analyzer"
+    },
+    {
+      "name": "clang-native-debug",
+      "configurePreset": "clang-native-debug"
+    },
+    {
+      "name": "clang-native-relwithdebinfo",
+      "configurePreset": "clang-native-relwithdebinfo"
+    },
+    {
+      "name": "clang-native-release",
+      "configurePreset": "clang-native-release"
+    },
+    {
+      "name": "clang-native-release-lto",
+      "configurePreset": "clang-native-release-lto"
+    },
+    {
+      "name": "clang-native-release-tuned",
+      "configurePreset": "clang-native-release-tuned"
+    },
+    {
+      "name": "clang-native-debug-asan",
+      "configurePreset": "clang-native-debug-asan"
+    },
+    {
+      "name": "clang-x86-debug",
+      "configurePreset": "clang-x86-debug"
+    },
+    {
+      "name": "clang-x86-relwithdebinfo",
+      "configurePreset": "clang-x86-relwithdebinfo"
+    },
+    {
+      "name": "clang-x86-release",
+      "configurePreset": "clang-x86-release"
+    },
+    {
+      "name": "clang-x86-release-lto",
+      "configurePreset": "clang-x86-release-lto"
+    },
+    {
+      "name": "clang-x86-debug-asan",
+      "configurePreset": "clang-x86-debug-asan"
+    },
+    {
+      "name": "clang-x64-debug",
+      "configurePreset": "clang-x64-debug"
+    },
+    {
+      "name": "clang-x64-relwithdebinfo",
+      "configurePreset": "clang-x64-relwithdebinfo"
+    },
+    {
+      "name": "clang-x64-release",
+      "configurePreset": "clang-x64-release"
+    },
+    {
+      "name": "clang-x64-release-lto",
+      "configurePreset": "clang-x64-release-lto"
+    },
+    {
+      "name": "clang-x64-debug-asan",
+      "configurePreset": "clang-x64-debug-asan"
+    },
+    {
+      "name": "msvc-native-debug",
+      "configurePreset": "msvc-native-debug"
+    },
+    {
+      "name": "msvc-native-relwithdebinfo",
+      "configurePreset": "msvc-native-relwithdebinfo"
+    },
+    {
+      "name": "msvc-native-release",
+      "configurePreset": "msvc-native-release"
+    },
+    {
+      "name": "msvc-native-release-lto",
+      "configurePreset": "msvc-native-release-lto"
+    }
+  ]
+}
