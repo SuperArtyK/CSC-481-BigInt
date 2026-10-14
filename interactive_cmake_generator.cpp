@@ -1,5 +1,5 @@
 // Interactive, one-shot CMake + Ninja project generator.
-// C++17, standard library only. No TOML, persistent metadata, or CLI flags.
+// C++20, standard library only. No persistend metadata.
 // Inspired by create_cmake_project.cpp and preset_generator.cpp.
 #include <algorithm>
 #include <cctype>
