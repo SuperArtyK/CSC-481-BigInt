@@ -1,5 +1,5 @@
 // Interactive, one-shot CMake + Ninja project generator.
-// C++20, standard library only. No persistend metadata.
+// C++17, standard library only. No TOML, persistent metadata, or CLI flags.
 // Inspired by create_cmake_project.cpp and preset_generator.cpp.
 #include <algorithm>
 #include <cctype>
@@ -408,7 +408,7 @@ Json makePresets(const vector<Compiler>& compilers) {
                 const string archFlag = arch=="x86" ? "-m32" : arch=="x64" ? "-m64" : "";
                 Json preset = Json::object();
                 preset.add("name", Json::str(name));
-                preset.add("displayName", Json::str(c.id + " / " + arch + " / " + p.label));
+                // Configure presets keep their stable IDs; friendly names belong to build presets.
                 preset.add("inherits", Json::str(baseId));
                 Json vars = Json::object();
                 if (p.buildType != "auto") vars.add("CMAKE_BUILD_TYPE", Json::str(p.buildType=="empty" ? "" : p.buildType));
@@ -421,6 +421,7 @@ Json makePresets(const vector<Compiler>& compilers) {
                 configures.push(std::move(preset));
                 Json build = Json::object();
                 build.add("name", Json::str(name));
+                build.add("displayName", Json::str(c.id + " / " + arch + " / " + p.label));
                 build.add("configurePreset", Json::str(name));
                 builds.push(std::move(build));
             }
