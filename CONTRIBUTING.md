@@ -25,7 +25,7 @@ We use **feature branches and pull requests** for all changes to `main`. Everyon
 - Do not push experimental review changes to somebody else's branch without their agreement.
 - Prefer discussions and decisions in the PR so the reasoning stays visible.
 
-For CLion-specific instructions, see [CLion workflow](docs/CLION_WORKFLOW.md).
+For CLion-specific instructions, see [CLion workflow](./CLION_WORKFLOW.md).
 
 ## Repository setup (maintainers)
 

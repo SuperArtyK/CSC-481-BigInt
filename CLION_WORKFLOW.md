@@ -1,6 +1,6 @@
 # Git and pull requests in CLion 2026.2+
 
-This is the practical companion to [the contribution guidelines](../CONTRIBUTING.md). It assumes that everyone has write access to the same GitHub repository, uses CLion 2026.2 or newer, and pushes feature branches to that repository.
+This is the practical companion to [the contribution guidelines](./CONTRIBUTING.md). It assumes that everyone has write access to the same GitHub repository, uses CLion 2026.2 or newer, and pushes feature branches to that repository.
 
 **Important:** `Commit` saves a snapshot locally. `Push` publishes commits to GitHub. Neither action creates a pull request automatically.
 
