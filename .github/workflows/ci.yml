@@ -3,9 +3,7 @@ on:
   pull_request:
     branches: [main]
   push:
-    #branches: [main]
-    branches:
-      - setup/initial-ci-tests-setup
+    branches: [main]
 
   workflow_dispatch:
 
