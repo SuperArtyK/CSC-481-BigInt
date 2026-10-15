@@ -26,3 +26,9 @@ add_subdirectory("BigInt_Math")
 add_subdirectory("demo")
 
 # Add any project-specific CMake customization below.
+
+
+# Register compilation checks after all targets exist.
+if(BUILD_TESTING)
+    include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/BuildChecks.cmake")
+endif()
