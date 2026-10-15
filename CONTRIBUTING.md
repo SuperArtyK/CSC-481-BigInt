@@ -1,32 +1,39 @@
 # Contributing
 
-We use **feature branches and pull requests** for all changes to `main`. Everyone on the team has repository write access, but **nobody pushes directly to `main`**.
+We use **feature branches, pull requests, code reviews, and automated tests** to maintain the project.
 
-## Making changes
+## Development workflow
 
-1. Start from an up-to-date `main` and create a separate branch for each change (for example, `feature/settings-menu`, `fix/parser-crash`, or `docs/setup`).
-2. Develop on your branch. Make clear, focused commits and push your branch to GitHub whenever you want to share or back up your progress.
-3. Build and test your changes before asking for review.
-4. Open a pull request (PR) **from your branch into `main`**. Explain what changed and how you tested it. A draft PR is fine if the work is not ready for review.
+1. **Create a branch.** Start from an up-to-date `main`. Use a separate branch for each feature, bug fix, or task.
+2. **Develop and commit.** Make focused changes and commit regularly. Push your branch to GitHub whenever needed.
+3. **Build and test.** Verify that the project builds and all relevant CTest tests pass locally before requesting review. Add or update unit tests when changing functionality.
+4. **Open a pull request.** Target `main`, describe your changes, reference relevant issues, and explain how you tested them. Use a draft PR if the changes aren't ready for review.
+5. **Review and revise.** Discuss feedback in the PR. Make corrections on the same branch and push them to update the PR automatically.
+6. **Merge.** Merge only after the team agrees, review requirements are met, all discussions are resolved, and CI passes. Merge through the GitHub or CLion PR interface, not by pushing directly to `main`.
 
-## Reviewing pull requests
+After merging, delete the completed feature branch when no longer needed and update your local `main`.
 
-1. Share the PR with the team. Everyone should review it or explicitly indicate that they have no objections.
-2. Discuss issues in the PR. Reviewers can use **CLion worktrees** to build and test the changes without interrupting their own work.
-3. If changes are requested, the author updates the same branch and PR. Re-review as needed.
-4. **Merge only after the team agrees**, any requested changes are addressed, and the build/tests pass. Never merge with unresolved objections.
-5. Merge using the **PR interface** in CLion or GitHub, not by locally merging into `main` and pushing it. Close a PR without merging if the team decides not to accept it.
-6. After merging, delete the finished branch when no longer needed and update your local `main`.
+## Testing requirements
 
-## Guidelines
+- **All automated tests must pass** before merging, including the required GitHub CI checks.
+- GitHub Actions builds and tests the project using GCC, Clang, and MSVC across Debug/ASan and Release configurations.
+- New functionality and bug fixes should include appropriate unit tests.
+- Tests belong in the relevant subproject's `tests/` directory and are automatically discovered through CMake and GoogleTest.
+- Playground `main.cpp` files are for development and experimentation. They must compile successfully but are not executed by automated CI.
 
-- Keep branches and PRs focused on one task whenever practical.
-- Never force-push to `main` or bypass PR review.
-- Do not push experimental review changes to somebody else's branch without their agreement.
-- Prefer discussions and decisions in the PR so the reasoning stays visible.
+## Code review
 
-For CLion-specific instructions, see [CLion workflow](./CLION_WORKFLOW.md).
+- Everyone should review proposed changes or explicitly indicate that they have no objections.
+- At least **one approval** is required by repository rules. This is a minimum, not a substitute for team agreement.
+- Do not merge while there are unresolved objections or requested changes.
+- Keep review discussions in the pull request so decisions remain visible.
+- Do not modify or push to another contributor's branch without their agreement.
 
-## Repository setup (maintainers)
+## Repository rules
 
-Protect `main` on GitHub: require a pull request, at least one approval from another teammate, and resolution of review conversations before merging. **One approval is only the technical minimum, not a substitute for team agreement.** Do not merge while another teammate has an unresolved objection. Configure these safeguards in GitHub repository settings.
+- Do not directly push ordinary development changes to `main`.
+- Do not force-push to `main` or bypass the normal review process.
+- The repository owner retains an administrative bypass for exceptional maintenance or recovery, but follows the same PR and review process during normal development.
+- Prefer small, focused pull requests that are straightforward to review and test.
+
+For practical Git, GitHub, and testing instructions in CLion, see [CLion Workflow](./CLION_WORKFLOW.md).

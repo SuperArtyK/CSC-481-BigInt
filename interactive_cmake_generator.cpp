@@ -1,6 +1,7 @@
 // Interactive, one-shot CMake + Ninja project generator.
 // C++17, standard library only. No TOML, persistent metadata, or CLI flags.
 // Inspired by create_cmake_project.cpp and preset_generator.cpp.
+// v3: optional CTest / GoogleTest discovery, with separate playground and test executables.
 #include <algorithm>
 #include <cctype>
 #include <filesystem>
@@ -255,11 +256,55 @@ vector<size_t> dependencyOrder(const vector<Module>& modules) {
     return order;
 }
 
-string moduleCMake(const Module& m) {
+string moduleTestsCMake() {
+    return R"CMAKE(# Shared GoogleTest registration for one-shot generated projects.
+# The function is called from each module's CMakeLists.txt.
+# A module's tests/ tree is optional: no sources means no test executable.
+function(add_module_tests module_name sources_target)
+    if(NOT BUILD_TESTING)
+        return()
+    endif()
+
+    file(GLOB_RECURSE test_sources CONFIGURE_DEPENDS
+        "${CMAKE_CURRENT_SOURCE_DIR}/tests/*.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/tests/*.cc"
+        "${CMAKE_CURRENT_SOURCE_DIR}/tests/*.cxx"
+    )
+    if(NOT test_sources)
+        return()
+    endif()
+
+    # Defer fetching GoogleTest until at least one test source exists.
+    # This lets newly generated empty projects configure without network access.
+    if(NOT TARGET GTest::gtest_main)
+        FetchContent_MakeAvailable(googletest)
+    endif()
+
+    set(test_target "${module_name}_tests")
+    add_executable(${test_target} ${test_sources})
+    target_link_libraries(${test_target} PRIVATE
+        ${sources_target}
+        GTest::gtest_main
+    )
+    gtest_discover_tests(${test_target}
+        TEST_PREFIX "${module_name}."
+        PROPERTIES
+            LABELS "${module_name}"
+            TIMEOUT 60
+    )
+endfunction()
+)CMAKE";
+}
+
+string moduleCMake(const Module& m, bool withTests) {
     std::ostringstream o;
     o << "# Generated once. You may edit this CMakeLists.txt freely.\n";
-    o << "# Source files placed under src/ and private/ are discovered recursively.\n\n";
-    if (!m.main) {
+    o << "# src/ is inherited (except from the main project); private/ is executable-only.\n";
+    if (withTests) o << "# tests/ files build into a separate GoogleTest executable, never the playground.\n";
+    o << '\n';
+    // With testing enabled, main also has an internal source interface for its test runner.
+    // Other modules cannot depend on main, as enforced during interactive setup.
+    if (!m.main || withTests) {
         o << "add_library(" << m.id << "_sources INTERFACE)\n";
         o << "target_include_directories(" << m.id << "_sources INTERFACE\n"
           << "    \"${CMAKE_CURRENT_SOURCE_DIR}/include\"\n)\n\n";
@@ -268,9 +313,12 @@ string moduleCMake(const Module& m) {
           << "    \"${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc\"\n"
           << "    \"${CMAKE_CURRENT_SOURCE_DIR}/src/*.cxx\"\n)\n";
         o << "target_sources(" << m.id << "_sources INTERFACE ${_module_public})\n";
-        if (!m.publicDeps.empty()) {
+        // Main's dependencies are normally playground-only. For tests, main's own
+        // implementation needs them as well; they are private to this project's consumers.
+        const auto& inherited = m.main ? m.privateDeps : m.publicDeps;
+        if (!inherited.empty()) {
             o << "target_link_libraries(" << m.id << "_sources INTERFACE";
-            for (const auto& dep: m.publicDeps) o << " " << dep << "_sources";
+            for (const auto& dep : inherited) o << " " << dep << "_sources";
             o << ")\n";
         }
         o << '\n';
@@ -279,7 +327,7 @@ string moduleCMake(const Module& m) {
       << "    \"${CMAKE_CURRENT_SOURCE_DIR}/private/*.cpp\"\n"
       << "    \"${CMAKE_CURRENT_SOURCE_DIR}/private/*.cc\"\n"
       << "    \"${CMAKE_CURRENT_SOURCE_DIR}/private/*.cxx\"\n)\n";
-    if (m.main) {
+    if (m.main && !withTests) {
         o << "file(GLOB_RECURSE _module_public CONFIGURE_DEPENDS\n"
           << "    \"${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp\"\n"
           << "    \"${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc\"\n"
@@ -290,20 +338,47 @@ string moduleCMake(const Module& m) {
         o << "add_executable(" << m.id << " main.cpp ${_module_private})\n";
         o << "target_link_libraries(" << m.id << " PRIVATE " << m.id << "_sources)\n";
     }
-    if (!m.privateDeps.empty()) {
+    // Non-main local-only dependencies never leak into exported source interfaces.
+    // Main's dependencies already reach both its executable and tests via main_sources.
+    if (!m.main && !m.privateDeps.empty()) {
         o << "target_link_libraries(" << m.id << " PRIVATE";
-        for (const auto& dep: m.privateDeps) o << " " << dep << "_sources";
+        for (const auto& dep : m.privateDeps) o << " " << dep << "_sources";
         o << ")\n";
+    } else if (m.main && !withTests && !m.privateDeps.empty()) {
+        o << "target_link_libraries(" << m.id << " PRIVATE";
+        for (const auto& dep : m.privateDeps) o << " " << dep << "_sources";
+        o << ")\n";
+    }
+    if (withTests) {
+        o << "\nif(BUILD_TESTING)\n"
+          << "    add_module_tests(" << m.id << " " << m.id << "_sources)\n"
+          << "endif()\n";
     }
     return o.str();
 }
-string rootCMake(const string& projectId, int standard, const vector<Module>& modules, const vector<size_t>& order) {
+string rootCMake(const string& projectId, int standard, const vector<Module>& modules,
+                 const vector<size_t>& order, bool withTests) {
     std::ostringstream o;
     o << "cmake_minimum_required(VERSION 3.23)\n";
     o << "project(" << projectId << " LANGUAGES CXX)\n\n";
     o << "set(CMAKE_CXX_STANDARD " << standard << ")\n";
     o << "set(CMAKE_CXX_STANDARD_REQUIRED ON)\n";
     o << "set(CMAKE_CXX_EXTENSIONS OFF)\n\n";
+    if (withTests) {
+        o << "# CTest and GoogleTest are optional at configure time.\n"
+          << "include(CTest)\n\n"
+          << "if(BUILD_TESTING)\n"
+          << "    include(FetchContent)\n"
+          << "    FetchContent_Declare(googletest\n"
+          << "        GIT_REPOSITORY https://github.com/google/googletest.git\n"
+          << "        # GoogleTest v1.18.0, pinned to its immutable release commit.\n"
+          << "        GIT_TAG 063de7e9578f82b369302001269680b4b1553359\n"
+          << "    )\n"
+          << "    set(gtest_force_shared_crt ON CACHE BOOL \"\" FORCE)\n"
+          << "    include(GoogleTest)\n"
+          << "    include(\"${CMAKE_CURRENT_SOURCE_DIR}/cmake/ModuleTests.cmake\")\n"
+          << "endif()\n\n";
+    }
     o << "# Modules are registered in dependency order.\n";
     for (size_t index: order) o << "add_subdirectory(" << cmakeQuoted(modules[index].folder) << ")\n";
     o << "\n# Add any project-specific CMake customization below.\n";
@@ -373,7 +448,7 @@ void addCustomProfiles(Compiler& c) {
     }
 }
 
-Json makePresets(const vector<Compiler>& compilers) {
+Json makePresets(const vector<Compiler>& compilers, bool withTests) {
     Json root = Json::object();
     root.add("version", Json::integer(3));
     Json version = Json::object();
@@ -381,7 +456,7 @@ Json makePresets(const vector<Compiler>& compilers) {
     version.add("minor", Json::integer(23));
     version.add("patch", Json::integer(0));
     root.add("cmakeMinimumRequired", std::move(version));
-    Json configures = Json::array(), builds = Json::array();
+    Json configures = Json::array(), builds = Json::array(), tests = Json::array();
     for (const Compiler& c: compilers) {
         const string baseId = c.id + "-base";
         Json base = Json::object();
@@ -424,11 +499,24 @@ Json makePresets(const vector<Compiler>& compilers) {
                 build.add("displayName", Json::str(c.id + " / " + arch + " / " + p.label));
                 build.add("configurePreset", Json::str(name));
                 builds.push(std::move(build));
+                if (withTests) {
+                    Json test = Json::object();
+                    test.add("name", Json::str(name));
+                    test.add("configurePreset", Json::str(name));
+                    Json output = Json::object();
+                    output.add("outputOnFailure", Json::boolean(true));
+                    test.add("output", std::move(output));
+                    Json execution = Json::object();
+                    execution.add("noTestsAction", Json::str("error"));
+                    test.add("execution", std::move(execution));
+                    tests.push(std::move(test));
+                }
             }
         }
     }
     root.add("configurePresets", std::move(configures));
     root.add("buildPresets", std::move(builds));
+    if (withTests) root.add("testPresets", std::move(tests));
     return root;
 }
 
@@ -526,10 +614,6 @@ int run() {
         m.pathCode=segment(prompt("Path code for src/<code>/ and include/<code>/", m.id));
         modules.push_back(std::move(m));
     }
-    // Module identifiers must not collide with generated interface target names.
-    for (const auto& m: modules)
-        if (ids.count(m.id+"_sources"))
-            throw std::runtime_error("Generated interface target collides with an executable: " + m.id + "_sources");
     Module main;
     main.id=mainId;
     main.folder=mainFolder;
@@ -592,17 +676,40 @@ int run() {
         } else compilers.push_back(std::move(c));
     }
     if (compilers.empty()) throw std::runtime_error("At least one compiler with a profile must be selected");
+    const bool withTests = confirm("Include GoogleTest / CTest infrastructure?", true);
+    // Check ALL generated target names, including optional tests/main source interface.
+    std::map<string, string> names;
+    if (withTests) {
+        for (const char* reserved : {"gtest", "gtest_main", "gmock", "gmock_main"})
+            names.emplace(reserved, "GoogleTest target");
+    }
+    auto reserveTarget = [&](const string& name, const string& owner) {
+        const auto [it, inserted] = names.emplace(name, owner);
+        if (!inserted)
+            throw std::runtime_error("CMake target collision: '" + name + "' (" + it->second + " vs " + owner + ")");
+    };
+    for (const auto& m : modules) {
+        reserveTarget(m.id, "executable " + m.id);
+        if (!m.main || withTests) reserveTarget(m.id + "_sources", "source interface " + m.id);
+        if (withTests) reserveTarget(m.id + "_tests", "test executable " + m.id);
+    }
     vector<size_t> order=dependencyOrder(modules);
     vector<OutputFile> files;
     vector<fs::path> directories;
-    files.push_back({"CMakeLists.txt", rootCMake(projectId,cppStandard,modules,order)});
-    files.push_back({"CMakePresets.json", makePresets(compilers).dump()});
+    files.push_back({"CMakeLists.txt", rootCMake(projectId,cppStandard,modules,order,withTests)});
+    files.push_back({"CMakePresets.json", makePresets(compilers,withTests).dump()});
+    if (withTests)
+        files.push_back({"cmake/ModuleTests.cmake", moduleTestsCMake()});
     for (const auto& m: modules) {
         fs::path base=m.folder;
         directories.push_back(base / "src" / m.pathCode);
         directories.push_back(base / "include" / m.pathCode);
         directories.push_back(base / "private");
-        files.push_back({base / "CMakeLists.txt", moduleCMake(m)});
+        if (withTests) {
+            directories.push_back(base / "tests");
+            files.push_back({base / "tests" / ".gitkeep", ""});
+        }
+        files.push_back({base / "CMakeLists.txt", moduleCMake(m,withTests)});
         files.push_back({base / "main.cpp", mainCpp(m)});
     }
     if (!fs::exists(root / ".gitignore"))
@@ -615,13 +722,16 @@ int run() {
     for (const auto& c: compilers) for (const auto& a: c.architectures)
         for (const auto& p: c.profiles) if (!p.tunedOnlyDefaultArch || a=="native") ++numPresets;
     std::cout << "Build presets: " << numPresets << " (Ninja)\n";
+    std::cout << "GoogleTest / CTest support: " << (withTests ? "enabled" : "disabled") << '\n';
     if (!confirm("Create this project?", true)) { std::cout << "Cancelled; no files created.\n"; return 0; }
     writeFiles(root, files, directories);
     std::cout << "\nCreated " << files.size() << " files successfully.\n"
               << "Configure: cmake --list-presets\n"
               << "           cmake --preset <preset-name>\n"
-              << "Build:     cmake --build --preset <preset-name>\n"
-              << "Start those commands from: " << root.string() << '\n';
+              << "Build:     cmake --build --preset <preset-name>\n";
+    if (withTests)
+        std::cout << "Test:      ctest --preset <preset-name>  (after adding and building tests)\n";
+    std::cout << "Start those commands from: " << root.string() << '\n';
     return 0;
 }
 int main() {

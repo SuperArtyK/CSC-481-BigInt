@@ -1,0 +1,83 @@
+name: C++ CI
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+
+jobs:
+  build-and-test:
+    name: ${{ matrix.preset }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            preset: gcc-native-debug-asan
+
+          - os: ubuntu-latest
+            preset: gcc-native-release
+
+          - os: ubuntu-latest
+            preset: clang-native-debug-asan
+
+          - os: ubuntu-latest
+            preset: clang-native-release
+
+          - os: windows-latest
+            preset: msvc-native-debug
+
+          - os: windows-latest
+            preset: msvc-native-release
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Initialise MSVC
+        if: runner.os == 'Windows'
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Configure CMake
+        run: cmake --preset ${{ matrix.preset }} -DBUILD_TESTING=ON
+
+      - name: Build Project
+        run: cmake --build --preset ${{ matrix.preset }} --parallel 2
+
+      - name: Run CTest
+        run: ctest --preset ${{ matrix.preset }} --output-junit junit.xml
+
+      - name: Upload CTest results
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ctest-${{ matrix.preset }}
+          path: build/${{ matrix.preset }}/junit.xml
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Summarise CTest
+        if: always()
+        env:
+          CTEST_PRESET: ${{ matrix.preset }}
+        run: python .github/scripts/ci_test_summary.py
+  ci-status:
+    name: CI / Required
+    needs: [build-and-test]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify CI Matrix
+        env:
+          MATRIX_RESULT: ${{ needs.build-and-test.result }}
+        run: |
+          echo "Build matrix result: $MATRIX_RESULT"
+          test "$MATRIX_RESULT" = "success"
