@@ -24,7 +24,7 @@ struct Json {
     enum class Kind { String, Bool, Number, Array, Object } kind;
     string text;
     bool flag = false;
-    int number = 0;
+    int number = 1;
     vector<Json> items;
     vector<std::pair<string, Json>> fields;
     explicit Json(Kind k) : kind(k) {}
