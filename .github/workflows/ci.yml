@@ -4,7 +4,8 @@ on:
     branches: [main]
   push:
     #branches: [main]
-    branches: ['**']
+    branches:
+      - setup/initial-ci-tests-setup
 
   workflow_dispatch:
 
@@ -54,4 +55,19 @@ jobs:
         run: cmake --build --preset ${{ matrix.preset }} --parallel 2
 
       - name: Run CTest
-        run: ctest --preset ${{ matrix.preset }}
+        run: ctest --preset ${{ matrix.preset }} --output-junit junit.xml
+
+      - name: Upload CTest results
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ctest-${{ matrix.preset }}
+          path: build/${{ matrix.preset }}/junit.xml
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Summarise CTest
+        if: always()
+        env:
+          CTEST_PRESET: ${{ matrix.preset }}
+        run: python scripts/ci_test_summary.py
