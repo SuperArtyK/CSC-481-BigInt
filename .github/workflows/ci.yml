@@ -1,7 +1,8 @@
 name: C++ CI
 on:
   pull_request:
-    branches: [main]
+    #branches: [main]
+    branches: ['**']
   push:
     branches: [main]
   workflow_dispatch:
