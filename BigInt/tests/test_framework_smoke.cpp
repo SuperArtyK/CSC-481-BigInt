@@ -10,6 +10,6 @@ TEST(TestingInfrastructure, BasicAssertion) {
 
 
 //just to trigger a failure; comment this out afterwards
-TEST(TestingInfrastructure, FailAssertion) {
-	EXPECT_EQ(2 + 2, 5);
-}
+//TEST(TestingInfrastructure, FailAssertion) {
+//	EXPECT_EQ(2 + 2, 5);
+//}
