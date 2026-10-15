@@ -70,4 +70,16 @@ jobs:
         if: always()
         env:
           CTEST_PRESET: ${{ matrix.preset }}
-        run: python scripts/ci_test_summary.py
+        run: python .github/scripts/ci_test_summary.py
+  ci-status:
+    name: CI / Required
+    needs: [build-and-test]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify CI Matrix
+        env:
+          MATRIX_RESULT: ${{ needs.build-and-test.result }}
+        run: |
+          echo "Build matrix result: $MATRIX_RESULT"
+          test "$MATRIX_RESULT" = "success"
