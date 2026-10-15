@@ -1,5 +1,6 @@
 # Generated once. You may edit this CMakeLists.txt freely.
-# Source files placed under src/ and private/ are discovered recursively.
+# src/ is inherited (except from the main project); private/ is executable-only.
+# tests/ files build into a separate GoogleTest executable, never the playground.
 
 add_library(BigInt_Math_sources INTERFACE)
 target_include_directories(BigInt_Math_sources INTERFACE
@@ -21,3 +22,7 @@ file(GLOB_RECURSE _module_private CONFIGURE_DEPENDS
 )
 add_executable(BigInt_Math main.cpp ${_module_private})
 target_link_libraries(BigInt_Math PRIVATE BigInt_Math_sources)
+
+if(BUILD_TESTING)
+    add_module_tests(BigInt_Math BigInt_Math_sources)
+endif()
