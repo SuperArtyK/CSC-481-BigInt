@@ -1,113 +1,106 @@
-# Git and pull requests in CLion 2026.2+
+# CLion Workflow
 
-This is the practical companion to [the contribution guidelines](./CONTRIBUTING.md). It assumes that everyone has write access to the same GitHub repository, uses CLion 2026.2 or newer, and pushes feature branches to that repository.
+A practical guide to Git, pull requests, and automated testing in CLion. For team rules and contribution requirements, see [Contributing](./CONTRIBUTING.md).
 
-**Important:** `Commit` saves a snapshot locally. `Push` publishes commits to GitHub. Neither action creates a pull request automatically.
+**Normal workflow:** Create branch → Develop → Build/test → Commit → Push → Pull request → Review → Merge.
 
-**Normal workflow:** Create branch → Make changes → Commit → Push feature branch → Open PR → Review/test → Merge PR.
+**Remember:** Commit saves changes locally. Push uploads commits to GitHub. Neither automatically creates a pull request.
 
-## 1. Start a new task on a branch
+## 1. Create a feature branch
 
-**Normal case — start from a clean, up-to-date `main`:**
+1. Use the branch widget in CLion to switch to `main`.
+2. Update it using **Git → Update Project** (`Ctrl+T`).
+3. Open the branch widget and select **New Branch from 'main'**.
+4. Enter a descriptive name, such as `feature/addition` or `fix/division`.
+5. Enable **Checkout branch** and create the branch.
 
-1. Check the current branch in CLion's **VCS/branch widget** (window header).
-2. If you have unfinished work on another branch, keep it there; commit it, shelve it, or use a separate worktree rather than switching away carelessly.
-3. With a clean working tree, switch to local `main` using the branch widget.
-4. Update `main` with **Git > Update Project** (`Ctrl+T`).
-5. In the branch widget, select `main` and choose **New Branch from 'main'** (or **New Branch** while on `main`).
-6. Enter a name such as `feature/settings-menu`, select **Checkout branch**, and confirm the widget shows the new branch.
+Confirm that the new branch is selected before making changes.
 
-**Already made uncommitted changes on `main`?** You can move those changes onto a new feature branch without committing them to `main`:
+**Important:** If you already have uncommitted changes, commit or safely preserve them before switching branches. You can also create and check out a new branch from your current branch to carry those changes over.
 
-1. **While still on `main`**, open the branch widget and choose **New Branch**.
-2. Name it, leave **Checkout branch** enabled, and create it. Your uncommitted changes remain in the working directory, now on the new branch.
-3. Commit those changes **on the new branch**. Do not update `main`, switch to another existing branch, or discard edits first.
+## 2. Build and run tests
 
-The new branch starts at your current local `main` commit; if `main` was behind GitHub, coordinate bringing it up to date separately once your work is safely recorded. This exception is for creating a branch **from your current branch**, not for checking out an unrelated existing branch.
+Before committing or requesting review:
 
-**Do not commit project changes directly to `main`.**
+1. Select a CMake profile compatible with your compiler, such as `gcc-native-debug`.
+2. Build the project using **Build → Build Project** (`Ctrl+F9`).
+3. In the Run/Debug configuration selector, choose **All CTest** and click **Run** (`Shift+F10`).
+4. Inspect the results in the test runner. All tests should pass.
 
-## 2. Commit and push your work
+If `All CTest` isn't available, reload CMake or look under **Run → Edit Configurations → CTest Application**. Ensure the configuration builds the necessary test targets (usually **All targets**) before running.
 
-1. Make your changes and build/test them as usual.
-2. Open **Commit** (`Alt+0`). Inspect the diff and select only the files you intend to include (including new/unversioned files, if needed).
-3. Enter a descriptive message and click **Commit**. You can create multiple commits while working.
-4. Choose **Git > Push** (`Ctrl+Shift+K`). In the **Push Commits** dialog:
-   - Check that the **local source** is your feature branch.
-   - Check that the **destination** is `origin/your-branch-name`, **not `origin/main`**. Click the destination branch name to correct it if necessary.
-   - Inspect the commits that will be sent.
-5. Click **Push** (not **Force Push**) and check that it succeeds.
-6. Continue committing and pushing to the **same branch** as you develop. You do **not** need a new branch or PR for every commit.
+### Running individual tests
 
-**First push versus later pushes:** On the first push, your new local branch is published as a new branch on GitHub (usually `origin/your-branch-name`). Later pushes add new commits to that same remote branch.
+- Click the gutter icon beside a GoogleTest `TEST(...)` function to run or debug that test.
+- Use **Rerun Failed Tests** in the test runner to repeat failures.
+- When adding tests, place new `.cpp` files under the appropriate module's `tests/` directory. CMake discovers them automatically.
+- GoogleTest is downloaded by CMake; no separate installation is needed.
 
-**Remember:** `Commit` records changes **locally**; `Push` sends **committed changes** to GitHub. Uncommitted edits are not included, pushing your feature branch does **not** alter `main`, and pushing does **not** create a PR. Once you open a PR, future pushes to its feature branch update that PR automatically.
+The playground executables (`BigInt`, `BigInt_Math`, `EvaluatorDemo`) can be run separately using their own configurations. CTest does not execute these playgrounds.
 
-If Git identity or GitHub authentication has not been configured, CLion may prompt you to set it up.
+## 3. Commit and push changes
 
-## 3. Open a pull request
+1. Open **Commit** (`Alt+0`).
+2. Review the diff and select the intended files.
+3. Enter a descriptive commit message and click **Commit**.
+4. Choose **Git → Push** (`Ctrl+Shift+K`).
+5. Verify that the destination is `origin/your-branch-name`, **not `origin/main`**.
+6. Click **Push**.
 
-1. Push your branch first.
-2. Choose **Git > GitHub > Create Pull Request** (or use **Create Pull Request** in the Pull Requests window).
-3. Set **base** to the shared repository's `main` branch, and **head** to your feature branch.
-4. Inspect the proposed diff, enter a title and a short description (including how you tested the change), and request the team's reviews.
-5. Click **Create Pull Request**. If the work is incomplete, choose **Create Draft Pull Request** instead.
-6. Keep subsequent fixes on the **same feature branch** and push them; the PR updates automatically.
+You can make multiple commits and pushes on the same branch. Uncommitted changes are never included in a push.
 
-## 4. Inspect and discuss someone else's PR
+## 4. Create a pull request
 
-1. Choose **Git > GitHub > View Pull Requests**.
-2. Open the PR to see its commits, changed files, diff, and discussion. **Viewing these does not switch branches or change your working files.**
-3. Comment on particular lines, or start a review and submit it using **Approve**, **Request changes**, or **Comment**.
-4. If you also need to compile, debug, or test the PR, use a separate worktree as described below.
+1. Push your feature branch.
+2. Choose **Git → GitHub → Create Pull Request**, or open the repository on GitHub.
+3. Set the base branch to `main` and the head branch to your feature branch.
+4. Provide a title, a description of the changes, and how you tested them.
+5. Request team review. Use a **draft PR** for unfinished work.
 
-**Do not click `Checkout` in the PR overview of your main working project if you have uncommitted changes you want to keep in place.** That command checks out the PR branch in that working directory. Use the Worktrees workflow instead.
+New commits pushed to the feature branch automatically update the existing PR.
 
-## 5. Create a worktree to test a PR
+GitHub Actions runs CI for pull requests targeting `main`. Check the workflow results and resolve failures before merging.
 
-1. Find the PR's **head branch name** in the PR overview (for example, `feature/settings-menu`). Because contributors push to the shared repository, it should be available as a remote branch.
-2. Choose **Git > Fetch** to refresh remote branch information without modifying your current working files.
-3. Open **Git** (`Alt+9`), then the **Worktrees** tab. If that tab is hidden, use the tab selector in the Git tool window. Click **New Worktree**. Alternatively, choose **Git > New Worktree**.
-4. In **From branch**, choose the PR's remote branch, such as `origin/feature/settings-menu`.
-5. Specify a **Project name** (for example, `project-pr-42`) and a **Location outside the existing project directory**, such as `~/Projects/project-pr-42`. Do not put one worktree inside another.
-6. Create the worktree. CLion opens it as another project. Build, run, debug, and test there; your original project, branch, and uncommitted edits stay where they were.
-7. Leave PR feedback through the **GitHub Pull Requests** window. The worktree is your test environment; do not push experimental edits to the contributor's branch unless you have agreed to do so.
+## 5. Review someone else's pull request
 
-**If the PR author pushes new commits:**
+1. Open **Git → GitHub → View Pull Requests**.
+2. Select the PR and examine its changed files and discussion.
+3. Submit your review using **Approve**, **Request Changes**, or **Comment**.
 
-1. Open the **review worktree** in CLion and ensure it has no uncommitted test edits you need to keep.
-2. With the PR branch checked out and tracking `origin/feature/settings-menu`, choose **Git > Update Project** (`Ctrl+T`) to bring in the author's new commits. Do **not** select **Reset to the Remote Branch**, which can discard local commits.
-3. Build/test again and refresh the PR view (`Ctrl+F5`) to read the latest comments and changes.
+To compile or test the changes without disturbing your current work, use a separate worktree:
 
-**Important:** A Git branch cannot be checked out in two worktrees simultaneously. If that branch is already in use locally, choose CLion's **New Branch** option when creating the worktree and give the review branch a unique name, such as `review/pr-42`. If that separate branch does not track the PR's remote branch, **Update Project** may not retrieve new PR commits; use **Git > Pull** and select the PR's remote branch, or recreate the review worktree from it.
+1. Choose **Git → Fetch** to update remote branch information.
+2. Open **Git (`Alt+9`) → Worktrees → New Worktree**.
+3. Select the PR branch, typically `origin/feature-name`.
+4. Choose a directory outside your existing project.
+5. Open the new worktree in CLion and build/test it normally.
 
-CLion documents automatic in-editor PR Review mode when checking out a branch through the PR overview. Do **not** assume that creating a worktree independently enables this mode; you can always review the PR's diffs and comment through the Pull Requests window.
+The worktree has its own working files, so your original project's uncommitted changes remain untouched. Do not push experimental changes to the author's branch without permission.
 
-## 6. Finish the review and merge or close the PR
+## 6. Merge and finish
 
-1. In **Git > GitHub > View Pull Requests**, open the PR.
-2. Submit your review using **Approve**, **Request changes**, or **Comment**. If changes are requested, wait for the author to update the PR and review again.
-3. When the team agrees, there are no unresolved objections, and tests pass, use **Merge** in the PR overview (or GitHub's PR page). Choose the team's preferred merge method.
-4. If the proposal is not accepted, **Close Pull Request** instead of merging it.
-5. When finished with the test environment, switch back to your regular CLion project. In **Git (`Alt+9`) > Worktrees**, select the review worktree and **Delete** it. Check first that it has no uncommitted work you need. CLion cannot delete the worktree currently open in that project window.
-6. Delete the merged feature branch when it is no longer needed. Update your local `main` the next time you work from it.
+When the team agrees, the required approvals are present, review discussions are resolved, and **CI / Required** passes:
 
-## Safety notes
+1. Merge using the pull request interface in CLion or GitHub.
+2. Delete the completed feature branch when no longer needed.
+3. Remove temporary review worktrees after confirming that they contain no work you need to keep.
+4. Switch back to `main` and update it before starting another task.
 
-- **Safe with uncommitted changes:** viewing PRs/diffs, commenting, approving, **Git > Fetch**, and creating a *separate* worktree.
-- **Use care:** checking out another branch, pulling/merging/rebasing, deleting worktrees, and discarding edits.
-- A worktree has its own files and uncommitted changes, but worktrees share the repository's Git history and branch references.
-- Do not commit `.idea/workspace.xml`; JetBrains warns that a shared `ProjectId` can make separate worktrees appear to be the same CLion project. Ignore local build output as well.
+Do not merge locally into `main` and push it as a substitute for a reviewed PR.
 
-## Official reference documentation
+## Safety reminders
 
-- [CLion: Manage Git branches](https://www.jetbrains.com/help/clion/manage-branches.html)
-- [CLion: Commit and push changes](https://www.jetbrains.com/help/clion/commit-and-push-changes.html)
-- [CLion: Create GitHub pull requests](https://www.jetbrains.com/help/clion/create-and-merge-github-pull-requests.html)
-- [CLion: Review GitHub pull requests](https://www.jetbrains.com/help/clion/work-with-github-pull-requests.html)
-- [CLion: Use Git worktrees](https://www.jetbrains.com/help/clion/use-git-worktrees.html)
-- [CLion: Fetch, pull, and update](https://www.jetbrains.com/help/clion/sync-with-a-remote-repository.html)
+- Check your current branch before committing or pushing.
+- Avoid switching branches with uncommitted changes unless you understand how Git will handle them.
+- Never force-push to `main`.
+- Reviewing a PR doesn't require checking out its branch.
+- Use separate worktrees when testing other contributors' changes.
+- Do not commit local build output or CLion workspace settings.
 
-## One-time GitHub repository setup (maintainers)
+## References
 
-To enforce the agreement even though everyone has write access, configure a GitHub branch protection rule or ruleset for `main`: **require a pull request before merging**, **require at least one approval**, and **require conversation resolution**. This is done in GitHub repository settings, not inside CLion. See [GitHub: Managing a branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
+- [CLion: Git branches](https://www.jetbrains.com/help/clion/manage-branches.html)
+- [CLion: Commit and push](https://www.jetbrains.com/help/clion/commit-and-push-changes.html)
+- [CLion: GitHub pull requests](https://www.jetbrains.com/help/clion/work-with-github-pull-requests.html)
+- [CLion: Git worktrees](https://www.jetbrains.com/help/clion/use-git-worktrees.html)
+- [CLion: CTest support](https://www.jetbrains.com/help/clion/ctest-support.html)
