@@ -13,5 +13,9 @@ int main() {
     
     BigInt a;
     
+    cdbg<<powersOf10[0]<<NLC;
+    cdbg<<powersOf10[18]<<NLC;
+    
+    
     return 0;
 }
