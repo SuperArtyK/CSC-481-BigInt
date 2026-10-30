@@ -36,36 +36,5 @@ private:
 };
 
 
-inline BigInt::BigInt(): 
-	m_bNegative(false) {
-	cdbg<<"Constructing empty bigint"<<NLC;
-}
-
-inline BigInt::BigInt(const BigInt& bint): 
-	m_lstDigits(bint.m_lstDigits), m_bNegative(bint.m_bNegative) {
-	cdbg<<"Constructing from another bigint, limbs: "<<bint.m_lstDigits.size()<<", is negative:"<<boolToString(bint.m_bNegative)<<NLC;
-}
-
-inline BigInt::BigInt(BigInt&& bint) noexcept {
-	cdbg<<"Moving from another bigint, limbs: "<<bint.m_lstDigits.size()<<", is negative:"<<boolToString(bint.m_bNegative)<<NLC;
-	this->m_lstDigits = std::move(bint.m_lstDigits);
-	this->m_bNegative = bint.m_bNegative;
-}
-
-inline BigInt& BigInt::operator=(const BigInt& bint) {
-	cdbg<<"Assigning from another bigint, limbs: "<<bint.m_lstDigits.size()<<", is negative:"<<boolToString(bint.m_bNegative)<<NLC;
-	this->m_lstDigits = bint.m_lstDigits;
-	this->m_bNegative = bint.m_bNegative;
-	return *this;
-}
-
-inline BigInt& BigInt::operator=(BigInt&& bint) noexcept {
-	cdbg<<"Move-assignment from another bigint, limbs: "<<bint.m_lstDigits.size()<<", is negative:"<<boolToString(bint.m_bNegative)<<NLC;
-	this->m_lstDigits = std::move(bint.m_lstDigits);
-	this->m_bNegative = bint.m_bNegative;
-	return *this;
-}
-
-
 
 #endif //CSC_481_BIGINT_BIGINT_HPP
