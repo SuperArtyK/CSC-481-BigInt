@@ -8,7 +8,13 @@
 #include <cstdio>
 #include <iostream>
 
-#define DEBUGMODE 0
+// if debugmode wasn't defiend prior to inclusion of the utils, subtitute our own, and allow debug mode.
+// Will probably change it later
+#ifndef DEBUGMODE
+/// @brief Macro to toggle the debug functionality in the library
+/// That includes debug printing.
+#define DEBUGMODE 1
+#endif 
 
 /// @brief Macro for the check **(dividend % divisor) == 0**.
 /// @param dividend The dividend of the operation
@@ -22,7 +28,7 @@
 /// @note Prints additional newline with each print
 /// @note Only works in debug mode. Does nothing if #DEBUGMODE is not set to 1
 /// @see #DEBUGMODE
-#define dprintf(...) std::printf("[DEBUG] [%s] [%s()::%llu] -> ", __FILE__, __FUNCTION__, (unsigned long long int)__LINE__); \
+#define dprintf(...) std::printf("[DEBUG] [%s] [%s()::%llu] -> ", __FILE__, __func__, static_cast<unsigned long long>(__LINE__)); \
 	std::printf(__VA_ARGS__); \
 	std::printf("\n"); 
 
