@@ -8,7 +8,7 @@
 #include <cstdio>
 #include <iostream>
 
-#define DEBUGMODE 1
+#define DEBUGMODE 0
 
 /// @brief Macro for the check **(dividend % divisor) == 0**.
 /// @param dividend The dividend of the operation
@@ -22,13 +22,9 @@
 /// @note Prints additional newline with each print
 /// @note Only works in debug mode. Does nothing if #DEBUGMODE is not set to 1
 /// @see #DEBUGMODE
-#define dprintf(...) if constexpr (DEBUGMODE) { \
-	std::printf("[DEBUG] [%s] [%s()::%llu] -> ", \
-		__FILE__, \
-		__FUNCTION__, \
-		(ullint)__LINE__); \
+#define dprintf(...) std::printf("[DEBUG] [%s] [%s()::%llu] -> ", __FILE__, __FUNCTION__, (unsigned long long int)__LINE__); \
 	std::printf(__VA_ARGS__); \
-	std::printf("\n"); }
+	std::printf("\n"); 
 
 /// @brief Macro for the **debug cout** printing, use the same way as you have used cout for simple printing before.
 /// Prints "[DEBUG] [filename] [function name that called it::invoked line] -> stuff that you wanted the printf to print"
@@ -39,7 +35,7 @@
 #else
 #define dprintf(...)
 
-#define cdbg //
+#define cdbg if constexpr(false) std::cout
 #endif // DEBUGMODE 
 
 
