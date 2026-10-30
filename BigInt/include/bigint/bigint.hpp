@@ -11,7 +11,7 @@
 #include <limits>
 #include <cstring>
 
-/// @brief The underlying type used in the bigint's data storage
+/// @brief The underlying type used to store digits in a bigint
 /// @see BigInt
 typedef std::uint64_t limb_t;
 
@@ -20,6 +20,8 @@ typedef std::uint64_t limb_t;
 constexpr int limbDigits = std::numeric_limits<limb_t>::digits10 - 1;
 
 /// @brief List of powers of 10 that would be used when working with the limb type.
+/// @todo Create a system to fill the table programmatically for each type
+/// @warning This table is only valid for std::uint64_t
 constexpr limb_t powersOf10[]{
 	1,
 	10,
@@ -40,6 +42,7 @@ constexpr limb_t powersOf10[]{
 	10000000000000000,
 	100000000000000000,
 	1000000000000000000,
+	10000000000000000000,
 };
 
 
@@ -49,18 +52,34 @@ constexpr limb_t powersOf10[]{
 /// @see limbDigits
 class BigInt {
 public:
+	
+	/// @brief Default constructor for the class
 	BigInt();
-
+	
+	/// @brief Copy-constructor for the class
+	/// @param bint the bigint to copy values from
 	BigInt(const BigInt& bint);
 
+	/// @brief Move-constructor for the class
+	/// @param bint the bigint to move values from
 	BigInt(BigInt&& bint) noexcept;
-
+	
+	
+	/// @brief Copy-assignment for the class
+	/// @param bint the bigint to copy values from
 	BigInt& operator=(const BigInt& bint);
-
+	
+	/// @brief Move-assignment for the class
+	/// @param bint the bigint to move values from
 	BigInt& operator=(BigInt&& bint) noexcept;
-
+	
+	
+	
 private:
+	/// Storage for the limbs
+	/// @see limb_t
 	std::deque<limb_t> m_lstDigits;
+	/// Flag to indicate whether the bigint is negative
 	bool m_bNegative;
 };
 
