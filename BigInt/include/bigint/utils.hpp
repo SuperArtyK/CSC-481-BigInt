@@ -27,6 +27,9 @@
 /// @param divisor The divisor of the operation
 #define mod0(dividend, divisor) (!(dividend % divisor))
 
+constexpr std::string_view boolToString(const bool val) noexcept {
+	return (val) ? "true" : "false";
+}
 
 #if DEBUGMODE
 /// @brief Macro for the **debug printf()** printing, use the same way as you have used printf before.
