@@ -1,6 +1,7 @@
 #include <iostream>
+#include "bigint/utils.hpp"
 
 int main() {
-    std::cout << "Hello from BigInt!\n";
+    cdbg << "Hello from BigInt!\n";
     return 0;
 }
