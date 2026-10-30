@@ -181,9 +181,46 @@ required.
 | `FR-DEMO-009` | `ans` shall be a predefined variable initialized to zero and referenced without regard to letter case. It shall be updated with the value of each successful evaluation that has no assignment target, whether the evaluated input is binary, unary, one literal, or one variable reference. |
 | `FR-DEMO-010` | A successfully assigned expression shall not update the value of `ans`. |
 | `FR-DEMO-011` | A rejected expression shall not modify existing named variables or `ans`. |
-| `FR-DEMO-012` | The program shall support prefixed session commands separate from arithmetic expression syntax, including read-only inspection and session termination. |
+| `FR-DEMO-017` | At session start, `ans` shall hold zero and shall remain unchanged by assignments or failed evaluations. |
+| `FR-DEMO-018` | Ordinary variable identifiers shall begin with ASCII A–Z, a–z, or `_` and continue with ASCII letters, decimal digits, or `_`; ordinary names are case-sensitive. All letter-case variants of `ans` identify the same predefined variable and shall be prohibited as targets of user-directed assignment or mutation. |
 
-### 4.3 Errors, output, and commands
+### 4.3 Output and formatting
+
+| ID | Requirement |
+|---|---|
+| `FR-DEMO-020` | Automatic display shall use exact plain decimal for integer magnitudes having at most 20 decimal digits and scientific notation with a maximum of 20 significant digits for magnitudes having more than 20 digits; rounding shall be nearest with halfway cases away from zero. Presentation shall not modify stored variables or `ans`. |
+| `FR-DEMO-021` | Successful assignments shall print the identifier and result (`name = value`) using the same exact/scientific display policy as ordinary results. |
+| `FR-DEMO-023` | Evaluating an existing bare variable name, including any case variation of `ans`, shall display `<name> = <value>` and copy the referenced value into `ans`. An undefined variable name shall produce an error without changing state. Bare `ans` shall use the canonical display label `ans`. |
+| `FR-DEMO-028` | Successful unassigned binary expressions, unary expressions, and standalone numeric literals shall display `ans = <value>`. Successful assignments and bare variable-name evaluations shall display `<name> = <value>` using the automatic numeric-display policy. All successful unassigned evaluations update `ans`. |
+
+### 4.4 Commands
+
+Commands start with `@` immediately followed by a case-insensitive name. They accept leading/trailing ASCII spaces or
+tabs and whitespace-separated arguments. The `pad` flag is case-insensitive.
+
+| Command | Behavior |
+|---|---|
+| `@exit` | End the session; end-of-file also exits. |
+| `@show name` | Display an existing variable with automatic formatting. |
+| `@showdigits name` | Display its exact unrounded decimal value. |
+| `@showscientific name [precision] [pad]` | Show scientific notation, default precision 20; `pad` can be used without a precision. |
+| `@dumpvars` | Display `ans` first, then ordinary variables alphabetically. |
+
+**Detailed requirements**
+
+| ID | Requirement |
+|---|---|
+| `FR-DEMO-012` | The program shall support prefixed session commands separate from arithmetic expression syntax, including read-only inspection and session termination. |
+| `FR-DEMO-019` | `@exit`, with any capitalization of the command name and no arguments, or end-of-file shall terminate the interactive calculator session; the bare identifier `exit` shall not be interpreted as a command. |
+| `FR-DEMO-022` | `@showdigits <identifier>` shall display the complete unrounded decimal value of an existing variable or `ans`, irrespective of magnitude, without modifying any stored value or `ans`. |
+| `FR-DEMO-024` | Every calculator command shall start with `@` immediately followed by a case-insensitive command name; ordinary variable identifiers remain case-sensitive except for `ans`. The unprefixed names `show`, `showdigits`, `showscientific`, `dumpvars`, and `exit` remain available as ordinary variable identifiers. |
+| `FR-DEMO-026` | `@show <identifier>` shall display a previously defined variable or `ans` using the default automatic numeric formatting without changing stored state. |
+| `FR-DEMO-027` | `@showscientific <identifier> [precision] [pad]` shall display an existing variable or `ans` in scientific notation with default maximum significant-digit precision 20 or a specified positive precision. The case-insensitive `pad` option may also appear without a precision argument (`@showscientific <identifier> pad`), in which case precision defaults to 20. Without `pad`, use compact formatting under FR-BI-032; with it, use exactly `p` mantissa digits. The command shall not change any stored state. |
+| `FR-DEMO-029` | Variable-targeted display commands `@show`, `@showdigits`, and `@showscientific` shall accept only an existing variable identifier (including any case variant of `ans`), not numeric literals or expressions; invalid names and malformed command arguments shall produce errors without modifying state. |
+| `FR-DEMO-030` | `@dumpvars` shall accept no arguments and display the predefined `ans` first, followed by every currently defined ordinary variable in deterministic alphabetical order. Each line shall use the original variable name and automatic numeric formatting (`name = value`). The command shall not modify stored values or `ans`; a fresh session shall display `ans = 0`. |
+| `FR-DEMO-031` | Commands shall accept leading/trailing ASCII spaces or tabs and separate arguments with one or more ASCII spaces or tabs. The command prefix `@` must be immediately adjacent to its name; command names and `pad` shall be case-insensitive. Missing arguments, extra or unrecognized arguments, invalid variable references, unsupported flags, nonpositive or unrepresentable precision values, and unknown commands shall be reported as errors without state changes; the session shall continue. |
+
+### 4.5 Input handling and error recovery
 
 | ID | Requirement |
 |---|---|
@@ -191,23 +228,9 @@ required.
 | `FR-DEMO-014` | An undefined variable reference shall be reported as an error. |
 | `FR-DEMO-015` | An arithmetic failure (such as division by zero) shall be reported and shall not terminate the interactive session. |
 | `FR-DEMO-016` | Following a recoverable input or evaluation error, the application shall accept another input. |
-| `FR-DEMO-017` | At session start, `ans` shall hold zero and shall remain unchanged by assignments or failed evaluations. |
-| `FR-DEMO-018` | Ordinary variable identifiers shall begin with ASCII A–Z, a–z, or `_` and continue with ASCII letters, decimal digits, or `_`; ordinary names are case-sensitive. All letter-case variants of `ans` identify the same predefined variable and shall be prohibited as targets of user-directed assignment or mutation. |
-| `FR-DEMO-019` | `@exit`, with any capitalization of the command name and no arguments, or end-of-file shall terminate the interactive calculator session; the bare identifier `exit` shall not be interpreted as a command. |
-| `FR-DEMO-020` | Automatic display shall use exact plain decimal for integer magnitudes having at most 20 decimal digits and scientific notation with a maximum of 20 significant digits for magnitudes having more than 20 digits; rounding shall be nearest with halfway cases away from zero. Presentation shall not modify stored variables or `ans`. |
-| `FR-DEMO-021` | Successful assignments shall print the identifier and result (`name = value`) using the same exact/scientific display policy as ordinary results. |
-| `FR-DEMO-022` | `@showdigits <identifier>` shall display the complete unrounded decimal value of an existing variable or `ans`, irrespective of magnitude, without modifying any stored value or `ans`. |
-| `FR-DEMO-023` | Evaluating an existing bare variable name, including any case variation of `ans`, shall display `<name> = <value>` and copy the referenced value into `ans`. An undefined variable name shall produce an error without changing state. Bare `ans` shall use the canonical display label `ans`. |
-| `FR-DEMO-024` | Every calculator command shall start with `@` immediately followed by a case-insensitive command name; ordinary variable identifiers remain case-sensitive except for `ans`. The unprefixed names `show`, `showdigits`, `showscientific`, `dumpvars`, and `exit` remain available as ordinary variable identifiers. |
 | `FR-DEMO-025` | An empty or whitespace-only input line shall be ignored without output or state change. |
-| `FR-DEMO-026` | `@show <identifier>` shall display a previously defined variable or `ans` using the default automatic numeric formatting without changing stored state. |
-| `FR-DEMO-027` | `@showscientific <identifier> [precision] [pad]` shall display an existing variable or `ans` in scientific notation with default maximum significant-digit precision 20 or a specified positive precision. The case-insensitive `pad` option may also appear without a precision argument (`@showscientific <identifier> pad`), in which case precision defaults to 20. Without `pad`, use compact formatting under FR-BI-032; with it, use exactly `p` mantissa digits. The command shall not change any stored state. |
-| `FR-DEMO-028` | Successful unassigned binary expressions, unary expressions, and standalone numeric literals shall display `ans = <value>`. Successful assignments and bare variable-name evaluations shall display `<name> = <value>` using the automatic numeric-display policy. All successful unassigned evaluations update `ans`. |
-| `FR-DEMO-029` | Variable-targeted display commands `@show`, `@showdigits`, and `@showscientific` shall accept only an existing variable identifier (including any case variant of `ans`), not numeric literals or expressions; invalid names and malformed command arguments shall produce errors without modifying state. |
-| `FR-DEMO-030` | `@dumpvars` shall accept no arguments and display the predefined `ans` first, followed by every currently defined ordinary variable in deterministic alphabetical order. Each line shall use the original variable name and automatic numeric formatting (`name = value`). The command shall not modify stored values or `ans`; a fresh session shall display `ans = 0`. |
-| `FR-DEMO-031` | Commands shall accept leading/trailing ASCII spaces or tabs and separate arguments with one or more ASCII spaces or tabs. The command prefix `@` must be immediately adjacent to its name; command names and `pad` shall be case-insensitive. Missing arguments, extra or unrecognized arguments, invalid variable references, unsupported flags, nonpositive or unrepresentable precision values, and unknown commands shall be reported as errors without state changes; the session shall continue. |
 
-### 4.4 Expression grammar
+### 4.6 Expression grammar
 
 Each statement can evaluate one signed operand, optionally followed by one binary operator and a second signed operand.
 An assignment stores any such result in a named variable; a binary operator is not required.
@@ -226,24 +249,7 @@ assignable_identifier  := identifier except any case spelling of 'ans'
 Chained expressions, precedence, parentheses, multiple unary signs on one operand, and fractional/dotted operands are
 excluded from the mandatory integer-only evaluator. Exponentiation is not a mandatory operator.
 
-### 4.5 Commands
-
-Commands start with `@` immediately followed by a case-insensitive name. They accept leading/trailing ASCII spaces or
-tabs and whitespace-separated arguments. The `pad` flag is case-insensitive.
-
-| Command | Behavior |
-|---|---|
-| `@exit` | End the session; end-of-file also exits. |
-| `@show name` | Display an existing variable with automatic formatting. |
-| `@showdigits name` | Display its exact unrounded decimal value. |
-| `@showscientific name [precision] [pad]` | Show scientific notation, default precision 20; `pad` can be used without a precision. |
-| `@dumpvars` | Display `ans` first, then ordinary variables alphabetically. |
-
-Display-only commands do not change `ans` or any named variable. A successful assignment updates only its target and
-displays `name = value`. A successful unassigned evaluation updates `ans`; binary expressions, unary expressions, and
-literals display `ans = value`, while a bare variable reference displays `name = value`.
-
-### 4.6 Example session
+### 4.7 Example session
 
 ```text
 > 123
