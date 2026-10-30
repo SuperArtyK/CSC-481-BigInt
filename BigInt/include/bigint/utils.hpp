@@ -16,6 +16,12 @@
 #define DEBUGMODE 1
 #endif 
 
+/// @brief Macro for quick typing of the new character symbol
+#define NLC '\n'
+
+/// @brief Macro for quick typing of the new character c-string
+#define NLS "\n"
+
 /// @brief Macro for the check **(dividend % divisor) == 0**.
 /// @param dividend The dividend of the operation
 /// @param divisor The divisor of the operation
