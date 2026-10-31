@@ -7,6 +7,9 @@
 
 #include <cstdio>
 #include <iostream>
+#include <concepts>
+#include <cinttypes>
+#include <cmath>
 
 // if debugmode wasn't defiend prior to inclusion of the utils, subtitute our own, and allow debug mode.
 // Will probably change it later
@@ -14,7 +17,7 @@
 /// @brief Macro to toggle the debug functionality in the library
 /// That includes debug printing.
 #define DEBUGMODE 1
-#endif 
+#endif
 
 /// @brief Macro for quick typing of the new character symbol
 #define NLC '\n'
@@ -28,7 +31,38 @@
 #define mod0(dividend, divisor) (!(dividend % divisor))
 
 constexpr std::string_view boolToString(const bool val) noexcept {
-	return (val) ? "true" : "false";
+	return ( val ) ? "true" : "false";
+}
+
+template <std::integral T>
+[[nodiscard]] constexpr std::size_t digitCount(const T val) noexcept {
+	constexpr std::size_t digits = std::numeric_limits<T>::digits10 + 1;
+
+	if (val == 0) {
+		return 1;
+	}
+
+	T absval;
+
+	if constexpr (std::is_signed<T>::value) {
+		// special case for signed ints being at the lowest value (negation doesn't work)
+		if (val == std::numeric_limits<T>::lowest()) {
+			return digits;
+		}
+
+		absval = std::imaxabs(val);
+	}
+
+	absval = val;
+
+	T orderval = 1;
+	for (std::size_t i = 1; i < digits; i++) {
+		if (absval <= orderval) {
+			return i;
+		}
+		orderval *= 10;
+	}
+	return digits;
 }
 
 #if DEBUGMODE
@@ -39,7 +73,7 @@ constexpr std::string_view boolToString(const bool val) noexcept {
 /// @see #DEBUGMODE
 #define dprintf(...) std::printf("[DEBUG] [%s] [%s()::%llu] -> ", __FILE__, __func__, static_cast<unsigned long long>(__LINE__)); \
 	std::printf(__VA_ARGS__); \
-	std::printf("\n"); 
+	std::printf("\n");
 
 /// @brief Macro for the **debug cout** printing, use the same way as you have used cout for simple printing before.
 /// Prints "[DEBUG] [filename] [function name that called it::invoked line] -> stuff that you wanted the printf to print"
@@ -52,7 +86,6 @@ constexpr std::string_view boolToString(const bool val) noexcept {
 
 #define cdbg if constexpr(false) std::cout
 #endif // DEBUGMODE 
-
 
 
 #endif //CSC_481_BIGINT_UTILS_HPP
