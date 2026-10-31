@@ -42,7 +42,7 @@ constexpr limb_t powersOf10[]{
 	10000000000000000,
 	100000000000000000,
 	1000000000000000000,
-	10000000000000000000,
+	10000000000000000000
 };
 
 
@@ -73,12 +73,30 @@ public:
 	/// @param bint the bigint to move values from
 	BigInt& operator=(BigInt&& bint) noexcept;
 	
+	/// @brief Set the underlying bigint to 0
+	/// @param shrink Flag whether to shrink the underlying containers to fit (reallocate to size)
+	void setToZero(const bool shrink) {
+		this->clear(shrink);
+	}
+	
 	
 	
 private:
+	
+	/// @brief Completely clear the underlying bigint: clear containers and remove negativity
+	/// @param shrink Flag whether to shrink the underlying containers to fit (reallocate to size)
+	void clear(const bool shrink) {
+		this->m_lstDigits.clear();
+		if (shrink) {
+			this->m_lstDigits.shrink_to_fit();
+		}
+		this->m_bNegative = false;
+	}
+	
 	/// Storage for the limbs
 	/// @see limb_t
 	std::deque<limb_t> m_lstDigits;
+	
 	/// Flag to indicate whether the bigint is negative
 	bool m_bNegative;
 };
