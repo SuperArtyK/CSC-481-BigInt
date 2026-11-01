@@ -114,7 +114,6 @@ public:
 		return this->m_lstDigits.front();
 	}
 	
-	
 	inline bool isNegative() const noexcept {
 		return this->m_bNegative;
 	}
@@ -123,34 +122,8 @@ public:
 		return this->getLimbCount() == 1 && this->getFirstLimb() == 0;
 	}
 	
-	bool setLimb(const std::size_t index, const limb_t value) {
-		
-		// value is more than what can be stored
-		if (value > STORAGE_MAX) {
-			return false; // failed
-		}
-		
-		// index is larger than what can be stored
-		if (index >= this->getLimbCount()) {
-			this->m_lstDigits.resize(index + 1);
-		}
-		
-		// index is exactly the last limb
-		if (value == 0 && index == this->getLimbCount() -1 ) {
-			// index is exactly the first limb too
-			if (index == 0) {
-				this->setToZero(false); // then set to zero
-				return true;
-			}
-			// exactly the last -> delete the last one
-			this->m_lstDigits.erase(this->m_lstDigits.end());
-		}
-		
-		this->m_lstDigits[index] = value;
-		
-		return true; // succeeded
-	}
-	
+	bool setLimb(const std::size_t index, const limb_t value);
+
 	inline void setNegative(const bool neg) {
 		this->m_bNegative = neg;
 	}
@@ -159,7 +132,7 @@ private:
 	
 	/// @brief Completely clear the underlying bigint: clear containers and remove negativity
 	/// @param shrink Flag whether to shrink the underlying containers to fit (reallocate to size)
-	void clear(const bool shrink) {
+	inline void clear(const bool shrink) {
 		this->m_lstDigits.clear();
 		if (shrink) {
 			this->m_lstDigits.shrink_to_fit();

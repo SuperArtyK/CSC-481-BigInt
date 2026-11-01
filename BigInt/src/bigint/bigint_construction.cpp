@@ -35,3 +35,32 @@ BigInt& BigInt::operator=(BigInt&& bint) noexcept {
 	this->m_bNegative = bint.m_bNegative;
 	return *this;
 }
+
+bool BigInt::setLimb(const std::size_t index, const limb_t value) {
+		
+	// value is more than what can be stored
+	if (value > STORAGE_MAX) {
+		return false; // failed
+	}
+		
+	// index is larger than what can be stored
+	if (index >= this->getLimbCount()) {
+		this->m_lstDigits.resize(index + 1);
+	}
+		
+	// index is exactly the last limb
+	if (value == 0 && index == this->getLimbCount() -1 ) {
+		// index is exactly the first limb too
+		if (index == 0) {
+			this->setToZero(false); // then set to zero
+			return true;
+		}
+		// exactly the last -> delete the last one
+		this->m_lstDigits.erase(--this->m_lstDigits.end());
+	}
+		
+	this->m_lstDigits[index] = value;
+		
+	return true; // succeeded
+}
+
