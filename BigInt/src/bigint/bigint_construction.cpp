@@ -36,6 +36,7 @@ BigInt& BigInt::operator=(BigInt&& bint) noexcept {
 	return *this;
 }
 
+
 bool BigInt::setLimb(const std::size_t index, const limb_t value) {
 		
 	// value is more than what can be stored
@@ -56,11 +57,10 @@ bool BigInt::setLimb(const std::size_t index, const limb_t value) {
 			return true;
 		}
 		// exactly the last -> delete the last one
-		this->m_lstDigits.erase(--this->m_lstDigits.end());
+		this->m_lstDigits.pop_back();
 	}
 		
 	this->m_lstDigits[index] = value;
 		
 	return true; // succeeded
 }
-

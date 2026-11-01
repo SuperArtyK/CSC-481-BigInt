@@ -86,61 +86,33 @@ public:
 	
 	/// @brief Set the underlying bigint to 0
 	/// @param shrink Flag whether to shrink the underlying containers to fit (reallocate to size)
-	inline void setToZero(const bool shrink) {
-		this->clear(shrink);
-		this->m_lstDigits.push_back(0);
-	}
-	
-	
-	[[nodiscard]] inline std::size_t getLimbCount() const noexcept {
-		return this->m_lstDigits.size();
-	}
-	
-	inline std::uintmax_t getDigitCount() const noexcept {
-		return (this->getLimbCount()-1) * LIMB_DIGITS + digitCount(this->getLastLimb());
-	}
-	
-	inline limb_t getLimb(const std::size_t index) const noexcept {
-		if (index >= this->m_lstDigits.size()) {
-			return 0;
-		}
-		return this->m_lstDigits[index];
-	}
-	
-	inline limb_t getLastLimb() const noexcept {
-		return this->m_lstDigits.back();
-	}
-	
-	inline limb_t getFirstLimb() const noexcept {
-		return this->m_lstDigits.front();
-	}
-	
-	inline bool isNegative() const noexcept {
-		return this->m_bNegative;
-	}
-	 
-	inline bool isZero() const noexcept {
-		return this->getLimbCount() == 1 && this->getFirstLimb() == 0;
-	}
+	inline void setToZero(const bool shrink);
+
+
+	[[nodiscard]] inline std::size_t getLimbCount() const noexcept;
+
+	[[nodiscard]] inline std::uintmax_t getDigitCount() const noexcept;
+
+	[[nodiscard]] inline limb_t getLimb(const std::size_t index) const noexcept;
+
+	[[nodiscard]] inline limb_t getLastLimb() const noexcept;
+
+	[[nodiscard]] inline limb_t getFirstLimb() const noexcept;
+
+	[[nodiscard]] inline bool isNegative() const noexcept;
+
+	[[nodiscard]] inline bool isZero() const noexcept;
+
+	inline void setNegative(const bool neg);
 	
 	bool setLimb(const std::size_t index, const limb_t value);
 
-	inline void setNegative(const bool neg) {
-		this->m_bNegative = neg;
-	}
-	
 private:
 	
 	/// @brief Completely clear the underlying bigint: clear containers and remove negativity
 	/// @param shrink Flag whether to shrink the underlying containers to fit (reallocate to size)
-	inline void clear(const bool shrink) {
-		this->m_lstDigits.clear();
-		if (shrink) {
-			this->m_lstDigits.shrink_to_fit();
-		}
-		this->m_bNegative = false;
-	}
-	
+	inline void clear(const bool shrink);
+
 	/// Storage for the limbs
 	/// @see limb_t
 	std::deque<limb_t> m_lstDigits;
@@ -148,6 +120,7 @@ private:
 	/// Flag to indicate whether the bigint is negative
 	bool m_bNegative;
 };
+
 
 
 #endif //CSC_481_BIGINT_BIGINT_DECLARATION_HPP
