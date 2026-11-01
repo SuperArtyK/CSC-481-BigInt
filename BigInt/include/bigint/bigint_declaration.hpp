@@ -16,6 +16,8 @@
 #include <cinttypes>
 #include <exception>
 #include <ranges>
+#include <string>
+#include <sys/stat.h>
 
 /// @brief The underlying type used to store digits in a bigint
 /// @see BigInt
@@ -23,7 +25,7 @@ typedef std::uint64_t limb_t;
 
 /// @brief Maximum allowed digits to store inside one limb
 /// @see limb_t
-constexpr int LIMB_DIGITS = std::numeric_limits<limb_t>::digits10 - 1;
+constexpr std::size_t LIMB_DIGITS = std::numeric_limits<limb_t>::digits10 - 1;
 
 /// @brief List of powers of 10 that would be used when working with the limb type.
 /// @todo Create a system to fill the table programmatically for each type
@@ -107,6 +109,45 @@ public:
 	
 	bool setLimb(const std::size_t index, const limb_t value);
 
+	std::string toStringDec() const {
+		
+		if (this->isZero()) {
+			return "0";
+		}
+		
+		//idkman, I wish I could just specify the size withouth the char
+		std::string result;
+		result.reserve(this->isNegative() + this->getDigitCount());
+		
+		if (this->isNegative()) {
+			result.push_back('-');
+		}
+		
+		char numBuf[LIMB_DIGITS + 1];
+		std::size_t len = 0;
+		
+		//first time without zero-leading logic
+		result.append(
+			numBuf, 
+			static_cast<std::size_t>(
+				std::to_chars(numBuf, numBuf+sizeof(numBuf)-1, this->getLastLimb()).ptr - numBuf
+			)
+		);
+		
+		for (std::size_t i = this->getLimbCount()-1; i-- > 0;) {
+			//format, get length
+			len = static_cast<std::size_t>(
+				std::to_chars(numBuf, numBuf+sizeof(numBuf)-1, this->getLimb(i)).ptr - numBuf
+			);
+			
+			result.append(LIMB_DIGITS-len, '0');
+			result.append(numBuf, len);
+		}
+		
+		return result;
+	}
+	
+	
 private:
 	
 	/// @brief Completely clear the underlying bigint: clear containers and remove negativity

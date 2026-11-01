@@ -4,6 +4,8 @@
 #include "bigint/utils.hpp"
 #include "bigint/bigint.hpp"
 
+#include <cinttypes>
+#include <cstdint>
 
 
 int main() {
@@ -20,7 +22,7 @@ int main() {
     
     cdbg<<digitCount<char>(128)<<NLC;
     
-    a.setLimb(1000, 1);
+    a.setLimb(127468342, 1);
     cdbg<<a.getLimbCount()<<NLC;
     cdbg<<a.getDigitCount()<<NLC;
     cdbg<<a.getFirstLimb()<<NLC;
@@ -28,6 +30,8 @@ int main() {
     cdbg<<a.getLimb(a.getLimbCount()-1)<<NLC;
     cdbg<<boolToString(a.isNegative())<<NLC;
     cdbg<<boolToString(a.isZero())<<NLC;
+    
+    cdbg<<NLC<<NLC<<a.toStringDec()<<NLC;
     
     return 0;
 }
