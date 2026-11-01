@@ -10,6 +10,11 @@
 #include <climits>
 #include <limits>
 #include <cstring>
+#include <cstdint>
+#include <cmath>
+#include <cinttypes>
+#include <exception>
+#include <ranges>
 
 /// @brief The underlying type used to store digits in a bigint
 /// @see BigInt
