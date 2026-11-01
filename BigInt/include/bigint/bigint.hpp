@@ -85,7 +85,7 @@ public:
 	
 	/// @brief Set the underlying bigint to 0
 	/// @param shrink Flag whether to shrink the underlying containers to fit (reallocate to size)
-	void setToZero(const bool shrink) {
+	inline void setToZero(const bool shrink) {
 		this->clear(shrink);
 	}
 	
