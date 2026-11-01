@@ -17,7 +17,7 @@ typedef std::uint64_t limb_t;
 
 /// @brief Maximum allowed digits to store inside one limb
 /// @see limb_t
-constexpr int limbDigits = std::numeric_limits<limb_t>::digits10 - 1;
+constexpr int LIMB_DIGITS = std::numeric_limits<limb_t>::digits10 - 1;
 
 /// @brief List of powers of 10 that would be used when working with the limb type.
 /// @todo Create a system to fill the table programmatically for each type
@@ -44,6 +44,11 @@ constexpr limb_t powersOf10[]{
 	1000000000000000000,
 	10000000000000000000
 };
+
+
+constexpr limb_t STORAGE_MASK = powersOf10[LIMB_DIGITS];
+
+constexpr limb_t STORAGE_MAX = STORAGE_MASK - 1;
 
 
 /// @brief Big integer type class, copies the functionality of regular integers, but on arbitrary scale.
