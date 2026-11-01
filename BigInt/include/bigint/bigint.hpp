@@ -87,6 +87,7 @@ public:
 	/// @param shrink Flag whether to shrink the underlying containers to fit (reallocate to size)
 	inline void setToZero(const bool shrink) {
 		this->clear(shrink);
+		this->m_lstDigits.push_back(0);
 	}
 	
 	
