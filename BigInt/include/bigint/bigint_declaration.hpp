@@ -104,12 +104,13 @@ public:
 	[[nodiscard]] inline bool isNegative() const noexcept;
 
 	[[nodiscard]] inline bool isZero() const noexcept;
+	
+	[[nodiscard]] std::string toStringDec() const;
 
 	inline void setNegative(const bool neg);
 	
 	bool setLimb(const std::size_t index, const limb_t value);
 
-	std::string toStringDec() const;
 
 private:
 	
