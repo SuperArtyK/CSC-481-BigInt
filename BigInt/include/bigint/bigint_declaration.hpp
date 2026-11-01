@@ -90,25 +90,52 @@ public:
 	/// @param shrink Flag whether to shrink the underlying containers to fit (reallocate to size)
 	inline void setToZero(const bool shrink);
 
-
+	/// @brief Returns the limb count of the bigint
 	[[nodiscard]] inline std::size_t getLimbCount() const noexcept;
-
+	
+	/// @brief Returns the total current digit count of the bigint
+	/// @see BigInt::getLimbCount()
 	[[nodiscard]] inline std::uintmax_t getDigitCount() const noexcept;
-
+	
+	/// @brief Returns the limb value at the given index, 0-based
+	/// @note If the index is outside of the bigint's range, returns a 0
 	[[nodiscard]] inline limb_t getLimb(const std::size_t index) const noexcept;
-
+	
+	/// @brief Returns the last, **Most** Significant, limb of the Bigint
 	[[nodiscard]] inline limb_t getLastLimb() const noexcept;
-
+	
+	/// @brief Returns the first, **Least** Significant, limb of the Bigint
 	[[nodiscard]] inline limb_t getFirstLimb() const noexcept;
-
+	
+	/// @brief Returns true if bigint is negative, false otherwise
 	[[nodiscard]] inline bool isNegative() const noexcept;
-
+	
+	/// @brief Returns true if bigint evaluates to 0, false otherwise
+	/// @note It's evaluated to 0 only if it contains only 1 limb, and that limb is equal to 0
+	/// @see BigInt::getLimbCount()
+	/// @see BigInt::getFirstLimb()
 	[[nodiscard]] inline bool isZero() const noexcept;
 	
+	/// @brief Returns the current bigint as string representation, in decimal notation
+	/// @note The length of the string is at most 1 * BigInt::isNegative() + BigInt::getDigitCount()
+	/// @see BigInt::isNegative()
+	/// @see BigInt::getDigitCount()
 	[[nodiscard]] std::string toStringDec() const;
-
+	
+	/// @brief Sets the negative flag of the bigint to the passed parameter
+	/// @param neg The negativity status value
+	/// @see BigInt::isNegative()
 	inline void setNegative(const bool neg);
 	
+	/// @brief Sets the limb, at the specified index, to the specified value
+	/// @param index Index of the limb (0-based) at which apply the provided value
+	/// @param value Value of the limb to be set at the passed index
+	/// @note If passed value has more digits than STORAGE_MAX, returns false without modifying anything
+	/// @note Setting the last limb to 0 deletes that last limb. If the last limb is also the first limb, it sets the bigint to 0 instead
+	/// @note If the index is outside of the range, it allocates as many limbs as needed to fit that index
+	/// @returns True if limb setting was successful, falsed otherwise
+	/// @see STORAGE_MAX
+	/// @see BigInt::setToZero()
 	bool setLimb(const std::size_t index, const limb_t value);
 
 
