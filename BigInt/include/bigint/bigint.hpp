@@ -150,7 +150,9 @@ public:
 		return true; // succeeded
 	}
 	
-	
+	inline void setNegative(const bool neg) {
+		this->m_bNegative = neg;
+	}
 	
 private:
 	
