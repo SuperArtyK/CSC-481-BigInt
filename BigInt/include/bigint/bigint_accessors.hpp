@@ -48,6 +48,7 @@ inline void BigInt::setNegative(const bool neg) {
 	this->m_bNegative = neg;
 }
 
+
 inline void BigInt::clear(const bool shrink) {
 	this->m_lstDigits.clear();
 	if (shrink) {
