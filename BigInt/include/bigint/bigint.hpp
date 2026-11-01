@@ -95,7 +95,7 @@ public:
 	}
 	
 	inline std::uintmax_t getDigitCount() const noexcept {
-		return this->getLimbCount() * LIMB_DIGITS + digitCount(this->getLastLimb());
+		return (this->getLimbCount()-1) * LIMB_DIGITS + digitCount(this->getLastLimb());
 	}
 	
 	inline limb_t getLimb(const std::size_t index) const noexcept {
@@ -106,11 +106,11 @@ public:
 	}
 	
 	inline limb_t getLastLimb() const noexcept {
-		return *(this->m_lstDigits.end());
+		return this->m_lstDigits.back();
 	}
 	
 	inline limb_t getFirstLimb() const noexcept {
-		return *(this->m_lstDigits.begin());
+		return this->m_lstDigits.front();
 	}
 	
 	

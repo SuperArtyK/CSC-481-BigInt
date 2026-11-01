@@ -20,7 +20,14 @@ int main() {
     
     cdbg<<digitCount<char>(128)<<NLC;
     
-    a.setLimb(1, 1234567);
+    a.setLimb(1000, 1);
+    cdbg<<a.getLimbCount()<<NLC;
+    cdbg<<a.getDigitCount()<<NLC;
+    cdbg<<a.getFirstLimb()<<NLC;
+    cdbg<<a.getLastLimb()<<NLC;
+    cdbg<<a.getLimb(a.getLimbCount()-1)<<NLC;
+    cdbg<<boolToString(a.isNegative())<<NLC;
+    cdbg<<boolToString(a.isZero())<<NLC;
     
     return 0;
 }
