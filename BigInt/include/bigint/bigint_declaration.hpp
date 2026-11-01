@@ -17,7 +17,6 @@
 #include <exception>
 #include <ranges>
 #include <string>
-#include <sys/stat.h>
 
 /// @brief The underlying type used to store digits in a bigint
 /// @see BigInt
@@ -88,7 +87,7 @@ public:
 	
 	/// @brief Set the underlying bigint to 0
 	/// @param shrink Flag whether to shrink the underlying containers to fit (reallocate to size)
-	inline void setToZero(const bool shrink);
+	inline void setToZero(const bool shrink = false);
 
 	/// @brief Returns the limb count of the bigint
 	[[nodiscard]] inline std::size_t getLimbCount() const noexcept;
@@ -143,7 +142,7 @@ private:
 	
 	/// @brief Completely clear the underlying bigint: clear containers and remove negativity
 	/// @param shrink Flag whether to shrink the underlying containers to fit (reallocate to size)
-	inline void clear(const bool shrink);
+	inline void clear(const bool shrink = false);
 
 	/// Storage for the limbs
 	/// @see limb_t
