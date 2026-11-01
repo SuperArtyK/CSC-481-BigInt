@@ -16,6 +16,11 @@ int main() {
     cdbg<<powersOf10[0]<<NLC;
     cdbg<<powersOf10[18]<<NLC;
     
+    std::cout<<NLC;
+    
+    cdbg<<digitCount<char>(128)<<NLC;
+    
+    a.setLimb(1, 1234567);
     
     return 0;
 }

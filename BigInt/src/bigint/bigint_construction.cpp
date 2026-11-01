@@ -8,6 +8,7 @@
 BigInt::BigInt(): 
 	m_bNegative(false) {
 	cdbg<<"Constructing empty bigint"<<NLC;
+	this->setToZero(false);
 }
 
 BigInt::BigInt(const BigInt& bint): 
