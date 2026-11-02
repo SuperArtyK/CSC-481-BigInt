@@ -137,11 +137,15 @@ public:
 	/// @see BigInt::setToZero()
 	bool setLimb(const std::size_t index, const limb_t value);
 	
-	/// @brief Removes the leading 0-limbs in front of the number, and removes negativity if number evaluates to 0
+	/// @brief Removes the most significant 0-limbs of the number, and removes negativity if number evaluates to 0
 	/// @note Helps to remove confusion from algorithms that expect the most significant limb to be non-zero. 
 	/// @note Remember to run this after each non-normalising operation that reduces the bigint size.
 	/// @see BigInt::isZero()
 	void normalise() {
+		if (this->getLimbCount() == 0) {
+			this->setToZero();
+		}
+		
 		while (this->getLimbCount() > 1 && this->getLastLimb() == 0) {
 			this->m_lstDigits.pop_back();
 		}
@@ -149,6 +153,30 @@ public:
 		if (this->isZero()) {
 			this->setNegative(false);
 		}
+	}
+	
+	/// @brief Checks whether bigint is normalised
+	/// @note By normalised it means: at least 1 limb, without leading 0's; and if it is zero, then it is not negative
+	/// @warning Most functions assume that the bigint is normalised!
+	/// @returns True if bigint is normalised, false otherwise
+	/// @see BigInt::isZero()
+	bool isNormalised() const noexcept {
+		// empty deque
+		if (this->getLimbCount() == 0) {
+			return false;
+		}
+		
+		// leading 0's
+		if (this->getLimbCount() > 1 && this->getLastLimb() == 0) {
+			return false;
+		}
+		
+		//
+		if (this->isZero() && this->isNegative()) {
+			return false;
+		}
+		
+		return true;
 	}
 	
 private:
