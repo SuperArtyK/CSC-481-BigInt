@@ -136,8 +136,21 @@ public:
 	/// @see STORAGE_MAX
 	/// @see BigInt::setToZero()
 	bool setLimb(const std::size_t index, const limb_t value);
-
-
+	
+	/// @brief Removes the leading 0-limbs in front of the number, and removes negativity if number evaluates to 0
+	/// @note Helps to remove confusion from algorithms that expect the most significant limb to be non-zero. 
+	/// @note Remember to run this after each non-normalising operation that reduces the bigint size.
+	/// @see BigInt::isZero()
+	void normalise() {
+		while (this->getLimbCount() > 1 && this->getLastLimb() == 0) {
+			this->m_lstDigits.pop_back();
+		}
+		
+		if (this->isZero()) {
+			this->setNegative(false);
+		}
+	}
+	
 private:
 	
 	/// @brief Completely clear the underlying bigint: clear containers and remove negativity
