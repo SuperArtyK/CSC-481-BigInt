@@ -27,7 +27,6 @@ bool BigInt::setLimb(const std::size_t index, const limb_t value) {
 	return true; // succeeded
 }
 
-
 inline std::string BigInt::toStringDec() const {
 		
 	if (this->isZero()) {
@@ -64,4 +63,39 @@ inline std::string BigInt::toStringDec() const {
 	}
 		
 	return result;
+}
+
+
+
+void BigInt::normalise() {
+	if (this->getLimbCount() == 0) {
+		this->setToZero();
+	}
+		
+	while (this->getLimbCount() > 1 && this->getLastLimb() == 0) {
+		this->m_lstDigits.pop_back();
+	}
+		
+	if (this->isZero()) {
+		this->setNegative(false);
+	}
+}
+
+bool BigInt::isNormalised() const noexcept {
+	// empty deque
+	if (this->getLimbCount() == 0) {
+		return false;
+	}
+		
+	// leading 0's
+	if (this->getLimbCount() > 1 && this->getLastLimb() == 0) {
+		return false;
+	}
+		
+	//
+	if (this->isZero() && this->isNegative()) {
+		return false;
+	}
+		
+	return true;
 }
