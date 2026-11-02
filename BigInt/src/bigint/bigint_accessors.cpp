@@ -3,6 +3,7 @@
 //
 
 #include "bigint/bigint_declaration.hpp"
+#include "bigint/bigint_accessors.hpp"
 
 bool BigInt::setLimb(const std::size_t index, const limb_t value) {
 		
@@ -34,7 +35,7 @@ bool BigInt::setLimbRaw(const std::size_t index, const limb_t value) {
 	return true; // succeeded
 }
 
-inline std::string BigInt::toStringDec() const {
+std::string BigInt::toStringDec() const {
 		
 	if (this->isZero()) {
 		return "0";
