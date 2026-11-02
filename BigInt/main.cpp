@@ -22,7 +22,7 @@ int main() {
     
     cdbg<<digitCount<char>(128)<<NLC;
     
-    a.setLimb(127468342, 1);
+    a.setLimb(1, 1);
     cdbg<<a.getLimbCount()<<NLC;
     cdbg<<a.getDigitCount()<<NLC;
     cdbg<<a.getFirstLimb()<<NLC;
@@ -32,6 +32,8 @@ int main() {
     cdbg<<boolToString(a.isZero())<<NLC;
     
     cdbg<<NLC<<NLC<<a.toStringDec()<<NLC;
+    
+    
     
     return 0;
 }
