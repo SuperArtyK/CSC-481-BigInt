@@ -126,17 +126,30 @@ public:
 	/// @see BigInt::isNegative()
 	inline void setNegative(const bool neg);
 	
+	/// @brief Sets the limb at the specified index, to the specified value, with few exceptions; then normalises
+	/// @param index Index of the limb (0-based) at which apply the provided value
+	/// @param value Value of the limb to be set at the passed index
+	/// @note The bigint is normalised after the operation
+	/// @note If passed value has more digits than STORAGE_MAX, returns false without modifying anything
+	/// @note Normalises after setting the value: removes all leading 0-limbs, and removes negativity is number equates to 0
+	/// @note If the index is outside of the range, it allocates as many limbs as needed to fit that index
+	/// @returns True if limb setting was successful, false otherwise
+	/// @see STORAGE_MAX
+	/// @see BigInt::setToZero()
+	/// @see BigInt::normalise()
+	/// @see BigInt::setLimbRaw()
+	bool setLimb(const std::size_t index, const limb_t value);
+	
 	/// @brief Sets the limb, at the specified index, to the specified value
 	/// @param index Index of the limb (0-based) at which apply the provided value
 	/// @param value Value of the limb to be set at the passed index
 	/// @note If passed value has more digits than STORAGE_MAX, returns false without modifying anything
-	/// @note Setting the last limb to 0 deletes that last limb. If the last limb is also the first limb, it sets the bigint to 0 instead
 	/// @note If the index is outside of the range, it allocates as many limbs as needed to fit that index
-	/// @returns True if limb setting was successful, falsed otherwise
+	/// @returns True if limb setting was successful, false otherwise
 	/// @see STORAGE_MAX
-	/// @see BigInt::setToZero()
-	bool setLimb(const std::size_t index, const limb_t value);
-	
+	/// @see BigInt::setLimb()
+	bool setLimbRaw(const std::size_t index, const limb_t value);
+
 	/// @brief Removes the most significant 0-limbs of the number, and removes negativity if number evaluates to 0
 	/// @note Helps to remove confusion from algorithms that expect the most significant limb to be non-zero. 
 	/// @note Remember to run this after each non-normalising operation that reduces the bigint size.

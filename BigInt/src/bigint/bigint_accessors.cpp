@@ -6,6 +6,19 @@
 
 bool BigInt::setLimb(const std::size_t index, const limb_t value) {
 		
+	if (value == 0 && index >= this->getLimbCount()) {
+		this->setLimbRaw(std::numeric_limits<std::size_t>::max(), 0);
+	}
+	else {
+		this->setLimbRaw(index, value);
+	}
+		
+	this->normalise();
+		
+	return true; // succeeded
+}
+
+bool BigInt::setLimbRaw(const std::size_t index, const limb_t value) {
 	// value is more than what can be stored
 	if (value > STORAGE_MAX) {
 		return false; // failed
@@ -13,16 +26,10 @@ bool BigInt::setLimb(const std::size_t index, const limb_t value) {
 		
 	// index is larger than what can be stored
 	if (index >= this->getLimbCount()) {
-		if (value == 0) {
-			this->normalise();
-			return true;
-		}
 		this->m_lstDigits.resize(index + 1);
 	}
 	
 	this->m_lstDigits[index] = value;
-	
-	this->normalise();
 		
 	return true; // succeeded
 }
