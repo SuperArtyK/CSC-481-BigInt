@@ -13,23 +13,16 @@ bool BigInt::setLimb(const std::size_t index, const limb_t value) {
 		
 	// index is larger than what can be stored
 	if (index >= this->getLimbCount()) {
-		this->m_lstDigits.resize(index + 1);
-	}
-		
-	// index is exactly the last limb
-	if (value == 0 && index == this->getLimbCount() -1 ) {
-		// index is exactly the first limb too
-		if (index == 0) {
-			this->setToZero(false); // then set to zero
+		if (value == 0) {
+			this->normalise();
 			return true;
 		}
-		// exactly the last -> delete the last one
-		this->m_lstDigits.pop_back();
-	}
-	else {
-		this->m_lstDigits[index] = value;
+		this->m_lstDigits.resize(index + 1);
 	}
 	
+	this->m_lstDigits[index] = value;
+	
+	this->normalise();
 		
 	return true; // succeeded
 }
