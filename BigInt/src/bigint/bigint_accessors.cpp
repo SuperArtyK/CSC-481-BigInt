@@ -26,8 +26,10 @@ bool BigInt::setLimb(const std::size_t index, const limb_t value) {
 		// exactly the last -> delete the last one
 		this->m_lstDigits.pop_back();
 	}
-		
-	this->m_lstDigits[index] = value;
+	else {
+		this->m_lstDigits[index] = value;
+	}
+	
 		
 	return true; // succeeded
 }
