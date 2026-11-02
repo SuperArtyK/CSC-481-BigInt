@@ -52,12 +52,15 @@ template <std::integral T>
 
 		absval = std::imaxabs(val);
 	}
+	else {
+		absval = val;
+	}
 
-	absval = val;
+	
 
-	T orderval = 1;
+	T orderval = 10;
 	for (std::size_t i = 1; i < digits; i++) {
-		if (absval <= orderval) {
+		if (absval < orderval) {
 			return i;
 		}
 		orderval *= 10;
