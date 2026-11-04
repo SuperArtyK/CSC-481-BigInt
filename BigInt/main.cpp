@@ -20,7 +20,7 @@ int main() {
     
     std::cout<<NLC;
     
-    cdbg<<digitCount<char>(128)<<NLC;
+    cdbg<<digitCount<int>(INT_MAX)<<NLC;
     
     a.setLimb(1, 1);
     cdbg<<a.getLimbCount()<<NLC;

@@ -52,9 +52,14 @@ constexpr limb_t powersOf10[]{
 	10000000000000000000
 };
 
-
+/// @brief The base-10 mask for the maximum digits that can be stored in limb
+/// @note Usage example: value % STORAGE_MASK -> trimmed value that can fit in the limb
+/// @see limb_t
 constexpr limb_t STORAGE_MASK = powersOf10[LIMB_DIGITS];
 
+/// @brief The maximum value that the limb can store
+/// @see limb_t
+/// @see STORAGE_MASK
 constexpr limb_t STORAGE_MAX = STORAGE_MASK - 1;
 
 
