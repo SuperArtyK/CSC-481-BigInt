@@ -7,10 +7,7 @@
 
 bool BigInt::setLimb(const std::size_t index, const limb_t value) {
 		
-	if (value == 0 && index >= this->getLimbCount()) {
-		this->setLimbRaw(std::numeric_limits<std::size_t>::max(), 0);
-	}
-	else {
+	if (value != 0 || index <= this->getLimbCount()) {
 		this->setLimbRaw(index, value);
 	}
 		
