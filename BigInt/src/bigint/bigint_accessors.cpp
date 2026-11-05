@@ -4,6 +4,7 @@
 
 #include "bigint/bigint_declaration.hpp"
 #include "bigint/bigint_accessors.hpp"
+#include "bigint/utils.hpp"
 
 bool BigInt::setLimb(const std::size_t index, const limb_t value) {
 		
@@ -13,25 +14,30 @@ bool BigInt::setLimb(const std::size_t index, const limb_t value) {
 		}
 	}
 		
+	cdbg<<"Normalising after setting the limb value"<<NLC;
 	this->normalise();
 		
 	return true; // succeeded
 }
 
 bool BigInt::setLimbRaw(const std::size_t index, const limb_t value) {
+	cdbg<<"Setting limb at index "<<index<<" to value "<<value<<NLC;
 	// value is more than what can be stored
 	if constexpr (std::is_signed<limb_t>::value) {
 		if (value < 0) {
+			cdbg<<"Value is less than 0 (signed limb_t), failed"<<NLC;
 			return false;
 		}
 	}
 	
 	if (value > STORAGE_MAX) {
+		cdbg<<"Value is more then STORAGE_MAX, failed"<<NLC;
 		return false; // failed
 	}
 		
 	// index is larger than what can be stored
 	if (index >= this->getLimbCount()) {
+		cdbg<<"Index is >= than current limb count "<<this->getLimbCount()<<"; resizing..."<<NLC;
 		this->m_lstDigits.resize(index + 1);
 	}
 	
@@ -82,14 +88,22 @@ std::string BigInt::toStringDec() const {
 
 void BigInt::normalise() {
 	if (this->getLimbCount() == 0) {
+		cdbg<<"Bigint has no limbs, setting it to 0" <<NLC;
 		this->setToZero();
 	}
+#ifdef DEBUGMODE
+	if (this->getLimbCount() > 1 && this->getLastLimb() == 0) {
+		cdbg<<"Non-first limb equals to 0; launching the pop_back loop"<<NLC;
+	}
+#endif
+	
 		
 	while (this->getLimbCount() > 1 && this->getLastLimb() == 0) {
 		this->m_lstDigits.pop_back();
 	}
 		
 	if (this->isZero()) {
+		cdbg<<"number's magnitude is zero; setting negativity to false (just in case lol)"<<NLC;
 		this->setNegative(false);
 	}
 }

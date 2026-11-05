@@ -10,6 +10,7 @@
 
 inline void BigInt::setToZero(const bool shrink) {
 	this->clear(shrink);
+	cdbg<<"Setting to 0: limb 0 is now 0; negative = "<<boolToString(this->m_bNegative)<<NLC;
 	this->m_lstDigits.push_back(0);
 }
 
@@ -18,7 +19,7 @@ inline std::size_t BigInt::getLimbCount() const noexcept {
 }
 
 inline std::uintmax_t BigInt::getDigitCount() const noexcept {
-	return (this->getLimbCount()-1) * LIMB_DIGITS + digitCount(this->getLastLimb());
+	return ( this->getLimbCount() - 1 ) * LIMB_DIGITS + digitCount(this->getLastLimb());
 }
 
 inline limb_t BigInt::getLimb(const std::size_t index) const noexcept {
@@ -45,19 +46,19 @@ inline bool BigInt::isZero() const noexcept {
 }
 
 inline void BigInt::setNegative(const bool neg) {
+	cdbg<<"Setting negative to "<<boolToString(neg);
 	this->m_bNegative = neg;
 }
 
 
 inline void BigInt::clear(const bool shrink) {
+	cdbg << "Clearing the bigint; shrinking = " << boolToString(shrink) << NLC;
 	this->m_lstDigits.clear();
 	if (shrink) {
 		this->m_lstDigits.shrink_to_fit();
 	}
 	this->m_bNegative = false;
 }
-
-
 
 
 #endif //CSC_481_BIGINT_BIGINT_ACCESSORS_HPP

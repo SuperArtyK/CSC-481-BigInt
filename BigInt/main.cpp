@@ -7,6 +7,9 @@
 #include <cinttypes>
 #include <cstdint>
 
+using std::cout;
+using std::endl;
+using std::cin;
 
 int main() {
     cdbg << "Hello from BigInt!\n";
@@ -15,23 +18,23 @@ int main() {
     
     BigInt a;
     
-    cdbg<<powersOf10[0]<<NLC;
-    cdbg<<powersOf10[18]<<NLC;
+    cout<<powersOf10[0]<<NLC;
+    cout<<powersOf10[18]<<NLC;
     
     std::cout<<NLC;
     
-    cdbg<<digitCount<int>(INT_MAX)<<NLC;
+    cout<<digitCount<int>(INT_MAX)<<NLC;
     
     a.setLimb(1, 1);
-    cdbg<<a.getLimbCount()<<NLC;
-    cdbg<<a.getDigitCount()<<NLC;
-    cdbg<<a.getFirstLimb()<<NLC;
-    cdbg<<a.getLastLimb()<<NLC;
-    cdbg<<a.getLimb(a.getLimbCount()-1)<<NLC;
-    cdbg<<boolToString(a.isNegative())<<NLC;
-    cdbg<<boolToString(a.isZero())<<NLC;
+    cout<<a.getLimbCount()<<NLC;
+    cout<<a.getDigitCount()<<NLC;
+    cout<<a.getFirstLimb()<<NLC;
+    cout<<a.getLastLimb()<<NLC;
+    cout<<a.getLimb(a.getLimbCount()-1)<<NLC;
+    cout<<boolToString(a.isNegative())<<NLC;
+    cout<<boolToString(a.isZero())<<NLC;
     
-    cdbg<<NLC<<NLC<<a.toStringDec()<<NLC;
+    cout<<NLC<<NLC<<a.toStringDec()<<NLC;
     
     
     
