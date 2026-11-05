@@ -8,7 +8,9 @@
 bool BigInt::setLimb(const std::size_t index, const limb_t value) {
 		
 	if (value != 0 || index <= this->getLimbCount()) {
-		this->setLimbRaw(index, value);
+		if (!this->setLimbRaw(index, value)) {
+			return false;
+		}
 	}
 		
 	this->normalise();
