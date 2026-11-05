@@ -135,7 +135,7 @@ public:
 	/// @param index Index of the limb (0-based) at which apply the provided value
 	/// @param value Value of the limb to be set at the passed index
 	/// @note The bigint is normalised after the operation
-	/// @note If passed value has more digits than STORAGE_MAX, returns false without modifying anything
+	/// @note If passed value has more digits than STORAGE_MAX (or is less than 0), returns false without modifying anything
 	/// @note Normalises after setting the value: removes all leading 0-limbs, and removes negativity is number equates to 0
 	/// @note If the index is outside of the range, it allocates as many limbs as needed to fit that index
 	/// @returns True if limb setting was successful, false otherwise
@@ -148,7 +148,7 @@ public:
 	/// @brief Sets the limb, at the specified index, to the specified value
 	/// @param index Index of the limb (0-based) at which apply the provided value
 	/// @param value Value of the limb to be set at the passed index
-	/// @note If passed value has more digits than STORAGE_MAX, returns false without modifying anything
+	/// @note If passed value has more digits than STORAGE_MAX (or is less than 0), returns false without modifying anything
 	/// @note If the index is outside of the range, it allocates as many limbs as needed to fit that index
 	/// @returns True if limb setting was successful, false otherwise
 	/// @see STORAGE_MAX
