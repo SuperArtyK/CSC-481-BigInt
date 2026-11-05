@@ -18,6 +18,12 @@ bool BigInt::setLimb(const std::size_t index, const limb_t value) {
 
 bool BigInt::setLimbRaw(const std::size_t index, const limb_t value) {
 	// value is more than what can be stored
+	if constexpr (std::is_signed<limb_t>::value) {
+		if (value < 0) {
+			return false;
+		}
+	}
+	
 	if (value > STORAGE_MAX) {
 		return false; // failed
 	}
