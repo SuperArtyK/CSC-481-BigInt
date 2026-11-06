@@ -34,35 +34,88 @@ constexpr std::string_view boolToString(const bool val) noexcept {
 	return ( val ) ? "true" : "false";
 }
 
-template <std::integral T>
-requires(std::numeric_limits<T>::is_specialized) 
-[[nodiscard]] constexpr std::size_t digitCount(T val) noexcept {
-	
-	if constexpr (std::is_same<std::remove_cvref<T>, bool>::value) {
-		return 1; // bool is always 1 digit (why is it integral even)
-	}
-	else {
-		if constexpr (std::is_signed<T>::value) {
-			if (val == std::numeric_limits<T>::lowest()) {
-				return std::numeric_limits<T>::digits10 + 1;
-			}
-			if (val < 0) {
-				val *= -1;
-			}
-		}
-	
-		T temp = 1;
-		for (std::size_t i = 0; i < std::numeric_limits<T>::digits10; i++) {
-			temp *= 10;
-			if (val < temp) {
-				return i+1;
-			}
-		}
-	
-		return std::numeric_limits<T>::digits10 + 1;
-	}
-	
-	
+template <typename T>
+    requires (
+        std::numeric_limits<std::remove_cv_t<T>>::is_specialized &&
+        std::numeric_limits<std::remove_cv_t<T>>::is_integer &&
+        std::numeric_limits<std::remove_cv_t<T>>::is_bounded
+    )
+[[nodiscard]] constexpr std::size_t digitCount(T value) noexcept {
+    using V = std::remove_cv_t<T>;
+    using Limits = std::numeric_limits<V>;
+
+    if constexpr (std::same_as<V, bool>) {
+        return 1;
+    } else {
+        V x = value;
+
+        // Normalize signed values to negative.
+        if constexpr (Limits::is_signed) {
+            if (x > V{0}) {
+                x = -x;
+            }
+        }
+
+        // Determine the maximum decimal digit count
+        // entirely at compile time.
+        constexpr std::size_t maxDigits = [] {
+            V bound = [] {
+                if constexpr (Limits::is_signed) {
+                    return Limits::lowest();
+                } else {
+                    return Limits::max();
+                }
+            }();
+
+            std::size_t n = 1;
+
+            while ((bound /= 10) != 0) {
+                ++n;
+            }
+
+            return n;
+        }();
+
+        // Generate a binary search tree at compile time.
+        const auto search =
+            [&]<std::size_t lo, std::size_t hi>(
+                auto&& self
+            ) -> std::size_t {
+                if constexpr (lo == hi) {
+                    return lo;
+                } else {
+                    constexpr std::size_t mid =
+                        lo + (hi - lo + 1) / 2;
+
+                    // Generate the threshold at compile time.
+                    constexpr V threshold = [] {
+                        V power = V{1};
+
+                        if constexpr (Limits::is_signed) {
+                            power = -power;
+                        }
+
+                        for (std::size_t i = 1; i < mid; ++i) {
+                            power = static_cast<V>(power * 10);
+                        }
+
+                        return power;
+                    }();
+
+                    if constexpr (Limits::is_signed) {
+                        return x <= threshold
+                            ? self.template operator()<mid, hi>(self)
+                            : self.template operator()<lo, mid - 1>(self);
+                    } else {
+                        return x >= threshold
+                            ? self.template operator()<mid, hi>(self)
+                            : self.template operator()<lo, mid - 1>(self);
+                    }
+                }
+            };
+
+        return search.template operator()<1, maxDigits>(search);
+    }
 }
 
 #if DEBUGMODE
