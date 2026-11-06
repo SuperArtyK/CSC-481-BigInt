@@ -23,7 +23,7 @@ int main() {
     
     std::cout<<NLC;
     
-    cout<<digitCount<int>(INT_MAX)<<NLC;
+    cdbg<<digitCount<int>(INT_MAX)<<NLC;
     
     a.setLimb(1, 1);
     cout<<a.getLimbCount()<<NLC;

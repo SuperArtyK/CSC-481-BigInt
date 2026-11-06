@@ -35,37 +35,34 @@ constexpr std::string_view boolToString(const bool val) noexcept {
 }
 
 template <std::integral T>
-[[nodiscard]] constexpr std::size_t digitCount(const T val) noexcept {
-	constexpr std::size_t digits = std::numeric_limits<T>::digits10 + 1;
-
-	if (val == 0) {
-		return 1;
-	}
-
-	T absval;
-
-	if constexpr (std::is_signed<T>::value) {
-		// special case for signed ints being at the lowest value (negation doesn't work)
-		if (val == std::numeric_limits<T>::lowest()) {
-			return digits;
-		}
-
-		absval = std::imaxabs(val);
+requires(std::numeric_limits<T>::is_specialized) 
+[[nodiscard]] constexpr std::size_t digitCount(T val) noexcept {
+	
+	if constexpr (std::is_same<std::remove_cvref<T>, bool>::value) {
+		return 1; // bool is always 1 digit (why is it integral even)
 	}
 	else {
-		absval = val;
-	}
-
-	
-
-	T orderval = 10;
-	for (std::size_t i = 1; i < digits; i++) {
-		if (absval < orderval) {
-			return i;
+		if constexpr (std::is_signed<T>::value) {
+			if (val == std::numeric_limits<T>::lowest()) {
+				return std::numeric_limits<T>::digits10 + 1;
+			}
+			if (val < 0) {
+				val *= -1;
+			}
 		}
-		orderval *= 10;
+	
+		T temp = 1;
+		for (std::size_t i = 0; i < std::numeric_limits<T>::digits10; i++) {
+			temp *= 10;
+			if (val < temp) {
+				return i+1;
+			}
+		}
+	
+		return std::numeric_limits<T>::digits10 + 1;
 	}
-	return digits;
+	
+	
 }
 
 #if DEBUGMODE
