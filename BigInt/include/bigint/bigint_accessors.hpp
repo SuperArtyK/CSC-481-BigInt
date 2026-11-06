@@ -9,7 +9,9 @@
 
 
 inline void BigInt::setToZero(const bool shrink) {
-	this->clear(shrink);
+	if (!this->isZero()) {
+		this->clear(shrink);
+	}
 	cdbg<<"Setting to 0: limb 0 is now 0; negative = "<<boolToString(this->m_bNegative)<<NLC;
 	this->m_lstDigits.push_back(0);
 }
