@@ -7,11 +7,12 @@
 #include "bigint/utils.hpp"
 
 bool BigInt::setLimb(const std::size_t index, const limb_t value) {
-		
-	if (value != 0 || index <= this->getLimbCount()) {
-		if (!this->setLimbRaw(index, value)) {
-			return false;
-		}
+	if (index >= this->getLimbCount() && value == 0) {
+		return true; // no-op
+	}
+	
+	if (!this->setLimbRaw(index, value)) {
+		return false;
 	}
 		
 	cdbg<<"Normalising after setting the limb value"<<NLC;
