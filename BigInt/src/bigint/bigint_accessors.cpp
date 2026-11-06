@@ -39,7 +39,7 @@ bool BigInt::setLimbRaw(const std::size_t index, const limb_t value) {
 	// index is larger than what can be stored
 	if (index >= this->getLimbCount()) {
 		cdbg<<"Index is >= than current limb count "<<this->getLimbCount()<<"; resizing..."<<NLC;
-		this->m_lstDigits.resize(index + 1);
+		this->m_lstDigits.resize(index + 1, 0);
 	}
 	
 	this->m_lstDigits[index] = value;
