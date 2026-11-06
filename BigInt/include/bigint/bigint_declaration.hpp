@@ -49,7 +49,7 @@ constexpr limb_t powersOf10[]{
 	10000000000000000,
 	100000000000000000,
 	1000000000000000000,
-	10000000000000000000
+	10000000000000000000ull
 };
 
 /// @brief The base-10 mask for the maximum digits that can be stored in limb
