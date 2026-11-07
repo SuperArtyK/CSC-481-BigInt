@@ -131,16 +131,16 @@ public:
 	/// @see BigInt::isNegative()
 	inline void setNegative(const bool neg);
 	
-	/// @brief Sets the limb at the specified index, to the specified value, with few exceptions; then normalises
+	/// @brief Sets the limb at the specified index to the specified value, then normalises the bigint.
 	/// @param index Index of the limb (0-based) at which apply the provided value
 	/// @param value Value of the limb to be set at the passed index
-	/// @note The bigint is normalised after the operation
-	/// @note If passed value has more digits than STORAGE_MAX (or is less than 0), returns false without modifying anything
-	/// @note Normalises after setting the value: removes all leading 0-limbs, and removes negativity is number equates to 0
+	/// @note The bigint is normalised after the successful operation
+	/// @attention If passed value is larger than STORAGE_MAX (or is less than 0), the operation fails
+	/// @attention If passed index is equal to std::numeric_limits<std::size_t>::max(), the operation fails
 	/// @note If the index is outside of the range, it allocates as many limbs as needed to fit that index
-	/// @returns True if limb setting was successful, false otherwise
+	/// @attention If provided value is 0 and index is outside of the range, operation is a no-op; object is not mutated
+	/// @returns True if the operation was successful, false otherwise
 	/// @see STORAGE_MAX
-	/// @see BigInt::setToZero()
 	/// @see BigInt::normalise()
 	/// @see BigInt::setLimbRaw()
 	bool setLimb(const std::size_t index, const limb_t value);
@@ -148,11 +148,12 @@ public:
 	/// @brief Sets the limb, at the specified index, to the specified value
 	/// @param index Index of the limb (0-based) at which apply the provided value
 	/// @param value Value of the limb to be set at the passed index
-	/// @note If passed value has more digits than STORAGE_MAX (or is less than 0), returns false without modifying anything
+	/// @warning Can leave the bigint in a non-normalised state; you are responsible for restoring normalisation
+	/// @attention If passed value is larger than STORAGE_MAX (or is less than 0), the operation fails
+	/// @attention If passed index is equal to std::numeric_limits<std::size_t>::max(), the operation fails
 	/// @note If the index is outside of the range, it allocates as many limbs as needed to fit that index
-	/// @returns True if limb setting was successful, false otherwise
+	/// @returns True if the operation was successful, false otherwise
 	/// @see STORAGE_MAX
-	/// @see BigInt::setLimb()
 	bool setLimbRaw(const std::size_t index, const limb_t value);
 
 	/// @brief Removes the most significant 0-limbs of the number, and removes negativity if number evaluates to 0
