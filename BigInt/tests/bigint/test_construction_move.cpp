@@ -11,7 +11,7 @@ using tester = bigint_test::Inspector;
 
 TEST(BigintConstruction, MoveZero) {
 	BigInt a;
-	BigInt b = std::move(a);
+	BigInt b(std::move(a));
 	
 	std::vector<limb_t> limbs = tester::getLimbs(b);
 	bool neg = tester::getNegative(b);
@@ -32,7 +32,7 @@ TEST(BigintConstruction, MoveValue) {
 	EXPECT_EQ(limbsA, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(a), expNeg);
 	
-	BigInt b = std::move(a);
+	BigInt b(std::move(a));
 	const std::vector<limb_t> limbsB = tester::getLimbs(b);
 	EXPECT_EQ(limbsB, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(b), expNeg);
@@ -47,7 +47,7 @@ TEST(BigintConstruction, MoveValueIndependent) {
 	
 	tester::load(a, expLimbs, expNeg);
 	
-	BigInt b = std::move(a);
+	BigInt b(std::move(a));
 	
 	tester::load(a, {420,999}, false);
 	
@@ -72,7 +72,7 @@ TEST(BigintConstruction, MoveValueDenorm_TrailZero) {
 	EXPECT_EQ(limbsA, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(a), expNeg);
 	
-	BigInt b = std::move(a);
+	BigInt b(std::move(a));
 	const std::vector<limb_t> limbsB = tester::getLimbs(b);
 	EXPECT_EQ(limbsB, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(b), expNeg);
@@ -91,7 +91,7 @@ TEST(BigintConstruction, MoveValueDenorm_ZeroNeg) {
 	EXPECT_EQ(limbsA, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(a), expNeg);
 	
-	BigInt b = std::move(a);
+	BigInt b(std::move(a));
 	const std::vector<limb_t> limbsB = tester::getLimbs(b);
 	EXPECT_EQ(limbsB, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(b), expNeg);
@@ -108,7 +108,7 @@ TEST(BigintConstruction, MoveValueDenorm_ZeroTrailNeg) {
 	EXPECT_EQ(limbsA, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(a), expNeg);
 	
-	BigInt b = std::move(a);
+	BigInt b(std::move(a));
 	const std::vector<limb_t> limbsB = tester::getLimbs(b);
 	EXPECT_EQ(limbsB, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(b), expNeg);
