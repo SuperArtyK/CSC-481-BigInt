@@ -21,6 +21,15 @@ TEST(BigintConstruction, MoveZero) {
 	EXPECT_EQ(neg, false);
 }
 
+TEST(BigintConstruction, MoveEmpty) {
+	BigInt a;
+	tester::load(a, {}, false);
+	BigInt b(std::move(a));
+	
+	EXPECT_TRUE(tester::getLimbs(b).empty());
+	EXPECT_EQ(tester::getNegative(b), false);
+}
+
 TEST(BigintConstruction, MoveValue) {
 	BigInt a;
 	
