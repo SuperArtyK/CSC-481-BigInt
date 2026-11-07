@@ -24,6 +24,10 @@ BigInt::BigInt(BigInt&& bint) noexcept {
 
 BigInt& BigInt::operator=(const BigInt& bint) {
 	cdbg<<"Assigning from another bigint, limbs: "<<bint.m_lstDigits.size()<<", is negative:"<<boolToString(bint.m_bNegative)<<NLC;
+	if (this == &bint) {
+		cdbg<<"WARNING: Self assignment detected! Returning early..."<<NLC;
+		return *this;
+	}
 	this->m_lstDigits = bint.m_lstDigits;
 	this->m_bNegative = bint.m_bNegative;
 	return *this;
@@ -31,6 +35,10 @@ BigInt& BigInt::operator=(const BigInt& bint) {
 
 BigInt& BigInt::operator=(BigInt&& bint) noexcept {
 	cdbg<<"Move-assignment from another bigint, limbs: "<<bint.m_lstDigits.size()<<", is negative:"<<boolToString(bint.m_bNegative)<<NLC;
+	if (this == &bint) {
+		cdbg<<"WARNING: Self assignment detected! Returning early..."<<NLC;
+		return *this;
+	}
 	this->m_lstDigits = std::move(bint.m_lstDigits);
 	this->m_bNegative = bint.m_bNegative;
 	return *this;
