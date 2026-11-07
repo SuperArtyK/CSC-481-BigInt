@@ -66,6 +66,12 @@ constexpr limb_t STORAGE_MAX = STORAGE_MASK - 1;
 /// @see LIMB_DIGITS
 constexpr std::uintmax_t LIMB_DIGITCOUNT_MAX = std::numeric_limits<std::uintmax_t>::max() / LIMB_DIGITS;
 
+namespace bigint_test {
+	struct Inspector;
+}
+
+
+
 /// @brief Big integer type class, copies the functionality of regular integers, but on arbitrary scale.
 /// @note Technical limit for the size of the BigInt is std::size_t*digits(limb_t)
 /// @see limb_t
@@ -185,6 +191,8 @@ private:
 	
 	/// Flag to indicate whether the bigint is negative
 	bool m_bNegative;
+	
+	friend bigint_test::Inspector;
 };
 
 
