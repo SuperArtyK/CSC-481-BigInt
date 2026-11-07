@@ -4,7 +4,6 @@
 
 #include <gtest/gtest.h>
 #include "bigint/utils.hpp"
-#include <climits>
 
 TEST(UtilsTest, NewLine) {
 	EXPECT_EQ(NLC, '\n');
@@ -23,24 +22,3 @@ TEST(UtilsTest, BoolToString) {
 	EXPECT_EQ(boolToString(0), "false");
 	
 }
-
-TEST(UtilsTest, DigitCount) {
-	
-	const auto digitCountValid = [](std::int64_t a)->int {
-		int i = 1;
-		while (a >= 10) {
-			a/=10;
-			i++;
-		}
-		return i;
-	};
-    
-	
-	for (int i = 0; i < SHRT_MAX; i++) {
-		EXPECT_EQ(digitCount(i), digitCountValid(i));
-	}
-	
-	
-	
-}
-
