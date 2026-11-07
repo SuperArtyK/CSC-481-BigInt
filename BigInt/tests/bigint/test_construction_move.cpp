@@ -16,7 +16,7 @@ TEST(BigintConstruction, MoveZero) {
 	std::vector<limb_t> limbs = tester::getLimbs(b);
 	bool neg = tester::getNegative(b);
 	
-	EXPECT_EQ(limbs.size(), 1);
+	ASSERT_EQ(limbs.size(), 1);
 	EXPECT_EQ(limbs[0], 0);
 	EXPECT_EQ(neg, false);
 }
