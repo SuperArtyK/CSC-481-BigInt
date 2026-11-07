@@ -39,12 +39,20 @@ TEST(BigintConstruction, CopyValue) {
 	const bool expNeg = true;
 	
 	tester::load(a, expLimbs, expNeg);
-	const std::vector<limb_t> limbsA = tester::getLimbs(a);
+	std::vector<limb_t> limbsA = tester::getLimbs(a);
 	
 	EXPECT_EQ(limbsA, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(a), expNeg);
 	
 	BigInt b(a);
+	//test that copy doesn't mutate in the first place
+	tester::load(a, expLimbs, expNeg);
+	limbsA = tester::getLimbs(a);
+	ASSERT_EQ(limbsA, std::vector<limb_t>(expLimbs));
+	ASSERT_EQ(tester::getNegative(a), expNeg);
+	
+	
+	
 	const std::vector<limb_t> limbsB = tester::getLimbs(b);
 	EXPECT_EQ(limbsB, limbsA);
 	EXPECT_EQ(tester::getNegative(b), tester::getNegative(a));
@@ -60,6 +68,13 @@ TEST(BigintConstruction, CopyValueIndependent) {
 	tester::load(a, expLimbs, expNeg);
 	
 	BigInt b(a);
+	
+	//test that copy doesn't mutate in the first place
+	tester::load(a, expLimbs, expNeg);
+	const std::vector<limb_t> limbsA = tester::getLimbs(a);
+	ASSERT_EQ(limbsA, std::vector<limb_t>(expLimbs));
+	ASSERT_EQ(tester::getNegative(a), expNeg);
+	
 	
 	tester::load(a, {420,999}, false);
 	
