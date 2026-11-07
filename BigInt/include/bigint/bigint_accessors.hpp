@@ -21,6 +21,9 @@ inline std::size_t BigInt::getLimbCount() const noexcept {
 }
 
 inline std::uintmax_t BigInt::getDigitCount() const noexcept {
+	if (this->getLimbCount() > LIMB_DIGITCOUNT_MAX) {
+		return 0;
+	}
 	return ( this->getLimbCount() - 1 ) * LIMB_DIGITS + digitCount(this->getLastLimb());
 }
 

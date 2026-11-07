@@ -62,6 +62,9 @@ constexpr limb_t STORAGE_MASK = powersOf10[LIMB_DIGITS];
 /// @see STORAGE_MASK
 constexpr limb_t STORAGE_MAX = STORAGE_MASK - 1;
 
+/// @brief The maximum amount of limbs whose digits can be calculated precisely
+/// @see LIMB_DIGITS
+constexpr std::uintmax_t LIMB_DIGITCOUNT_MAX = std::numeric_limits<std::uintmax_t>::max() / LIMB_DIGITS;
 
 /// @brief Big integer type class, copies the functionality of regular integers, but on arbitrary scale.
 /// @note Technical limit for the size of the BigInt is std::size_t*digits(limb_t)
@@ -98,6 +101,7 @@ public:
 	[[nodiscard]] inline std::size_t getLimbCount() const noexcept;
 	
 	/// @brief Returns the total current digit count of the bigint
+	/// @attention If limbcount exceeds LIMB_DIGITCOUNT_MAX (overflows), it returns 0
 	/// @see BigInt::getLimbCount()
 	[[nodiscard]] inline std::uintmax_t getDigitCount() const noexcept;
 	
