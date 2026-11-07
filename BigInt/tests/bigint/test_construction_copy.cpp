@@ -21,6 +21,17 @@ TEST(BigintConstruction, CopyZero) {
 	EXPECT_EQ(neg, false);
 }
 
+
+TEST(BigintConstruction, CopyEmpty) {
+	BigInt a;
+	tester::load(a, {}, false);
+	BigInt b(a);
+	
+	EXPECT_TRUE(tester::getLimbs(b).empty());
+	EXPECT_EQ(tester::getNegative(b), false);
+}
+
+
 TEST(BigintConstruction, CopyValue) {
 	BigInt a;
 	
@@ -60,8 +71,6 @@ TEST(BigintConstruction, CopyValueIndependent) {
 	EXPECT_EQ(tester::getNegative(b), expNeg);
 	
 }
-
-
 
 TEST(BigintConstruction, CopyValueDenorm_TrailZero) {
 	BigInt a;
