@@ -13,7 +13,7 @@
 
 #include "bigint/utils.hpp"
 
-TEST(DebugOutEnabled, Printf) {
+TEST(UtilsTest, Printf_DebugOutEnabled) {
 	testing::internal::CaptureStdout();
 
 	//DO NOT MOVE SEPARATE 2 LINES
@@ -32,7 +32,7 @@ TEST(DebugOutEnabled, Printf) {
 	EXPECT_EQ(actual, expected);
 }
 
-TEST(DebugOutEnabled, Cout) {
+TEST(UtilsTest, Cout_DebugOutEnabled) {
 	testing::internal::CaptureStdout();
 
 	//DO NOT MOVE SEPARATE 2 LINES
