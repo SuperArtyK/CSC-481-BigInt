@@ -11,7 +11,7 @@ using tester = bigint_test::Inspector;
 
 TEST(BigintConstruction, CopyZero) {
 	BigInt a;
-	BigInt b = a;
+	BigInt b(a);
 	
 	std::vector<limb_t> limbs = tester::getLimbs(b);
 	bool neg = tester::getNegative(b);
@@ -33,7 +33,7 @@ TEST(BigintConstruction, CopyValue) {
 	EXPECT_EQ(limbsA, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(a), expNeg);
 	
-	BigInt b = a;
+	BigInt b(a);
 	const std::vector<limb_t> limbsB = tester::getLimbs(b);
 	EXPECT_EQ(limbsB, limbsA);
 	EXPECT_EQ(tester::getNegative(b), tester::getNegative(a));
@@ -48,7 +48,7 @@ TEST(BigintConstruction, CopyValueIndependent) {
 	
 	tester::load(a, expLimbs, expNeg);
 	
-	BigInt b = a;
+	BigInt b(a);
 	
 	tester::load(a, {420,999}, false);
 	
@@ -75,7 +75,7 @@ TEST(BigintConstruction, CopyValueDenorm_TrailZero) {
 	EXPECT_EQ(limbsA, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(a), expNeg);
 	
-	BigInt b = a;
+	BigInt b(a);
 	const std::vector<limb_t> limbsB = tester::getLimbs(b);
 	EXPECT_EQ(limbsB, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(b), expNeg);
@@ -95,7 +95,7 @@ TEST(BigintConstruction, CopyValueDenorm_ZeroNeg) {
 	EXPECT_EQ(limbsA, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(a), expNeg);
 	
-	BigInt b = a;
+	BigInt b(a);
 	const std::vector<limb_t> limbsB = tester::getLimbs(b);
 	EXPECT_EQ(limbsB, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(b), expNeg);
@@ -113,7 +113,7 @@ TEST(BigintConstruction, CopyValueDenorm_ZeroTrailNeg) {
 	EXPECT_EQ(limbsA, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(a), expNeg);
 	
-	BigInt b = a;
+	BigInt b(a);
 	const std::vector<limb_t> limbsB = tester::getLimbs(b);
 	EXPECT_EQ(limbsB, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(b), expNeg);
