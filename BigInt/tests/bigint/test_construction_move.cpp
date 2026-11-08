@@ -30,6 +30,17 @@ TEST(BigintConstruction, MoveEmpty) {
 	EXPECT_EQ(tester::getNegative(b), false);
 }
 
+TEST(BigintConstruction, MoveEmptyNegative) {
+	BigInt a;
+
+	tester::load(a, {}, true);
+
+	BigInt b(std::move(a));
+
+	EXPECT_TRUE(tester::getLimbs(b).empty());
+	EXPECT_TRUE(tester::getNegative(b));
+}
+
 TEST(BigintConstruction, MoveValue) {
 	BigInt a;
 	
@@ -46,6 +57,20 @@ TEST(BigintConstruction, MoveValue) {
 	EXPECT_EQ(limbsB, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(b), expNeg);
 	
+}
+
+TEST(BigintConstruction, MovePositiveValue) {
+	BigInt a;
+
+	tester::load(a, {123, 456, 789}, false);
+
+	BigInt b(std::move(a));
+
+	EXPECT_EQ(
+		tester::getLimbs(b),
+		(std::vector<limb_t>{123, 456, 789})
+	);
+	EXPECT_FALSE(tester::getNegative(b));
 }
 
 TEST(BigintConstruction, MoveValueIndependent) {
@@ -121,4 +146,64 @@ TEST(BigintConstruction, MoveValueDenorm_ZeroTrailNeg) {
 	const std::vector<limb_t> limbsB = tester::getLimbs(b);
 	EXPECT_EQ(limbsB, std::vector<limb_t>(expLimbs));
 	EXPECT_EQ(tester::getNegative(b), expNeg);
+}
+
+TEST(BigintConstruction, MoveSource_Restored) {
+	BigInt a;
+
+	const std::vector<limb_t> expected{123, 456, 789};
+	tester::load(a, {123, 456, 789}, true);
+
+	BigInt b(std::move(a));
+
+	// Verify the destination.
+	EXPECT_EQ(tester::getLimbs(b), expected);
+	EXPECT_TRUE(tester::getNegative(b));
+
+	// Restore the moved-from source through the public API.
+	a.setToZero();
+
+	// Source must now contain canonical zero.
+	EXPECT_EQ(
+		tester::getLimbs(a),
+		(std::vector<limb_t>{0})
+	);
+	EXPECT_FALSE(tester::getNegative(a));
+
+	// Restoring the source must not affect the destination.
+	EXPECT_EQ(tester::getLimbs(b), expected);
+	EXPECT_TRUE(tester::getNegative(b));
+}
+
+TEST(BigintConstruction, MoveSource_Assigned) {
+	BigInt a;
+
+	// Establish the original representation.
+	tester::load(a, {123, 456, 789}, true);
+
+	// Move from a into b.
+	BigInt b(std::move(a));
+
+	// Verify the move destination.
+	const std::vector<limb_t> expected{123, 456, 789};
+
+	EXPECT_EQ(tester::getLimbs(b), expected);
+	EXPECT_TRUE(tester::getNegative(b));
+
+	// The moved-from object must remain assignable.
+	a = b;
+
+	// Verify assignment restored the expected representation.
+	EXPECT_EQ(tester::getLimbs(a), expected);
+	EXPECT_TRUE(tester::getNegative(a));
+
+	// Assignment must not modify the source.
+	EXPECT_EQ(tester::getLimbs(b), expected);
+	EXPECT_TRUE(tester::getNegative(b));
+
+	// Verify independence after assignment.
+	tester::load(b, {42, 999}, false);
+
+	EXPECT_EQ(tester::getLimbs(a), expected);
+	EXPECT_TRUE(tester::getNegative(a));
 }
