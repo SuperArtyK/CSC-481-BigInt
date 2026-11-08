@@ -31,6 +31,19 @@ TEST(BigintConstruction, CopyEmpty) {
 	EXPECT_EQ(tester::getNegative(b), false);
 }
 
+TEST(BigintConstruction, CopyEmptyNegative) {
+	BigInt a;
+
+	tester::load(a, {}, true);
+
+	BigInt b(a);
+
+	EXPECT_TRUE(tester::getLimbs(a).empty());
+	EXPECT_TRUE(tester::getNegative(a));
+
+	EXPECT_TRUE(tester::getLimbs(b).empty());
+	EXPECT_TRUE(tester::getNegative(b));
+}
 
 TEST(BigintConstruction, CopyValue) {
 	BigInt a;
@@ -56,6 +69,23 @@ TEST(BigintConstruction, CopyValue) {
 	EXPECT_EQ(limbsB, limbsA);
 	EXPECT_EQ(tester::getNegative(b), tester::getNegative(a));
 	
+}
+
+TEST(BigintConstruction, CopyPositiveValue) {
+	BigInt a;
+
+	const std::vector<limb_t> expected{123, 456, 789};
+	tester::load(a, {123, 456, 789}, false);
+
+	BigInt b(a);
+
+	// The source must remain unchanged.
+	EXPECT_EQ(tester::getLimbs(a), expected);
+	EXPECT_FALSE(tester::getNegative(a));
+
+	// The destination must preserve the representation.
+	EXPECT_EQ(tester::getLimbs(b), expected);
+	EXPECT_FALSE(tester::getNegative(b));
 }
 
 TEST(BigintConstruction, CopyValueIndependent) {
