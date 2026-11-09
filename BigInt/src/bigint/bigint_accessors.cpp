@@ -5,6 +5,8 @@
 #include "bigint/bigint_declaration.hpp"
 #include "bigint/bigint_accessors.hpp"
 #include "bigint/utils.hpp"
+#include <limits>
+#include <stdexcept>
 
 bool BigInt::setLimb(const std::size_t index, const limb_t value) {
 	if (index >= this->getLimbCount() && value == 0) {
@@ -34,6 +36,10 @@ bool BigInt::setLimbRaw(const std::size_t index, const limb_t value) {
 	if (value > STORAGE_MAX) {
 		cdbg<<"Value is more then STORAGE_MAX, failed"<<NLC;
 		return false; // failed
+	}
+
+	if (index == std::numeric_limits<std::size_t>::max()) {
+		throw std::length_error("BigInt limb index exceeds maximum storage size");
 	}
 		
 	// index is larger than what can be stored
