@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 #include "bigint/bigint.hpp"
-#include "bigint_inspector.hpp"
+#include "test_helpers.hpp"
 
 using tester = bigint_test::Inspector;
 
@@ -30,14 +30,4 @@ TEST(BigintArithmeticCarry, AddCarryAcrossLimbBoundary) {
 	ASSERT_TRUE(b.setLimb(0, 1));
 	BigInt c = a + b;
 	EXPECT_EQ(c.toStringDec(), "100000000000000000000");
-}
-
-
-	BigInt b;
-	ASSERT_TRUE(b.setLimb(1, 111111111111111111));
-	ASSERT_TRUE(b.setLimb(0, 2222222));
-
-	BigInt c = a + b;
-
-	EXPECT_EQ(c.toStringDec(), "234567900234567900125679011");
 }
