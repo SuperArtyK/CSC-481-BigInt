@@ -178,7 +178,7 @@ public:
 	/// @returns True if bigint is normalised, false otherwise
 	/// @see BigInt::isZero()
 	[[nodiscard]] bool isNormalised() const noexcept;
-
+	BigInt operator+(const BigInt& rhs) const;
 private:
 	
 	/// @brief Completely clear the underlying bigint: clear containers and remove negativity
