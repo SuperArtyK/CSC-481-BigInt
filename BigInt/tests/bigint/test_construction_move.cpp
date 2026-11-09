@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 #include "bigint/bigint.hpp"
-#include "bigint_inspector.hpp"
+#include "test_helpers.hpp"
 
 using tester = bigint_test::Inspector;
 
