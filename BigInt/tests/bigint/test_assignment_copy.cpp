@@ -107,6 +107,11 @@ TEST(BigintAssignment, CopyPreservesSourceAndUsesIndependentStorage) {
 
 	expectRepresentation(source, {42, 999}, false);
 	expectRepresentation(destination, {123, 456, 0}, true);
+
+	tester::load(destination, {777}, false);
+
+	expectRepresentation(destination, {777}, false);
+	expectRepresentation(source, {42, 999}, false);
 }
 
 TEST(BigintAssignment, CopySelfAssignmentPreservesRepresentation) {
