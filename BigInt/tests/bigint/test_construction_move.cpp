@@ -3,207 +3,130 @@
 //
 
 #include <gtest/gtest.h>
+#include <utility>
 #include "bigint/bigint.hpp"
 #include "test_helpers.hpp"
 
 using tester = bigint_test::Inspector;
-
+using bigint_test::expectRepresentation;
 
 TEST(BigintConstruction, MoveZero) {
-	BigInt a;
-	BigInt b(std::move(a));
-	
-	std::vector<limb_t> limbs = tester::getLimbs(b);
-	bool neg = tester::getNegative(b);
-	
-	ASSERT_EQ(limbs.size(), 1);
-	EXPECT_EQ(limbs[0], 0);
-	EXPECT_EQ(neg, false);
+	BigInt source;
+	BigInt destination(std::move(source));
+
+	expectRepresentation(destination, {0}, false);
 }
 
 TEST(BigintConstruction, MoveEmpty) {
-	BigInt a;
-	tester::load(a, {}, false);
-	BigInt b(std::move(a));
-	
-	EXPECT_TRUE(tester::getLimbs(b).empty());
-	EXPECT_EQ(tester::getNegative(b), false);
+	BigInt source;
+	tester::load(source, {}, false);
+
+	BigInt destination(std::move(source));
+
+	expectRepresentation(destination, {}, false);
 }
 
 TEST(BigintConstruction, MoveEmptyNegative) {
-	BigInt a;
+	BigInt source;
+	tester::load(source, {}, true);
 
-	tester::load(a, {}, true);
+	BigInt destination(std::move(source));
 
-	BigInt b(std::move(a));
-
-	EXPECT_TRUE(tester::getLimbs(b).empty());
-	EXPECT_TRUE(tester::getNegative(b));
+	expectRepresentation(destination, {}, true);
 }
 
 TEST(BigintConstruction, MoveValue) {
-	BigInt a;
-	
-	const std::initializer_list<limb_t> expLimbs {123,456,789};
-	const bool expNeg = true;
-	
-	tester::load(a, expLimbs, expNeg);
-	const std::vector<limb_t> limbsA = tester::getLimbs(a);
-	EXPECT_EQ(limbsA, std::vector<limb_t>(expLimbs));
-	EXPECT_EQ(tester::getNegative(a), expNeg);
-	
-	BigInt b(std::move(a));
-	const std::vector<limb_t> limbsB = tester::getLimbs(b);
-	EXPECT_EQ(limbsB, std::vector<limb_t>(expLimbs));
-	EXPECT_EQ(tester::getNegative(b), expNeg);
-	
+	BigInt source;
+	const std::vector<limb_t> expectedLimbs{123, 456, 789};
+	const bool expectedNegative = true;
+	tester::load(source, {123, 456, 789}, expectedNegative);
+
+	BigInt destination(std::move(source));
+
+	expectRepresentation(destination, expectedLimbs, expectedNegative);
 }
 
 TEST(BigintConstruction, MovePositiveValue) {
-	BigInt a;
+	BigInt source;
+	tester::load(source, {123, 456, 789}, false);
 
-	tester::load(a, {123, 456, 789}, false);
+	BigInt destination(std::move(source));
 
-	BigInt b(std::move(a));
-
-	EXPECT_EQ(
-		tester::getLimbs(b),
-		(std::vector<limb_t>{123, 456, 789})
-	);
-	EXPECT_FALSE(tester::getNegative(b));
+	expectRepresentation(destination, {123, 456, 789}, false);
 }
 
 TEST(BigintConstruction, MoveValueIndependent) {
-	BigInt a;
-	
-	const std::initializer_list<limb_t> expLimbs {123,456,789};
-	const bool expNeg = true;
-	
-	tester::load(a, expLimbs, expNeg);
-	
-	BigInt b(std::move(a));
-	
-	tester::load(a, {420,999}, false);
-	
-	
-	const std::vector<limb_t> limbsB = tester::getLimbs(b);
-	EXPECT_NE(limbsB, tester::getLimbs(a));
-	EXPECT_NE(tester::getNegative(b), tester::getNegative(a));
-	EXPECT_EQ(limbsB, std::vector<limb_t>(expLimbs));
-	EXPECT_EQ(tester::getNegative(b), expNeg);
-	
-}
+	BigInt source;
+	const std::vector<limb_t> expectedLimbs{123, 456, 789};
+	const bool expectedNegative = true;
+	tester::load(source, {123, 456, 789}, expectedNegative);
 
+	BigInt destination(std::move(source));
+	tester::load(source, {420, 999}, false);
+
+	expectRepresentation(source, {420, 999}, false);
+	expectRepresentation(destination, expectedLimbs, expectedNegative);
+}
 
 TEST(BigintConstruction, MoveValueDenorm_TrailZero) {
-	BigInt a;
-	
-	const std::initializer_list<limb_t> expLimbs {123,456,789, 0,0,0,0};
-	const bool expNeg = true;
-	
-	tester::load(a, expLimbs, expNeg);
-	const std::vector<limb_t> limbsA = tester::getLimbs(a);
-	EXPECT_EQ(limbsA, std::vector<limb_t>(expLimbs));
-	EXPECT_EQ(tester::getNegative(a), expNeg);
-	
-	BigInt b(std::move(a));
-	const std::vector<limb_t> limbsB = tester::getLimbs(b);
-	EXPECT_EQ(limbsB, std::vector<limb_t>(expLimbs));
-	EXPECT_EQ(tester::getNegative(b), expNeg);
-	
+	BigInt source;
+	const std::vector<limb_t> expectedLimbs{123, 456, 789, 0, 0, 0, 0};
+	const bool expectedNegative = true;
+	tester::load(source, {123, 456, 789, 0, 0, 0, 0}, expectedNegative);
+
+	BigInt destination(std::move(source));
+
+	expectRepresentation(destination, expectedLimbs, expectedNegative);
 }
 
-
 TEST(BigintConstruction, MoveValueDenorm_ZeroNeg) {
-	BigInt a;
-	
-	const std::initializer_list<limb_t> expLimbs {0};
-	const bool expNeg = true;
-	
-	tester::load(a, expLimbs, expNeg);
-	const std::vector<limb_t> limbsA = tester::getLimbs(a);
-	EXPECT_EQ(limbsA, std::vector<limb_t>(expLimbs));
-	EXPECT_EQ(tester::getNegative(a), expNeg);
-	
-	BigInt b(std::move(a));
-	const std::vector<limb_t> limbsB = tester::getLimbs(b);
-	EXPECT_EQ(limbsB, std::vector<limb_t>(expLimbs));
-	EXPECT_EQ(tester::getNegative(b), expNeg);
+	BigInt source;
+	tester::load(source, {0}, true);
+
+	BigInt destination(std::move(source));
+
+	expectRepresentation(destination, {0}, true);
 }
 
 TEST(BigintConstruction, MoveValueDenorm_ZeroTrailNeg) {
-	BigInt a;
-	
-	const std::initializer_list<limb_t> expLimbs {0,0,0,0,0,0};
-	const bool expNeg = true;
-	
-	tester::load(a, expLimbs, expNeg);
-	const std::vector<limb_t> limbsA = tester::getLimbs(a);
-	EXPECT_EQ(limbsA, std::vector<limb_t>(expLimbs));
-	EXPECT_EQ(tester::getNegative(a), expNeg);
-	
-	BigInt b(std::move(a));
-	const std::vector<limb_t> limbsB = tester::getLimbs(b);
-	EXPECT_EQ(limbsB, std::vector<limb_t>(expLimbs));
-	EXPECT_EQ(tester::getNegative(b), expNeg);
+	BigInt source;
+	const std::vector<limb_t> expectedLimbs{0, 0, 0, 0, 0, 0};
+	const bool expectedNegative = true;
+	tester::load(source, {0, 0, 0, 0, 0, 0}, expectedNegative);
+
+	BigInt destination(std::move(source));
+
+	expectRepresentation(destination, expectedLimbs, expectedNegative);
 }
 
 TEST(BigintConstruction, MoveSource_Restored) {
-	BigInt a;
+	BigInt source;
+	const std::vector<limb_t> expectedLimbs{123, 456, 789};
+	tester::load(source, {123, 456, 789}, true);
 
-	const std::vector<limb_t> expected{123, 456, 789};
-	tester::load(a, {123, 456, 789}, true);
+	BigInt destination(std::move(source));
+	expectRepresentation(destination, expectedLimbs, true);
 
-	BigInt b(std::move(a));
+	source.setToZero();
 
-	// Verify the destination.
-	EXPECT_EQ(tester::getLimbs(b), expected);
-	EXPECT_TRUE(tester::getNegative(b));
-
-	// Restore the moved-from source through the public API.
-	a.setToZero();
-
-	// Source must now contain canonical zero.
-	EXPECT_EQ(
-		tester::getLimbs(a),
-		(std::vector<limb_t>{0})
-	);
-	EXPECT_FALSE(tester::getNegative(a));
-
-	// Restoring the source must not affect the destination.
-	EXPECT_EQ(tester::getLimbs(b), expected);
-	EXPECT_TRUE(tester::getNegative(b));
+	expectRepresentation(source, {0}, false);
+	expectRepresentation(destination, expectedLimbs, true);
 }
 
 TEST(BigintConstruction, MoveSource_Assigned) {
-	BigInt a;
+	BigInt source;
+	const std::vector<limb_t> expectedLimbs{123, 456, 789};
+	tester::load(source, {123, 456, 789}, true);
 
-	// Establish the original representation.
-	tester::load(a, {123, 456, 789}, true);
+	BigInt destination(std::move(source));
+	expectRepresentation(destination, expectedLimbs, true);
 
-	// Move from a into b.
-	BigInt b(std::move(a));
+	source = destination;
 
-	// Verify the move destination.
-	const std::vector<limb_t> expected{123, 456, 789};
+	expectRepresentation(source, expectedLimbs, true);
+	expectRepresentation(destination, expectedLimbs, true);
 
-	EXPECT_EQ(tester::getLimbs(b), expected);
-	EXPECT_TRUE(tester::getNegative(b));
+	tester::load(destination, {42, 999}, false);
 
-	// The moved-from object must remain assignable.
-	a = b;
-
-	// Verify assignment restored the expected representation.
-	EXPECT_EQ(tester::getLimbs(a), expected);
-	EXPECT_TRUE(tester::getNegative(a));
-
-	// Assignment must not modify the source.
-	EXPECT_EQ(tester::getLimbs(b), expected);
-	EXPECT_TRUE(tester::getNegative(b));
-
-	// Verify independence after assignment.
-	tester::load(b, {42, 999}, false);
-
-	EXPECT_EQ(tester::getLimbs(a), expected);
-	EXPECT_TRUE(tester::getNegative(a));
+	expectRepresentation(source, expectedLimbs, true);
 }
