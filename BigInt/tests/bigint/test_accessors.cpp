@@ -5,6 +5,7 @@
 #include <gtest/gtest.h>
 #include <limits>
 #include <type_traits>
+#include <utility>
 #include "bigint/bigint.hpp"
 #include "test_helpers.hpp"
 
@@ -47,6 +48,9 @@ TEST(BigintAccessors, GetLimb) {
 	EXPECT_EQ(constantValue.getLimb(1), 0u);
 	EXPECT_EQ(constantValue.getLimb(2), 789u);
 	EXPECT_EQ(constantValue.getLimb(3), 0u);
+
+	tester::load(value, {STORAGE_MAX}, false);
+	EXPECT_EQ(constantValue.getLimb(0), STORAGE_MAX);
 
 	EXPECT_EQ(constantValue.getLimb(4), 0u);
 	EXPECT_EQ(constantValue.getLimb(100), 0u);
@@ -181,6 +185,20 @@ TEST(BigintAccessors, GetDigitCount) {
 	EXPECT_EQ(constantValue.getDigitCount(), 54u);
 }
 
+TEST(BigintAccessors, GetDigitCountTopLimbBoundary) {
+	BigInt value;
+	const BigInt& constantValue = value;
+
+	tester::load(value, {0, STORAGE_MAX / 10}, false);
+	EXPECT_EQ(constantValue.getDigitCount(), 35u);
+
+	tester::load(value, {0, STORAGE_MAX / 10 + 1}, false);
+	EXPECT_EQ(constantValue.getDigitCount(), 36u);
+
+	tester::load(value, {0, STORAGE_MAX}, false);
+	EXPECT_EQ(constantValue.getDigitCount(), 36u);
+}
+
 TEST(BigintAccessors, AccessorsDoNotMutateStorage) {
 	BigInt value;
 	tester::load(value, {123, 0, 789, 0}, true);
@@ -194,4 +212,20 @@ TEST(BigintAccessors, AccessorsDoNotMutateStorage) {
 	EXPECT_TRUE(constantValue.isNegative());
 
 	expectRepresentation(value, expectedLimbs, true);
+}
+
+TEST(BigintAccessors, NumericalQueriesDoNotMutateStorage) {
+	BigInt value;
+	tester::load(value, {0, 123}, true);
+	const BigInt& constantValue = value;
+
+	EXPECT_FALSE(constantValue.isZero());
+	EXPECT_EQ(constantValue.getDigitCount(), 21u);
+	expectRepresentation(value, {0, 123}, true);
+
+	tester::load(value, {0}, false);
+
+	EXPECT_TRUE(constantValue.isZero());
+	EXPECT_EQ(constantValue.getDigitCount(), 1u);
+	expectRepresentation(value, {0}, false);
 }
