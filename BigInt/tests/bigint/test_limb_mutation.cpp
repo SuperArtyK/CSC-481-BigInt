@@ -115,6 +115,15 @@ TEST(BigintSetLimbRaw, ExtendsEmptyStorageWithoutNormalizing) {
 	expectRepresentation(value, {0, 0, 0}, true);
 }
 
+TEST(BigintSetLimbRaw, NonzeroWriteToNegativeEmptyStorage) {
+	BigInt value;
+	tester::load(value, {}, true);
+
+	ASSERT_TRUE(value.setLimbRaw(2, 42));
+
+	expectRepresentation(value, {0, 0, 42}, true);
+}
+
 TEST(BigintSetLimbRaw, MaximumIndexThrowsInsteadOfOverflowing) {
 	BigInt value;
 	const std::size_t maximum = std::numeric_limits<std::size_t>::max();
@@ -146,6 +155,16 @@ TEST(BigintSetLimb, ReplacesExistingLimbAndPreservesSign) {
 	ASSERT_TRUE(value.setLimb(1, 42));
 
 	expectRepresentation(value, {123, 42, 789}, true);
+	EXPECT_TRUE(value.isNormalised());
+}
+
+TEST(BigintSetLimb, UnchangedValueStillNormalizes) {
+	BigInt value;
+	tester::load(value, {123, 0, 0}, true);
+
+	ASSERT_TRUE(value.setLimb(0, 123));
+
+	expectRepresentation(value, {123}, true);
 	EXPECT_TRUE(value.isNormalised());
 }
 
