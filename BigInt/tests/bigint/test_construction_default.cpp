@@ -7,17 +7,13 @@
 #include "test_helpers.hpp"
 
 using tester = bigint_test::Inspector;
+using bigint_test::expectRepresentation;
 
 TEST(BigintConstruction, DefaultZero) {
 	BigInt a;
-	
-	std::vector<limb_t> limbs = tester::getLimbs(a);
-	bool neg = tester::getNegative(a);
-	
-	ASSERT_EQ(limbs.size(), 1);
-	EXPECT_EQ(limbs[0], 0);
-	EXPECT_EQ(neg, false);
-	
+
+	expectRepresentation(a, {0}, false);
+
 }
 
 //Testing for carryover in BigInt addition
