@@ -148,3 +148,13 @@ TEST(BigintAssignment, MoveSelfAssignmentPreservesRepresentation) {
 	EXPECT_EQ(&result, &value);
 	expectRepresentation(value, {}, true);
 }
+
+TEST(BigintAssignment, MoveSelfAssignmentPreservesMultiLimbRepresentation) {
+	BigInt value;
+	tester::load(value, {123, 456, 789}, true);
+
+	BigInt& result = (value = std::move(value));
+
+	EXPECT_EQ(&result, &value);
+	expectRepresentation(value, {123, 456, 789}, true);
+}

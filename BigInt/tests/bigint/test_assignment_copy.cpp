@@ -118,3 +118,13 @@ TEST(BigintAssignment, CopySelfAssignmentPreservesRepresentation) {
 	EXPECT_EQ(&result, &value);
 	expectRepresentation(value, {123, 456, 0, 0}, true);
 }
+
+TEST(BigintAssignment, CopySelfAssignmentPreservesEmptyStorage) {
+	BigInt value;
+	tester::load(value, {}, true);
+
+	BigInt& result = (value = value);
+
+	EXPECT_EQ(&result, &value);
+	expectRepresentation(value, {}, true);
+}
