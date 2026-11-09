@@ -146,7 +146,7 @@ public:
 	/// @param value Value of the limb to be set at the passed index
 	/// @note The bigint is normalised after the successful operation
 	/// @attention If passed value is larger than STORAGE_MAX (or is less than 0), the operation fails
-	/// @attention If passed index is equal to std::numeric_limits<std::size_t>::max(), the operation fails
+	/// @warning If passed index is equal to std::numeric_limits<std::size_t>::max(), fails and throws std::length_error() exception
 	/// @note If the index is outside of the range, it allocates as many limbs as needed to fit that index
 	/// @attention If provided value is 0 and index is outside of the range, operation is a no-op; object is not mutated
 	/// @returns True if the operation was successful, false otherwise
@@ -160,7 +160,7 @@ public:
 	/// @param value Value of the limb to be set at the passed index
 	/// @warning Can leave the bigint in a non-normalised state; you are responsible for restoring normalisation
 	/// @attention If passed value is larger than STORAGE_MAX (or is less than 0), the operation fails
-	/// @attention If passed index is equal to std::numeric_limits<std::size_t>::max(), the operation fails
+	/// @warning If passed index is equal to std::numeric_limits<std::size_t>::max(), fails and throws std::length_error() exception
 	/// @note If the index is outside of the range, it allocates as many limbs as needed to fit that index
 	/// @returns True if the operation was successful, false otherwise
 	/// @see STORAGE_MAX
