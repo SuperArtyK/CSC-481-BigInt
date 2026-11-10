@@ -93,19 +93,19 @@ template <typename T>
                         lo + (hi - lo + 1) / 2;
 
                     // Generate the threshold at compile time.
-                    constexpr V threshold = [] {
+                    constexpr V threshold = [](std::size_t digits) {
                         V power = V{1};
 
                         if constexpr (Limits::is_signed) {
                             power = -power;
                         }
 
-                        for (std::size_t i = 1; i < mid; ++i) {
+                        for (std::size_t i = 1; i < digits; ++i) {
                             power = static_cast<V>(power * 10);
                         }
 
                         return power;
-                    }();
+                    }(mid);
 
                     if constexpr (Limits::is_signed) {
                         return x <= threshold
