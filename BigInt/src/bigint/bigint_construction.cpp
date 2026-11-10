@@ -43,22 +43,3 @@ BigInt& BigInt::operator=(BigInt&& bint) noexcept {
 	this->m_bNegative = bint.m_bNegative;
 	return *this;
 }
-
-BigInt BigInt::operator+(const BigInt& rhs) const {
-	BigInt result;
-	const std::size_t count =
-		getLimbCount() > rhs.getLimbCount()
-			? getLimbCount()
-			: rhs.getLimbCount();
-	limb_t carry = 0;
-	for (std::size_t i = 0; i < count; ++i) {
-		const limb_t total = getLimb(i) + rhs.getLimb(i) + carry;
-		result.setLimbRaw(i, total % STORAGE_MASK);
-		carry = total / STORAGE_MASK;
-	}
-	if (carry != 0) {
-		result.setLimbRaw(count, carry);
-	}
-	result.normalise();
-	return result;
-}
