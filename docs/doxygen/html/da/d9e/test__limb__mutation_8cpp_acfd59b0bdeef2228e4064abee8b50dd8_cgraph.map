@@ -1,0 +1,13 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,43,61,69"/>
+<area shape="rect" id="Node000002" href="$da/d5b/classBigInt.html#a91f23442d1a1f5ee68f2ae4b92fe760f" title="Sets a magnitude limb without normalizing the representation." alt="" coords="109,5,245,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,47,110,34,106,38,62,51"/>
+<area shape="rect" id="Node000004" href="$d1/dee/test__accessors_8cpp.html#a3613f5398f06b3fe208c5b4b9e9e9c7d" title=" " alt="" coords="149,80,204,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="61,60,136,80,132,84,61,66"/>
+<area shape="rect" id="Node000003" href="$da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="293,13,437,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="245,19,280,22,275,23,246,24"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="204,81,308,46,314,45,206,86"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="152,79,147,71,150,62,160,56,177,53,194,56,205,65,200,64,192,61,177,59,162,61,154,65,153,71,156,81"/>
+<area shape="rect" id="Node000005" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title=" " alt="" coords="294,72,437,115"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="205,91,280,93,275,94,205,96"/>
+</map>

@@ -1,0 +1,7 @@
+var namespacebigint__test =
+[
+    [ "Inspector", "dc/d6d/structbigint__test_1_1Inspector.html", null ],
+    [ "expectRepresentation", "dd/db0/namespacebigint__test.html#afb392cf99372bf839e0efb54e337c7db", null ],
+    [ "testCopyPreservesRepresentation", "dd/db0/namespacebigint__test.html#a792481768a7337c9178bfe19e5e8ae42", null ],
+    [ "testMovePreservesRepresentation", "dd/db0/namespacebigint__test.html#a1dc9ce8fdd5412f568c485ceeaff7978", null ]
+];

@@ -1,0 +1,245 @@
+\doxysection{Big\+Int/\+tests/\+bigint/\+test\+\_\+accessors.cpp File Reference}
+\hypertarget{test__accessors_8cpp}{}\label{test__accessors_8cpp}\index{BigInt/tests/bigint/test\_accessors.cpp@{BigInt/tests/bigint/test\_accessors.cpp}}
+{\ttfamily \+\#include $<$gtest/\+gtest.\+h$>$}\newline
+{\ttfamily \+\#include $<$limits$>$}\newline
+{\ttfamily \+\#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \+\#include $<$utility$>$}\newline
+{\ttfamily \+\#include "{}bigint/\+bigint.\+hpp"{}}\newline
+{\ttfamily \+\#include "{}test\+\_\+helpers.\+hpp"{}}\newline
+Include dependency graph for test\+\_\+accessors.\+cpp:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d08/test__accessors_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \doxymbox{\hyperlink{test__accessors_8cpp_aa617b98d77d823331b56f0c5f949d99c}{tester}} = \doxymbox{\hyperlink{structbigint__test_1_1Inspector}{bigint\+\_\+test::\+\+Inspector}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}} (Bigint\+Accessors, Get\+Limb\+Count)
+\item 
+\doxymbox{\hyperlink{test__accessors_8cpp_ace11d85947788a403e24985e51b4a840}{TEST}} (Bigint\+Accessors, Get\+Limb)
+\item 
+\doxymbox{\hyperlink{test__accessors_8cpp_a2c425757d7fa427863ec56bb8ef42cc8}{TEST}} (Bigint\+Accessors, Get\+First\+Limb)
+\item 
+\doxymbox{\hyperlink{test__accessors_8cpp_ad73a4db1c173d957c6703a7065d6a476}{TEST}} (Bigint\+Accessors, Get\+Last\+Limb)
+\item 
+\doxymbox{\hyperlink{test__accessors_8cpp_a605a4838a317454201e93619232f12c5}{TEST}} (Bigint\+Accessors, Is\+Negative)
+\item 
+\doxymbox{\hyperlink{test__accessors_8cpp_abadd3f0e89a37efdc7c657b3614b80db}{TEST}} (Bigint\+Accessors, Is\+Zero)
+\item 
+\doxymbox{\hyperlink{test__accessors_8cpp_a12bf4b01961db4c3693b0262d7a6030e}{TEST}} (Bigint\+Accessors, Get\+Digit\+Count)
+\item 
+\doxymbox{\hyperlink{test__accessors_8cpp_a4150c54215d74ad248c57be3107d17dd}{TEST}} (Bigint\+Accessors, Get\+Digit\+Count\+Top\+Limb\+Boundary)
+\item 
+\doxymbox{\hyperlink{test__accessors_8cpp_a6594c14d5149f6da799e7e5ba72f9167}{TEST}} (Bigint\+Accessors, Accessors\+Do\+Not\+Mutate\+Storage)
+\item 
+\doxymbox{\hyperlink{test__accessors_8cpp_ac65de3ece6b1e0486f801f4f075abc81}{TEST}} (Bigint\+Accessors, Numerical\+Queries\+Do\+Not\+Mutate\+Storage)
+\item 
+void \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expect\+Representation}} (const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&value, const std::\+vector$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \&expected\+Limbs, const bool expected\+Negative)
+\end{DoxyCompactItemize}
+
+
+\label{test__accessors_8cpp_doc-typedef-members}
+\Hypertarget{test__accessors_8cpp_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{test__accessors_8cpp_aa617b98d77d823331b56f0c5f949d99c}\index{test\_accessors.cpp@{test\_accessors.cpp}!tester@{tester}}
+\index{tester@{tester}!test\_accessors.cpp@{test\_accessors.cpp}}
+\doxysubsubsection{\texorpdfstring{tester}{tester}}
+{\footnotesize\ttfamily \label{test__accessors_8cpp_aa617b98d77d823331b56f0c5f949d99c} 
+using \doxymbox{\hyperlink{test__accessors_8cpp_aa617b98d77d823331b56f0c5f949d99c}{tester}} = \doxymbox{\hyperlink{structbigint__test_1_1Inspector}{bigint\+\_\+test::\+\+Inspector}}}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00012}{12}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
+
+
+
+\label{test__accessors_8cpp_doc-func-members}
+\Hypertarget{test__accessors_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}\index{test\_accessors.cpp@{test\_accessors.cpp}!expectRepresentation@{expectRepresentation}}
+\index{expectRepresentation@{expectRepresentation}!test\_accessors.cpp@{test\_accessors.cpp}}
+\doxysubsubsection{\texorpdfstring{expectRepresentation()}{expectRepresentation()}}
+{\footnotesize\ttfamily \label{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db} 
+void \doxymbox{\hyperlink{namespacebigint__test_afb392cf99372bf839e0efb54e337c7db}{bigint\+\_\+test::\+expect\+Representation}} (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&}]{value}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \&}]{expected\+Limbs}{, }\item[{const bool}]{expected\+Negative}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00033}{33}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+
+\Hypertarget{test__accessors_8cpp_a6594c14d5149f6da799e7e5ba72f9167}\index{test\_accessors.cpp@{test\_accessors.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_accessors.cpp@{test\_accessors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [1/10]}}
+{\footnotesize\ttfamily \label{test__accessors_8cpp_a6594c14d5149f6da799e7e5ba72f9167} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Accessors\+Do\+Not\+Mutate\+Storage}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00202}{202}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/test__accessors_8cpp_a6594c14d5149f6da799e7e5ba72f9167_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__accessors_8cpp_a12bf4b01961db4c3693b0262d7a6030e}\index{test\_accessors.cpp@{test\_accessors.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_accessors.cpp@{test\_accessors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [2/10]}}
+{\footnotesize\ttfamily \label{test__accessors_8cpp_a12bf4b01961db4c3693b0262d7a6030e} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Get\+Digit\+Count}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00135}{135}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/test__accessors_8cpp_a12bf4b01961db4c3693b0262d7a6030e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__accessors_8cpp_a4150c54215d74ad248c57be3107d17dd}\index{test\_accessors.cpp@{test\_accessors.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_accessors.cpp@{test\_accessors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [3/10]}}
+{\footnotesize\ttfamily \label{test__accessors_8cpp_a4150c54215d74ad248c57be3107d17dd} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Get\+Digit\+Count\+Top\+Limb\+Boundary}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00188}{188}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/test__accessors_8cpp_a4150c54215d74ad248c57be3107d17dd_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__accessors_8cpp_a2c425757d7fa427863ec56bb8ef42cc8}\index{test\_accessors.cpp@{test\_accessors.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_accessors.cpp@{test\_accessors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [4/10]}}
+{\footnotesize\ttfamily \label{test__accessors_8cpp_a2c425757d7fa427863ec56bb8ef42cc8} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Get\+First\+Limb}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00067}{67}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{d1/dee/test__accessors_8cpp_a2c425757d7fa427863ec56bb8ef42cc8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__accessors_8cpp_ad73a4db1c173d957c6703a7065d6a476}\index{test\_accessors.cpp@{test\_accessors.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_accessors.cpp@{test\_accessors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [5/10]}}
+{\footnotesize\ttfamily \label{test__accessors_8cpp_ad73a4db1c173d957c6703a7065d6a476} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Get\+Last\+Limb}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00077}{77}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{d1/dee/test__accessors_8cpp_ad73a4db1c173d957c6703a7065d6a476_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__accessors_8cpp_ace11d85947788a403e24985e51b4a840}\index{test\_accessors.cpp@{test\_accessors.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_accessors.cpp@{test\_accessors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [6/10]}}
+{\footnotesize\ttfamily \label{test__accessors_8cpp_ace11d85947788a403e24985e51b4a840} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Get\+Limb}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00042}{42}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{d1/dee/test__accessors_8cpp_ace11d85947788a403e24985e51b4a840_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}\index{test\_accessors.cpp@{test\_accessors.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_accessors.cpp@{test\_accessors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [7/10]}}
+{\footnotesize\ttfamily \label{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Get\+Limb\+Count}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00023}{23}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{d1/dee/test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__accessors_8cpp_a605a4838a317454201e93619232f12c5}\index{test\_accessors.cpp@{test\_accessors.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_accessors.cpp@{test\_accessors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [8/10]}}
+{\footnotesize\ttfamily \label{test__accessors_8cpp_a605a4838a317454201e93619232f12c5} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Is\+Negative}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00090}{90}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/test__accessors_8cpp_a605a4838a317454201e93619232f12c5_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__accessors_8cpp_abadd3f0e89a37efdc7c657b3614b80db}\index{test\_accessors.cpp@{test\_accessors.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_accessors.cpp@{test\_accessors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [9/10]}}
+{\footnotesize\ttfamily \label{test__accessors_8cpp_abadd3f0e89a37efdc7c657b3614b80db} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Is\+Zero}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00115}{115}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/test__accessors_8cpp_abadd3f0e89a37efdc7c657b3614b80db_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__accessors_8cpp_ac65de3ece6b1e0486f801f4f075abc81}\index{test\_accessors.cpp@{test\_accessors.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_accessors.cpp@{test\_accessors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [10/10]}}
+{\footnotesize\ttfamily \label{test__accessors_8cpp_ac65de3ece6b1e0486f801f4f075abc81} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Numerical\+Queries\+Do\+Not\+Mutate\+Storage}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00217}{217}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/test__accessors_8cpp_ac65de3ece6b1e0486f801f4f075abc81_cgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,586 @@
+\doxysection{Big\+Int Class Reference}
+\hypertarget{classBigInt}{}\label{classBigInt}\index{BigInt@{BigInt}}
+
+
+Big integer type class, copies the functionality of regular integers, but on arbitrary scale.  
+
+
+
+
+{\ttfamily \+\#include $<$bigint\+\_\+declaration.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classBigInt_af677021c0987fc2a48da06837ed29c58}{Big\+Int}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the class. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{classBigInt_adf7c2ffb0aa3ccee9ee814997f673bf0}{Big\+Int}} (const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&bint)
+\begin{DoxyCompactList}\small\item\em Copy-\/constructor for the class. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{classBigInt_af1de21c1909a005cb8f3036253d3b894}{Big\+Int}} (\doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&\&bint) noexcept
+\begin{DoxyCompactList}\small\item\em Move-\/constructor for the class. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{classBigInt}{Big\+Int}} \& \doxymbox{\hyperlink{classBigInt_a6506386510aa772c734109f863e879c8}{operator=}} (const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&bint)
+\begin{DoxyCompactList}\small\item\em Copy-\/assignment for the class. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{classBigInt}{Big\+Int}} \& \doxymbox{\hyperlink{classBigInt_ac7ae12ca3440f88100242876fa975735}{operator=}} (\doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&\&bint) noexcept
+\begin{DoxyCompactList}\small\item\em Move-\/assignment for the class. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classBigInt_aed7862704019b417cb9754feb5e5edec}{set\+To\+Zero}} (const bool shrink=false)
+\begin{DoxyCompactList}\small\item\em Set the underlying bigint to 0. \end{DoxyCompactList}\item 
+std::\+size\+\_\+t \doxymbox{\hyperlink{classBigInt_a364f902e99cfe9e85fdb8629f1a36393}{get\+Limb\+Count}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the limb count of the bigint. \end{DoxyCompactList}\item 
+std::\+uintmax\+\_\+t \doxymbox{\hyperlink{classBigInt_a52a3dd47c689978179bc84b233c1145e}{get\+Digit\+Count}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the total current digit count of the bigint. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} \doxymbox{\hyperlink{classBigInt_ab1daffa824bd573240330ea9aea5dbbc}{get\+Limb}} (const std::\+size\+\_\+t index) const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the limb value at the given index, 0-\/based. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} \doxymbox{\hyperlink{classBigInt_ac0ea695e4944c59e97187943df8cf449}{get\+Last\+Limb}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the last, {\bfseries{Most}} Significant, limb of the Bigint. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} \doxymbox{\hyperlink{classBigInt_ab2a52efd44c2e7057cc5397dba711ef8}{get\+First\+Limb}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the first, {\bfseries{Least}} Significant, limb of the Bigint. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classBigInt_a95f4a2cafc7ab33729f40d0415831044}{is\+Negative}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns true if bigint is negative, false otherwise. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classBigInt_ab090d1656a4ea58f01ab2fdf37b3af9c}{is\+Zero}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns true if bigint evaluates to 0, false otherwise. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{classBigInt_a94a494aca7e98d925bbb81de5cc4d9df}{to\+String\+Dec}} () const
+\begin{DoxyCompactList}\small\item\em Returns the current bigint as string representation, in decimal notation. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classBigInt_ae66e5ab12ec81c5066a3d23207c500f7}{set\+Negative}} (const bool neg)
+\begin{DoxyCompactList}\small\item\em Sets the negative flag of the bigint to the passed parameter. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classBigInt_ab1bc8c3de6ef5084e64c564e67cc72a7}{set\+Limb}} (const std::\+size\+\_\+t index, const \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} value)
+\begin{DoxyCompactList}\small\item\em Sets a magnitude limb and normalizes the result. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classBigInt_a91f23442d1a1f5ee68f2ae4b92fe760f}{set\+Limb\+Raw}} (const std::\+size\+\_\+t index, const \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} value)
+\begin{DoxyCompactList}\small\item\em Sets a magnitude limb without normalizing the representation. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classBigInt_ad796e56e198962b2799c30ac66e755fa}{normalise}} ()
+\begin{DoxyCompactList}\small\item\em Removes the most significant 0-\/limbs of the number, and removes negativity if number evaluates to 0. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classBigInt_a6f7132b05022dfd943a8d1836308886c}{is\+Normalised}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Checks whether bigint is normalised. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Big integer type class, copies the functionality of regular integers, but on arbitrary scale. 
+
+\begin{DoxyNote}{Note}
+Technical limit for the size of the \doxylink{classBigInt}{Big\+Int} is std::\+size\+\_\+t\texorpdfstring{$\ast$}{*}digits(\doxylink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}) 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t} 
+
+limb\+Digits 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__declaration_8hpp_source_l00079}{79}} of file \doxymbox{\hyperlink{bigint__declaration_8hpp_source}{bigint\+\_\+declaration.\+hpp}}.
+
+
+
+\label{classBigInt_doc-constructors}
+\Hypertarget{classBigInt_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classBigInt_af677021c0987fc2a48da06837ed29c58}\index{BigInt@{BigInt}!BigInt@{BigInt}}
+\index{BigInt@{BigInt}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{BigInt()}{BigInt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classBigInt_af677021c0987fc2a48da06837ed29c58} 
+Big\+Int::\+\+Big\+Int (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Default constructor for the class. 
+
+
+
+Definition at line \doxymbox{\hyperlink{bigint__construction_8cpp_source_l00008}{8}} of file \doxymbox{\hyperlink{bigint__construction_8cpp_source}{bigint\+\_\+construction.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d5b/classBigInt_af677021c0987fc2a48da06837ed29c58_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBigInt_adf7c2ffb0aa3ccee9ee814997f673bf0}\index{BigInt@{BigInt}!BigInt@{BigInt}}
+\index{BigInt@{BigInt}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{BigInt()}{BigInt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classBigInt_adf7c2ffb0aa3ccee9ee814997f673bf0} 
+Big\+Int::\+\+Big\+Int (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&}]{bint}{}\end{DoxyParamCaption})}
+
+
+
+Copy-\/constructor for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bint} & the bigint to copy values from \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__construction_8cpp_source_l00014}{14}} of file \doxymbox{\hyperlink{bigint__construction_8cpp_source}{bigint\+\_\+construction.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d5b/classBigInt_adf7c2ffb0aa3ccee9ee814997f673bf0_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBigInt_af1de21c1909a005cb8f3036253d3b894}\index{BigInt@{BigInt}!BigInt@{BigInt}}
+\index{BigInt@{BigInt}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{BigInt()}{BigInt()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classBigInt_af1de21c1909a005cb8f3036253d3b894} 
+Big\+Int::\+\+Big\+Int (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&\&}]{bint}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Move-\/constructor for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bint} & the bigint to move values from \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__construction_8cpp_source_l00019}{19}} of file \doxymbox{\hyperlink{bigint__construction_8cpp_source}{bigint\+\_\+construction.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d5b/classBigInt_af1de21c1909a005cb8f3036253d3b894_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{classBigInt_doc-func-members}
+\Hypertarget{classBigInt_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classBigInt_a52a3dd47c689978179bc84b233c1145e}\index{BigInt@{BigInt}!getDigitCount@{getDigitCount}}
+\index{getDigitCount@{getDigitCount}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{getDigitCount()}{getDigitCount()}}
+{\footnotesize\ttfamily \label{classBigInt_a52a3dd47c689978179bc84b233c1145e} 
+std::\+uintmax\+\_\+t Big\+Int::\+get\+Digit\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the total current digit count of the bigint. 
+
+\begin{DoxyAttention}{Attention}
+If limbcount exceeds LIMB\+\_\+\+DIGITCOUNT\+\_\+\+MAX (overflows), it returns 0 
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classBigInt_a364f902e99cfe9e85fdb8629f1a36393}{Big\+Int::\+get\+Limb\+Count()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__accessors_8hpp_source_l00021}{21}} of file \doxymbox{\hyperlink{bigint__accessors_8hpp_source}{bigint\+\_\+accessors.\+hpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{da/d5b/classBigInt_a52a3dd47c689978179bc84b233c1145e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBigInt_ab2a52efd44c2e7057cc5397dba711ef8}\index{BigInt@{BigInt}!getFirstLimb@{getFirstLimb}}
+\index{getFirstLimb@{getFirstLimb}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{getFirstLimb()}{getFirstLimb()}}
+{\footnotesize\ttfamily \label{classBigInt_ab2a52efd44c2e7057cc5397dba711ef8} 
+\doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} Big\+Int::\+get\+First\+Limb (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the first, {\bfseries{Least}} Significant, limb of the Bigint. 
+
+
+
+Definition at line \doxymbox{\hyperlink{bigint__accessors_8hpp_source_l00039}{39}} of file \doxymbox{\hyperlink{bigint__accessors_8hpp_source}{bigint\+\_\+accessors.\+hpp}}.
+
+\Hypertarget{classBigInt_ac0ea695e4944c59e97187943df8cf449}\index{BigInt@{BigInt}!getLastLimb@{getLastLimb}}
+\index{getLastLimb@{getLastLimb}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{getLastLimb()}{getLastLimb()}}
+{\footnotesize\ttfamily \label{classBigInt_ac0ea695e4944c59e97187943df8cf449} 
+\doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} Big\+Int::\+get\+Last\+Limb (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the last, {\bfseries{Most}} Significant, limb of the Bigint. 
+
+
+
+Definition at line \doxymbox{\hyperlink{bigint__accessors_8hpp_source_l00035}{35}} of file \doxymbox{\hyperlink{bigint__accessors_8hpp_source}{bigint\+\_\+accessors.\+hpp}}.
+
+\Hypertarget{classBigInt_ab1daffa824bd573240330ea9aea5dbbc}\index{BigInt@{BigInt}!getLimb@{getLimb}}
+\index{getLimb@{getLimb}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{getLimb()}{getLimb()}}
+{\footnotesize\ttfamily \label{classBigInt_ab1daffa824bd573240330ea9aea5dbbc} 
+\doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} Big\+Int::\+get\+Limb (\begin{DoxyParamCaption}\item[{const std::\+size\+\_\+t}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the limb value at the given index, 0-\/based. 
+
+\begin{DoxyNote}{Note}
+If the index is outside of the bigint\textquotesingle{}s range, returns a 0 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__accessors_8hpp_source_l00028}{28}} of file \doxymbox{\hyperlink{bigint__accessors_8hpp_source}{bigint\+\_\+accessors.\+hpp}}.
+
+\Hypertarget{classBigInt_a364f902e99cfe9e85fdb8629f1a36393}\index{BigInt@{BigInt}!getLimbCount@{getLimbCount}}
+\index{getLimbCount@{getLimbCount}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{getLimbCount()}{getLimbCount()}}
+{\footnotesize\ttfamily \label{classBigInt_a364f902e99cfe9e85fdb8629f1a36393} 
+std::\+size\+\_\+t Big\+Int::\+get\+Limb\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the limb count of the bigint. 
+
+
+
+Definition at line \doxymbox{\hyperlink{bigint__accessors_8hpp_source_l00017}{17}} of file \doxymbox{\hyperlink{bigint__accessors_8hpp_source}{bigint\+\_\+accessors.\+hpp}}.
+
+\Hypertarget{classBigInt_a95f4a2cafc7ab33729f40d0415831044}\index{BigInt@{BigInt}!isNegative@{isNegative}}
+\index{isNegative@{isNegative}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{isNegative()}{isNegative()}}
+{\footnotesize\ttfamily \label{classBigInt_a95f4a2cafc7ab33729f40d0415831044} 
+bool Big\+Int::\+is\+Negative (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Returns true if bigint is negative, false otherwise. 
+
+
+
+Definition at line \doxymbox{\hyperlink{bigint__accessors_8hpp_source_l00043}{43}} of file \doxymbox{\hyperlink{bigint__accessors_8hpp_source}{bigint\+\_\+accessors.\+hpp}}.
+
+\Hypertarget{classBigInt_a6f7132b05022dfd943a8d1836308886c}\index{BigInt@{BigInt}!isNormalised@{isNormalised}}
+\index{isNormalised@{isNormalised}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{isNormalised()}{isNormalised()}}
+{\footnotesize\ttfamily \label{classBigInt_a6f7132b05022dfd943a8d1836308886c} 
+bool Big\+Int::\+is\+Normalised (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Checks whether bigint is normalised. 
+
+\begin{DoxyNote}{Note}
+By normalised it means: at least 1 limb, without leading 0\textquotesingle{}s; and if it is zero, then it is not negative 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Most functions assume that the bigint is normalised! 
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+True if bigint is normalised, false otherwise 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classBigInt_ab090d1656a4ea58f01ab2fdf37b3af9c}{Big\+Int::\+is\+Zero()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__accessors_8cpp_source_l00118}{118}} of file \doxymbox{\hyperlink{bigint__accessors_8cpp_source}{bigint\+\_\+accessors.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d5b/classBigInt_a6f7132b05022dfd943a8d1836308886c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBigInt_ab090d1656a4ea58f01ab2fdf37b3af9c}\index{BigInt@{BigInt}!isZero@{isZero}}
+\index{isZero@{isZero}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{isZero()}{isZero()}}
+{\footnotesize\ttfamily \label{classBigInt_ab090d1656a4ea58f01ab2fdf37b3af9c} 
+bool Big\+Int::\+is\+Zero (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Returns true if bigint evaluates to 0, false otherwise. 
+
+\begin{DoxyNote}{Note}
+It\textquotesingle{}s evaluated to 0 only if it contains only 1 limb, and that limb is equal to 0 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classBigInt_a364f902e99cfe9e85fdb8629f1a36393}{Big\+Int::\+get\+Limb\+Count()} 
+
+\doxylink{classBigInt_ab2a52efd44c2e7057cc5397dba711ef8}{Big\+Int::\+get\+First\+Limb()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__accessors_8hpp_source_l00047}{47}} of file \doxymbox{\hyperlink{bigint__accessors_8hpp_source}{bigint\+\_\+accessors.\+hpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{da/d5b/classBigInt_ab090d1656a4ea58f01ab2fdf37b3af9c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBigInt_ad796e56e198962b2799c30ac66e755fa}\index{BigInt@{BigInt}!normalise@{normalise}}
+\index{normalise@{normalise}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{normalise()}{normalise()}}
+{\footnotesize\ttfamily \label{classBigInt_ad796e56e198962b2799c30ac66e755fa} 
+void Big\+Int::\+normalise (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Removes the most significant 0-\/limbs of the number, and removes negativity if number evaluates to 0. 
+
+\begin{DoxyNote}{Note}
+Helps to remove confusion from algorithms that expect the most significant limb to be non-\/zero. 
+
+Remember to run this after each non-\/normalising operation that reduces the bigint size. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classBigInt_ab090d1656a4ea58f01ab2fdf37b3af9c}{Big\+Int::\+is\+Zero()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__accessors_8cpp_source_l00096}{96}} of file \doxymbox{\hyperlink{bigint__accessors_8cpp_source}{bigint\+\_\+accessors.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d5b/classBigInt_ad796e56e198962b2799c30ac66e755fa_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBigInt_ac7ae12ca3440f88100242876fa975735}\index{BigInt@{BigInt}!operator=@{operator=}}
+\index{operator=@{operator=}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classBigInt_ac7ae12ca3440f88100242876fa975735} 
+\doxymbox{\hyperlink{classBigInt}{Big\+Int}} \& Big\+Int::\+operator= (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&\&}]{bint}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Move-\/assignment for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bint} & the bigint to move values from \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__construction_8cpp_source_l00036}{36}} of file \doxymbox{\hyperlink{bigint__construction_8cpp_source}{bigint\+\_\+construction.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d5b/classBigInt_ac7ae12ca3440f88100242876fa975735_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBigInt_a6506386510aa772c734109f863e879c8}\index{BigInt@{BigInt}!operator=@{operator=}}
+\index{operator=@{operator=}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classBigInt_a6506386510aa772c734109f863e879c8} 
+\doxymbox{\hyperlink{classBigInt}{Big\+Int}} \& Big\+Int::\+operator= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&}]{bint}{}\end{DoxyParamCaption})}
+
+
+
+Copy-\/assignment for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bint} & the bigint to copy values from \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__construction_8cpp_source_l00025}{25}} of file \doxymbox{\hyperlink{bigint__construction_8cpp_source}{bigint\+\_\+construction.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d5b/classBigInt_a6506386510aa772c734109f863e879c8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBigInt_ab1bc8c3de6ef5084e64c564e67cc72a7}\index{BigInt@{BigInt}!setLimb@{setLimb}}
+\index{setLimb@{setLimb}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{setLimb()}{setLimb()}}
+{\footnotesize\ttfamily \label{classBigInt_ab1bc8c3de6ef5084e64c564e67cc72a7} 
+bool Big\+Int::\+set\+Limb (\begin{DoxyParamCaption}\item[{const std::\+size\+\_\+t}]{index}{, }\item[{const \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}}}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Sets a magnitude limb and normalizes the result. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Zero-\/based limb index, least significant first. \\
+\hline
+{\em value} & New limb value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True on success; false if the value exceeds STORAGE\+\_\+\+MAX, without modifying the object. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+An out-\/of-\/range zero write is a successful no-\/op, without resizing or normalization. 
+
+Successful writes preserve the sign unless the resulting magnitude is zero. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Storage allocation and capacity failures may throw exceptions. 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std::\+length\+\_\+error} & If index equals {\bfseries{std::\+numeric\+\_\+limits$<$std::\+size\+\_\+t$>$::\+max()}} \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classBigInt_a91f23442d1a1f5ee68f2ae4b92fe760f}{Big\+Int::\+set\+Limb\+Raw()} 
+
+\doxylink{classBigInt_ad796e56e198962b2799c30ac66e755fa}{Big\+Int::\+normalise()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__accessors_8cpp_source_l00011}{11}} of file \doxymbox{\hyperlink{bigint__accessors_8cpp_source}{bigint\+\_\+accessors.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d5b/classBigInt_ab1bc8c3de6ef5084e64c564e67cc72a7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBigInt_a91f23442d1a1f5ee68f2ae4b92fe760f}\index{BigInt@{BigInt}!setLimbRaw@{setLimbRaw}}
+\index{setLimbRaw@{setLimbRaw}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{setLimbRaw()}{setLimbRaw()}}
+{\footnotesize\ttfamily \label{classBigInt_a91f23442d1a1f5ee68f2ae4b92fe760f} 
+bool Big\+Int::\+set\+Limb\+Raw (\begin{DoxyParamCaption}\item[{const std::\+size\+\_\+t}]{index}{, }\item[{const \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}}}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Sets a magnitude limb without normalizing the representation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Zero-\/based limb index, least significant first. \\
+\hline
+{\em value} & New limb value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True on success; false if the value exceeds STORAGE\+\_\+\+MAX, without modifying the object. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Out-\/of-\/range writes extend storage with zero-\/filled limbs, even when value is zero. 
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+The resulting representation may require normalization before numerical operations. 
+\end{DoxyAttention}
+\begin{DoxyWarning}{Warning}
+Storage allocation and capacity failures may throw exceptions. 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std::\+length\+\_\+error} & If index equals {\bfseries{std::\+numeric\+\_\+limits$<$std::\+size\+\_\+t$>$::\+max()}} \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classBigInt_ab1bc8c3de6ef5084e64c564e67cc72a7}{Big\+Int::\+set\+Limb()} 
+
+\doxylink{classBigInt_ad796e56e198962b2799c30ac66e755fa}{Big\+Int::\+normalise()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__accessors_8cpp_source_l00026}{26}} of file \doxymbox{\hyperlink{bigint__accessors_8cpp_source}{bigint\+\_\+accessors.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{da/d5b/classBigInt_a91f23442d1a1f5ee68f2ae4b92fe760f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBigInt_ae66e5ab12ec81c5066a3d23207c500f7}\index{BigInt@{BigInt}!setNegative@{setNegative}}
+\index{setNegative@{setNegative}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{setNegative()}{setNegative()}}
+{\footnotesize\ttfamily \label{classBigInt_ae66e5ab12ec81c5066a3d23207c500f7} 
+void Big\+Int::\+set\+Negative (\begin{DoxyParamCaption}\item[{const bool}]{neg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the negative flag of the bigint to the passed parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em neg} & The negativity status value \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classBigInt_a95f4a2cafc7ab33729f40d0415831044}{Big\+Int::\+is\+Negative()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__accessors_8hpp_source_l00051}{51}} of file \doxymbox{\hyperlink{bigint__accessors_8hpp_source}{bigint\+\_\+accessors.\+hpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{da/d5b/classBigInt_ae66e5ab12ec81c5066a3d23207c500f7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBigInt_aed7862704019b417cb9754feb5e5edec}\index{BigInt@{BigInt}!setToZero@{setToZero}}
+\index{setToZero@{setToZero}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{setToZero()}{setToZero()}}
+{\footnotesize\ttfamily \label{classBigInt_aed7862704019b417cb9754feb5e5edec} 
+void Big\+Int::\+set\+To\+Zero (\begin{DoxyParamCaption}\item[{const bool}]{shrink}{ = {\ttfamily false}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the underlying bigint to 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shrink} & Flag whether to shrink the underlying containers to fit (reallocate to size) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__accessors_8hpp_source_l00011}{11}} of file \doxymbox{\hyperlink{bigint__accessors_8hpp_source}{bigint\+\_\+accessors.\+hpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{da/d5b/classBigInt_aed7862704019b417cb9754feb5e5edec_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classBigInt_a94a494aca7e98d925bbb81de5cc4d9df}\index{BigInt@{BigInt}!toStringDec@{toStringDec}}
+\index{toStringDec@{toStringDec}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{toStringDec()}{toStringDec()}}
+{\footnotesize\ttfamily \label{classBigInt_a94a494aca7e98d925bbb81de5cc4d9df} 
+std::\+string Big\+Int::\+to\+String\+Dec (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Returns the current bigint as string representation, in decimal notation. 
+
+\begin{DoxyNote}{Note}
+The length of the string is at most 1 \texorpdfstring{$\ast$}{*} \doxylink{classBigInt_a95f4a2cafc7ab33729f40d0415831044}{Big\+Int::\+is\+Negative()} + \doxylink{classBigInt_a52a3dd47c689978179bc84b233c1145e}{Big\+Int::\+get\+Digit\+Count()} 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classBigInt_a95f4a2cafc7ab33729f40d0415831044}{Big\+Int::\+is\+Negative()} 
+
+\doxylink{classBigInt_a52a3dd47c689978179bc84b233c1145e}{Big\+Int::\+get\+Digit\+Count()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__accessors_8cpp_source_l00056}{56}} of file \doxymbox{\hyperlink{bigint__accessors_8cpp_source}{bigint\+\_\+accessors.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d5b/classBigInt_a94a494aca7e98d925bbb81de5cc4d9df_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Big\+Int/\+include/\+bigint/\doxymbox{\hyperlink{bigint__declaration_8hpp}{bigint\+\_\+declaration.\+hpp}}\item 
+Big\+Int/\+include/\+bigint/\doxymbox{\hyperlink{bigint__accessors_8hpp}{bigint\+\_\+accessors.\+hpp}}\item 
+Big\+Int/\+src/\+bigint/\doxymbox{\hyperlink{bigint__accessors_8cpp}{bigint\+\_\+accessors.\+cpp}}\item 
+Big\+Int/\+src/\+bigint/\doxymbox{\hyperlink{bigint__construction_8cpp}{bigint\+\_\+construction.\+cpp}}\end{DoxyCompactItemize}

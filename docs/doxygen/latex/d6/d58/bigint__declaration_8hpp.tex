@@ -1,0 +1,200 @@
+\doxysection{Big\+Int/\+include/\+bigint/\+bigint\+\_\+declaration.hpp File Reference}
+\hypertarget{bigint__declaration_8hpp}{}\label{bigint__declaration_8hpp}\index{BigInt/include/bigint/bigint\_declaration.hpp@{BigInt/include/bigint/bigint\_declaration.hpp}}
+{\ttfamily \+\#include "{}utils.\+hpp"{}}\newline
+{\ttfamily \+\#include $<$deque$>$}\newline
+{\ttfamily \+\#include $<$climits$>$}\newline
+{\ttfamily \+\#include $<$limits$>$}\newline
+{\ttfamily \+\#include $<$cstring$>$}\newline
+{\ttfamily \+\#include $<$cstdint$>$}\newline
+{\ttfamily \+\#include $<$cmath$>$}\newline
+{\ttfamily \+\#include $<$cinttypes$>$}\newline
+{\ttfamily \+\#include $<$exception$>$}\newline
+{\ttfamily \+\#include $<$ranges$>$}\newline
+{\ttfamily \+\#include $<$string$>$}\newline
+Include dependency graph for bigint\+\_\+declaration.\+hpp:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dbd/bigint__declaration_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/dfb/bigint__declaration_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{classBigInt}{Big\+Int}}
+\begin{DoxyCompactList}\small\item\em Big integer type class, copies the functionality of regular integers, but on arbitrary scale. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \doxymbox{\hyperlink{namespacebigint__test}{bigint\+\_\+test}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std::\+uint64\+\_\+t \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em The underlying type used to store digits in a bigint. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr std::\+size\+\_\+t \doxymbox{\hyperlink{bigint__declaration_8hpp_adace4e53cc742cf9f5c1566198cbaae7}{LIMB\+\_\+\+DIGITS}} = std::\+numeric\+\_\+limits$<$\doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}}$>$::\+digits10 -\/ 1
+\begin{DoxyCompactList}\small\item\em Maximum allowed digits to store inside one limb. \end{DoxyCompactList}\item 
+constexpr \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} \doxymbox{\hyperlink{bigint__declaration_8hpp_a1287aa074ee9b5655cbc0d684ee495bc}{powers\+Of10}} \+[$\,$]
+\begin{DoxyCompactList}\small\item\em List of powers of 10 that would be used when working with the limb type. \end{DoxyCompactList}\item 
+constexpr \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} \doxymbox{\hyperlink{bigint__declaration_8hpp_a563238eb9ba06eee69a9c9f2d07ec7ce}{STORAGE\+\_\+\+MASK}} = \doxymbox{\hyperlink{bigint__declaration_8hpp_a1287aa074ee9b5655cbc0d684ee495bc}{powers\+Of10}}\+[\doxymbox{\hyperlink{bigint__declaration_8hpp_adace4e53cc742cf9f5c1566198cbaae7}{LIMB\+\_\+\+DIGITS}}]
+\begin{DoxyCompactList}\small\item\em The base-\/10 mask for the maximum digits that can be stored in limb. \end{DoxyCompactList}\item 
+constexpr \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} \doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\+\_\+\+MAX}} = \doxymbox{\hyperlink{bigint__declaration_8hpp_a563238eb9ba06eee69a9c9f2d07ec7ce}{STORAGE\+\_\+\+MASK}} -\/ 1
+\begin{DoxyCompactList}\small\item\em The maximum value that the limb can store. \end{DoxyCompactList}\item 
+constexpr std::\+uintmax\+\_\+t \doxymbox{\hyperlink{bigint__declaration_8hpp_a14b4b96a8d10a5b9166c111f09a562e9}{LIMB\+\_\+\+DIGITCOUNT\+\_\+\+MAX}} = std::\+numeric\+\_\+limits$<$std::\+uintmax\+\_\+t$>$::\+max() /\+ \doxymbox{\hyperlink{bigint__declaration_8hpp_adace4e53cc742cf9f5c1566198cbaae7}{LIMB\+\_\+\+DIGITS}}
+\begin{DoxyCompactList}\small\item\em The maximum amount of limbs whose digits can be calculated precisely. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{bigint__declaration_8hpp_doc-typedef-members}
+\Hypertarget{bigint__declaration_8hpp_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}\index{bigint\_declaration.hpp@{bigint\_declaration.hpp}!limb\_t@{limb\_t}}
+\index{limb\_t@{limb\_t}!bigint\_declaration.hpp@{bigint\_declaration.hpp}}
+\doxysubsubsection{\texorpdfstring{limb\_t}{limb\_t}}
+{\footnotesize\ttfamily \label{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb} 
+typedef std::\+uint64\+\_\+t \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}}}
+
+
+
+The underlying type used to store digits in a bigint. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classBigInt}{Big\+Int} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__declaration_8hpp_source_l00023}{23}} of file \doxymbox{\hyperlink{bigint__declaration_8hpp_source}{bigint\+\_\+declaration.\+hpp}}.
+
+
+
+\label{bigint__declaration_8hpp_doc-var-members}
+\Hypertarget{bigint__declaration_8hpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{bigint__declaration_8hpp_a14b4b96a8d10a5b9166c111f09a562e9}\index{bigint\_declaration.hpp@{bigint\_declaration.hpp}!LIMB\_DIGITCOUNT\_MAX@{LIMB\_DIGITCOUNT\_MAX}}
+\index{LIMB\_DIGITCOUNT\_MAX@{LIMB\_DIGITCOUNT\_MAX}!bigint\_declaration.hpp@{bigint\_declaration.hpp}}
+\doxysubsubsection{\texorpdfstring{LIMB\_DIGITCOUNT\_MAX}{LIMB\_DIGITCOUNT\_MAX}}
+{\footnotesize\ttfamily \label{bigint__declaration_8hpp_a14b4b96a8d10a5b9166c111f09a562e9} 
+std::\+uintmax\+\_\+t LIMB\+\_\+\+DIGITCOUNT\+\_\+\+MAX = std::\+numeric\+\_\+limits$<$std::\+uintmax\+\_\+t$>$::\+max() /\+ \doxymbox{\hyperlink{bigint__declaration_8hpp_adace4e53cc742cf9f5c1566198cbaae7}{LIMB\+\_\+\+DIGITS}}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+The maximum amount of limbs whose digits can be calculated precisely. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{bigint__declaration_8hpp_adace4e53cc742cf9f5c1566198cbaae7}{LIMB\+\_\+\+DIGITS} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__declaration_8hpp_source_l00067}{67}} of file \doxymbox{\hyperlink{bigint__declaration_8hpp_source}{bigint\+\_\+declaration.\+hpp}}.
+
+\Hypertarget{bigint__declaration_8hpp_adace4e53cc742cf9f5c1566198cbaae7}\index{bigint\_declaration.hpp@{bigint\_declaration.hpp}!LIMB\_DIGITS@{LIMB\_DIGITS}}
+\index{LIMB\_DIGITS@{LIMB\_DIGITS}!bigint\_declaration.hpp@{bigint\_declaration.hpp}}
+\doxysubsubsection{\texorpdfstring{LIMB\_DIGITS}{LIMB\_DIGITS}}
+{\footnotesize\ttfamily \label{bigint__declaration_8hpp_adace4e53cc742cf9f5c1566198cbaae7} 
+std::\+size\+\_\+t LIMB\+\_\+\+DIGITS = std::\+numeric\+\_\+limits$<$\doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}}$>$::\+digits10 -\/ 1\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Maximum allowed digits to store inside one limb. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__declaration_8hpp_source_l00027}{27}} of file \doxymbox{\hyperlink{bigint__declaration_8hpp_source}{bigint\+\_\+declaration.\+hpp}}.
+
+\Hypertarget{bigint__declaration_8hpp_a1287aa074ee9b5655cbc0d684ee495bc}\index{bigint\_declaration.hpp@{bigint\_declaration.hpp}!powersOf10@{powersOf10}}
+\index{powersOf10@{powersOf10}!bigint\_declaration.hpp@{bigint\_declaration.hpp}}
+\doxysubsubsection{\texorpdfstring{powersOf10}{powersOf10}}
+{\footnotesize\ttfamily \label{bigint__declaration_8hpp_a1287aa074ee9b5655cbc0d684ee495bc} 
+\doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} powers\+Of10\+[$\,$]\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+{\bfseries Initial value:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ 1,}
+\DoxyCodeLine{\ \ \ \ 10,}
+\DoxyCodeLine{\ \ \ \ 100,}
+\DoxyCodeLine{\ \ \ \ 1000,}
+\DoxyCodeLine{\ \ \ \ 10000,}
+\DoxyCodeLine{\ \ \ \ 100000,}
+\DoxyCodeLine{\ \ \ \ 1000000,}
+\DoxyCodeLine{\ \ \ \ 10000000,}
+\DoxyCodeLine{\ \ \ \ 100000000,}
+\DoxyCodeLine{\ \ \ \ 1000000000,}
+\DoxyCodeLine{\ \ \ \ 10000000000,}
+\DoxyCodeLine{\ \ \ \ 100000000000,}
+\DoxyCodeLine{\ \ \ \ 1000000000000,}
+\DoxyCodeLine{\ \ \ \ 10000000000000,}
+\DoxyCodeLine{\ \ \ \ 100000000000000,}
+\DoxyCodeLine{\ \ \ \ 1000000000000000,}
+\DoxyCodeLine{\ \ \ \ 10000000000000000,}
+\DoxyCodeLine{\ \ \ \ 100000000000000000,}
+\DoxyCodeLine{\ \ \ \ 1000000000000000000,}
+\DoxyCodeLine{\ \ \ \ 10000000000000000000ull}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+List of powers of 10 that would be used when working with the limb type. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\doxymbox{\hyperlink{todo__todo000001}{Todo}}]Create a system to fill the table programmatically for each type \end{DoxyRefDesc}
+\begin{DoxyWarning}{Warning}
+This table is only valid for std::\+uint64\+\_\+t 
+\end{DoxyWarning}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__declaration_8hpp_source_l00032}{32}} of file \doxymbox{\hyperlink{bigint__declaration_8hpp_source}{bigint\+\_\+declaration.\+hpp}}.
+
+\Hypertarget{bigint__declaration_8hpp_a563238eb9ba06eee69a9c9f2d07ec7ce}\index{bigint\_declaration.hpp@{bigint\_declaration.hpp}!STORAGE\_MASK@{STORAGE\_MASK}}
+\index{STORAGE\_MASK@{STORAGE\_MASK}!bigint\_declaration.hpp@{bigint\_declaration.hpp}}
+\doxysubsubsection{\texorpdfstring{STORAGE\_MASK}{STORAGE\_MASK}}
+{\footnotesize\ttfamily \label{bigint__declaration_8hpp_a563238eb9ba06eee69a9c9f2d07ec7ce} 
+\doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} STORAGE\+\_\+\+MASK = \doxymbox{\hyperlink{bigint__declaration_8hpp_a1287aa074ee9b5655cbc0d684ee495bc}{powers\+Of10}}\+[\doxymbox{\hyperlink{bigint__declaration_8hpp_adace4e53cc742cf9f5c1566198cbaae7}{LIMB\+\_\+\+DIGITS}}]\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+The base-\/10 mask for the maximum digits that can be stored in limb. 
+
+\begin{DoxyNote}{Note}
+Usage example: value \% STORAGE\+\_\+\+MASK -\/\texorpdfstring{$>$}{>} trimmed value that can fit in the limb 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__declaration_8hpp_source_l00058}{58}} of file \doxymbox{\hyperlink{bigint__declaration_8hpp_source}{bigint\+\_\+declaration.\+hpp}}.
+
+\Hypertarget{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}\index{bigint\_declaration.hpp@{bigint\_declaration.hpp}!STORAGE\_MAX@{STORAGE\_MAX}}
+\index{STORAGE\_MAX@{STORAGE\_MAX}!bigint\_declaration.hpp@{bigint\_declaration.hpp}}
+\doxysubsubsection{\texorpdfstring{STORAGE\_MAX}{STORAGE\_MAX}}
+{\footnotesize\ttfamily \label{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e} 
+\doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} STORAGE\+\_\+\+MAX = \doxymbox{\hyperlink{bigint__declaration_8hpp_a563238eb9ba06eee69a9c9f2d07ec7ce}{STORAGE\+\_\+\+MASK}} -\/ 1\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+The maximum value that the limb can store. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t} 
+
+\doxylink{bigint__declaration_8hpp_a563238eb9ba06eee69a9c9f2d07ec7ce}{STORAGE\+\_\+\+MASK} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__declaration_8hpp_source_l00063}{63}} of file \doxymbox{\hyperlink{bigint__declaration_8hpp_source}{bigint\+\_\+declaration.\+hpp}}.
+

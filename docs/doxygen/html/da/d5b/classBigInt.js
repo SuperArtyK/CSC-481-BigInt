@@ -1,0 +1,22 @@
+var classBigInt =
+[
+    [ "BigInt", "da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58", null ],
+    [ "BigInt", "da/d5b/classBigInt.html#adf7c2ffb0aa3ccee9ee814997f673bf0", null ],
+    [ "BigInt", "da/d5b/classBigInt.html#af1de21c1909a005cb8f3036253d3b894", null ],
+    [ "getDigitCount", "da/d5b/classBigInt.html#a52a3dd47c689978179bc84b233c1145e", null ],
+    [ "getFirstLimb", "da/d5b/classBigInt.html#ab2a52efd44c2e7057cc5397dba711ef8", null ],
+    [ "getLastLimb", "da/d5b/classBigInt.html#ac0ea695e4944c59e97187943df8cf449", null ],
+    [ "getLimb", "da/d5b/classBigInt.html#ab1daffa824bd573240330ea9aea5dbbc", null ],
+    [ "getLimbCount", "da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393", null ],
+    [ "isNegative", "da/d5b/classBigInt.html#a95f4a2cafc7ab33729f40d0415831044", null ],
+    [ "isNormalised", "da/d5b/classBigInt.html#a6f7132b05022dfd943a8d1836308886c", null ],
+    [ "isZero", "da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c", null ],
+    [ "normalise", "da/d5b/classBigInt.html#ad796e56e198962b2799c30ac66e755fa", null ],
+    [ "operator=", "da/d5b/classBigInt.html#ac7ae12ca3440f88100242876fa975735", null ],
+    [ "operator=", "da/d5b/classBigInt.html#a6506386510aa772c734109f863e879c8", null ],
+    [ "setLimb", "da/d5b/classBigInt.html#ab1bc8c3de6ef5084e64c564e67cc72a7", null ],
+    [ "setLimbRaw", "da/d5b/classBigInt.html#a91f23442d1a1f5ee68f2ae4b92fe760f", null ],
+    [ "setNegative", "da/d5b/classBigInt.html#ae66e5ab12ec81c5066a3d23207c500f7", null ],
+    [ "setToZero", "da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec", null ],
+    [ "toStringDec", "da/d5b/classBigInt.html#a94a494aca7e98d925bbb81de5cc4d9df", null ]
+];

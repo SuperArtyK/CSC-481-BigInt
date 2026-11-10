@@ -1,0 +1,59 @@
+\doxysection{test\+\_\+debug\+\_\+output\+\_\+enabled.\+cpp}
+\hypertarget{test__debug__output__enabled_8cpp_source}{}\label{test__debug__output__enabled_8cpp_source}\index{BigInt/tests/utils/test\_debug\_output\_enabled.cpp@{BigInt/tests/utils/test\_debug\_output\_enabled.cpp}}
+\doxymbox{\hyperlink{test__debug__output__enabled_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ artyk\ on\ 10/30/26.}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <gtest/gtest.h>}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <gtest/internal/gtest-\/port.h>}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00012}\doxymbox{\hyperlink{test__debug__output__enabled_8cpp_a9c4d4f46e70cc3b7dee9a2fe9c1bbf4d}{00012}}\ \textcolor{preprocessor}{\#define\ DEBUGMODE\ 1}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{utils_8hpp}{bigint/utils.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00016}\doxymbox{\hyperlink{test__debug__output__enabled_8cpp_ac3effe1bcee4310a5f0e556cfbea88fd}{00016}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(UtilsTest,\ Printf\_DebugOutEnabled)\ \{}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00017}00017\ \ \ \ \ testing::internal::CaptureStdout();}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{comment}{//DO\ NOT\ MOVE\ SEPARATE\ 2\ LINES}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{comment}{//THEY\ MUST\ STAY\ TOGETHER\ or\ test\ will\ always\ fail.}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{comment}{//because\ of\ the\ silly\ line\ check}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ call\_line\ =\ \_\_LINE\_\_\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00023}00023\ \ \ \ \ \doxymbox{\hyperlink{utils_8hpp_a0fb7bf82c787085c8b1ef0ad7d028424}{dprintf}}(\textcolor{stringliteral}{"{}Answer\ to\ life,\ universe,\ and\ everything:\ \%d"{}},\ 42);}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00025}00025\ \ \ \ \ std::fflush(stdout);}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ actual\ =\ testing::internal::GetCapturedStdout();}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ expected\ =\ std::string(\textcolor{stringliteral}{"{}[DEBUG]\ ["{}})\ +\ \_\_FILE\_\_\ +\ \textcolor{stringliteral}{"{}]\ ["{}}\ +\ \_\_func\_\_\ +\ \textcolor{stringliteral}{"{}()::"{}}\ +}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ std::to\_string(call\_line)\ +\ \textcolor{stringliteral}{"{}]\ -\/>\ Answer\ to\ life,\ universe,\ and\ everything:\ 42\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00032}00032\ \ \ \ \ EXPECT\_EQ(actual,\ expected);}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00033}00033\ \}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00035}\doxymbox{\hyperlink{test__debug__output__enabled_8cpp_a02c745977d71ead1acb791beefb89824}{00035}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(UtilsTest,\ Cout\_DebugOutEnabled)\ \{}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00036}00036\ \ \ \ \ testing::internal::CaptureStdout();}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//DO\ NOT\ MOVE\ SEPARATE\ 2\ LINES}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//THEY\ MUST\ STAY\ TOGETHER\ or\ test\ will\ always\ fail.}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{comment}{//because\ of\ the\ silly\ line\ check}}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ call\_line\ =\ \_\_LINE\_\_\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00042}00042\ \ \ \ \ \doxymbox{\hyperlink{utils_8hpp_a8951b71186b3b14ce155d67282587812}{cdbg}}\ <<\ \textcolor{stringliteral}{"{}Answer\ to\ life,\ universe,\ and\ everything:\ 42\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00045}00045\ \ \ \ \ std::fflush(stdout);}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ actual\ =\ testing::internal::GetCapturedStdout();}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ expected\ =\ std::string(\textcolor{stringliteral}{"{}[DEBUG]\ ["{}})\ +\ \_\_FILE\_\_\ +\ \textcolor{stringliteral}{"{}]\ ["{}}\ +\ \_\_func\_\_\ +\ \textcolor{stringliteral}{"{}()::"{}}\ +}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ std::to\_string(call\_line)\ +\ \textcolor{stringliteral}{"{}]\ -\/>\ Answer\ to\ life,\ universe,\ and\ everything:\ 42\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00052}00052\ \ \ \ \ EXPECT\_EQ(actual,\ expected);}
+\DoxyCodeLine{\Hypertarget{test__debug__output__enabled_8cpp_source_l00053}00053\ \}}
+
+\end{DoxyCode}

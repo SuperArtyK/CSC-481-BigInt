@@ -1,0 +1,19 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,152,61,179"/>
+<area shape="rect" id="Node000002" href="$da/d5b/classBigInt.html#a52a3dd47c689978179bc84b233c1145e" title="Returns the total current digit count of the bigint." alt="" coords="109,77,252,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,149,107,114,123,109,119,112,110,118,54,154"/>
+<area shape="rect" id="Node000006" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title=" " alt="" coords="300,187,444,229"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="61,174,109,188,200,201,288,208,283,208,199,206,108,193,61,179"/>
+<area shape="rect" id="Node000007" href="$d1/dee/test__accessors_8cpp.html#a3613f5398f06b3fe208c5b4b9e9e9c7d" title=" " alt="" coords="153,152,208,179"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="61,163,139,163,136,167,62,168"/>
+<area shape="rect" id="Node000003" href="$df/d93/utils_8hpp.html#a129812dcae9064feb53e76acefdcf826" title=" " alt="" coords="332,29,412,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="235,74,320,55,315,58,237,79"/>
+<area shape="rect" id="Node000004" href="$da/d5b/classBigInt.html#ac0ea695e4944c59e97187943df8cf449" title="Returns the last, Most Significant, limb of the Bigint." alt="" coords="305,80,439,107"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="252,89,292,91,287,93,253,94"/>
+<area shape="rect" id="Node000005" href="$da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="300,132,444,159"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="230,102,311,127,306,128,230,107"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="339,28,334,21,338,11,351,5,372,3,395,5,409,14,403,14,394,10,372,8,352,10,341,15,339,20,344,29"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="208,160,287,154,282,155,209,165"/>
+<area shape="poly" id="edge9_Node000007_Node000006" title=" " alt="" coords="209,169,288,188,283,189,208,174"/>
+<area shape="poly" id="edge10_Node000007_Node000007" title=" " alt="" coords="154,151,150,143,153,134,164,128,180,125,198,128,209,137,204,137,196,133,180,131,165,133,157,137,155,143,159,152"/>
+</map>

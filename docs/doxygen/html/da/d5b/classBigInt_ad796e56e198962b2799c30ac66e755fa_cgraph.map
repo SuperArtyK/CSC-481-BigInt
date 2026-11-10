@@ -1,0 +1,20 @@
+<map id="BigInt::normalise" name="BigInt::normalise">
+<area shape="rect" id="Node000001" title="Removes the most significant 0&#45;limbs of the number, and removes negativity if number evaluates to 0." alt="" coords="5,107,125,133"/>
+<area shape="rect" id="Node000002" href="$da/d5b/classBigInt.html#ac0ea695e4944c59e97187943df8cf449" title="Returns the last, Most Significant, limb of the Bigint." alt="" coords="173,5,307,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,104,171,48,196,38,192,41,174,53,88,108"/>
+<area shape="rect" id="Node000003" href="$da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="355,56,499,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="117,104,172,92,258,80,342,74,337,76,259,86,173,97,120,109"/>
+<area shape="rect" id="Node000004" href="$da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c" title="Returns true if bigint evaluates to 0, false otherwise." alt="" coords="190,107,290,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="124,117,177,119,172,121,126,123"/>
+<area shape="rect" id="Node000006" href="$da/d5b/classBigInt.html#ae66e5ab12ec81c5066a3d23207c500f7" title="Sets the negative flag of the bigint to the passed parameter." alt="" coords="173,157,306,184"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="114,131,179,151,174,154,114,137"/>
+<area shape="rect" id="Node000008" href="$da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="179,208,300,235"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="83,131,124,162,174,194,186,202,181,201,171,198,121,166,82,136"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="289,104,363,86,358,88,291,109"/>
+<area shape="rect" id="Node000005" href="$da/d5b/classBigInt.html#ab2a52efd44c2e7057cc5397dba711ef8" title="Returns the first, Least Significant, limb of the Bigint." alt="" coords="360,107,495,133"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="289,117,346,119,341,121,290,123"/>
+<area shape="rect" id="Node000007" href="$df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="380,195,474,221"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="307,181,368,196,363,196,307,187"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="395,193,389,186,393,176,406,170,427,168,450,171,463,180,458,179,448,176,427,173,408,175,397,180,395,185,400,195"/>
+<area shape="poly" id="edge10_Node000008_Node000007" title=" " alt="" coords="301,214,362,213,368,212,301,220"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="BigInt::setLimbRaw" name="BigInt::setLimbRaw">
+<area shape="rect" id="Node000001" title="Sets a magnitude limb without normalizing the representation." alt="" coords="5,5,142,32"/>
+<area shape="rect" id="Node000002" href="$da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="190,5,334,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,16,177,18,171,19,142,21"/>
+</map>

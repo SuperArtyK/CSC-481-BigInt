@@ -1,0 +1,111 @@
+\doxysection{Big\+Int/\+tests/\+bigint/\+test\+\_\+string\+\_\+conversion.cpp File Reference}
+\hypertarget{test__string__conversion_8cpp}{}\label{test__string__conversion_8cpp}\index{BigInt/tests/bigint/test\_string\_conversion.cpp@{BigInt/tests/bigint/test\_string\_conversion.cpp}}
+{\ttfamily \+\#include $<$gtest/\+gtest.\+h$>$}\newline
+{\ttfamily \+\#include $<$initializer\+\_\+list$>$}\newline
+{\ttfamily \+\#include $<$string$>$}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include "{}bigint/\+bigint.\+hpp"{}}\newline
+{\ttfamily \+\#include "{}test\+\_\+helpers.\+hpp"{}}\newline
+Include dependency graph for test\+\_\+string\+\_\+conversion.\+cpp:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d88/test__string__conversion_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{test__string__conversion_8cpp_a99075a6849f32a81333ba904abd599c3}{TEST}} (Bigint\+String\+Conversion, To\+String\+Dec\+Exact\+Values)
+\item 
+\doxymbox{\hyperlink{test__string__conversion_8cpp_ad1286a81e988a65b89b25fd6ecea6d02}{TEST}} (Bigint\+String\+Conversion, To\+String\+Dec\+Never\+Truncates)
+\item 
+\doxymbox{\hyperlink{test__string__conversion_8cpp_a914613bd61a94c82e9dcaddb845934e2}{TEST}} (Bigint\+String\+Conversion, To\+String\+Dec\+Preserves\+Internal\+Zero\+Limbs)
+\item 
+\doxymbox{\hyperlink{test__string__conversion_8cpp_a5b70a8218ce745b3f0b5964f842e98f2}{TEST}} (Bigint\+String\+Conversion, To\+String\+Dec\+Repeated\+Formatting\+Is\+Stable)
+\item 
+void \doxymbox{\hyperlink{test__string__conversion_8cpp_afb392cf99372bf839e0efb54e337c7db}{expect\+Representation}} (const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&value, const std::\+vector$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \&expected\+Limbs, const bool expected\+Negative)
+\end{DoxyCompactItemize}
+
+
+\label{test__string__conversion_8cpp_doc-func-members}
+\Hypertarget{test__string__conversion_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{test__string__conversion_8cpp_afb392cf99372bf839e0efb54e337c7db}\index{test\_string\_conversion.cpp@{test\_string\_conversion.cpp}!expectRepresentation@{expectRepresentation}}
+\index{expectRepresentation@{expectRepresentation}!test\_string\_conversion.cpp@{test\_string\_conversion.cpp}}
+\doxysubsubsection{\texorpdfstring{expectRepresentation()}{expectRepresentation()}}
+{\footnotesize\ttfamily \label{test__string__conversion_8cpp_afb392cf99372bf839e0efb54e337c7db} 
+void \doxymbox{\hyperlink{namespacebigint__test_afb392cf99372bf839e0efb54e337c7db}{bigint\+\_\+test::\+expect\+Representation}} (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&}]{value}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \&}]{expected\+Limbs}{, }\item[{const bool}]{expected\+Negative}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00033}{33}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+
+\Hypertarget{test__string__conversion_8cpp_a99075a6849f32a81333ba904abd599c3}\index{test\_string\_conversion.cpp@{test\_string\_conversion.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_string\_conversion.cpp@{test\_string\_conversion.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{test__string__conversion_8cpp_a99075a6849f32a81333ba904abd599c3} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+String\+Conversion}]{}{, }\item[{To\+String\+Dec\+Exact\+Values}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__string__conversion_8cpp_source_l00015}{15}} of file \doxymbox{\hyperlink{test__string__conversion_8cpp_source}{test\+\_\+string\+\_\+conversion.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/d67/test__string__conversion_8cpp_a99075a6849f32a81333ba904abd599c3_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__string__conversion_8cpp_ad1286a81e988a65b89b25fd6ecea6d02}\index{test\_string\_conversion.cpp@{test\_string\_conversion.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_string\_conversion.cpp@{test\_string\_conversion.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{test__string__conversion_8cpp_ad1286a81e988a65b89b25fd6ecea6d02} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+String\+Conversion}]{}{, }\item[{To\+String\+Dec\+Never\+Truncates}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__string__conversion_8cpp_source_l00079}{79}} of file \doxymbox{\hyperlink{test__string__conversion_8cpp_source}{test\+\_\+string\+\_\+conversion.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/d67/test__string__conversion_8cpp_ad1286a81e988a65b89b25fd6ecea6d02_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__string__conversion_8cpp_a914613bd61a94c82e9dcaddb845934e2}\index{test\_string\_conversion.cpp@{test\_string\_conversion.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_string\_conversion.cpp@{test\_string\_conversion.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{test__string__conversion_8cpp_a914613bd61a94c82e9dcaddb845934e2} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+String\+Conversion}]{}{, }\item[{To\+String\+Dec\+Preserves\+Internal\+Zero\+Limbs}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__string__conversion_8cpp_source_l00100}{100}} of file \doxymbox{\hyperlink{test__string__conversion_8cpp_source}{test\+\_\+string\+\_\+conversion.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/d67/test__string__conversion_8cpp_a914613bd61a94c82e9dcaddb845934e2_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__string__conversion_8cpp_a5b70a8218ce745b3f0b5964f842e98f2}\index{test\_string\_conversion.cpp@{test\_string\_conversion.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_string\_conversion.cpp@{test\_string\_conversion.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{test__string__conversion_8cpp_a5b70a8218ce745b3f0b5964f842e98f2} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+String\+Conversion}]{}{, }\item[{To\+String\+Dec\+Repeated\+Formatting\+Is\+Stable}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__string__conversion_8cpp_source_l00110}{110}} of file \doxymbox{\hyperlink{test__string__conversion_8cpp_source}{test\+\_\+string\+\_\+conversion.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/d67/test__string__conversion_8cpp_a5b70a8218ce745b3f0b5964f842e98f2_cgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,242 @@
+\doxysection{Big\+Int/\+tests/\+bigint/\+test\+\_\+construction\+\_\+move.cpp File Reference}
+\hypertarget{test__construction__move_8cpp}{}\label{test__construction__move_8cpp}\index{BigInt/tests/bigint/test\_construction\_move.cpp@{BigInt/tests/bigint/test\_construction\_move.cpp}}
+{\ttfamily \+\#include $<$gtest/\+gtest.\+h$>$}\newline
+{\ttfamily \+\#include $<$utility$>$}\newline
+{\ttfamily \+\#include "{}bigint/\+bigint.\+hpp"{}}\newline
+{\ttfamily \+\#include "{}test\+\_\+helpers.\+hpp"{}}\newline
+Include dependency graph for test\+\_\+construction\+\_\+move.\+cpp:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d80/test__construction__move_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{test__construction__move_8cpp_aea65d315bb80af8a624a67f1292159c9}{TEST}} (Bigint\+Construction, Move\+Zero)
+\item 
+\doxymbox{\hyperlink{test__construction__move_8cpp_aca2df178e4e07cd5ee9f1e3234a9d16d}{TEST}} (Bigint\+Construction, Move\+Empty)
+\item 
+\doxymbox{\hyperlink{test__construction__move_8cpp_a20418ff5beddc413c3705025f760ce67}{TEST}} (Bigint\+Construction, Move\+Empty\+Negative)
+\item 
+\doxymbox{\hyperlink{test__construction__move_8cpp_a5c1e4f8c37905d4dabc17936dfaad3fe}{TEST}} (Bigint\+Construction, Move\+Value)
+\item 
+\doxymbox{\hyperlink{test__construction__move_8cpp_abbaf8deabe63ea5decf141554a74d210}{TEST}} (Bigint\+Construction, Move\+Positive\+Value)
+\item 
+\doxymbox{\hyperlink{test__construction__move_8cpp_a37d1ba85ec7fe4f13e3e4cae054f17d1}{TEST}} (Bigint\+Construction, Move\+Value\+Independent)
+\item 
+\doxymbox{\hyperlink{test__construction__move_8cpp_acf85843f0665584738d4752ac4cf49e8}{TEST}} (Bigint\+Construction, Move\+Value\+Denorm\+\_\+\+Trail\+Zero)
+\item 
+\doxymbox{\hyperlink{test__construction__move_8cpp_a356a8da0ea959b93e1fceb6de584764b}{TEST}} (Bigint\+Construction, Move\+Value\+Denorm\+\_\+\+Zero\+Neg)
+\item 
+\doxymbox{\hyperlink{test__construction__move_8cpp_a489ee949116e89ad73f210c3d01e7a3e}{TEST}} (Bigint\+Construction, Move\+Value\+Denorm\+\_\+\+Zero\+Trail\+Neg)
+\item 
+\doxymbox{\hyperlink{test__construction__move_8cpp_a7e2162fbb57b7df28fee11f29f710d5b}{TEST}} (Bigint\+Construction, Move\+Source\+\_\+\+Restored)
+\item 
+\doxymbox{\hyperlink{test__construction__move_8cpp_a10c7de90cf64a7a5771b33306faf3c01}{TEST}} (Bigint\+Construction, Move\+Source\+\_\+\+Assigned)
+\item 
+void \doxymbox{\hyperlink{test__construction__move_8cpp_afb392cf99372bf839e0efb54e337c7db}{expect\+Representation}} (const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&value, const std::\+vector$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \&expected\+Limbs, const bool expected\+Negative)
+\end{DoxyCompactItemize}
+
+
+\label{test__construction__move_8cpp_doc-func-members}
+\Hypertarget{test__construction__move_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{test__construction__move_8cpp_afb392cf99372bf839e0efb54e337c7db}\index{test\_construction\_move.cpp@{test\_construction\_move.cpp}!expectRepresentation@{expectRepresentation}}
+\index{expectRepresentation@{expectRepresentation}!test\_construction\_move.cpp@{test\_construction\_move.cpp}}
+\doxysubsubsection{\texorpdfstring{expectRepresentation()}{expectRepresentation()}}
+{\footnotesize\ttfamily \label{test__construction__move_8cpp_afb392cf99372bf839e0efb54e337c7db} 
+void \doxymbox{\hyperlink{namespacebigint__test_afb392cf99372bf839e0efb54e337c7db}{bigint\+\_\+test::\+expect\+Representation}} (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&}]{value}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \&}]{expected\+Limbs}{, }\item[{const bool}]{expected\+Negative}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00033}{33}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+
+\Hypertarget{test__construction__move_8cpp_aca2df178e4e07cd5ee9f1e3234a9d16d}\index{test\_construction\_move.cpp@{test\_construction\_move.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_construction\_move.cpp@{test\_construction\_move.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [1/11]}}
+{\footnotesize\ttfamily \label{test__construction__move_8cpp_aca2df178e4e07cd5ee9f1e3234a9d16d} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Construction}]{}{, }\item[{Move\+Empty}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__construction__move_8cpp_source_l00020}{20}} of file \doxymbox{\hyperlink{test__construction__move_8cpp_source}{test\+\_\+construction\+\_\+move.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/da7/test__construction__move_8cpp_aca2df178e4e07cd5ee9f1e3234a9d16d_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__construction__move_8cpp_a20418ff5beddc413c3705025f760ce67}\index{test\_construction\_move.cpp@{test\_construction\_move.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_construction\_move.cpp@{test\_construction\_move.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [2/11]}}
+{\footnotesize\ttfamily \label{test__construction__move_8cpp_a20418ff5beddc413c3705025f760ce67} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Construction}]{}{, }\item[{Move\+Empty\+Negative}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__construction__move_8cpp_source_l00029}{29}} of file \doxymbox{\hyperlink{test__construction__move_8cpp_source}{test\+\_\+construction\+\_\+move.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/da7/test__construction__move_8cpp_a20418ff5beddc413c3705025f760ce67_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__construction__move_8cpp_abbaf8deabe63ea5decf141554a74d210}\index{test\_construction\_move.cpp@{test\_construction\_move.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_construction\_move.cpp@{test\_construction\_move.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [3/11]}}
+{\footnotesize\ttfamily \label{test__construction__move_8cpp_abbaf8deabe63ea5decf141554a74d210} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Construction}]{}{, }\item[{Move\+Positive\+Value}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__construction__move_8cpp_source_l00049}{49}} of file \doxymbox{\hyperlink{test__construction__move_8cpp_source}{test\+\_\+construction\+\_\+move.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/da7/test__construction__move_8cpp_abbaf8deabe63ea5decf141554a74d210_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__construction__move_8cpp_a10c7de90cf64a7a5771b33306faf3c01}\index{test\_construction\_move.cpp@{test\_construction\_move.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_construction\_move.cpp@{test\_construction\_move.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [4/11]}}
+{\footnotesize\ttfamily \label{test__construction__move_8cpp_a10c7de90cf64a7a5771b33306faf3c01} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Construction}]{}{, }\item[{Move\+Source\+\_\+\+Assigned}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__construction__move_8cpp_source_l00116}{116}} of file \doxymbox{\hyperlink{test__construction__move_8cpp_source}{test\+\_\+construction\+\_\+move.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/da7/test__construction__move_8cpp_a10c7de90cf64a7a5771b33306faf3c01_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__construction__move_8cpp_a7e2162fbb57b7df28fee11f29f710d5b}\index{test\_construction\_move.cpp@{test\_construction\_move.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_construction\_move.cpp@{test\_construction\_move.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [5/11]}}
+{\footnotesize\ttfamily \label{test__construction__move_8cpp_a7e2162fbb57b7df28fee11f29f710d5b} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Construction}]{}{, }\item[{Move\+Source\+\_\+\+Restored}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__construction__move_8cpp_source_l00102}{102}} of file \doxymbox{\hyperlink{test__construction__move_8cpp_source}{test\+\_\+construction\+\_\+move.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/da7/test__construction__move_8cpp_a7e2162fbb57b7df28fee11f29f710d5b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__construction__move_8cpp_a5c1e4f8c37905d4dabc17936dfaad3fe}\index{test\_construction\_move.cpp@{test\_construction\_move.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_construction\_move.cpp@{test\_construction\_move.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [6/11]}}
+{\footnotesize\ttfamily \label{test__construction__move_8cpp_a5c1e4f8c37905d4dabc17936dfaad3fe} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Construction}]{}{, }\item[{Move\+Value}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__construction__move_8cpp_source_l00038}{38}} of file \doxymbox{\hyperlink{test__construction__move_8cpp_source}{test\+\_\+construction\+\_\+move.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/da7/test__construction__move_8cpp_a5c1e4f8c37905d4dabc17936dfaad3fe_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__construction__move_8cpp_acf85843f0665584738d4752ac4cf49e8}\index{test\_construction\_move.cpp@{test\_construction\_move.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_construction\_move.cpp@{test\_construction\_move.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [7/11]}}
+{\footnotesize\ttfamily \label{test__construction__move_8cpp_acf85843f0665584738d4752ac4cf49e8} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Construction}]{}{, }\item[{Move\+Value\+Denorm\+\_\+\+Trail\+Zero}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__construction__move_8cpp_source_l00071}{71}} of file \doxymbox{\hyperlink{test__construction__move_8cpp_source}{test\+\_\+construction\+\_\+move.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/da7/test__construction__move_8cpp_acf85843f0665584738d4752ac4cf49e8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__construction__move_8cpp_a356a8da0ea959b93e1fceb6de584764b}\index{test\_construction\_move.cpp@{test\_construction\_move.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_construction\_move.cpp@{test\_construction\_move.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [8/11]}}
+{\footnotesize\ttfamily \label{test__construction__move_8cpp_a356a8da0ea959b93e1fceb6de584764b} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Construction}]{}{, }\item[{Move\+Value\+Denorm\+\_\+\+Zero\+Neg}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__construction__move_8cpp_source_l00082}{82}} of file \doxymbox{\hyperlink{test__construction__move_8cpp_source}{test\+\_\+construction\+\_\+move.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/da7/test__construction__move_8cpp_a356a8da0ea959b93e1fceb6de584764b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__construction__move_8cpp_a489ee949116e89ad73f210c3d01e7a3e}\index{test\_construction\_move.cpp@{test\_construction\_move.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_construction\_move.cpp@{test\_construction\_move.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [9/11]}}
+{\footnotesize\ttfamily \label{test__construction__move_8cpp_a489ee949116e89ad73f210c3d01e7a3e} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Construction}]{}{, }\item[{Move\+Value\+Denorm\+\_\+\+Zero\+Trail\+Neg}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__construction__move_8cpp_source_l00091}{91}} of file \doxymbox{\hyperlink{test__construction__move_8cpp_source}{test\+\_\+construction\+\_\+move.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/da7/test__construction__move_8cpp_a489ee949116e89ad73f210c3d01e7a3e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__construction__move_8cpp_a37d1ba85ec7fe4f13e3e4cae054f17d1}\index{test\_construction\_move.cpp@{test\_construction\_move.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_construction\_move.cpp@{test\_construction\_move.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [10/11]}}
+{\footnotesize\ttfamily \label{test__construction__move_8cpp_a37d1ba85ec7fe4f13e3e4cae054f17d1} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Construction}]{}{, }\item[{Move\+Value\+Independent}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__construction__move_8cpp_source_l00058}{58}} of file \doxymbox{\hyperlink{test__construction__move_8cpp_source}{test\+\_\+construction\+\_\+move.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/da7/test__construction__move_8cpp_a37d1ba85ec7fe4f13e3e4cae054f17d1_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__construction__move_8cpp_aea65d315bb80af8a624a67f1292159c9}\index{test\_construction\_move.cpp@{test\_construction\_move.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_construction\_move.cpp@{test\_construction\_move.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [11/11]}}
+{\footnotesize\ttfamily \label{test__construction__move_8cpp_aea65d315bb80af8a624a67f1292159c9} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Construction}]{}{, }\item[{Move\+Zero}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__construction__move_8cpp_source_l00013}{13}} of file \doxymbox{\hyperlink{test__construction__move_8cpp_source}{test\+\_\+construction\+\_\+move.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/da7/test__construction__move_8cpp_aea65d315bb80af8a624a67f1292159c9_cgraph}
+\end{center}
+\end{figure}

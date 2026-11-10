@@ -1,0 +1,603 @@
+\doxysection{Big\+Int/\+tests/\+bigint/\+test\+\_\+limb\+\_\+mutation.cpp File Reference}
+\hypertarget{test__limb__mutation_8cpp}{}\label{test__limb__mutation_8cpp}\index{BigInt/tests/bigint/test\_limb\_mutation.cpp@{BigInt/tests/bigint/test\_limb\_mutation.cpp}}
+{\ttfamily \+\#include $<$gtest/\+gtest.\+h$>$}\newline
+{\ttfamily \+\#include $<$limits$>$}\newline
+{\ttfamily \+\#include "{}bigint/\+bigint.\+hpp"{}}\newline
+{\ttfamily \+\#include "{}test\+\_\+helpers.\+hpp"{}}\newline
+Include dependency graph for test\+\_\+limb\+\_\+mutation.\+cpp:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d3e/test__limb__mutation_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_aa275521b0acebe8a43d4b84610619201}{TEST}} (Bigint\+Set\+Negative, Changes\+Sign\+Without\+Normalising)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a1da7b5016252f4c57cb1e1dde6060f85}{TEST}} (Bigint\+Set\+Negative, Changes\+Sign\+For\+Nonzero\+And\+Canonical\+Zero)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_ab5966b8addbb12cf88997a4ffbf5ebd8}{TEST}} (Bigint\+Set\+Limb\+Raw, Replaces\+Existing\+Limb\+And\+Preserves\+Sign)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a3174ba139a75d87f905cb08f72107e25}{TEST}} (Bigint\+Set\+Limb\+Raw, Accepts\+Maximum\+Limb\+Value)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a184e136b9f4c2071134682f8250f670e}{TEST}} (Bigint\+Set\+Limb\+Raw, Rejects\+Invalid\+Value\+Without\+Mutation)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_aad3cfd7c2f52635647bca3ac423037d7}{TEST}} (Bigint\+Set\+Limb\+Raw, Invalid\+Value\+Does\+Not\+Extend\+Storage)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a5397abd3b1436f3a76ba881de71fd4f6}{TEST}} (Bigint\+Set\+Limb\+Raw, Extends\+Storage\+With\+Nonzero\+Value\+And\+Zero\+Fills)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a8c34e66c86a7707b90e73e2959b28786}{TEST}} (Bigint\+Set\+Limb\+Raw, Extends\+Storage\+With\+Zero)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_afe5bb27e2f70f8b2a07bec30314669d3}{TEST}} (Bigint\+Set\+Limb\+Raw, Preserves\+Redundant\+Zero\+And\+Negative\+Zero)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_abf30c6e84b70376378ec2e3af26bdfe1}{TEST}} (Bigint\+Set\+Limb\+Raw, Extends\+Empty\+Storage\+Without\+Normalizing)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a8572e82a2634a57df93ae992ae539851}{TEST}} (Bigint\+Set\+Limb\+Raw, Nonzero\+Write\+To\+Negative\+Empty\+Storage)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_acfd59b0bdeef2228e4064abee8b50dd8}{TEST}} (Bigint\+Set\+Limb\+Raw, Maximum\+Index\+Throws\+Instead\+Of\+Overflowing)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a5353c6de9072b0ef37c54b267c646b11}{TEST}} (Bigint\+Set\+Limb\+Raw, Maximum\+Index\+Zero\+Throws)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_aaae236320e301423fc268e523a9e16dc}{TEST}} (Bigint\+Set\+Limb\+Raw, Maximum\+Index\+Invalid\+Value\+Returns\+False)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a1515549816df110d9bd4039c73d78a96}{TEST}} (Bigint\+Set\+Limb, Replaces\+Existing\+Limb\+And\+Preserves\+Sign)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a0cc22f8f5bfe4beda53e5f83715e21eb}{TEST}} (Bigint\+Set\+Limb, Unchanged\+Value\+Still\+Normalizes)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a5a8d390ca3619d8aa9fd043260f01443}{TEST}} (Bigint\+Set\+Limb, Normalizes\+After\+Zeroing\+Most\+Significant\+Limb)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_aa182c8a6eb1e2d98321d6e1e24c2a05f}{TEST}} (Bigint\+Set\+Limb, Zeroes\+Only\+Limb\+To\+Canonical\+Zero)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_acec29b47afc65f06b722d54511092fa9}{TEST}} (Bigint\+Set\+Limb, Extends\+Storage\+With\+Nonzero\+Value\+And\+Zero\+Fills)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a084af2bd8ac4ead7b895ef7bd4ad5903}{TEST}} (Bigint\+Set\+Limb, Out\+Of\+Range\+Zero\+Is\+Complete\+No\+Op)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a873747da40fe54c7097d5349e7a38989}{TEST}} (Bigint\+Set\+Limb, Maximum\+Index\+Zero\+Is\+No\+Op)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a9018373df0af69efb6ffac3dd373ece5}{TEST}} (Bigint\+Set\+Limb, Maximum\+Index\+Nonzero\+Throws)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a48e0240e1e4e0d5f404604f48f76024e}{TEST}} (Bigint\+Set\+Limb, Rejects\+Invalid\+Value\+Without\+Mutation)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_afa64db2be06b48f8233676d3e9ec6097}{TEST}} (Bigint\+Set\+Limb, Invalid\+Value\+Does\+Not\+Extend\+Storage)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a6ebc7d95c761223632ddb806e3626b45}{TEST}} (Bigint\+Set\+Limb, Accepts\+Maximum\+Limb\+Value)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_ac66dec14ad80cee1ca58953eea9f1a6b}{TEST}} (Bigint\+Set\+Limb, Nonzero\+Write\+To\+Negative\+Zero\+Preserves\+Negative\+Sign)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a3aeba944bfe7868e392e491b357471cb}{TEST}} (Bigint\+Set\+Limb, Zero\+Result\+Clears\+Negative\+Sign)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_ad4d64d2a7b04659912a234f2569ed92b}{TEST}} (Bigint\+Set\+Limb, Nonzero\+Write\+To\+Empty\+Storage\+Extends\+And\+Normalizes)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a75e8d0769950f7e5088822833b022b09}{TEST}} (Bigint\+Set\+Limb, Nonzero\+Write\+To\+Negative\+Empty\+Storage)
+\item 
+\doxymbox{\hyperlink{test__limb__mutation_8cpp_a91fd665569e064058c05ecfbed3debc8}{TEST}} (Bigint\+Set\+Limb, Zero\+Write\+To\+Empty\+Storage\+Is\+No\+Op)
+\item 
+void \doxymbox{\hyperlink{test__limb__mutation_8cpp_afb392cf99372bf839e0efb54e337c7db}{expect\+Representation}} (const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&value, const std::\+vector$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \&expected\+Limbs, const bool expected\+Negative)
+\end{DoxyCompactItemize}
+
+
+\label{test__limb__mutation_8cpp_doc-func-members}
+\Hypertarget{test__limb__mutation_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{test__limb__mutation_8cpp_afb392cf99372bf839e0efb54e337c7db}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!expectRepresentation@{expectRepresentation}}
+\index{expectRepresentation@{expectRepresentation}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{expectRepresentation()}{expectRepresentation()}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_afb392cf99372bf839e0efb54e337c7db} 
+void \doxymbox{\hyperlink{namespacebigint__test_afb392cf99372bf839e0efb54e337c7db}{bigint\+\_\+test::\+expect\+Representation}} (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&}]{value}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \&}]{expected\+Limbs}{, }\item[{const bool}]{expected\+Negative}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00033}{33}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+
+\Hypertarget{test__limb__mutation_8cpp_a6ebc7d95c761223632ddb806e3626b45}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [1/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a6ebc7d95c761223632ddb806e3626b45} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Accepts\+Maximum\+Limb\+Value}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00254}{254}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a6ebc7d95c761223632ddb806e3626b45_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_acec29b47afc65f06b722d54511092fa9}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [2/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_acec29b47afc65f06b722d54511092fa9} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Extends\+Storage\+With\+Nonzero\+Value\+And\+Zero\+Fills}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00198}{198}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_acec29b47afc65f06b722d54511092fa9_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_afa64db2be06b48f8233676d3e9ec6097}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [3/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_afa64db2be06b48f8233676d3e9ec6097} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Invalid\+Value\+Does\+Not\+Extend\+Storage}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00245}{245}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_afa64db2be06b48f8233676d3e9ec6097_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a9018373df0af69efb6ffac3dd373ece5}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [4/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a9018373df0af69efb6ffac3dd373ece5} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Maximum\+Index\+Nonzero\+Throws}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00228}{228}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a9018373df0af69efb6ffac3dd373ece5_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a873747da40fe54c7097d5349e7a38989}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [5/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a873747da40fe54c7097d5349e7a38989} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Maximum\+Index\+Zero\+Is\+No\+Op}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00219}{219}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a873747da40fe54c7097d5349e7a38989_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_ad4d64d2a7b04659912a234f2569ed92b}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [6/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_ad4d64d2a7b04659912a234f2569ed92b} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Nonzero\+Write\+To\+Empty\+Storage\+Extends\+And\+Normalizes}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00284}{284}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_ad4d64d2a7b04659912a234f2569ed92b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a75e8d0769950f7e5088822833b022b09}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [7/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a75e8d0769950f7e5088822833b022b09} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Nonzero\+Write\+To\+Negative\+Empty\+Storage}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00294}{294}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a75e8d0769950f7e5088822833b022b09_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_ac66dec14ad80cee1ca58953eea9f1a6b}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [8/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_ac66dec14ad80cee1ca58953eea9f1a6b} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Nonzero\+Write\+To\+Negative\+Zero\+Preserves\+Negative\+Sign}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00264}{264}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_ac66dec14ad80cee1ca58953eea9f1a6b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a5a8d390ca3619d8aa9fd043260f01443}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [9/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a5a8d390ca3619d8aa9fd043260f01443} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Normalizes\+After\+Zeroing\+Most\+Significant\+Limb}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00171}{171}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a5a8d390ca3619d8aa9fd043260f01443_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a084af2bd8ac4ead7b895ef7bd4ad5903}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [10/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a084af2bd8ac4ead7b895ef7bd4ad5903} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Out\+Of\+Range\+Zero\+Is\+Complete\+No\+Op}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00208}{208}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a084af2bd8ac4ead7b895ef7bd4ad5903_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a48e0240e1e4e0d5f404604f48f76024e}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [11/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a48e0240e1e4e0d5f404604f48f76024e} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Rejects\+Invalid\+Value\+Without\+Mutation}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00236}{236}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a48e0240e1e4e0d5f404604f48f76024e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a1515549816df110d9bd4039c73d78a96}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [12/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a1515549816df110d9bd4039c73d78a96} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Replaces\+Existing\+Limb\+And\+Preserves\+Sign}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00151}{151}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a1515549816df110d9bd4039c73d78a96_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a0cc22f8f5bfe4beda53e5f83715e21eb}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [13/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a0cc22f8f5bfe4beda53e5f83715e21eb} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Unchanged\+Value\+Still\+Normalizes}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00161}{161}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a0cc22f8f5bfe4beda53e5f83715e21eb_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_aa182c8a6eb1e2d98321d6e1e24c2a05f}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [14/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_aa182c8a6eb1e2d98321d6e1e24c2a05f} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Zeroes\+Only\+Limb\+To\+Canonical\+Zero}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00181}{181}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_aa182c8a6eb1e2d98321d6e1e24c2a05f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a3aeba944bfe7868e392e491b357471cb}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [15/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a3aeba944bfe7868e392e491b357471cb} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Zero\+Result\+Clears\+Negative\+Sign}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00274}{274}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a3aeba944bfe7868e392e491b357471cb_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a91fd665569e064058c05ecfbed3debc8}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [16/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a91fd665569e064058c05ecfbed3debc8} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb}]{}{, }\item[{Zero\+Write\+To\+Empty\+Storage\+Is\+No\+Op}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00304}{304}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a91fd665569e064058c05ecfbed3debc8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a3174ba139a75d87f905cb08f72107e25}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [17/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a3174ba139a75d87f905cb08f72107e25} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb\+Raw}]{}{, }\item[{Accepts\+Maximum\+Limb\+Value}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00052}{52}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a3174ba139a75d87f905cb08f72107e25_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_abf30c6e84b70376378ec2e3af26bdfe1}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [18/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_abf30c6e84b70376378ec2e3af26bdfe1} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb\+Raw}]{}{, }\item[{Extends\+Empty\+Storage\+Without\+Normalizing}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00109}{109}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_abf30c6e84b70376378ec2e3af26bdfe1_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a5397abd3b1436f3a76ba881de71fd4f6}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [19/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a5397abd3b1436f3a76ba881de71fd4f6} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb\+Raw}]{}{, }\item[{Extends\+Storage\+With\+Nonzero\+Value\+And\+Zero\+Fills}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00079}{79}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a5397abd3b1436f3a76ba881de71fd4f6_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a8c34e66c86a7707b90e73e2959b28786}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [20/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a8c34e66c86a7707b90e73e2959b28786} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb\+Raw}]{}{, }\item[{Extends\+Storage\+With\+Zero}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00088}{88}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a8c34e66c86a7707b90e73e2959b28786_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_aad3cfd7c2f52635647bca3ac423037d7}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [21/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_aad3cfd7c2f52635647bca3ac423037d7} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb\+Raw}]{}{, }\item[{Invalid\+Value\+Does\+Not\+Extend\+Storage}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00070}{70}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_aad3cfd7c2f52635647bca3ac423037d7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_aaae236320e301423fc268e523a9e16dc}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [22/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_aaae236320e301423fc268e523a9e16dc} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb\+Raw}]{}{, }\item[{Maximum\+Index\+Invalid\+Value\+Returns\+False}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00141}{141}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_aaae236320e301423fc268e523a9e16dc_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_acfd59b0bdeef2228e4064abee8b50dd8}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [23/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_acfd59b0bdeef2228e4064abee8b50dd8} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb\+Raw}]{}{, }\item[{Maximum\+Index\+Throws\+Instead\+Of\+Overflowing}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00127}{127}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_acfd59b0bdeef2228e4064abee8b50dd8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a5353c6de9072b0ef37c54b267c646b11}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [24/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a5353c6de9072b0ef37c54b267c646b11} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb\+Raw}]{}{, }\item[{Maximum\+Index\+Zero\+Throws}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00134}{134}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a5353c6de9072b0ef37c54b267c646b11_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a8572e82a2634a57df93ae992ae539851}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [25/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a8572e82a2634a57df93ae992ae539851} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb\+Raw}]{}{, }\item[{Nonzero\+Write\+To\+Negative\+Empty\+Storage}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00118}{118}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a8572e82a2634a57df93ae992ae539851_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_afe5bb27e2f70f8b2a07bec30314669d3}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [26/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_afe5bb27e2f70f8b2a07bec30314669d3} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb\+Raw}]{}{, }\item[{Preserves\+Redundant\+Zero\+And\+Negative\+Zero}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00097}{97}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_afe5bb27e2f70f8b2a07bec30314669d3_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a184e136b9f4c2071134682f8250f670e}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [27/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a184e136b9f4c2071134682f8250f670e} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb\+Raw}]{}{, }\item[{Rejects\+Invalid\+Value\+Without\+Mutation}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00061}{61}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a184e136b9f4c2071134682f8250f670e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_ab5966b8addbb12cf88997a4ffbf5ebd8}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [28/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_ab5966b8addbb12cf88997a4ffbf5ebd8} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Limb\+Raw}]{}{, }\item[{Replaces\+Existing\+Limb\+And\+Preserves\+Sign}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00043}{43}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_ab5966b8addbb12cf88997a4ffbf5ebd8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_a1da7b5016252f4c57cb1e1dde6060f85}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [29/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_a1da7b5016252f4c57cb1e1dde6060f85} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Negative}]{}{, }\item[{Changes\+Sign\+For\+Nonzero\+And\+Canonical\+Zero}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00028}{28}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_a1da7b5016252f4c57cb1e1dde6060f85_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test__limb__mutation_8cpp_aa275521b0acebe8a43d4b84610619201}\index{test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_limb\_mutation.cpp@{test\_limb\_mutation.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [30/30]}}
+{\footnotesize\ttfamily \label{test__limb__mutation_8cpp_aa275521b0acebe8a43d4b84610619201} 
+TEST (\begin{DoxyParamCaption}\item[{Bigint\+Set\+Negative}]{}{, }\item[{Changes\+Sign\+Without\+Normalising}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{test__limb__mutation_8cpp_source_l00013}{13}} of file \doxymbox{\hyperlink{test__limb__mutation_8cpp_source}{test\+\_\+limb\+\_\+mutation.\+cpp}}.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d9e/test__limb__mutation_8cpp_aa275521b0acebe8a43d4b84610619201_cgraph}
+\end{center}
+\end{figure}

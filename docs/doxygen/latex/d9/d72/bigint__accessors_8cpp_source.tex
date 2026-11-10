@@ -1,0 +1,141 @@
+\doxysection{bigint\+\_\+accessors.\+cpp}
+\hypertarget{bigint__accessors_8cpp_source}{}\label{bigint__accessors_8cpp_source}\index{BigInt/src/bigint/bigint\_accessors.cpp@{BigInt/src/bigint/bigint\_accessors.cpp}}
+\doxymbox{\hyperlink{bigint__accessors_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ artyk\ on\ 11/1/26.}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{bigint__declaration_8hpp}{bigint/bigint\_declaration.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{bigint__accessors_8hpp}{bigint/bigint\_accessors.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{utils_8hpp}{bigint/utils.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00011}\doxymbox{\hyperlink{classBigInt_ab1bc8c3de6ef5084e64c564e67cc72a7}{00011}}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classBigInt_ab1bc8c3de6ef5084e64c564e67cc72a7}{BigInt::setLimb}}(\textcolor{keyword}{const}\ std::size\_t\ index,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\_t}}\ value)\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ this-\/>\doxymbox{\hyperlink{classBigInt_a364f902e99cfe9e85fdb8629f1a36393}{getLimbCount}}()\ \&\&\ value\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ no-\/op}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00014}00014\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00015}00015\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\doxymbox{\hyperlink{classBigInt_a91f23442d1a1f5ee68f2ae4b92fe760f}{setLimbRaw}}(index,\ value))\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00018}00018\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00020}00020\ \ \ \ \ \doxymbox{\hyperlink{utils_8hpp_a8951b71186b3b14ce155d67282587812}{cdbg}}<<\textcolor{stringliteral}{"{}Normalising\ after\ setting\ the\ limb\ value"{}}<<\doxymbox{\hyperlink{utils_8hpp_a9732970f9ca82af5d3e94cf069402340}{NLC}};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00021}00021\ \ \ \ \ this-\/>\doxymbox{\hyperlink{classBigInt_ad796e56e198962b2799c30ac66e755fa}{normalise}}();}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ succeeded}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00026}\doxymbox{\hyperlink{classBigInt_a91f23442d1a1f5ee68f2ae4b92fe760f}{00026}}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classBigInt_a91f23442d1a1f5ee68f2ae4b92fe760f}{BigInt::setLimbRaw}}(\textcolor{keyword}{const}\ std::size\_t\ index,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\_t}}\ value)\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00027}00027\ \ \ \ \ \doxymbox{\hyperlink{utils_8hpp_a8951b71186b3b14ce155d67282587812}{cdbg}}<<\textcolor{stringliteral}{"{}Setting\ limb\ at\ index\ "{}}<<index<<\textcolor{stringliteral}{"{}\ to\ value\ "{}}<<value<<\doxymbox{\hyperlink{utils_8hpp_a9732970f9ca82af5d3e94cf069402340}{NLC}};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//\ value\ is\ more\ than\ what\ can\ be\ stored}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_signed<limb\_t>::value)\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{utils_8hpp_a8951b71186b3b14ce155d67282587812}{cdbg}}<<\textcolor{stringliteral}{"{}Value\ is\ less\ than\ 0\ (signed\ limb\_t),\ failed"{}}<<\doxymbox{\hyperlink{utils_8hpp_a9732970f9ca82af5d3e94cf069402340}{NLC}};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00035}00035\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >\ \doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}})\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{utils_8hpp_a8951b71186b3b14ce155d67282587812}{cdbg}}<<\textcolor{stringliteral}{"{}Value\ is\ more\ then\ STORAGE\_MAX,\ failed"{}}<<\doxymbox{\hyperlink{utils_8hpp_a9732970f9ca82af5d3e94cf069402340}{NLC}};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ failed}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ std::numeric\_limits<std::size\_t>::max())\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::length\_error(\textcolor{stringliteral}{"{}BigInt\ limb\ index\ exceeds\ maximum\ storage\ size"{}});}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00043}00043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//\ index\ is\ larger\ than\ what\ can\ be\ stored}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ this-\/>\doxymbox{\hyperlink{classBigInt_a364f902e99cfe9e85fdb8629f1a36393}{getLimbCount}}())\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{utils_8hpp_a8951b71186b3b14ce155d67282587812}{cdbg}}<<\textcolor{stringliteral}{"{}Index\ is\ >=\ than\ current\ limb\ count\ "{}}<<this-\/>\doxymbox{\hyperlink{classBigInt_a364f902e99cfe9e85fdb8629f1a36393}{getLimbCount}}()<<\textcolor{stringliteral}{"{};\ resizing..."{}}<<\doxymbox{\hyperlink{utils_8hpp_a9732970f9ca82af5d3e94cf069402340}{NLC}};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ this-\/>m\_lstDigits.resize(index\ +\ 1,\ 0);}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00050}00050\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00051}00051\ \ \ \ \ this-\/>m\_lstDigits[index]\ =\ value;}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ succeeded}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00056}\doxymbox{\hyperlink{classBigInt_a94a494aca7e98d925bbb81de5cc4d9df}{00056}}\ std::string\ \doxymbox{\hyperlink{classBigInt_a94a494aca7e98d925bbb81de5cc4d9df}{BigInt::toStringDec}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\doxymbox{\hyperlink{classBigInt_ab090d1656a4ea58f01ab2fdf37b3af9c}{isZero}}())\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00060}00060\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{comment}{//idkman,\ I\ wish\ I\ could\ just\ specify\ the\ size\ withouth\ the\ char}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00063}00063\ \ \ \ \ std::string\ result;}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00064}00064\ \ \ \ \ result.reserve(this-\/>\doxymbox{\hyperlink{classBigInt_a95f4a2cafc7ab33729f40d0415831044}{isNegative}}()\ +\ this-\/>\doxymbox{\hyperlink{classBigInt_a52a3dd47c689978179bc84b233c1145e}{getDigitCount}}());}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\doxymbox{\hyperlink{classBigInt_a95f4a2cafc7ab33729f40d0415831044}{isNegative}}())\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ result.push\_back(\textcolor{charliteral}{'-\/'});}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00068}00068\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{char}\ numBuf[\doxymbox{\hyperlink{bigint__declaration_8hpp_adace4e53cc742cf9f5c1566198cbaae7}{LIMB\_DIGITS}}\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00071}00071\ \ \ \ \ std::size\_t\ len\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{comment}{//first\ time\ without\ zero-\/leading\ logic}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00074}00074\ \ \ \ \ result.append(}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ numBuf,\ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ std::to\_chars(numBuf,\ numBuf+\textcolor{keyword}{sizeof}(numBuf)-\/1,\ this-\/>\doxymbox{\hyperlink{classBigInt_ac0ea695e4944c59e97187943df8cf449}{getLastLimb}}()).ptr\ -\/\ numBuf}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00079}00079\ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ this-\/>\doxymbox{\hyperlink{classBigInt_a364f902e99cfe9e85fdb8629f1a36393}{getLimbCount}}()-\/1;\ i-\/-\/\ >\ 0;)\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//format,\ get\ length}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ len\ =\ \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ std::to\_chars(numBuf,\ numBuf+\textcolor{keyword}{sizeof}(numBuf)-\/1,\ this-\/>\doxymbox{\hyperlink{classBigInt_ab1daffa824bd573240330ea9aea5dbbc}{getLimb}}(i)).ptr\ -\/\ numBuf}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ result.append(\doxymbox{\hyperlink{bigint__declaration_8hpp_adace4e53cc742cf9f5c1566198cbaae7}{LIMB\_DIGITS}}-\/len,\ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ result.append(numBuf,\ len);}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00089}00089\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00092}00092\ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00096}\doxymbox{\hyperlink{classBigInt_ad796e56e198962b2799c30ac66e755fa}{00096}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classBigInt_ad796e56e198962b2799c30ac66e755fa}{BigInt::normalise}}()\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\doxymbox{\hyperlink{classBigInt_a364f902e99cfe9e85fdb8629f1a36393}{getLimbCount}}()\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{utils_8hpp_a8951b71186b3b14ce155d67282587812}{cdbg}}<<\textcolor{stringliteral}{"{}Bigint\ has\ no\ limbs,\ setting\ it\ to\ 0"{}}\ <<\doxymbox{\hyperlink{utils_8hpp_a9732970f9ca82af5d3e94cf069402340}{NLC}};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ this-\/>\doxymbox{\hyperlink{classBigInt_aed7862704019b417cb9754feb5e5edec}{setToZero}}();}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00100}00100\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00101}00101\ \textcolor{preprocessor}{\#ifdef\ DEBUGMODE}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\doxymbox{\hyperlink{classBigInt_a364f902e99cfe9e85fdb8629f1a36393}{getLimbCount}}()\ >\ 1\ \&\&\ this-\/>\doxymbox{\hyperlink{classBigInt_ac0ea695e4944c59e97187943df8cf449}{getLastLimb}}()\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{utils_8hpp_a8951b71186b3b14ce155d67282587812}{cdbg}}<<\textcolor{stringliteral}{"{}Non-\/first\ limb\ equals\ to\ 0;\ launching\ the\ pop\_back\ loop"{}}<<\doxymbox{\hyperlink{utils_8hpp_a9732970f9ca82af5d3e94cf069402340}{NLC}};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00104}00104\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00105}00105\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00106}00106\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{while}\ (this-\/>\doxymbox{\hyperlink{classBigInt_a364f902e99cfe9e85fdb8629f1a36393}{getLimbCount}}()\ >\ 1\ \&\&\ this-\/>\doxymbox{\hyperlink{classBigInt_ac0ea695e4944c59e97187943df8cf449}{getLastLimb}}()\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ this-\/>m\_lstDigits.pop\_back();}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00110}00110\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\doxymbox{\hyperlink{classBigInt_ab090d1656a4ea58f01ab2fdf37b3af9c}{isZero}}())\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{utils_8hpp_a8951b71186b3b14ce155d67282587812}{cdbg}}<<\textcolor{stringliteral}{"{}number's\ magnitude\ is\ zero;\ setting\ negativity\ to\ false\ (just\ in\ case\ lol)"{}}<<\doxymbox{\hyperlink{utils_8hpp_a9732970f9ca82af5d3e94cf069402340}{NLC}};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ this-\/>\doxymbox{\hyperlink{classBigInt_ae66e5ab12ec81c5066a3d23207c500f7}{setNegative}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00115}00115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00116}00116\ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00118}\doxymbox{\hyperlink{classBigInt_a6f7132b05022dfd943a8d1836308886c}{00118}}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classBigInt_a6f7132b05022dfd943a8d1836308886c}{BigInt::isNormalised}}()\ const\ noexcept\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{comment}{//\ empty\ deque}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00120}00120\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\doxymbox{\hyperlink{classBigInt_a364f902e99cfe9e85fdb8629f1a36393}{getLimbCount}}()\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00122}00122\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00124}00124\ \ \ \ \ \textcolor{comment}{//\ leading\ 0's}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00125}00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\doxymbox{\hyperlink{classBigInt_a364f902e99cfe9e85fdb8629f1a36393}{getLimbCount}}()\ >\ 1\ \&\&\ this-\/>\doxymbox{\hyperlink{classBigInt_ac0ea695e4944c59e97187943df8cf449}{getLastLimb}}()\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00127}00127\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00129}00129\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00130}00130\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\doxymbox{\hyperlink{classBigInt_ab090d1656a4ea58f01ab2fdf37b3af9c}{isZero}}()\ \&\&\ this-\/>\doxymbox{\hyperlink{classBigInt_a95f4a2cafc7ab33729f40d0415831044}{isNegative}}())\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00132}00132\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8cpp_source_l00135}00135\ \}}
+
+\end{DoxyCode}

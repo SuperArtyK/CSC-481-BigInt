@@ -1,0 +1,369 @@
+\doxysection{Json Struct Reference}
+\hypertarget{structJson}{}\label{structJson}\index{Json@{Json}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \doxymbox{\hyperlink{structJson_a82938661c4953d873b5c8a204337fd57}{Kind}} \{ \newline
+\doxymbox{\hyperlink{structJson_a82938661c4953d873b5c8a204337fd57a27118326006d3829667a400ad23d5d98}{String}}
+, \doxymbox{\hyperlink{structJson_a82938661c4953d873b5c8a204337fd57ac26f15e86e3de4c398a8273272aba034}{Bool}}
+, \doxymbox{\hyperlink{structJson_a82938661c4953d873b5c8a204337fd57ab2ee912b91d69b435159c7c3f6df7f5f}{Number}}
+, \doxymbox{\hyperlink{structJson_a82938661c4953d873b5c8a204337fd57a4410ec34d9e6c1a68100ca0ce033fb17}{Array}}
+, \newline
+\doxymbox{\hyperlink{structJson_a82938661c4953d873b5c8a204337fd57a497031794414a552435f90151ac3b54b}{Object}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structJson_ad2c050500611a00ad56f20979dc78068}{Json}} (\doxymbox{\hyperlink{structJson_a82938661c4953d873b5c8a204337fd57}{Kind}} k)
+\item 
+void \doxymbox{\hyperlink{structJson_afa85085f0d261c49aa5c9e5211e4a9c0}{add}} (const string \&key, \doxymbox{\hyperlink{structJson}{Json}} value)
+\item 
+void \doxymbox{\hyperlink{structJson_a75d65c049265c19b35200a770e96bc38}{push}} (\doxymbox{\hyperlink{structJson}{Json}} value)
+\item 
+void \doxymbox{\hyperlink{structJson_ababf7c10e618345515125256c2f04504}{write}} (std::\+ostream \&out, int depth=0) const
+\item 
+string \doxymbox{\hyperlink{structJson_a2814840bf21da8f2ac8d83fe1cedebd4}{dump}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{structJson}{Json}} \doxymbox{\hyperlink{structJson_a8c5f52ff0f932d3c4059c10cc622943f}{str}} (string s)
+\item 
+static \doxymbox{\hyperlink{structJson}{Json}} \doxymbox{\hyperlink{structJson_af2bbf73426639abc70fc8b8e3e648ce9}{boolean}} (bool b)
+\item 
+static \doxymbox{\hyperlink{structJson}{Json}} \doxymbox{\hyperlink{structJson_abd77050d2679a683f32a5ceb7ae6a316}{integer}} (int n)
+\item 
+static \doxymbox{\hyperlink{structJson}{Json}} \doxymbox{\hyperlink{structJson_afc7b48b9621e1c2e10680bda97d09d05}{array}} ()
+\item 
+static \doxymbox{\hyperlink{structJson}{Json}} \doxymbox{\hyperlink{structJson_ac5f577522e63034ec126eb6a36ca31b1}{object}} ()
+\item 
+static string \doxymbox{\hyperlink{structJson_a50ecc9517a69ef366abb73b69b3c3e4e}{escape}} (const string \&s)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{structJson_a82938661c4953d873b5c8a204337fd57}{Json::\+\+Kind}} \doxymbox{\hyperlink{structJson_a3e42c5d0811ee6ae05980a30981cf755}{kind}}
+\item 
+string \doxymbox{\hyperlink{structJson_a964cc3a0a7bc0201127d5bf9d71cb51c}{text}}
+\item 
+bool \doxymbox{\hyperlink{structJson_aa946d04b2ec2838dd413238504e21634}{flag}} = false
+\item 
+int \doxymbox{\hyperlink{structJson_a348ad61bca930cdd51d72af0de999e24}{number}} = 0
+\item 
+vector$<$ \doxymbox{\hyperlink{structJson}{Json}} $>$ \doxymbox{\hyperlink{structJson_a93d4a48d97ca7f9f06dea2f2104ae767}{items}}
+\item 
+vector$<$ std::\+pair$<$ string, \doxymbox{\hyperlink{structJson}{Json}} $>$ $>$ \doxymbox{\hyperlink{structJson_a4f9390ac2c9e5d8de933433597c3fa12}{fields}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00024}{24}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+
+
+\label{structJson_doc-enum-members}
+\Hypertarget{structJson_doc-enum-members}
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{structJson_a82938661c4953d873b5c8a204337fd57}\index{Json@{Json}!Kind@{Kind}}
+\index{Kind@{Kind}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{Kind}{Kind}}
+{\footnotesize\ttfamily \label{structJson_a82938661c4953d873b5c8a204337fd57} 
+enum class \doxymbox{\hyperlink{structJson_a82938661c4953d873b5c8a204337fd57}{Json::\+\+Kind}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{String@{String}!Json@{Json}}
+\index{Json@{Json}!String@{String}}
+}\Hypertarget{structJson_a82938661c4953d873b5c8a204337fd57a27118326006d3829667a400ad23d5d98}\label{structJson_a82938661c4953d873b5c8a204337fd57a27118326006d3829667a400ad23d5d98} 
+String&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Bool@{Bool}!Json@{Json}}
+\index{Json@{Json}!Bool@{Bool}}
+}\Hypertarget{structJson_a82938661c4953d873b5c8a204337fd57ac26f15e86e3de4c398a8273272aba034}\label{structJson_a82938661c4953d873b5c8a204337fd57ac26f15e86e3de4c398a8273272aba034} 
+Bool&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Number@{Number}!Json@{Json}}
+\index{Json@{Json}!Number@{Number}}
+}\Hypertarget{structJson_a82938661c4953d873b5c8a204337fd57ab2ee912b91d69b435159c7c3f6df7f5f}\label{structJson_a82938661c4953d873b5c8a204337fd57ab2ee912b91d69b435159c7c3f6df7f5f} 
+Number&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Array@{Array}!Json@{Json}}
+\index{Json@{Json}!Array@{Array}}
+}\Hypertarget{structJson_a82938661c4953d873b5c8a204337fd57a4410ec34d9e6c1a68100ca0ce033fb17}\label{structJson_a82938661c4953d873b5c8a204337fd57a4410ec34d9e6c1a68100ca0ce033fb17} 
+Array&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Object@{Object}!Json@{Json}}
+\index{Json@{Json}!Object@{Object}}
+}\Hypertarget{structJson_a82938661c4953d873b5c8a204337fd57a497031794414a552435f90151ac3b54b}\label{structJson_a82938661c4953d873b5c8a204337fd57a497031794414a552435f90151ac3b54b} 
+Object&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00025}{25}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+
+
+\label{structJson_doc-constructors}
+\Hypertarget{structJson_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structJson_ad2c050500611a00ad56f20979dc78068}\index{Json@{Json}!Json@{Json}}
+\index{Json@{Json}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{Json()}{Json()}}
+{\footnotesize\ttfamily \label{structJson_ad2c050500611a00ad56f20979dc78068} 
+Json::\+\+Json (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structJson_a82938661c4953d873b5c8a204337fd57}{Kind}}}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00031}{31}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+
+
+\label{structJson_doc-func-members}
+\Hypertarget{structJson_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structJson_afa85085f0d261c49aa5c9e5211e4a9c0}\index{Json@{Json}!add@{add}}
+\index{add@{add}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \label{structJson_afa85085f0d261c49aa5c9e5211e4a9c0} 
+void Json::\+add (\begin{DoxyParamCaption}\item[{const string \&}]{key}{, }\item[{\doxymbox{\hyperlink{structJson}{Json}}}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00037}{37}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{da/d46/structJson_afa85085f0d261c49aa5c9e5211e4a9c0_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{structJson_afc7b48b9621e1c2e10680bda97d09d05}\index{Json@{Json}!array@{array}}
+\index{array@{array}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{array()}{array()}}
+{\footnotesize\ttfamily \label{structJson_afc7b48b9621e1c2e10680bda97d09d05} 
+\doxymbox{\hyperlink{structJson}{Json}} Json::\+array (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00035}{35}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{da/d46/structJson_afc7b48b9621e1c2e10680bda97d09d05_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{structJson_af2bbf73426639abc70fc8b8e3e648ce9}\index{Json@{Json}!boolean@{boolean}}
+\index{boolean@{boolean}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{boolean()}{boolean()}}
+{\footnotesize\ttfamily \label{structJson_af2bbf73426639abc70fc8b8e3e648ce9} 
+\doxymbox{\hyperlink{structJson}{Json}} Json::\+boolean (\begin{DoxyParamCaption}\item[{bool}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00033}{33}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=257pt]{da/d46/structJson_af2bbf73426639abc70fc8b8e3e648ce9_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{structJson_a2814840bf21da8f2ac8d83fe1cedebd4}\index{Json@{Json}!dump@{dump}}
+\index{dump@{dump}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{dump()}{dump()}}
+{\footnotesize\ttfamily \label{structJson_a2814840bf21da8f2ac8d83fe1cedebd4} 
+string Json::\+dump (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00086}{86}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d46/structJson_a2814840bf21da8f2ac8d83fe1cedebd4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{structJson_a50ecc9517a69ef366abb73b69b3c3e4e}\index{Json@{Json}!escape@{escape}}
+\index{escape@{escape}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{escape()}{escape()}}
+{\footnotesize\ttfamily \label{structJson_a50ecc9517a69ef366abb73b69b3c3e4e} 
+string Json::\+escape (\begin{DoxyParamCaption}\item[{const string \&}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00039}{39}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+\Hypertarget{structJson_abd77050d2679a683f32a5ceb7ae6a316}\index{Json@{Json}!integer@{integer}}
+\index{integer@{integer}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{integer()}{integer()}}
+{\footnotesize\ttfamily \label{structJson_abd77050d2679a683f32a5ceb7ae6a316} 
+\doxymbox{\hyperlink{structJson}{Json}} Json::\+integer (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00034}{34}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{da/d46/structJson_abd77050d2679a683f32a5ceb7ae6a316_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{structJson_ac5f577522e63034ec126eb6a36ca31b1}\index{Json@{Json}!object@{object}}
+\index{object@{object}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{object()}{object()}}
+{\footnotesize\ttfamily \label{structJson_ac5f577522e63034ec126eb6a36ca31b1} 
+\doxymbox{\hyperlink{structJson}{Json}} Json::\+object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00036}{36}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{da/d46/structJson_ac5f577522e63034ec126eb6a36ca31b1_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{structJson_a75d65c049265c19b35200a770e96bc38}\index{Json@{Json}!push@{push}}
+\index{push@{push}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily \label{structJson_a75d65c049265c19b35200a770e96bc38} 
+void Json::\+push (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structJson}{Json}}}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00038}{38}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{da/d46/structJson_a75d65c049265c19b35200a770e96bc38_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{structJson_a8c5f52ff0f932d3c4059c10cc622943f}\index{Json@{Json}!str@{str}}
+\index{str@{str}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{str()}{str()}}
+{\footnotesize\ttfamily \label{structJson_a8c5f52ff0f932d3c4059c10cc622943f} 
+\doxymbox{\hyperlink{structJson}{Json}} Json::\+str (\begin{DoxyParamCaption}\item[{string}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00032}{32}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{da/d46/structJson_a8c5f52ff0f932d3c4059c10cc622943f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{structJson_ababf7c10e618345515125256c2f04504}\index{Json@{Json}!write@{write}}
+\index{write@{write}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily \label{structJson_ababf7c10e618345515125256c2f04504} 
+void Json::\+write (\begin{DoxyParamCaption}\item[{std::\+ostream \&}]{out}{, }\item[{int}]{depth}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00056}{56}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{da/d46/structJson_ababf7c10e618345515125256c2f04504_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{structJson_doc-variable-members}
+\Hypertarget{structJson_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structJson_a4f9390ac2c9e5d8de933433597c3fa12}\index{Json@{Json}!fields@{fields}}
+\index{fields@{fields}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{fields}{fields}}
+{\footnotesize\ttfamily \label{structJson_a4f9390ac2c9e5d8de933433597c3fa12} 
+vector$<$std::\+pair$<$string, \doxymbox{\hyperlink{structJson}{Json}}$>$ $>$ Json::\+fields}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00030}{30}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+\Hypertarget{structJson_aa946d04b2ec2838dd413238504e21634}\index{Json@{Json}!flag@{flag}}
+\index{flag@{flag}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{flag}{flag}}
+{\footnotesize\ttfamily \label{structJson_aa946d04b2ec2838dd413238504e21634} 
+bool Json::\+flag = false}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00027}{27}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+\Hypertarget{structJson_a93d4a48d97ca7f9f06dea2f2104ae767}\index{Json@{Json}!items@{items}}
+\index{items@{items}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{items}{items}}
+{\footnotesize\ttfamily \label{structJson_a93d4a48d97ca7f9f06dea2f2104ae767} 
+vector$<$\doxymbox{\hyperlink{structJson}{Json}}$>$ Json::\+items}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00029}{29}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+\Hypertarget{structJson_a3e42c5d0811ee6ae05980a30981cf755}\index{Json@{Json}!kind@{kind}}
+\index{kind@{kind}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{kind}{kind}}
+{\footnotesize\ttfamily \label{structJson_a3e42c5d0811ee6ae05980a30981cf755} 
+enum \doxymbox{\hyperlink{structJson_a82938661c4953d873b5c8a204337fd57}{Json::\+\+Kind}} Json::\+kind}
+
+\Hypertarget{structJson_a348ad61bca930cdd51d72af0de999e24}\index{Json@{Json}!number@{number}}
+\index{number@{number}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{number}{number}}
+{\footnotesize\ttfamily \label{structJson_a348ad61bca930cdd51d72af0de999e24} 
+int Json::\+number = 0}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00028}{28}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+\Hypertarget{structJson_a964cc3a0a7bc0201127d5bf9d71cb51c}\index{Json@{Json}!text@{text}}
+\index{text@{text}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{text}{text}}
+{\footnotesize\ttfamily \label{structJson_a964cc3a0a7bc0201127d5bf9d71cb51c} 
+string Json::\+text}
+
+
+
+Definition at line \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source_l00026}{26}} of file \doxymbox{\hyperlink{interactive__cmake__generator_8cpp_source}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}.
+
+
+
+The documentation for this struct was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{interactive__cmake__generator_8cpp}{interactive\+\_\+cmake\+\_\+generator.\+cpp}}\end{DoxyCompactItemize}

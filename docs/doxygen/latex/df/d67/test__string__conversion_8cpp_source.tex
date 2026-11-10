@@ -1,0 +1,130 @@
+\doxysection{test\+\_\+string\+\_\+conversion.\+cpp}
+\hypertarget{test__string__conversion_8cpp_source}{}\label{test__string__conversion_8cpp_source}\index{BigInt/tests/bigint/test\_string\_conversion.cpp@{BigInt/tests/bigint/test\_string\_conversion.cpp}}
+\doxymbox{\hyperlink{test__string__conversion_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ artyk\ on\ 11/9/26.}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <gtest/gtest.h>}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <initializer\_list>}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{bigint_8hpp}{bigint/bigint.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{test__helpers_8hpp}{test\_helpers.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00012}00012\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{test__accessors_8cpp_aa617b98d77d823331b56f0c5f949d99c}{tester}}\ =\ \doxymbox{\hyperlink{structbigint__test_1_1Inspector}{bigint\_test::Inspector}};}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00013}00013\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespacebigint__test_afb392cf99372bf839e0efb54e337c7db}{bigint\_test::expectRepresentation}};}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00015}\doxymbox{\hyperlink{test__string__conversion_8cpp_a99075a6849f32a81333ba904abd599c3}{00015}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(BigintStringConversion,\ ToStringDecExactValues)\ \{}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keyword}{struct\ }Case\ \{}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ std::initializer\_list<limb\_t>\ limbs;}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ negative;}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ std::string\ expected;}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00020}00020\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{const}\ Case\ cases[]\{}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \{\{0\},\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}0"{}}\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \{\{1\},\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}1"{}}\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \{\{9\},\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}9"{}}\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \{\{10\},\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}10"{}}\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \{\{99\},\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}99"{}}\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \{\{100\},\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}100"{}}\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \{\{\doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}}\},\ \textcolor{keyword}{false},\ std::string(18,\ \textcolor{charliteral}{'9'})\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \{\{\doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}}\},\ \textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}-\/"{}}\ +\ std::string(18,\ \textcolor{charliteral}{'9'})\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \{\{1\},\ \textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}-\/1"{}}\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \{\{42\},\ \textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}-\/42"{}}\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \{\{0,\ 1\},\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}1"{}}\ +\ std::string(18,\ \textcolor{charliteral}{'0'})\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \{\{1,\ 1\},\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}1"{}}\ +\ std::string(17,\ \textcolor{charliteral}{'0'})\ +\ \textcolor{stringliteral}{"{}1"{}}\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \{\{42,\ 1\},\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}1"{}}\ +\ std::string(16,\ \textcolor{charliteral}{'0'})\ +\ \textcolor{stringliteral}{"{}42"{}}\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \{1,\ 99999999999999999ULL\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{false},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}99999999999999999"{}}\ +\ std::string(17,\ \textcolor{charliteral}{'0'})\ +\ \textcolor{stringliteral}{"{}1"{}}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \{\{0,\ 10\},\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}10"{}}\ +\ std::string(18,\ \textcolor{charliteral}{'0'})\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \{\{\doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}},\ 1\},\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}1"{}}\ +\ std::string(18,\ \textcolor{charliteral}{'9'})\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \{123456789012345678ULL,\ 987654321098765432ULL\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{false},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}987654321098765432123456789012345678"{}}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \{\{0,\ 0,\ 1\},\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}1"{}}\ +\ std::string(36,\ \textcolor{charliteral}{'0'})\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \{123456789012345678ULL,\ 0,\ 987654321098765432ULL\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{true},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}-\/987654321098765432"{}}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ std::string(18,\ \textcolor{charliteral}{'0'})}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ \textcolor{stringliteral}{"{}123456789012345678"{}}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \{\{\doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}},\ \doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}},\ \doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}}\},\ \textcolor{keyword}{false},\ std::string(54,\ \textcolor{charliteral}{'9'})\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00056}00056\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Case\&\ testCase\ :\ cases)\ \{}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ SCOPED\_TRACE(}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ ::testing::Message()}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Input\ limbs:\ "{}}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ ::testing::PrintToString(std::vector<limb\_t>(testCase.limbs))}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ negative:\ "{}}\ <<\ testCase.negative}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ value;}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(value,\ testCase.limbs,\ testCase.negative);}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classBigInt}{BigInt}}\&\ constantValue\ =\ value;}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ EXPECT\_EQ(constantValue.\doxymbox{\hyperlink{classBigInt_a94a494aca7e98d925bbb81de5cc4d9df}{toStringDec}}(),\ testCase.expected);}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ value,}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<limb\_t>(testCase.limbs),}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ testCase.negative}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00077}00077\ \}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00079}\doxymbox{\hyperlink{test__string__conversion_8cpp_ad1286a81e988a65b89b25fd6ecea6d02}{00079}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(BigintStringConversion,\ ToStringDecNeverTruncates)\ \{}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00080}00080\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ value;}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00081}00081\ \ \ \ \ \textcolor{keyword}{const}\ std::initializer\_list<limb\_t>\ limbs\{}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00090}00090\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00091}00091\ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(value,\ limbs,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00092}00092\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classBigInt}{BigInt}}\&\ constantValue\ =\ value;}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ expected\ =\ \textcolor{stringliteral}{"{}-\/"{}}\ +\ std::string(144,\ \textcolor{charliteral}{'9'});}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00095}00095\ \ \ \ \ EXPECT\_EQ(constantValue.\doxymbox{\hyperlink{classBigInt_a94a494aca7e98d925bbb81de5cc4d9df}{toStringDec}}(),\ expected);}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00096}00096\ \ \ \ \ EXPECT\_EQ(constantValue.\doxymbox{\hyperlink{classBigInt_a94a494aca7e98d925bbb81de5cc4d9df}{toStringDec}}().size(),\ expected.size());}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00097}00097\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(value,\ std::vector<limb\_t>(limbs),\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00098}00098\ \}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00100}\doxymbox{\hyperlink{test__string__conversion_8cpp_a914613bd61a94c82e9dcaddb845934e2}{00100}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(BigintStringConversion,\ ToStringDecPreservesInternalZeroLimbs)\ \{}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00101}00101\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ value;}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00102}00102\ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(value,\ \{42,\ 0,\ 0,\ 0,\ 1\},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00103}00103\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classBigInt}{BigInt}}\&\ constantValue\ =\ value;}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00104}00104\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ expected\ =\ \textcolor{stringliteral}{"{}1"{}}\ +\ std::string(70,\ \textcolor{charliteral}{'0'})\ +\ \textcolor{stringliteral}{"{}42"{}};}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00106}00106\ \ \ \ \ EXPECT\_EQ(constantValue.toStringDec(),\ expected);}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00107}00107\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(value,\ \{42,\ 0,\ 0,\ 0,\ 1\},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00108}00108\ \}}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00110}\doxymbox{\hyperlink{test__string__conversion_8cpp_a5b70a8218ce745b3f0b5964f842e98f2}{00110}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(BigintStringConversion,\ ToStringDecRepeatedFormattingIsStable)\ \{}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00111}00111\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ value;}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00112}00112\ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(value,\ \{123456789012345678ULL,\ 0,\ \doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}}\},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00113}00113\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classBigInt}{BigInt}}\&\ constantValue\ =\ value;}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00114}00114\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ expected\ =}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}-\/"{}}\ +\ std::string(18,\ \textcolor{charliteral}{'9'})\ +\ std::string(18,\ \textcolor{charliteral}{'0'})\ +\ \textcolor{stringliteral}{"{}123456789012345678"{}};}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00117}00117\ \ \ \ \ EXPECT\_EQ(constantValue.toStringDec(),\ expected);}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00118}00118\ \ \ \ \ EXPECT\_EQ(constantValue.toStringDec(),\ expected);}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00119}00119\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ value,}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \{123456789012345678ULL,\ 0,\ \doxymbox{\hyperlink{bigint__declaration_8hpp_a1a9ecb55a792d1b415f57aabf39ff02e}{STORAGE\_MAX}}\},}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ true}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00123}00123\ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{test__string__conversion_8cpp_source_l00124}00124\ \}}
+
+\end{DoxyCode}

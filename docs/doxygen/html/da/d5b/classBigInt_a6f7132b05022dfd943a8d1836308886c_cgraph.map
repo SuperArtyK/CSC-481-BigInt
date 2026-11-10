@@ -1,0 +1,14 @@
+<map id="BigInt::isNormalised" name="BigInt::isNormalised">
+<area shape="rect" id="Node000001" title="Checks whether bigint is normalised." alt="" coords="5,81,145,108"/>
+<area shape="rect" id="Node000002" href="$da/d5b/classBigInt.html#ac0ea695e4944c59e97187943df8cf449" title="Returns the last, Most Significant, limb of the Bigint." alt="" coords="193,5,327,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,78,213,36,210,40,111,83"/>
+<area shape="rect" id="Node000003" href="$da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="375,81,519,108"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="145,92,360,92,358,97,145,97"/>
+<area shape="rect" id="Node000004" href="$da/d5b/classBigInt.html#a95f4a2cafc7ab33729f40d0415831044" title="Returns true if bigint is negative, false otherwise." alt="" coords="197,107,322,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="145,102,184,109,179,110,145,107"/>
+<area shape="rect" id="Node000005" href="$da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c" title="Returns true if bigint evaluates to 0, false otherwise." alt="" coords="210,157,310,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="108,106,194,143,210,151,205,151,192,148,107,111"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="297,154,326,143,398,115,403,114,328,148,299,159"/>
+<area shape="rect" id="Node000006" href="$da/d5b/classBigInt.html#ab2a52efd44c2e7057cc5397dba711ef8" title="Returns the first, Least Significant, limb of the Bigint." alt="" coords="380,157,515,184"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="310,168,366,171,361,171,310,173"/>
+</map>

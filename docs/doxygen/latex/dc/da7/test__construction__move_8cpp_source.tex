@@ -1,0 +1,138 @@
+\doxysection{test\+\_\+construction\+\_\+move.\+cpp}
+\hypertarget{test__construction__move_8cpp_source}{}\label{test__construction__move_8cpp_source}\index{BigInt/tests/bigint/test\_construction\_move.cpp@{BigInt/tests/bigint/test\_construction\_move.cpp}}
+\doxymbox{\hyperlink{test__construction__move_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ artyk\ on\ 11/7/26.}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <gtest/gtest.h>}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{bigint_8hpp}{bigint/bigint.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{test__helpers_8hpp}{test\_helpers.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00010}00010\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{test__accessors_8cpp_aa617b98d77d823331b56f0c5f949d99c}{tester}}\ =\ \doxymbox{\hyperlink{structbigint__test_1_1Inspector}{bigint\_test::Inspector}};}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00011}00011\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespacebigint__test_afb392cf99372bf839e0efb54e337c7db}{bigint\_test::expectRepresentation}};}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00013}\doxymbox{\hyperlink{test__construction__move_8cpp_aea65d315bb80af8a624a67f1292159c9}{00013}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(BigintConstruction,\ MoveZero)\ \{}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00014}00014\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ source;}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00015}00015\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ destination(std::move(source));}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00017}00017\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(destination,\ \{0\},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00020}\doxymbox{\hyperlink{test__construction__move_8cpp_aca2df178e4e07cd5ee9f1e3234a9d16d}{00020}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(BigintConstruction,\ MoveEmpty)\ \{}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00021}00021\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ source;}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00022}00022\ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(source,\ \{\},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00024}00024\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ destination(std::move(source));}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00026}00026\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(destination,\ \{\},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00027}00027\ \}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00029}\doxymbox{\hyperlink{test__construction__move_8cpp_a20418ff5beddc413c3705025f760ce67}{00029}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(BigintConstruction,\ MoveEmptyNegative)\ \{}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00030}00030\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ source;}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00031}00031\ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(source,\ \{\},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00033}00033\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ destination(std::move(source));}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00035}00035\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(destination,\ \{\},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00038}\doxymbox{\hyperlink{test__construction__move_8cpp_a5c1e4f8c37905d4dabc17936dfaad3fe}{00038}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(BigintConstruction,\ MoveValue)\ \{}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00039}00039\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ source;}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<limb\_t>\ expectedLimbs\{123,\ 456,\ 789\};}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ expectedNegative\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00042}00042\ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(source,\ \{123,\ 456,\ 789\},\ expectedNegative);}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00044}00044\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ destination(std::move(source));}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00046}00046\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(destination,\ expectedLimbs,\ expectedNegative);}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00049}\doxymbox{\hyperlink{test__construction__move_8cpp_abbaf8deabe63ea5decf141554a74d210}{00049}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(BigintConstruction,\ MovePositiveValue)\ \{}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00050}00050\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ source;}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00051}00051\ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(source,\ \{123,\ 456,\ 789\},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00053}00053\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ destination(std::move(source));}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00055}00055\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(destination,\ \{123,\ 456,\ 789\},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00058}\doxymbox{\hyperlink{test__construction__move_8cpp_a37d1ba85ec7fe4f13e3e4cae054f17d1}{00058}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(BigintConstruction,\ MoveValueIndependent)\ \{}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00059}00059\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ source;}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<limb\_t>\ expectedLimbs\{123,\ 456,\ 789\};}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ expectedNegative\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00062}00062\ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(source,\ \{123,\ 456,\ 789\},\ expectedNegative);}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00064}00064\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ destination(std::move(source));}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00065}00065\ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(source,\ \{420,\ 999\},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00067}00067\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(source,\ \{420,\ 999\},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00068}00068\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(destination,\ expectedLimbs,\ expectedNegative);}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00071}\doxymbox{\hyperlink{test__construction__move_8cpp_acf85843f0665584738d4752ac4cf49e8}{00071}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(BigintConstruction,\ MoveValueDenorm\_TrailZero)\ \{}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00072}00072\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ source;}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<limb\_t>\ expectedLimbs\{123,\ 456,\ 789,\ 0,\ 0,\ 0,\ 0\};}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00074}00074\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ expectedNegative\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00075}00075\ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(source,\ \{123,\ 456,\ 789,\ 0,\ 0,\ 0,\ 0\},\ expectedNegative);}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00077}00077\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ destination(std::move(source));}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00079}00079\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(destination,\ expectedLimbs,\ expectedNegative);}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00080}00080\ \}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00082}\doxymbox{\hyperlink{test__construction__move_8cpp_a356a8da0ea959b93e1fceb6de584764b}{00082}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(BigintConstruction,\ MoveValueDenorm\_ZeroNeg)\ \{}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00083}00083\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ source;}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00084}00084\ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(source,\ \{0\},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00086}00086\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ destination(std::move(source));}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00088}00088\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(destination,\ \{0\},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00089}00089\ \}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00091}\doxymbox{\hyperlink{test__construction__move_8cpp_a489ee949116e89ad73f210c3d01e7a3e}{00091}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(BigintConstruction,\ MoveValueDenorm\_ZeroTrailNeg)\ \{}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00092}00092\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ source;}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<limb\_t>\ expectedLimbs\{0,\ 0,\ 0,\ 0,\ 0,\ 0\};}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00094}00094\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ expectedNegative\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00095}00095\ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(source,\ \{0,\ 0,\ 0,\ 0,\ 0,\ 0\},\ expectedNegative);}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00097}00097\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ destination(std::move(source));}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00099}00099\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(destination,\ expectedLimbs,\ expectedNegative);}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00100}00100\ \}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00102}\doxymbox{\hyperlink{test__construction__move_8cpp_a7e2162fbb57b7df28fee11f29f710d5b}{00102}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(BigintConstruction,\ MoveSource\_Restored)\ \{}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00103}00103\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ source;}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00104}00104\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<limb\_t>\ expectedLimbs\{123,\ 456,\ 789\};}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00105}00105\ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(source,\ \{123,\ 456,\ 789\},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00107}00107\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ destination(std::move(source));}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00108}00108\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(destination,\ expectedLimbs,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00110}00110\ \ \ \ \ source.\doxymbox{\hyperlink{classBigInt_aed7862704019b417cb9754feb5e5edec}{setToZero}}();}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00112}00112\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(source,\ \{0\},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00113}00113\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(destination,\ expectedLimbs,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00114}00114\ \}}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00116}\doxymbox{\hyperlink{test__construction__move_8cpp_a10c7de90cf64a7a5771b33306faf3c01}{00116}}\ \doxymbox{\hyperlink{test__accessors_8cpp_a3613f5398f06b3fe208c5b4b9e9e9c7d}{TEST}}(BigintConstruction,\ MoveSource\_Assigned)\ \{}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00117}00117\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ source;}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00118}00118\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<limb\_t>\ expectedLimbs\{123,\ 456,\ 789\};}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00119}00119\ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(source,\ \{123,\ 456,\ 789\},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00121}00121\ \ \ \ \ \doxymbox{\hyperlink{classBigInt}{BigInt}}\ destination(std::move(source));}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00122}00122\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(destination,\ expectedLimbs,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00124}00124\ \ \ \ \ source\ =\ destination;}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00126}00126\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(source,\ expectedLimbs,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00127}00127\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(destination,\ expectedLimbs,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00129}00129\ \ \ \ \ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{tester::load}}(destination,\ \{42,\ 999\},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00131}00131\ \ \ \ \ \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expectRepresentation}}(source,\ expectedLimbs,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__construction__move_8cpp_source_l00132}00132\ \}}
+
+\end{DoxyCode}

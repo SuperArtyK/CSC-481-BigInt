@@ -1,0 +1,11 @@
+<map id="BigInt::operator=" name="BigInt::operator=">
+<area shape="rect" id="Node000001" title="Copy&#45;assignment for the class." alt="" coords="5,31,124,57"/>
+<area shape="rect" id="Node000002" href="$da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="172,5,269,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,32,159,29,154,30,125,37"/>
+<area shape="rect" id="Node000004" href="$df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="486,31,580,57"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="124,41,471,41,471,47,124,47"/>
+<area shape="rect" id="Node000003" href="$da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="317,5,438,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="269,16,304,18,299,19,269,21"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="439,26,474,34,468,34,439,31"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="506,29,501,22,505,12,515,6,533,4,552,7,563,16,558,15,550,12,533,9,517,11,509,16,507,21,511,32"/>
+</map>
