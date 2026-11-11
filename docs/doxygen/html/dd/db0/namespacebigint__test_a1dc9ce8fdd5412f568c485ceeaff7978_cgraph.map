@@ -1,13 +1,13 @@
 <map id="bigint_test::testMovePreservesRepresentation" name="bigint_test::testMovePreservesRepresentation">
-<area shape="rect" id="Node000001" title="Verifies that move&#45;assignment preserves the source state while transferring ownership." alt="" coords="5,68,208,111"/>
-<area shape="poly" id="edge6_Node000001_Node000001" title=" " alt="" coords="58,67,56,58,64,49,81,43,107,41,134,44,152,52,147,53,133,49,106,47,82,49,67,53,61,59,63,68"/>
-<area shape="rect" id="Node000002" href="$dd/db0/namespacebigint__test.html#afb392cf99372bf839e0efb54e337c7db" title="Asserts that a bigint matches the expected internal representation." alt="" coords="256,47,472,73"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,75,243,74,237,75,209,80"/>
-<area shape="rect" id="Node000005" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title="Loads a bigint directly with a supplied internal limb list and sign." alt="" coords="292,97,436,140"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="208,98,279,109,274,109,208,104"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="325,45,319,38,323,28,339,22,364,20,391,23,407,32,402,32,390,28,364,25,340,27,327,32,324,37,330,47"/>
-<area shape="rect" id="Node000003" href="$dc/d6d/structbigint__test_1_1Inspector.html#a619484ef6d15d98c6486e08c9e8e839d" title="Returns the raw limb storage of the bigint in least&#45;significant&#45;first order." alt="" coords="520,5,663,48"/>
-<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="459,43,507,39,502,40,460,49"/>
-<area shape="rect" id="Node000004" href="$dc/d6d/structbigint__test_1_1Inspector.html#a514a3a70e55e44d933e6378f5bcfb9a4" title="Returns the sign flag stored in the bigint." alt="" coords="520,72,663,115"/>
-<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="459,71,507,81,502,81,459,77"/>
+<area shape="rect" id="Node000001" title="Verifies that move&#45;assignment preserves the source state while transferring ownership." alt="" coords="5,56,296,83"/>
+<area shape="poly" id="edge6_Node000001_Node000001" title=" " alt="" coords="100,55,91,47,98,37,118,31,151,29,186,32,207,41,202,41,185,37,150,35,119,37,101,42,97,47,105,55"/>
+<area shape="rect" id="Node000002" href="$dd/db0/namespacebigint__test.html#afb392cf99372bf839e0efb54e337c7db" title="Asserts that a bigint matches the expected internal representation." alt="" coords="344,31,560,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="296,54,331,54,326,55,296,60"/>
+<area shape="rect" id="Node000005" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title="Loads a bigint directly with a supplied internal limb list and sign." alt="" coords="364,81,540,108"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="296,79,351,86,346,86,296,84"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="407,29,399,22,405,12,423,6,452,4,484,7,502,16,497,16,483,12,452,9,424,11,408,16,405,21,412,31"/>
+<area shape="rect" id="Node000003" href="$dc/d6d/structbigint__test_1_1Inspector.html#a619484ef6d15d98c6486e08c9e8e839d" title="Returns the raw limb storage of the bigint in least&#45;significant&#45;first order." alt="" coords="616,5,821,32"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="560,31,604,30,598,30,561,36"/>
+<area shape="rect" id="Node000004" href="$dc/d6d/structbigint__test_1_1Inspector.html#a514a3a70e55e44d933e6378f5bcfb9a4" title="Returns the sign flag stored in the bigint." alt="" coords="608,56,829,83"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="561,52,595,57,590,57,561,57"/>
 </map>
