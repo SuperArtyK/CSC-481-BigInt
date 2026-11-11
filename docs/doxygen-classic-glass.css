@@ -1,0 +1,186 @@
+/*
+ * Classic blue / glassy navigation for Doxygen 1.18.x
+ * Reference: Doxygen 1.10.0 HTML generated for SuperArtyK/ACEngine.
+ *
+ * Keep this file OUTSIDE the generated HTML directory. Doxygen copies it
+ * into the HTML output when listed under HTML_EXTRA_STYLESHEET.
+ *
+ * Scope: navigation, breadcrumbs and subtle title/member-header shading.
+ * This is an extra stylesheet, not a replacement for doxygen.css or tabs.css.
+ */
+
+/* Light theme: blue-tinted, semi-transparent-looking highlights. */
+html {
+  --classic-rail: linear-gradient(180deg,
+    #f9fbff 0%, #e8eef9 47%, #cbd9ee 100%);
+  --classic-tab: linear-gradient(180deg,
+    rgba(255, 255, 255, .78) 0%,
+    rgba(239, 245, 253, .46) 45%,
+    rgba(166, 188, 220, .38) 100%);
+  --classic-tab-hover: linear-gradient(180deg,
+    rgba(182, 204, 237, .95) 0%,
+    rgba(104, 141, 199, .96) 49%,
+    rgba(69, 107, 170, .98) 100%);
+  --classic-tab-active: linear-gradient(180deg,
+    #8ca9d7 0%, #547bb7 46%, #354f87 100%);
+  --classic-tab-foreground: #293f69;
+  --classic-tab-active-foreground: #fff;
+  --classic-border: #8ea6cb;
+  --classic-divider: rgba(65, 91, 138, .26);
+  --classic-shine: rgba(255, 255, 255, .94);
+  --classic-shadow: rgba(48, 75, 120, .14);
+  --classic-dropdown: #f8faff;
+  --classic-dropdown-hover: linear-gradient(180deg,
+    #edf4fd 0%, #cddcf1 100%);
+  --classic-breadcrumb: linear-gradient(180deg,
+    #f7faff 0%, #e0e9f7 100%);
+  --classic-breadcrumb-solid: #e7eef9;
+  --classic-heading: linear-gradient(180deg,
+    rgba(255, 255, 255, .82), rgba(183, 203, 232, .24));
+  --classic-focus: #345fa7;
+}
+
+/* Maintain readability with Doxygen's built-in dark mode. */
+html.dark-mode {
+  --classic-rail: linear-gradient(180deg,
+    #2e4365 0%, #1a2b49 56%, #14213a 100%);
+  --classic-tab: linear-gradient(180deg,
+    rgba(117, 148, 198, .33) 0%,
+    rgba(61, 87, 133, .22) 48%,
+    rgba(20, 37, 68, .42) 100%);
+  --classic-tab-hover: linear-gradient(180deg,
+    #5276b4 0%, #34598e 55%, #273e68 100%);
+  --classic-tab-active: linear-gradient(180deg,
+    #668bd0 0%, #3b609b 52%, #28416f 100%);
+  --classic-tab-foreground: #d4e1fa;
+  --classic-tab-active-foreground: #fff;
+  --classic-border: #405d8e;
+  --classic-divider: rgba(4, 12, 29, .65);
+  --classic-shine: rgba(178, 205, 249, .25);
+  --classic-shadow: rgba(0, 0, 0, .35);
+  --classic-dropdown: #14233a;
+  --classic-dropdown-hover: linear-gradient(180deg,
+    #354e75 0%, #263e64 100%);
+  --classic-breadcrumb: linear-gradient(180deg,
+    #283c5d 0%, #182a45 100%);
+  --classic-breadcrumb-solid: #203350;
+  --classic-heading: linear-gradient(180deg,
+    rgba(123, 153, 201, .12), rgba(15, 31, 56, .32));
+  --classic-focus: #a4c3f7;
+}
+
+/* Frosted-looking bar. The gloss is baked into the gradient: no backdrop
+ * filter is required, so it works over the usual opaque Doxygen background. */
+#main-nav,
+#main-nav-mobile {
+  background: var(--classic-rail);
+  border-top: 1px solid var(--classic-shine);
+  border-bottom: 1px solid var(--classic-border);
+  box-shadow: inset 0 1px 0 var(--classic-shine),
+              0 2px 4px var(--classic-shadow);
+}
+
+#main-nav .sm-dox,
+#main-nav-mobile .sm-dox {
+  background: transparent;
+}
+
+/* Desktop top navigation: bevels and translucent-looking blue buttons. */
+@media (min-width: 768px) {
+  #main-nav #main-menu {
+    background: transparent;
+  }
+
+  #main-nav #main-menu > li > a {
+    background: var(--classic-tab);
+    color: var(--classic-tab-foreground);
+    font-weight: 600;
+    text-shadow: 0 1px 0 var(--classic-shine);
+    border-left: 1px solid rgba(255, 255, 255, .35);
+    border-right: 1px solid var(--classic-divider);
+    border-radius: 0 !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45);
+    transition: background-color .15s ease, color .15s ease;
+  }
+
+  #main-nav #main-menu > li > a:hover,
+  #main-nav #main-menu > li > a.highlighted,
+  #main-nav #main-menu > li > a:focus-visible {
+    background: var(--classic-tab-hover);
+    color: var(--classic-tab-active-foreground);
+    text-shadow: 0 1px 1px rgba(15, 32, 63, .5);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45),
+                inset 0 -1px 0 rgba(19, 43, 81, .25);
+  }
+
+  #main-nav #main-menu > li > a.current,
+  #main-nav #main-menu > li > a.selected {
+    background: var(--classic-tab-active);
+    color: var(--classic-tab-active-foreground);
+    text-shadow: 0 1px 1px rgba(15, 32, 63, .55);
+  }
+
+  #main-nav #main-menu > li > a:focus-visible {
+    outline: 2px solid var(--classic-focus);
+    outline-offset: -2px;
+  }
+
+  /* Dropdowns remain opaque for legibility over code and diagrams. */
+  #main-nav #main-menu ul {
+    background: var(--classic-dropdown);
+    border: 1px solid var(--classic-border);
+    box-shadow: 0 5px 12px var(--classic-shadow);
+  }
+
+  #main-nav #main-menu ul a,
+  #main-nav #main-menu ul a:focus {
+    background: transparent;
+    color: var(--classic-tab-foreground);
+    text-shadow: none;
+  }
+
+  #main-nav #main-menu ul a:hover,
+  #main-nav #main-menu ul a.highlighted {
+    background: var(--classic-dropdown-hover);
+    color: var(--classic-tab-foreground);
+    text-shadow: none;
+  }
+
+  /* Doxygen's small submenu chevron should not have an opaque square. */
+  #main-nav #main-menu > li > a span.sub-arrow,
+  #main-nav #main-menu > li > a:hover span.sub-arrow {
+    background-color: transparent;
+  }
+}
+
+/* Mobile: keep responsive menu behavior; shade the expanded links lightly. */
+@media (max-width: 767px) {
+  #main-nav #main-menu > li > a:hover,
+  #main-nav #main-menu > li > a:focus-visible {
+    background: var(--classic-dropdown-hover);
+  }
+}
+
+/* Soft-blue breadcrumbs, with the existing Doxygen arrow geometry intact. */
+#nav-path ul {
+  background: var(--classic-breadcrumb);
+  border-bottom-color: var(--classic-border);
+}
+
+#nav-path li.navelem::after {
+  background: var(--classic-breadcrumb-solid);
+  box-shadow: 2px -2px 0 2px var(--classic-border);
+}
+
+/* A hint of old Doxygen's gloss on section and function headers. */
+div.header,
+.memproto,
+.memtitle,
+.memberdecls-inline th,
+.fieldtable th {
+  background-image: var(--classic-heading);
+}
+
+#titlearea {
+  border-bottom-color: var(--classic-border);
+}
