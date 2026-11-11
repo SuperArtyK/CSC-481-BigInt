@@ -17,6 +17,7 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript" src="../../darkmode_toggle.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -28,7 +29,7 @@
   <td id="projectalign">
    <div id="projectname">CSC_481-BigInt<span id="projectnumber">&#160;v0.1</span>
    </div>
-   <div id="projectbrief">Arbitrary precision arithmetics implementation using standard c++ tools</div>
+   <div id="projectbrief">Arbitrary precision arithmetics implementation using standard C++ tools</div>
   </td>
  </tr>
  </tbody>
@@ -113,9 +114,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
   <div class="headertitle"><div class="title">BigInteger — Software Requirements Specification </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md15"></a></p>
+<div class="textblock"><p><a class="anchor" id="biginteger--software-requirements-specification"></a></p>
 <p>Numbered requirements define the CSC 481 BigInteger project. <b>Required</b> features form the core deliverable; <b>optional</b> features are extensions.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md1-overview"></a>
 1. Overview</h1>
 <p>C++ built-in integer types have fixed ranges. This project provides a reusable arbitrary-precision signed integer library, <span class="tt"><a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a></span>, and a command-line calculator, <span class="tt">EvaluatorDemo</span>, that demonstrates its operations.</p>
 <table class="markdownTable">
@@ -132,7 +133,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 </table>
 <p>The core <span class="tt"><a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a></span> library must be independently usable. The evaluator and optional math module depend on it. A GUI, persistent calculator variables, a full expression parser with precedence or parentheses, and an arbitrary-precision fractional type are outside the required scope.</p>
 <p><b>Terminology.</b> A <em>limb</em> represents one base-<span class="tt">10^18</span> magnitude digit, indexed from zero at the least-significant limb. A <em>normalized</em> <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> has at least one limb, no redundant most-significant zero limbs, and a nonnegative sign if its magnitude is zero. <em>Canonical zero</em> contains exactly one zero limb and has a nonnegative sign. A <em>non-normalized</em> representation does not meet these conditions; it may be retained indefinitely. Empty storage is a valid C++ object state but not a normalized numerical representation. The operations permitted on these states are defined in §3.6. <span class="tt">ans</span> is a predefined calculator result variable, initially zero, with a case-insensitive name.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md2-user-requirements"></a>
 2. User requirements</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -154,9 +155,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">UR-008</span>  </td><td class="markdownTableBodyNone">A calculator user shall receive an understandable error and continue using the calculator after invalid input or arithmetic failure.  </td></tr>
 </table>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md3-bigint-requirements"></a>
 3. BigInt requirements</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md31-values-construction-and-decimal-representation"></a>
 3.1 Values, construction, and decimal representation</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -181,7 +182,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <p><b>Decimal text syntax.</b> Valid numeric text permits an optional sign, leading zeroes, one optional decimal point, and leading/trailing ASCII spaces or tabs. The input is interpreted as an integer by truncating the fractional part toward zero. For example, <span class="tt">" -00123.45 "</span> converts to <span class="tt">-123</span>, <span class="tt">.5</span> converts to <span class="tt">0</span>, and <span class="tt">5.</span> converts to <span class="tt">5</span>. Embedded whitespace, commas, exponent syntax, multiple decimal points, and sign-only tokens are rejected. Nonempty input must be validated in full.</p>
 <p>Empty or ASCII-whitespace-only strings are invalid <em>numeric tokens</em>, but direct string construction and assignment are special-cased to produce zero. Stream extraction requires an actual whitespace-delimited token; missing or invalid tokens set the stream failure state and preserve the destination.</p>
 <p><b>Display versus exact conversion.</b> <span class="tt">toString()</span> and the default <span class="tt">operator&lt;&lt;</span> are for human-readable display and may emit rounded scientific notation for values exceeding 20 decimal digits. Such display text is not guaranteed to be accepted by the current numeric-string parser or to preserve the original value if parsed. <span class="tt">toStringDec()</span> always produces the exact, lossless decimal representation; for every <b>normalized</b> <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> value <span class="tt">x</span>, constructing a <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> from <span class="tt">x.toStringDec()</span> shall reconstruct the same mathematical value. The current parser <b>does not accept scientific/exponent notation</b>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md32-arithmetic-and-comparisons"></a>
 3.2 Arithmetic and comparisons</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -208,7 +209,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <td class="markdownTableBodyNone"><span class="tt">FR-BI-018</span>  </td><td class="markdownTableBodyNone">Division or remainder by zero shall throw a documented exception rather than produce a numeric result. If the operation modifies a <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a>, its prior value shall be preserved on failure under FR-BI-040.  </td></tr>
 </table>
 <p><b>Signed division.</b> The quotient truncates toward zero; the nonzero remainder has the sign of the dividend. Thus <span class="tt">-17 / 5 = -3</span>, <span class="tt">-17 % 5 = -2</span>, and <span class="tt">a = (a / b) * b + (a % b)</span> for nonzero <span class="tt">b</span>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md33-shifts"></a>
 3.3 Shifts</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -221,7 +222,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <td class="markdownTableBodyNone"><span class="tt">FR-BI-021</span>  </td><td class="markdownTableBodyNone"><a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> shall support compound left- and right-shift assignments with the same count categories, mathematical results, and input-error behavior as the nonmutating shifts. A negative count shall throw a documented exception without modifying the destination under FR-BI-040.  </td></tr>
 </table>
 <p><b>Shift example.</b> <span class="tt">-3 &gt;&gt; 1 = -2</span> because right shift uses floor division.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md34-value-semantics"></a>
 3.4 Value semantics</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -233,7 +234,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">FR-BI-024</span>  </td><td class="markdownTableBodyNone">A default-constructed <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> shall have mathematical value zero.  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md35-additional-operations-formatting-and-limb-access"></a>
 3.5 Additional operations, formatting, and limb access</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -292,7 +293,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 </table>
 <p><b>Scale demonstration.</b> Parsing, lossless decimal output, and addition must be demonstrated using operands of at least <b>5,000 decimal digits</b>. This is a verification target, not a guaranteed maximum capacity or performance bound.</p>
 <p>Bitwise AND, OR, XOR, and NOT (<span class="tt">&amp;</span>, <span class="tt">|</span>, <span class="tt">^</span>, <span class="tt">~</span>) are excluded from mandatory functionality. Binary shifts are required.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md36-normalization-contract-and-api-classification"></a>
 3.6 Normalization contract and API classification</h2>
 <p>A valid <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> C++ object may have a normalized representation, a non-normalized representation, or <b>no stored limbs</b>. Empty storage is not canonical zero and has no guaranteed numerical interpretation. The library need not normalize a non-normalized representation on any timetable. A violated normalization precondition leaves numerical behavior outside the contract; it is not by itself a claim that every such call causes C++ undefined behavior. In particular, numerical operations are not required to check or report missing normalization.</p>
 <table class="markdownTable">
@@ -315,9 +316,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <p><b>Moved-from and empty representations.</b> After a successful ordinary move, the destination preserves the transferred pre-move limb sequence and sign. The moved-from source remains valid, and its current state can be inspected using the Category A operations whose preconditions are met. A copy of that source preserves exactly the state that remains, even when the limb sequence is empty; copying empty storage is <b>not</b> undefined behavior. <span class="tt">getFirstLimb()</span> and <span class="tt">getLastLimb()</span> always require nonempty storage. <span class="tt">normalise()</span> restores empty storage to canonical zero upon success; for nonempty storage it normalizes the remaining magnitude rather than guaranteeing that a moved-from source becomes zero. <span class="tt">setToZero()</span> restores canonical zero upon success. Restoration may fail due to resource exhaustion.</p>
 <p><b>Self-assignment and failures.</b> Self-copy assignment preserves the representation. Self-move assignment is a nonthrowing, complete no-op even for non-normalized, negative-zero or empty states. Invalid input and domain errors must preserve the existing representation; resource exceptions need preserve only a valid C++ object, potentially with empty storage. After such a failure, callers must establish the relevant preconditions before numerical use. Neither successful restoration nor memory allocation is guaranteed under resource exhaustion.</p>
 <p><b>Boundary behavior.</b> <span class="tt">setLimb()</span> and <span class="tt">setLimbRaw()</span> shall prevent overflow when calculating the storage size needed for an extension. An out-of-range zero write through <span class="tt">setLimb()</span> remains a successful no-op, including at the largest representable index. <span class="tt">getDigitCount()</span> shall report <span class="tt">0</span> when the exact digit count is not representable, as specified by FR-BI-039.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md4-evaluatordemo-requirements"></a>
 4. EvaluatorDemo requirements</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md41-expressions-and-assignments"></a>
 4.1 Expressions and assignments</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -337,7 +338,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">FR-DEMO-007</span>  </td><td class="markdownTableBodyNone">It shall permit an ordinary variable to receive the value of any supported evaluation, including a standalone integer literal, a previously defined variable reference, or an optionally signed single operand, without requiring a binary operator. It shall reject assignment to any case variation of <span class="tt">ans</span>.  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md42-variables-and-session-state"></a>
 4.2 Variables and session state</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -355,7 +356,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">FR-DEMO-018</span>  </td><td class="markdownTableBodyNone">Ordinary variable identifiers shall begin with ASCII A–Z, a–z, or <span class="tt">_</span> and continue with ASCII letters, decimal digits, or <span class="tt">_</span>; ordinary names are case-sensitive. All letter-case variants of <span class="tt">ans</span> identify the same predefined variable and shall be prohibited as targets of user-directed assignment or mutation.  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md28"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md43-output-and-formatting"></a>
 4.3 Output and formatting</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -369,7 +370,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">FR-DEMO-028</span>  </td><td class="markdownTableBodyNone">Successful unassigned binary expressions, unary expressions, and standalone numeric literals shall display <span class="tt">ans = &lt;value&gt;</span>. Successful assignments and bare variable-name evaluations shall display <span class="tt">&lt;name&gt; = &lt;value&gt;</span> using the automatic numeric-display policy. All successful unassigned evaluations update <span class="tt">ans</span>.  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md44-commands"></a>
 4.4 Commands</h2>
 <p>The command reference below summarizes commands specified by <span class="tt">FR-DEMO-019</span>, <span class="tt">FR-DEMO-022</span>, <span class="tt">FR-DEMO-026</span>, <span class="tt">FR-DEMO-027</span>, and <span class="tt">FR-DEMO-030</span>.</p>
 <table class="markdownTable">
@@ -409,7 +410,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">FR-DEMO-031</span>  </td><td class="markdownTableBodyNone">Commands shall accept leading/trailing ASCII spaces or tabs and separate arguments with one or more ASCII spaces or tabs. The command prefix <span class="tt">@</span> must be immediately adjacent to its name; command names and <span class="tt">pad</span> shall be case-insensitive. Missing, extra or unrecognized arguments, invalid variable references, unsupported flags, malformed precision tokens (including explicit signs, fractions and exponents), nonpositive or numerically unrepresentable precision values, and unknown commands shall produce recoverable errors without state changes. A precision token shall not be rejected solely because its digit sequence is long when its numeric value is representable.  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md30"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md45-input-handling-and-error-recovery"></a>
 4.5 Input handling and error recovery</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -425,7 +426,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">FR-DEMO-025</span>  </td><td class="markdownTableBodyNone">An empty or whitespace-only input line shall be ignored without output or state change.  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md46-expression-grammar"></a>
 4.6 Expression grammar</h2>
 <p>A statement evaluates one optionally signed operand, optionally followed by <b>one</b> binary operator and a second optionally signed operand. An assignment stores the result of either form. Expressions are parsed left to right and must consume the entire input line, apart from permitted boundary whitespace. Commands use the separate argument rules in §4.4.</p>
 <div class="fragment"><div class="line">statement              := ws (assignment | evaluation | command) ws</div>
@@ -443,7 +444,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <div class="line">command                := a command form defined in §4.4</div>
 </div><!-- fragment --><p><b>Unary/binary disambiguation.</b> At the beginning of an operand (the beginning of an evaluation or immediately following a binary operator), a single <span class="tt">+</span> or <span class="tt">-</span> is a unary sign <b>only when directly attached</b> to a literal or identifier. Between two operands, <span class="tt">+</span> or <span class="tt">-</span> is binary. Spaces and tabs are permitted around binary operators and <span class="tt">=</span>, but <b>not</b> between a unary sign and its operand. For example, <span class="tt">a-b</span>, <span class="tt">a - b</span>, <span class="tt">a - -b</span>, <span class="tt">-a-b</span>, <span class="tt">-a--b</span>, <span class="tt">-a + -b</span>, <span class="tt">a++b</span> and <span class="tt">a+-b</span> are syntactically valid. In contrast, <span class="tt">- a</span>, <span class="tt">a - - b</span>, <span class="tt">--a</span>, and <span class="tt">a---b</span> are invalid. Chained binary expressions, operator precedence, parentheses (including <span class="tt">-(a+b)</span>), and fractional/dotted or exponent-form integer operands are outside the mandatory grammar. A syntactically valid expression can still fail semantically (for example, <span class="tt">a &lt;&lt; -3</span> uses a negative shift count). An empty or whitespace-only line follows FR-DEMO-025 rather than this grammar.</p>
 <p><b>Grammar separation.</b> This is intentionally narrower than <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a>'s decimal-string constructor syntax: the library may accept fractional text and truncate its value, but the mandatory calculator does not accept decimal-point literals. Similarly, an <span class="tt">@showscientific</span> precision argument is an unsigned <b>digit token</b> representing a positive in-range integer, not a signed expression, fractional value, or arbitrary 20-digit-limited field.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md32"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md47-example-session"></a>
 4.7 Example session</h2>
 <div class="fragment"><div class="line">&gt; 123</div>
 <div class="line">ans = 123</div>
@@ -465,10 +466,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <div class="line">b = 456</div>
 <div class="line">c = -456</div>
 <div class="line">&gt; @exit</div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md5-optional-extensions"></a>
 5. Optional extensions</h1>
 <p>These features do not form part of the required <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> or integer-only evaluator deliverables.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md51-bigint_math"></a>
 5.1 BigInt_Math</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -487,7 +488,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <td class="markdownTableBodyNone"><span class="tt">gcd</span>  </td><td class="markdownTableBodyNone">Greatest common divisor, returned nonnegative; <span class="tt">gcd(0,0)</span> requires a convention.  </td></tr>
 </table>
 <p>If implemented, these functions belong to a separate module based on <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a>. Demonstrating them through the calculator is optional and would need a defined invocation syntax.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md52-fractional-literal-calculator-mode"></a>
 5.2 Fractional-literal calculator mode</h2>
 <p>The optional evaluator extension supports selected decimal-dot literal calculations using <span class="tt">long double</span> intermediates and converts their result to <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> by truncation toward zero. This does not introduce persistent fractional variables or arbitrary-precision fractional storage.</p>
 <table class="markdownTable">
@@ -505,7 +506,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <td class="markdownTableBodyNone">A decimal-dot literal and integer literal outside finite <span class="tt">long double</span> range  </td><td class="markdownTableBodyNone">Reject.  </td></tr>
 </table>
 <p>Floating-mode operations would be <span class="tt">+</span>, <span class="tt">-</span>, <span class="tt">*</span>, <span class="tt">/</span>, and <span class="tt">%</span> (remainder via <span class="tt">std::fmod</span>), but not shifts. Nonfinite values and zero divisors are rejected. Platform-dependent <span class="tt">long double</span> precision may affect integer results near truncation boundaries. The handling of nonzero decimal text underflowing to floating zero remains to be specified if this feature is selected.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md6-nonfunctional-and-project-requirements"></a>
 6. Nonfunctional and project requirements</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -536,7 +537,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/df7/md_docs
 <td class="markdownTableBodyNone"><span class="tt">NFR-012</span>  </td><td class="markdownTableBodyNone">The development team shall maintain an SRS revision history explaining significant changes and record architectural/design rationales separately.  </td></tr>
 </table>
 <p>The project targets C++23 and CMake with Google Test/CTest for testing. No fixed speed, memory-consumption, or maximum-digit benchmark is required.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md7-verification"></a>
 7. Verification</h1>
 <p>The requirements will be verified through automated tests and representative calculator sessions, supplemented by artifact inspection and documented reviews where appropriate. Detailed test cases, traceability, and execution evidence are kept separate from this specification. </p>
 </div></div><!-- contents -->

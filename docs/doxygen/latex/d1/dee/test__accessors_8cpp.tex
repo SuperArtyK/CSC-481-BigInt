@@ -6,7 +6,8 @@
 {\ttfamily \+\#include $<$utility$>$}\newline
 {\ttfamily \+\#include "{}bigint/\+bigint.\+hpp"{}}\newline
 {\ttfamily \+\#include "{}test\+\_\+helpers.\+hpp"{}}\newline
-Include dependency graph for test\+\_\+accessors.\+cpp:\nopagebreak
+Include dependency graph for test\+\_\+accessors.\+cpp:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -42,7 +43,7 @@ using \doxymbox{\hyperlink{test__accessors_8cpp_aa617b98d77d823331b56f0c5f949d99
 \doxymbox{\hyperlink{test__accessors_8cpp_ac65de3ece6b1e0486f801f4f075abc81}{TEST}} (Bigint\+Accessors, Numerical\+Queries\+Do\+Not\+Mutate\+Storage)
 \item 
 void \doxymbox{\hyperlink{test__accessors_8cpp_afb392cf99372bf839e0efb54e337c7db}{expect\+Representation}} (const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&value, const std::\+vector$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \&expected\+Limbs, const bool expected\+Negative)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Asserts that a bigint matches the expected internal representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \label{test__accessors_8cpp_doc-typedef-members}
@@ -71,7 +72,20 @@ void \doxymbox{\hyperlink{namespacebigint__test_afb392cf99372bf839e0efb54e337c7d
 
 
 
-Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00033}{33}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+Asserts that a bigint matches the expected internal representation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \doxylink{classBigInt}{Big\+Int} instance under test. \\
+\hline
+{\em expected\+Limbs} & Expected limb sequence in least-\/significant-\/first order. \\
+\hline
+{\em expected\+Negative} & Expected value of the sign flag. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00054}{54}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
 
 \Hypertarget{test__accessors_8cpp_a6594c14d5149f6da799e7e5ba72f9167}\index{test\_accessors.cpp@{test\_accessors.cpp}!TEST@{TEST}}
 \index{TEST@{TEST}!test\_accessors.cpp@{test\_accessors.cpp}}
@@ -83,7 +97,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Accessors\+
 
 Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00202}{202}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -100,7 +115,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Get\+Digit\
 
 Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00135}{135}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -117,7 +133,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Get\+Digit\
 
 Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00188}{188}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -134,7 +151,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Get\+First\
 
 Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00067}{67}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -151,7 +169,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Get\+Last\+
 
 Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00077}{77}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -168,7 +187,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Get\+Limb}]
 
 Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00042}{42}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -185,7 +205,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Get\+Limb\+
 
 Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00023}{23}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -202,7 +223,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Is\+Negativ
 
 Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00090}{90}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -219,7 +241,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Is\+Zero}]{
 
 Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00115}{115}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -236,7 +259,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Accessors}]{}{, }\item[{Numerical\+
 
 Definition at line \doxymbox{\hyperlink{test__accessors_8cpp_source_l00217}{217}} of file \doxymbox{\hyperlink{test__accessors_8cpp_source}{test\+\_\+accessors.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

@@ -13,13 +13,13 @@
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00009}00009\ }
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00010}00010\ }
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00011}\doxymbox{\hyperlink{classBigInt_aed7862704019b417cb9754feb5e5edec}{00011}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classBigInt_aed7862704019b417cb9754feb5e5edec}{BigInt::setToZero}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ shrink)\ \{}
-\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00012}00012\ \ \ \ \ this-\/>clear(shrink);}
-\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00013}00013\ \ \ \ \ \doxymbox{\hyperlink{utils_8hpp_a8951b71186b3b14ce155d67282587812}{cdbg}}<<\textcolor{stringliteral}{"{}Setting\ to\ 0:\ limb\ 0\ is\ now\ 0;\ negative\ =\ "{}}<<\doxymbox{\hyperlink{utils_8hpp_a4431dd5957aff8abc884e068d8202b61}{boolToString}}(this-\/>m\_bNegative)<<\doxymbox{\hyperlink{utils_8hpp_a9732970f9ca82af5d3e94cf069402340}{NLC}};}
-\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00014}00014\ \ \ \ \ this-\/>m\_lstDigits.push\_back(0);}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00012}00012\ \ \ \ \ this-\/>\doxymbox{\hyperlink{classBigInt_a8edccd25a50ff5ea287c7697973f8f1f}{clear}}(shrink);}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00013}00013\ \ \ \ \ \doxymbox{\hyperlink{utils_8hpp_a8951b71186b3b14ce155d67282587812}{cdbg}}<<\textcolor{stringliteral}{"{}Setting\ to\ 0:\ limb\ 0\ is\ now\ 0;\ negative\ =\ "{}}<<\doxymbox{\hyperlink{utils_8hpp_a4431dd5957aff8abc884e068d8202b61}{boolToString}}(this-\/>\doxymbox{\hyperlink{classBigInt_ad969c3da1bc62b1e653121e8e4f7a825}{m\_bNegative}})<<\doxymbox{\hyperlink{utils_8hpp_a9732970f9ca82af5d3e94cf069402340}{NLC}};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00014}00014\ \ \ \ \ this-\/>\doxymbox{\hyperlink{classBigInt_abfe4710e84fd55a5335570273aaeab08}{m\_lstDigits}}.push\_back(0);}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00015}00015\ \}}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00016}00016\ }
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00017}\doxymbox{\hyperlink{classBigInt_a364f902e99cfe9e85fdb8629f1a36393}{00017}}\ \textcolor{keyword}{inline}\ std::size\_t\ \doxymbox{\hyperlink{classBigInt_a364f902e99cfe9e85fdb8629f1a36393}{BigInt::getLimbCount}}()\ const\ noexcept\ \{}
-\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>m\_lstDigits.size();}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\doxymbox{\hyperlink{classBigInt_abfe4710e84fd55a5335570273aaeab08}{m\_lstDigits}}.size();}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00019}00019\ \}}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00020}00020\ }
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00021}\doxymbox{\hyperlink{classBigInt_a52a3dd47c689978179bc84b233c1145e}{00021}}\ \textcolor{keyword}{inline}\ std::uintmax\_t\ \doxymbox{\hyperlink{classBigInt_a52a3dd47c689978179bc84b233c1145e}{BigInt::getDigitCount}}()\ const\ noexcept\ \{}
@@ -30,22 +30,22 @@
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00026}00026\ \}}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00027}00027\ }
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00028}\doxymbox{\hyperlink{classBigInt_ab1daffa824bd573240330ea9aea5dbbc}{00028}}\ \textcolor{keyword}{inline}\ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\_t}}\ \doxymbox{\hyperlink{classBigInt_ab1daffa824bd573240330ea9aea5dbbc}{BigInt::getLimb}}(\textcolor{keyword}{const}\ std::size\_t\ index)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ this-\/>m\_lstDigits.size())\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ this-\/>\doxymbox{\hyperlink{classBigInt_abfe4710e84fd55a5335570273aaeab08}{m\_lstDigits}}.size())\ \{}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00031}00031\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>m\_lstDigits[index];}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\doxymbox{\hyperlink{classBigInt_abfe4710e84fd55a5335570273aaeab08}{m\_lstDigits}}[index];}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00033}00033\ \}}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00034}00034\ }
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00035}\doxymbox{\hyperlink{classBigInt_ac0ea695e4944c59e97187943df8cf449}{00035}}\ \textcolor{keyword}{inline}\ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\_t}}\ \doxymbox{\hyperlink{classBigInt_ac0ea695e4944c59e97187943df8cf449}{BigInt::getLastLimb}}()\ const\ noexcept\ \{}
-\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>m\_lstDigits.back();}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\doxymbox{\hyperlink{classBigInt_abfe4710e84fd55a5335570273aaeab08}{m\_lstDigits}}.back();}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00037}00037\ \}}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00038}00038\ }
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00039}\doxymbox{\hyperlink{classBigInt_ab2a52efd44c2e7057cc5397dba711ef8}{00039}}\ \textcolor{keyword}{inline}\ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\_t}}\ \doxymbox{\hyperlink{classBigInt_ab2a52efd44c2e7057cc5397dba711ef8}{BigInt::getFirstLimb}}()\ const\ noexcept\ \{}
-\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>m\_lstDigits.front();}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\doxymbox{\hyperlink{classBigInt_abfe4710e84fd55a5335570273aaeab08}{m\_lstDigits}}.front();}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00041}00041\ \}}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00042}00042\ }
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00043}\doxymbox{\hyperlink{classBigInt_a95f4a2cafc7ab33729f40d0415831044}{00043}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classBigInt_a95f4a2cafc7ab33729f40d0415831044}{BigInt::isNegative}}()\ const\ noexcept\ \{}
-\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>m\_bNegative;}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\doxymbox{\hyperlink{classBigInt_ad969c3da1bc62b1e653121e8e4f7a825}{m\_bNegative}};}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00045}00045\ \}}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00046}00046\ }
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00047}\doxymbox{\hyperlink{classBigInt_ab090d1656a4ea58f01ab2fdf37b3af9c}{00047}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classBigInt_ab090d1656a4ea58f01ab2fdf37b3af9c}{BigInt::isZero}}()\ const\ noexcept\ \{}
@@ -54,17 +54,17 @@
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00050}00050\ }
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00051}\doxymbox{\hyperlink{classBigInt_ae66e5ab12ec81c5066a3d23207c500f7}{00051}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classBigInt_ae66e5ab12ec81c5066a3d23207c500f7}{BigInt::setNegative}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ neg)\ \{}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00052}00052\ \ \ \ \ \doxymbox{\hyperlink{utils_8hpp_a8951b71186b3b14ce155d67282587812}{cdbg}}<<\textcolor{stringliteral}{"{}Setting\ negative\ to\ "{}}<<\doxymbox{\hyperlink{utils_8hpp_a4431dd5957aff8abc884e068d8202b61}{boolToString}}(neg);}
-\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00053}00053\ \ \ \ \ this-\/>m\_bNegative\ =\ neg;}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00053}00053\ \ \ \ \ this-\/>\doxymbox{\hyperlink{classBigInt_ad969c3da1bc62b1e653121e8e4f7a825}{m\_bNegative}}\ =\ neg;}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00054}00054\ \}}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00055}00055\ }
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00056}00056\ }
-\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00057}00057\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ BigInt::clear(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ shrink)\ \{}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00057}\doxymbox{\hyperlink{classBigInt_a8edccd25a50ff5ea287c7697973f8f1f}{00057}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classBigInt_a8edccd25a50ff5ea287c7697973f8f1f}{BigInt::clear}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ shrink)\ \{}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00058}00058\ \ \ \ \ \doxymbox{\hyperlink{utils_8hpp_a8951b71186b3b14ce155d67282587812}{cdbg}}\ <<\ \textcolor{stringliteral}{"{}Clearing\ the\ bigint;\ shrinking\ =\ "{}}\ <<\ \doxymbox{\hyperlink{utils_8hpp_a4431dd5957aff8abc884e068d8202b61}{boolToString}}(shrink)\ <<\ \doxymbox{\hyperlink{utils_8hpp_a9732970f9ca82af5d3e94cf069402340}{NLC}};}
-\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00059}00059\ \ \ \ \ this-\/>m\_lstDigits.clear();}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00059}00059\ \ \ \ \ this-\/>\doxymbox{\hyperlink{classBigInt_abfe4710e84fd55a5335570273aaeab08}{m\_lstDigits}}.clear();}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (shrink)\ \{}
-\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ this-\/>m\_lstDigits.shrink\_to\_fit();}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ this-\/>\doxymbox{\hyperlink{classBigInt_abfe4710e84fd55a5335570273aaeab08}{m\_lstDigits}}.shrink\_to\_fit();}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00062}00062\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00063}00063\ \ \ \ \ this-\/>m\_bNegative\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00063}00063\ \ \ \ \ this-\/>\doxymbox{\hyperlink{classBigInt_ad969c3da1bc62b1e653121e8e4f7a825}{m\_bNegative}}\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00064}00064\ \}}
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00065}00065\ }
 \DoxyCodeLine{\Hypertarget{bigint__accessors_8hpp_source_l00066}00066\ }

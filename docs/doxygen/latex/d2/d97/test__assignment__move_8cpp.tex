@@ -5,7 +5,8 @@
 {\ttfamily \+\#include $<$utility$>$}\newline
 {\ttfamily \+\#include "{}bigint/\+bigint.\+hpp"{}}\newline
 {\ttfamily \+\#include "{}test\+\_\+helpers.\+hpp"{}}\newline
-Include dependency graph for test\+\_\+assignment\+\_\+move.\+cpp:\nopagebreak
+Include dependency graph for test\+\_\+assignment\+\_\+move.\+cpp:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -42,9 +43,9 @@ Include dependency graph for test\+\_\+assignment\+\_\+move.\+cpp:\nopagebreak
 \doxymbox{\hyperlink{test__assignment__move_8cpp_afb2c72a7025177fb0172744a86a6d7d1}{TEST}} (Bigint\+Assignment, Move\+Self\+Assignment\+Preserves\+Multi\+Limb\+Representation)
 \item 
 void \doxymbox{\hyperlink{test__assignment__move_8cpp_afb392cf99372bf839e0efb54e337c7db}{expect\+Representation}} (const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&value, const std::\+vector$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \&expected\+Limbs, const bool expected\+Negative)
-\item 
+\begin{DoxyCompactList}\small\item\em Asserts that a bigint matches the expected internal representation. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{test__assignment__move_8cpp_a1dc9ce8fdd5412f568c485ceeaff7978}{test\+Move\+Preserves\+Representation}} (const std::\+initializer\+\_\+list$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \&source\+Limbs, const bool source\+Negative)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Verifies that move-\/assignment preserves the source state while transferring ownership. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \label{test__assignment__move_8cpp_doc-func-members}
@@ -58,7 +59,20 @@ void \doxymbox{\hyperlink{namespacebigint__test_afb392cf99372bf839e0efb54e337c7d
 
 
 
-Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00033}{33}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+Asserts that a bigint matches the expected internal representation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \doxylink{classBigInt}{Big\+Int} instance under test. \\
+\hline
+{\em expected\+Limbs} & Expected limb sequence in least-\/significant-\/first order. \\
+\hline
+{\em expected\+Negative} & Expected value of the sign flag. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00054}{54}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
 
 \Hypertarget{test__assignment__move_8cpp_ade9d025a290eeff0b98bfa85c2b53414}\index{test\_assignment\_move.cpp@{test\_assignment\_move.cpp}!TEST@{TEST}}
 \index{TEST@{TEST}!test\_assignment\_move.cpp@{test\_assignment\_move.cpp}}
@@ -70,7 +84,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Assignment}]{}{, }\item[{Move\+Cano
 
 Definition at line \doxymbox{\hyperlink{test__assignment__move_8cpp_source_l00017}{17}} of file \doxymbox{\hyperlink{test__assignment__move_8cpp_source}{test\+\_\+assignment\+\_\+move.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -87,7 +102,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Assignment}]{}{, }\item[{Move\+Dest
 
 Definition at line \doxymbox{\hyperlink{test__assignment__move_8cpp_source_l00102}{102}} of file \doxymbox{\hyperlink{test__assignment__move_8cpp_source}{test\+\_\+assignment\+\_\+move.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -104,7 +120,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Assignment}]{}{, }\item[{Move\+Igno
 
 Definition at line \doxymbox{\hyperlink{test__assignment__move_8cpp_source_l00084}{84}} of file \doxymbox{\hyperlink{test__assignment__move_8cpp_source}{test\+\_\+assignment\+\_\+move.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -121,7 +138,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Assignment}]{}{, }\item[{Move\+Nega
 
 Definition at line \doxymbox{\hyperlink{test__assignment__move_8cpp_source_l00038}{38}} of file \doxymbox{\hyperlink{test__assignment__move_8cpp_source}{test\+\_\+assignment\+\_\+move.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -138,7 +156,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Assignment}]{}{, }\item[{Move\+Posi
 
 Definition at line \doxymbox{\hyperlink{test__assignment__move_8cpp_source_l00028}{28}} of file \doxymbox{\hyperlink{test__assignment__move_8cpp_source}{test\+\_\+assignment\+\_\+move.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -155,7 +174,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Assignment}]{}{, }\item[{Move\+Pres
 
 Definition at line \doxymbox{\hyperlink{test__assignment__move_8cpp_source_l00079}{79}} of file \doxymbox{\hyperlink{test__assignment__move_8cpp_source}{test\+\_\+assignment\+\_\+move.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -172,7 +192,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Assignment}]{}{, }\item[{Move\+Pres
 
 Definition at line \doxymbox{\hyperlink{test__assignment__move_8cpp_source_l00075}{75}} of file \doxymbox{\hyperlink{test__assignment__move_8cpp_source}{test\+\_\+assignment\+\_\+move.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -189,7 +210,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Assignment}]{}{, }\item[{Move\+Pres
 
 Definition at line \doxymbox{\hyperlink{test__assignment__move_8cpp_source_l00070}{70}} of file \doxymbox{\hyperlink{test__assignment__move_8cpp_source}{test\+\_\+assignment\+\_\+move.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -206,7 +228,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Assignment}]{}{, }\item[{Move\+Self
 
 Definition at line \doxymbox{\hyperlink{test__assignment__move_8cpp_source_l00152}{152}} of file \doxymbox{\hyperlink{test__assignment__move_8cpp_source}{test\+\_\+assignment\+\_\+move.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -223,7 +246,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Assignment}]{}{, }\item[{Move\+Self
 
 Definition at line \doxymbox{\hyperlink{test__assignment__move_8cpp_source_l00142}{142}} of file \doxymbox{\hyperlink{test__assignment__move_8cpp_source}{test\+\_\+assignment\+\_\+move.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -240,7 +264,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Assignment}]{}{, }\item[{Move\+Sour
 
 Definition at line \doxymbox{\hyperlink{test__assignment__move_8cpp_source_l00048}{48}} of file \doxymbox{\hyperlink{test__assignment__move_8cpp_source}{test\+\_\+assignment\+\_\+move.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -257,7 +282,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Assignment}]{}{, }\item[{Move\+Sour
 
 Definition at line \doxymbox{\hyperlink{test__assignment__move_8cpp_source_l00116}{116}} of file \doxymbox{\hyperlink{test__assignment__move_8cpp_source}{test\+\_\+assignment\+\_\+move.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -274,7 +300,8 @@ TEST (\begin{DoxyParamCaption}\item[{Bigint\+Assignment}]{}{, }\item[{Move\+Sour
 
 Definition at line \doxymbox{\hyperlink{test__assignment__move_8cpp_source_l00059}{59}} of file \doxymbox{\hyperlink{test__assignment__move_8cpp_source}{test\+\_\+assignment\+\_\+move.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -289,5 +316,16 @@ void \doxymbox{\hyperlink{namespacebigint__test_a1dc9ce8fdd5412f568c485ceeaff797
 
 
 
-Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00057}{57}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+Verifies that move-\/assignment preserves the source state while transferring ownership. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+Limbs} & Initial limb sequence for the source bigint. \\
+\hline
+{\em source\+Negative} & Initial sign state of the source bigint. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00084}{84}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
 

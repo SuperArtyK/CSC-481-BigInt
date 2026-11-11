@@ -1,14 +1,14 @@
 \chapter{CLion Workflow }
 \hypertarget{md_CLION__WORKFLOW}{}\label{md_CLION__WORKFLOW}\index{CLion Workflow@{CLion Workflow}}
-\label{md_CLION__WORKFLOW_autotoc_md0}%
-\Hypertarget{md_CLION__WORKFLOW_autotoc_md0}%
+\label{md_CLION__WORKFLOW_clion-workflow}%
+\Hypertarget{md_CLION__WORKFLOW_clion-workflow}%
 
 
 A practical guide to Git, pull requests, and automated testing in CLion. For team rules and contribution requirements, see \doxysectlink{md_CONTRIBUTING}{Contributing}{0}.
 
 {\bfseries{Normal workflow:}} Create branch → Develop → Build/\+test → Commit → Push → Pull request → Review → Merge.
 
-{\bfseries{Remember:}} Commit saves changes locally. Push uploads commits to Git\+Hub. Neither automatically creates a pull request.\hypertarget{md_CLION__WORKFLOW_autotoc_md1}{}\doxysection{\texorpdfstring{1. Create a feature branch}{1. Create a feature branch}}\label{md_CLION__WORKFLOW_autotoc_md1}
+{\bfseries{Remember:}} Commit saves changes locally. Push uploads commits to Git\+Hub. Neither automatically creates a pull request.\hypertarget{md_CLION__WORKFLOW_autotoc_md1-create-a-feature-branch}{}\doxysection{\texorpdfstring{1. Create a feature branch}{1. Create a feature branch}}\label{md_CLION__WORKFLOW_autotoc_md1-create-a-feature-branch}
 
 \begin{DoxyEnumerate}
 \item Use the branch widget in CLion to switch to {\ttfamily \doxylink{BigInt_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}.
@@ -20,7 +20,7 @@ A practical guide to Git, pull requests, and automated testing in CLion. For tea
 
 Confirm that the new branch is selected before making changes.
 
-{\bfseries{Important:}} If you already have uncommitted changes, commit or safely preserve them before switching branches. You can also create and check out a new branch from your current branch to carry those changes over.\hypertarget{md_CLION__WORKFLOW_autotoc_md2}{}\doxysection{\texorpdfstring{2. Build and run tests}{2. Build and run tests}}\label{md_CLION__WORKFLOW_autotoc_md2}
+{\bfseries{Important:}} If you already have uncommitted changes, commit or safely preserve them before switching branches. You can also create and check out a new branch from your current branch to carry those changes over.\hypertarget{md_CLION__WORKFLOW_autotoc_md2-build-and-run-tests}{}\doxysection{\texorpdfstring{2. Build and run tests}{2. Build and run tests}}\label{md_CLION__WORKFLOW_autotoc_md2-build-and-run-tests}
 Before committing or requesting review:
 
 
@@ -31,7 +31,7 @@ Before committing or requesting review:
 \item Inspect the results in the test runner. All tests should pass.
 \end{DoxyEnumerate}
 
-If {\ttfamily All CTest} isn\textquotesingle{}t available, reload CMake or look under {\bfseries{Run → Edit Configurations → CTest Application}}. Ensure the configuration builds the necessary test targets (usually {\bfseries{All targets}}) before running.\hypertarget{md_CLION__WORKFLOW_autotoc_md3}{}\doxysubsection{\texorpdfstring{Running individual tests}{Running individual tests}}\label{md_CLION__WORKFLOW_autotoc_md3}
+If {\ttfamily All CTest} isn\textquotesingle{}t available, reload CMake or look under {\bfseries{Run → Edit Configurations → CTest Application}}. Ensure the configuration builds the necessary test targets (usually {\bfseries{All targets}}) before running.\hypertarget{md_CLION__WORKFLOW_running-individual-tests}{}\doxysubsection{\texorpdfstring{Running individual tests}{Running individual tests}}\label{md_CLION__WORKFLOW_running-individual-tests}
 
 \begin{DoxyItemize}
 \item Click the gutter icon beside a Google\+Test {\ttfamily TEST(...)} function to run or debug that test.
@@ -40,7 +40,7 @@ If {\ttfamily All CTest} isn\textquotesingle{}t available, reload CMake or look 
 \item Google\+Test is downloaded by CMake; no separate installation is needed.
 \end{DoxyItemize}
 
-The playground executables ({\ttfamily \doxylink{classBigInt}{Big\+Int}}, {\ttfamily Big\+Int\+\_\+\+Math}, {\ttfamily Evaluator\+Demo}) can be run separately using their own configurations. CTest does not execute these playgrounds.\hypertarget{md_CLION__WORKFLOW_autotoc_md4}{}\doxysection{\texorpdfstring{3. Commit and push changes}{3. Commit and push changes}}\label{md_CLION__WORKFLOW_autotoc_md4}
+The playground executables ({\ttfamily \doxylink{classBigInt}{Big\+Int}}, {\ttfamily Big\+Int\+\_\+\+Math}, {\ttfamily Evaluator\+Demo}) can be run separately using their own configurations. CTest does not execute these playgrounds.\hypertarget{md_CLION__WORKFLOW_autotoc_md3-commit-and-push-changes}{}\doxysection{\texorpdfstring{3. Commit and push changes}{3. Commit and push changes}}\label{md_CLION__WORKFLOW_autotoc_md3-commit-and-push-changes}
 
 \begin{DoxyEnumerate}
 \item Open {\bfseries{Commit}} ({\ttfamily Alt+0}).
@@ -51,7 +51,7 @@ The playground executables ({\ttfamily \doxylink{classBigInt}{Big\+Int}}, {\ttfa
 \item Click {\bfseries{Push}}.
 \end{DoxyEnumerate}
 
-You can make multiple commits and pushes on the same branch. Uncommitted changes are never included in a push.\hypertarget{md_CLION__WORKFLOW_autotoc_md5}{}\doxysection{\texorpdfstring{4. Create a pull request}{4. Create a pull request}}\label{md_CLION__WORKFLOW_autotoc_md5}
+You can make multiple commits and pushes on the same branch. Uncommitted changes are never included in a push.\hypertarget{md_CLION__WORKFLOW_autotoc_md4-create-a-pull-request}{}\doxysection{\texorpdfstring{4. Create a pull request}{4. Create a pull request}}\label{md_CLION__WORKFLOW_autotoc_md4-create-a-pull-request}
 
 \begin{DoxyEnumerate}
 \item Push your feature branch.
@@ -63,7 +63,7 @@ You can make multiple commits and pushes on the same branch. Uncommitted changes
 
 New commits pushed to the feature branch automatically update the existing PR.
 
-Git\+Hub Actions runs CI for pull requests targeting {\ttfamily \doxylink{BigInt_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}. Check the workflow results and resolve failures before merging.\hypertarget{md_CLION__WORKFLOW_autotoc_md6}{}\doxysection{\texorpdfstring{5. Review someone else\textquotesingle{}s pull request}{5. Review someone else\textquotesingle{}s pull request}}\label{md_CLION__WORKFLOW_autotoc_md6}
+Git\+Hub Actions runs CI for pull requests targeting {\ttfamily \doxylink{BigInt_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}. Check the workflow results and resolve failures before merging.\hypertarget{md_CLION__WORKFLOW_autotoc_md5-review-someone-elses-pull-request}{}\doxysection{\texorpdfstring{5. Review someone else\textquotesingle{}s pull request}{5. Review someone else\textquotesingle{}s pull request}}\label{md_CLION__WORKFLOW_autotoc_md5-review-someone-elses-pull-request}
 
 \begin{DoxyEnumerate}
 \item Open {\bfseries{Git → Git\+Hub → View Pull Requests}}.
@@ -82,7 +82,7 @@ To compile or test the changes without disturbing your current work, use a separ
 \item Open the new worktree in CLion and build/\+test it normally.
 \end{DoxyEnumerate}
 
-The worktree has its own working files, so your original project\textquotesingle{}s uncommitted changes remain untouched. Do not push experimental changes to the author\textquotesingle{}s branch without permission.\hypertarget{md_CLION__WORKFLOW_autotoc_md7}{}\doxysection{\texorpdfstring{6. Merge and finish}{6. Merge and finish}}\label{md_CLION__WORKFLOW_autotoc_md7}
+The worktree has its own working files, so your original project\textquotesingle{}s uncommitted changes remain untouched. Do not push experimental changes to the author\textquotesingle{}s branch without permission.\hypertarget{md_CLION__WORKFLOW_autotoc_md6-merge-and-finish}{}\doxysection{\texorpdfstring{6. Merge and finish}{6. Merge and finish}}\label{md_CLION__WORKFLOW_autotoc_md6-merge-and-finish}
 When the team agrees, the required approvals are present, review discussions are resolved, and {\bfseries{CI / Required}} passes:
 
 
@@ -93,7 +93,7 @@ When the team agrees, the required approvals are present, review discussions are
 \item Switch back to {\ttfamily \doxylink{BigInt_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} and update it before starting another task.
 \end{DoxyEnumerate}
 
-Do not merge locally into {\ttfamily \doxylink{BigInt_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} and push it as a substitute for a reviewed PR.\hypertarget{md_CLION__WORKFLOW_autotoc_md8}{}\doxysection{\texorpdfstring{Safety reminders}{Safety reminders}}\label{md_CLION__WORKFLOW_autotoc_md8}
+Do not merge locally into {\ttfamily \doxylink{BigInt_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} and push it as a substitute for a reviewed PR.\hypertarget{md_CLION__WORKFLOW_safety-reminders}{}\doxysection{\texorpdfstring{Safety reminders}{Safety reminders}}\label{md_CLION__WORKFLOW_safety-reminders}
 
 \begin{DoxyItemize}
 \item Check your current branch before committing or pushing.
@@ -102,7 +102,7 @@ Do not merge locally into {\ttfamily \doxylink{BigInt_2main_8cpp_ae66f6b31b5ad75
 \item Reviewing a PR doesn\textquotesingle{}t require checking out its branch.
 \item Use separate worktrees when testing other contributors\textquotesingle{} changes.
 \item Do not commit local build output or CLion workspace settings.
-\end{DoxyItemize}\hypertarget{md_CLION__WORKFLOW_autotoc_md9}{}\doxysection{\texorpdfstring{References}{References}}\label{md_CLION__WORKFLOW_autotoc_md9}
+\end{DoxyItemize}\hypertarget{md_CLION__WORKFLOW_references}{}\doxysection{\texorpdfstring{References}{References}}\label{md_CLION__WORKFLOW_references}
 
 \begin{DoxyItemize}
 \item \href{https://www.jetbrains.com/help/clion/manage-branches.html}{\texttt{CLion: Git branches}}

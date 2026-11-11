@@ -1,10 +1,10 @@
 <map id="TEST" name="TEST">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,132,61,159"/>
-<area shape="rect" id="Node000002" href="$d1/dee/test__accessors_8cpp.html#afb392cf99372bf839e0efb54e337c7db" title=" " alt="" coords="109,56,257,83"/>
+<area shape="rect" id="Node000002" href="$d1/dee/test__accessors_8cpp.html#afb392cf99372bf839e0efb54e337c7db" title="Asserts that a bigint matches the expected internal representation." alt="" coords="109,56,257,83"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="50,130,107,92,123,87,120,91,110,97,54,133"/>
 <area shape="rect" id="Node000003" href="$da/d5b/classBigInt.html#a6f7132b05022dfd943a8d1836308886c" title="Checks whether bigint is normalised." alt="" coords="113,107,252,133"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="60,138,100,132,96,136,63,143"/>
-<area shape="rect" id="Node000009" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title=" " alt="" coords="305,208,448,251"/>
+<area shape="rect" id="Node000009" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title="Loads a bigint directly with a supplied internal limb list and sign." alt="" coords="305,208,448,251"/>
 <area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="61,148,258,193,293,205,288,205,256,199,61,154"/>
 <area shape="rect" id="Node000010" href="$d1/dee/test__accessors_8cpp.html#a3613f5398f06b3fe208c5b4b9e9e9c7d" title=" " alt="" coords="155,232,210,259"/>
 <area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="56,157,151,221,146,224,54,162"/>

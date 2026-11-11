@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['extracompile_0',['extraCompile',['../da/d73/structCompiler.html#a5a37f6f07ba1273e3caa3f40b7e37867',1,'Compiler']]],
-  ['extralink_1',['extraLink',['../da/d73/structCompiler.html#a323da81f283c2dccfc90dc353aa3d9a7',1,'Compiler']]]
+  ['storage_5fmask_0',['STORAGE_MASK',['../d6/d58/bigint__declaration_8hpp.html#a563238eb9ba06eee69a9c9f2d07ec7ce',1,'bigint_declaration.hpp']]],
+  ['storage_5fmax_1',['STORAGE_MAX',['../d6/d58/bigint__declaration_8hpp.html#a1a9ecb55a792d1b415f57aabf39ff02e',1,'bigint_declaration.hpp']]]
 ];

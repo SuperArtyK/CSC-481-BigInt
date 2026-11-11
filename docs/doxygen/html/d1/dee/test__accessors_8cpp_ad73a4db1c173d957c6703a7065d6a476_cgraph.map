@@ -1,6 +1,6 @@
 <map id="TEST" name="TEST">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,43,61,69"/>
-<area shape="rect" id="Node000002" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title=" " alt="" coords="212,5,356,48"/>
+<area shape="rect" id="Node000002" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title="Loads a bigint directly with a supplied internal limb list and sign." alt="" coords="212,5,356,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,49,108,41,199,32,195,36,109,47,62,54"/>
 <area shape="rect" id="Node000003" href="$d1/dee/test__accessors_8cpp.html#a3613f5398f06b3fe208c5b4b9e9e9c7d" title=" " alt="" coords="109,80,164,107"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="62,63,97,77,92,79,61,69"/>

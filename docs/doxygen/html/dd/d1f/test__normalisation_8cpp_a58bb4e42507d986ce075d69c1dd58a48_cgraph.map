@@ -1,38 +1,41 @@
 <map id="TEST" name="TEST">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,208,61,235"/>
-<area shape="rect" id="Node000002" href="$d1/dee/test__accessors_8cpp.html#afb392cf99372bf839e0efb54e337c7db" title=" " alt="" coords="109,81,257,108"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="39,206,65,163,84,139,107,118,117,113,114,117,110,122,88,143,69,166,43,208"/>
-<area shape="rect" id="Node000003" href="$da/d5b/classBigInt.html#a6f7132b05022dfd943a8d1836308886c" title="Checks whether bigint is normalised." alt="" coords="113,132,252,159"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="60,205,143,164,140,168,63,209"/>
-<area shape="rect" id="Node000009" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title=" " alt="" coords="305,411,448,453"/>
-<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="36,233,44,269,56,313,77,359,92,379,110,397,152,420,198,433,245,439,292,442,287,442,244,444,196,438,149,425,107,401,88,383,73,362,51,315,38,270,35,238"/>
-<area shape="rect" id="Node000010" href="$da/d5b/classBigInt.html#ad796e56e198962b2799c30ac66e755fa" title="Removes the most significant 0&#45;limbs of the number, and removes negativity if number evaluates to 0." alt="" coords="123,208,242,235"/>
-<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="60,219,110,219,106,223,63,224"/>
-<area shape="rect" id="Node000014" href="$d1/dee/test__accessors_8cpp.html#a3613f5398f06b3fe208c5b4b9e9e9c7d" title=" " alt="" coords="155,360,210,387"/>
-<area shape="poly" id="edge19_Node000001_Node000014" title=" " alt="" coords="48,232,160,348,155,350,46,237"/>
-<area shape="rect" id="Node000004" href="$da/d5b/classBigInt.html#ac0ea695e4944c59e97187943df8cf449" title="Returns the last, Most Significant, limb of the Bigint." alt="" coords="310,107,444,133"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="251,134,297,129,292,132,254,139"/>
-<area shape="rect" id="Node000005" href="$da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="496,208,641,235"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="226,129,256,118,279,104,304,92,345,81,379,73,413,76,450,92,463,104,471,116,477,142,482,169,488,182,498,194,503,200,498,199,494,198,483,185,477,171,472,143,466,118,459,107,447,97,411,81,380,79,347,86,306,97,282,108,258,122,229,134"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,196,61,223"/>
+<area shape="rect" id="Node000002" href="$d1/dee/test__accessors_8cpp.html#afb392cf99372bf839e0efb54e337c7db" title="Asserts that a bigint matches the expected internal representation." alt="" coords="109,95,257,121"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="42,194,70,163,107,131,119,126,116,130,110,136,73,166,47,197"/>
+<area shape="rect" id="Node000003" href="$da/d5b/classBigInt.html#a6f7132b05022dfd943a8d1836308886c" title="Checks whether bigint is normalised." alt="" coords="113,145,252,172"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="60,198,129,175,126,180,63,202"/>
+<area shape="rect" id="Node000009" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title="Loads a bigint directly with a supplied internal limb list and sign." alt="" coords="305,411,448,453"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="41,220,70,263,89,286,110,307,154,338,200,364,293,405,288,406,198,369,151,342,107,311,85,290,66,266,42,226"/>
+<area shape="rect" id="Node000010" href="$da/d5b/classBigInt.html#ad796e56e198962b2799c30ac66e755fa" title="Removes the most significant 0&#45;limbs of the number, and removes negativity if number evaluates to 0." alt="" coords="123,196,242,223"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="60,207,110,207,106,211,63,212"/>
+<area shape="rect" id="Node000015" href="$d1/dee/test__accessors_8cpp.html#a3613f5398f06b3fe208c5b4b9e9e9c7d" title=" " alt="" coords="155,271,210,297"/>
+<area shape="poly" id="edge21_Node000001_Node000015" title=" " alt="" coords="61,220,143,262,139,265,62,226"/>
+<area shape="rect" id="Node000004" href="$da/d5b/classBigInt.html#ac0ea695e4944c59e97187943df8cf449" title="Returns the last, Most Significant, limb of the Bigint." alt="" coords="310,157,444,184"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="252,160,296,164,292,167,253,165"/>
+<area shape="rect" id="Node000005" href="$da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="496,183,641,209"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="230,143,256,131,269,121,278,111,288,101,304,92,344,80,377,75,410,78,449,92,466,103,476,115,485,129,498,143,536,174,531,174,495,147,481,132,472,119,463,107,447,97,409,84,377,80,345,85,306,97,292,105,282,114,273,125,258,136,233,147"/>
 <area shape="rect" id="Node000006" href="$da/d5b/classBigInt.html#a95f4a2cafc7ab33729f40d0415831044" title="Returns true if bigint is negative, false otherwise." alt="" coords="314,5,439,32"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="235,129,255,118,271,101,279,85,287,67,303,49,323,38,319,41,307,53,292,70,284,87,275,104,259,122,239,133"/>
-<area shape="rect" id="Node000007" href="$da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c" title="Returns true if bigint evaluates to 0, false otherwise." alt="" coords="327,157,426,184"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="252,152,314,161,309,163,253,157"/>
-<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="427,181,503,203,498,204,427,186"/>
-<area shape="rect" id="Node000008" href="$da/d5b/classBigInt.html#ab2a52efd44c2e7057cc5397dba711ef8" title="Returns the first, Least Significant, limb of the Bigint." alt="" coords="501,157,636,184"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="426,168,488,170,483,172,427,173"/>
-<area shape="poly" id="edge11_Node000010_Node000004" title=" " alt="" coords="201,206,247,175,304,143,320,138,316,141,306,148,250,180,205,210"/>
-<area shape="poly" id="edge12_Node000010_Node000005" title=" " alt="" coords="242,219,483,219,479,223,243,224"/>
-<area shape="poly" id="edge13_Node000010_Node000007" title=" " alt="" coords="236,205,314,186,310,189,238,210"/>
-<area shape="rect" id="Node000011" href="$da/d5b/classBigInt.html#ae66e5ab12ec81c5066a3d23207c500f7" title="Sets the negative flag of the bigint to the passed parameter." alt="" coords="310,259,443,285"/>
-<area shape="poly" id="edge14_Node000010_Node000011" title=" " alt="" coords="237,233,311,253,306,255,237,238"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="236,143,255,131,272,112,279,92,286,71,303,49,322,38,319,41,307,53,291,73,284,93,276,114,259,135,240,147"/>
+<area shape="rect" id="Node000007" href="$da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c" title="Returns true if bigint evaluates to 0, false otherwise." alt="" coords="327,107,426,133"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="251,142,314,131,310,134,254,147"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="418,131,449,143,525,176,520,177,447,148,418,137"/>
+<area shape="rect" id="Node000008" href="$da/d5b/classBigInt.html#ab2a52efd44c2e7057cc5397dba711ef8" title="Returns the first, Least Significant, limb of the Bigint." alt="" coords="501,107,636,133"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="426,117,488,119,483,121,427,123"/>
+<area shape="poly" id="edge11_Node000010_Node000004" title=" " alt="" coords="242,195,296,186,292,189,244,200"/>
+<area shape="poly" id="edge12_Node000010_Node000005" title=" " alt="" coords="242,205,483,197,479,201,243,210"/>
+<area shape="poly" id="edge13_Node000010_Node000007" title=" " alt="" coords="230,193,256,182,279,163,304,143,318,138,314,141,306,148,283,167,258,186,233,198"/>
+<area shape="rect" id="Node000011" href="$da/d5b/classBigInt.html#ae66e5ab12ec81c5066a3d23207c500f7" title="Sets the negative flag of the bigint to the passed parameter." alt="" coords="502,360,635,387"/>
+<area shape="poly" id="edge14_Node000010_Node000011" title=" " alt="" coords="240,221,259,233,271,248,278,263,282,293,287,321,294,334,307,346,348,368,395,380,442,384,489,386,484,386,442,390,394,385,346,373,303,350,290,337,282,323,277,294,273,264,266,250,255,237,240,226"/>
 <area shape="rect" id="Node000013" href="$da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="316,309,437,336"/>
-<area shape="poly" id="edge17_Node000010_Node000013" title=" " alt="" coords="203,232,250,263,306,295,321,303,315,303,304,300,247,268,203,238"/>
-<area shape="rect" id="Node000012" href="$df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="522,296,615,323"/>
-<area shape="poly" id="edge15_Node000011_Node000012" title=" " alt="" coords="444,282,509,297,504,298,444,288"/>
-<area shape="poly" id="edge16_Node000012_Node000012" title=" " alt="" coords="536,295,530,287,534,278,547,271,569,269,591,272,605,281,600,281,590,277,568,275,549,277,538,281,535,287,541,296"/>
-<area shape="poly" id="edge18_Node000013_Node000012" title=" " alt="" coords="437,316,509,313,504,314,438,321"/>
-<area shape="poly" id="edge20_Node000014_Node000005" title=" " alt="" coords="211,376,259,381,321,382,386,372,418,361,447,346,465,327,472,306,478,282,494,258,517,244,522,241,498,262,483,285,477,307,469,330,450,350,420,366,388,377,321,387,259,387,211,381"/>
-<area shape="poly" id="edge21_Node000014_Node000009" title=" " alt="" coords="211,379,293,405,287,406,211,384"/>
-<area shape="poly" id="edge22_Node000014_Node000014" title=" " alt="" coords="156,359,152,351,155,342,166,336,183,333,201,336,212,345,207,345,199,341,183,339,168,341,159,345,157,351,162,360"/>
+<area shape="poly" id="edge17_Node000010_Node000013" title=" " alt="" coords="231,221,258,232,308,264,351,299,346,299,305,268,256,237,231,226"/>
+<area shape="rect" id="Node000012" href="$df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="689,309,782,336"/>
+<area shape="poly" id="edge15_Node000011_Node000012" title=" " alt="" coords="614,357,672,342,677,340,616,362"/>
+<area shape="poly" id="edge16_Node000012_Node000012" title=" " alt="" coords="706,308,701,301,705,291,717,285,735,283,755,285,767,295,762,294,754,290,735,288,718,290,709,295,707,300,711,310"/>
+<area shape="poly" id="edge18_Node000013_Node000012" title=" " alt="" coords="438,320,676,322,671,323,438,325"/>
+<area shape="rect" id="Node000014" href="$da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="523,259,614,285"/>
+<area shape="poly" id="edge19_Node000013_Node000014" title=" " alt="" coords="429,306,510,287,505,289,431,311"/>
+<area shape="poly" id="edge20_Node000014_Node000012" title=" " alt="" coords="615,283,677,304,672,304,615,289"/>
+<area shape="poly" id="edge22_Node000015_Node000005" title=" " alt="" coords="210,275,493,211,491,216,212,280"/>
+<area shape="poly" id="edge23_Node000015_Node000009" title=" " alt="" coords="198,295,245,340,307,390,323,403,318,402,303,394,242,344,197,300"/>
+<area shape="poly" id="edge24_Node000015_Node000015" title=" " alt="" coords="156,270,152,262,155,252,166,246,183,244,201,247,212,255,207,256,199,252,183,249,168,251,159,256,157,261,162,270"/>
 </map>

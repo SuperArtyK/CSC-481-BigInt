@@ -1,10 +1,10 @@
 \chapter{Big\+Integer — Software Requirements Specification }
 \hypertarget{md_docs_2SRS}{}\label{md_docs_2SRS}\index{BigInteger — Software Requirements Specification@{BigInteger — Software Requirements Specification}}
-\label{md_docs_2SRS_autotoc_md15}%
-\Hypertarget{md_docs_2SRS_autotoc_md15}%
+\label{md_docs_2SRS_biginteger--software-requirements-specification}%
+\Hypertarget{md_docs_2SRS_biginteger--software-requirements-specification}%
 
 
-Numbered requirements define the CSC 481 Big\+Integer project. {\bfseries{Required}} features form the core deliverable; {\bfseries{optional}} features are extensions.\hypertarget{md_docs_2SRS_autotoc_md16}{}\doxysection{\texorpdfstring{1. Overview}{1. Overview}}\label{md_docs_2SRS_autotoc_md16}
+Numbered requirements define the CSC 481 Big\+Integer project. {\bfseries{Required}} features form the core deliverable; {\bfseries{optional}} features are extensions.\hypertarget{md_docs_2SRS_autotoc_md1-overview}{}\doxysection{\texorpdfstring{1. Overview}{1. Overview}}\label{md_docs_2SRS_autotoc_md1-overview}
 C++ built-\/in integer types have fixed ranges. This project provides a reusable arbitrary-\/precision signed integer library, {\ttfamily \doxylink{classBigInt}{Big\+Int}}, and a command-\/line calculator, {\ttfamily Evaluator\+Demo}, that demonstrates its operations.
 
 
@@ -19,7 +19,7 @@ Calculator fractional-\/literal mode  &{\bfseries{Optional}}  &Limited floating-
 
 The core {\ttfamily \doxylink{classBigInt}{Big\+Int}} library must be independently usable. The evaluator and optional math module depend on it. A GUI, persistent calculator variables, a full expression parser with precedence or parentheses, and an arbitrary-\/precision fractional type are outside the required scope.
 
-{\bfseries{Terminology.}} A {\itshape limb} represents one base-\/{\ttfamily 10\texorpdfstring{$^\wedge$}{\string^}18} magnitude digit, indexed from zero at the least-\/significant limb. A {\itshape normalized} \doxylink{classBigInt}{Big\+Int} has at least one limb, no redundant most-\/significant zero limbs, and a nonnegative sign if its magnitude is zero. {\itshape Canonical zero} contains exactly one zero limb and has a nonnegative sign. A {\itshape non-\/normalized} representation does not meet these conditions; it may be retained indefinitely. Empty storage is a valid C++ object state but not a normalized numerical representation. The operations permitted on these states are defined in §3.6. {\ttfamily ans} is a predefined calculator result variable, initially zero, with a case-\/insensitive name.\hypertarget{md_docs_2SRS_autotoc_md17}{}\doxysection{\texorpdfstring{2. User requirements}{2. User requirements}}\label{md_docs_2SRS_autotoc_md17}
+{\bfseries{Terminology.}} A {\itshape limb} represents one base-\/{\ttfamily 10\texorpdfstring{$^\wedge$}{\string^}18} magnitude digit, indexed from zero at the least-\/significant limb. A {\itshape normalized} \doxylink{classBigInt}{Big\+Int} has at least one limb, no redundant most-\/significant zero limbs, and a nonnegative sign if its magnitude is zero. {\itshape Canonical zero} contains exactly one zero limb and has a nonnegative sign. A {\itshape non-\/normalized} representation does not meet these conditions; it may be retained indefinitely. Empty storage is a valid C++ object state but not a normalized numerical representation. The operations permitted on these states are defined in §3.6. {\ttfamily ans} is a predefined calculator result variable, initially zero, with a case-\/insensitive name.\hypertarget{md_docs_2SRS_autotoc_md2-user-requirements}{}\doxysection{\texorpdfstring{2. User requirements}{2. User requirements}}\label{md_docs_2SRS_autotoc_md2-user-requirements}
 
 \begin{DoxyTable}{2}{}{}{1}
 \SetCell{c,bg=\tableheadbgcolor,font=\bfseries}ID  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Requirement  \\
@@ -32,8 +32,8 @@ The core {\ttfamily \doxylink{classBigInt}{Big\+Int}} library must be independen
 {\ttfamily UR-\/007}  &A calculator user shall be able to use the predefined, case-\/insensitive {\ttfamily ans} variable as an operand or standalone reference, but not as an assignment or mutation target.  \\
 {\ttfamily UR-\/008}  &A calculator user shall receive an understandable error and continue using the calculator after invalid input or arithmetic failure.  \\
 \end{DoxyTable}
-\hypertarget{md_docs_2SRS_autotoc_md18}{}\doxysection{\texorpdfstring{3. Big\+Int requirements}{3. Big\+Int requirements}}\label{md_docs_2SRS_autotoc_md18}
-\hypertarget{md_docs_2SRS_autotoc_md19}{}\doxysubsection{\texorpdfstring{3.\+1 Values, construction, and decimal representation}{3.\+1 Values, construction, and decimal representation}}\label{md_docs_2SRS_autotoc_md19}
+\hypertarget{md_docs_2SRS_autotoc_md3-bigint-requirements}{}\doxysection{\texorpdfstring{3. Big\+Int requirements}{3. Big\+Int requirements}}\label{md_docs_2SRS_autotoc_md3-bigint-requirements}
+\hypertarget{md_docs_2SRS_autotoc_md31-values-construction-and-decimal-representation}{}\doxysubsection{\texorpdfstring{3.\+1 Values, construction, and decimal representation}{3.\+1 Values, construction, and decimal representation}}\label{md_docs_2SRS_autotoc_md31-values-construction-and-decimal-representation}
 
 \begin{DoxyTable}{2}{}{}{1}
 \SetCell{c,bg=\tableheadbgcolor,font=\bfseries}ID  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Requirement  \\
@@ -52,7 +52,7 @@ The core {\ttfamily \doxylink{classBigInt}{Big\+Int}} library must be independen
 
 Empty or ASCII-\/whitespace-\/only strings are invalid {\itshape numeric tokens}, but direct string construction and assignment are special-\/cased to produce zero. Stream extraction requires an actual whitespace-\/delimited token; missing or invalid tokens set the stream failure state and preserve the destination.
 
-{\bfseries{Display versus exact conversion.}} {\ttfamily to\+String()} and the default {\ttfamily operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}} are for human-\/readable display and may emit rounded scientific notation for values exceeding 20 decimal digits. Such display text is not guaranteed to be accepted by the current numeric-\/string parser or to preserve the original value if parsed. {\ttfamily to\+String\+Dec()} always produces the exact, lossless decimal representation; for every {\bfseries{normalized}} \doxylink{classBigInt}{Big\+Int} value {\ttfamily x}, constructing a \doxylink{classBigInt}{Big\+Int} from {\ttfamily x.\+to\+String\+Dec()} shall reconstruct the same mathematical value. The current parser {\bfseries{does not accept scientific/\+exponent notation}}.\hypertarget{md_docs_2SRS_autotoc_md20}{}\doxysubsection{\texorpdfstring{3.\+2 Arithmetic and comparisons}{3.\+2 Arithmetic and comparisons}}\label{md_docs_2SRS_autotoc_md20}
+{\bfseries{Display versus exact conversion.}} {\ttfamily to\+String()} and the default {\ttfamily operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}} are for human-\/readable display and may emit rounded scientific notation for values exceeding 20 decimal digits. Such display text is not guaranteed to be accepted by the current numeric-\/string parser or to preserve the original value if parsed. {\ttfamily to\+String\+Dec()} always produces the exact, lossless decimal representation; for every {\bfseries{normalized}} \doxylink{classBigInt}{Big\+Int} value {\ttfamily x}, constructing a \doxylink{classBigInt}{Big\+Int} from {\ttfamily x.\+to\+String\+Dec()} shall reconstruct the same mathematical value. The current parser {\bfseries{does not accept scientific/\+exponent notation}}.\hypertarget{md_docs_2SRS_autotoc_md32-arithmetic-and-comparisons}{}\doxysubsection{\texorpdfstring{3.\+2 Arithmetic and comparisons}{3.\+2 Arithmetic and comparisons}}\label{md_docs_2SRS_autotoc_md32-arithmetic-and-comparisons}
 
 \begin{DoxyTable}{2}{}{}{1}
 \SetCell{c,bg=\tableheadbgcolor,font=\bfseries}ID  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Requirement  \\
@@ -69,7 +69,7 @@ Empty or ASCII-\/whitespace-\/only strings are invalid {\itshape numeric tokens}
 \end{DoxyTable}
 
 
-{\bfseries{Signed division.}} The quotient truncates toward zero; the nonzero remainder has the sign of the dividend. Thus {\ttfamily -\/17 / 5 = -\/3}, {\ttfamily -\/17 \% 5 = -\/2}, and {\ttfamily a = (a / b) \texorpdfstring{$\ast$}{*} b + (a \% b)} for nonzero {\ttfamily b}.\hypertarget{md_docs_2SRS_autotoc_md21}{}\doxysubsection{\texorpdfstring{3.\+3 Shifts}{3.\+3 Shifts}}\label{md_docs_2SRS_autotoc_md21}
+{\bfseries{Signed division.}} The quotient truncates toward zero; the nonzero remainder has the sign of the dividend. Thus {\ttfamily -\/17 / 5 = -\/3}, {\ttfamily -\/17 \% 5 = -\/2}, and {\ttfamily a = (a / b) \texorpdfstring{$\ast$}{*} b + (a \% b)} for nonzero {\ttfamily b}.\hypertarget{md_docs_2SRS_autotoc_md33-shifts}{}\doxysubsection{\texorpdfstring{3.\+3 Shifts}{3.\+3 Shifts}}\label{md_docs_2SRS_autotoc_md33-shifts}
 
 \begin{DoxyTable}{2}{}{}{1}
 \SetCell{c,bg=\tableheadbgcolor,font=\bfseries}ID  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Requirement  \\
@@ -79,7 +79,7 @@ Empty or ASCII-\/whitespace-\/only strings are invalid {\itshape numeric tokens}
 \end{DoxyTable}
 
 
-{\bfseries{Shift example.}} {\ttfamily -\/3 \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} 1 = -\/2} because right shift uses floor division.\hypertarget{md_docs_2SRS_autotoc_md22}{}\doxysubsection{\texorpdfstring{3.\+4 Value semantics}{3.\+4 Value semantics}}\label{md_docs_2SRS_autotoc_md22}
+{\bfseries{Shift example.}} {\ttfamily -\/3 \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} 1 = -\/2} because right shift uses floor division.\hypertarget{md_docs_2SRS_autotoc_md34-value-semantics}{}\doxysubsection{\texorpdfstring{3.\+4 Value semantics}{3.\+4 Value semantics}}\label{md_docs_2SRS_autotoc_md34-value-semantics}
 
 \begin{DoxyTable}{2}{}{}{1}
 \SetCell{c,bg=\tableheadbgcolor,font=\bfseries}ID  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Requirement  \\
@@ -87,7 +87,7 @@ Empty or ASCII-\/whitespace-\/only strings are invalid {\itshape numeric tokens}
 {\ttfamily FR-\/\+BI-\/023}  &Assigning a new value to an existing \doxylink{classBigInt}{Big\+Int} shall replace its previous stored value. Assignment from another \doxylink{classBigInt}{Big\+Int} shall preserve the source\textquotesingle{}s limb sequence and sign flag as required by FR-\/\+BI-\/022; assignment from accepted built-\/in numeric values or decimal numeric strings shall produce a normalized destination (subject to input-\/error behavior in FR-\/\+BI-\/040).  \\
 {\ttfamily FR-\/\+BI-\/024}  &A default-\/constructed \doxylink{classBigInt}{Big\+Int} shall have mathematical value zero.  \\
 \end{DoxyTable}
-\hypertarget{md_docs_2SRS_autotoc_md23}{}\doxysubsection{\texorpdfstring{3.\+5 Additional operations, formatting, and limb access}{3.\+5 Additional operations, formatting, and limb access}}\label{md_docs_2SRS_autotoc_md23}
+\hypertarget{md_docs_2SRS_autotoc_md35-additional-operations-formatting-and-limb-access}{}\doxysubsection{\texorpdfstring{3.\+5 Additional operations, formatting, and limb access}{3.\+5 Additional operations, formatting, and limb access}}\label{md_docs_2SRS_autotoc_md35-additional-operations-formatting-and-limb-access}
 
 \begin{DoxyTable}{2}{}{}{1}
 \SetCell{c,bg=\tableheadbgcolor,font=\bfseries}ID  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Requirement  \\
@@ -130,7 +130,7 @@ Empty or ASCII-\/whitespace-\/only strings are invalid {\itshape numeric tokens}
 
 {\bfseries{Scale demonstration.}} Parsing, lossless decimal output, and addition must be demonstrated using operands of at least {\bfseries{5,000 decimal digits}}. This is a verification target, not a guaranteed maximum capacity or performance bound.
 
-Bitwise AND, OR, XOR, and NOT ({\ttfamily \&}, {\ttfamily \texorpdfstring{$\vert$}{|}}, {\ttfamily \texorpdfstring{$^\wedge$}{\string^}}, {\ttfamily \texorpdfstring{$\sim$}{\string~}}) are excluded from mandatory functionality. Binary shifts are required.\hypertarget{md_docs_2SRS_autotoc_md24}{}\doxysubsection{\texorpdfstring{3.\+6 Normalization contract and API classification}{3.\+6 Normalization contract and API classification}}\label{md_docs_2SRS_autotoc_md24}
+Bitwise AND, OR, XOR, and NOT ({\ttfamily \&}, {\ttfamily \texorpdfstring{$\vert$}{|}}, {\ttfamily \texorpdfstring{$^\wedge$}{\string^}}, {\ttfamily \texorpdfstring{$\sim$}{\string~}}) are excluded from mandatory functionality. Binary shifts are required.\hypertarget{md_docs_2SRS_autotoc_md36-normalization-contract-and-api-classification}{}\doxysubsection{\texorpdfstring{3.\+6 Normalization contract and API classification}{3.\+6 Normalization contract and API classification}}\label{md_docs_2SRS_autotoc_md36-normalization-contract-and-api-classification}
 A valid \doxylink{classBigInt}{Big\+Int} C++ object may have a normalized representation, a non-\/normalized representation, or {\bfseries{no stored limbs}}. Empty storage is not canonical zero and has no guaranteed numerical interpretation. The library need not normalize a non-\/normalized representation on any timetable. A violated normalization precondition leaves numerical behavior outside the contract; it is not by itself a claim that every such call causes C++ undefined behavior. In particular, numerical operations are not required to check or report missing normalization.
 
 
@@ -151,8 +151,8 @@ A valid \doxylink{classBigInt}{Big\+Int} C++ object may have a normalized repres
 
 {\bfseries{Self-\/assignment and failures.}} Self-\/copy assignment preserves the representation. Self-\/move assignment is a nonthrowing, complete no-\/op even for non-\/normalized, negative-\/zero or empty states. Invalid input and domain errors must preserve the existing representation; resource exceptions need preserve only a valid C++ object, potentially with empty storage. After such a failure, callers must establish the relevant preconditions before numerical use. Neither successful restoration nor memory allocation is guaranteed under resource exhaustion.
 
-{\bfseries{Boundary behavior.}} {\ttfamily set\+Limb()} and {\ttfamily set\+Limb\+Raw()} shall prevent overflow when calculating the storage size needed for an extension. An out-\/of-\/range zero write through {\ttfamily set\+Limb()} remains a successful no-\/op, including at the largest representable index. {\ttfamily get\+Digit\+Count()} shall report {\ttfamily 0} when the exact digit count is not representable, as specified by FR-\/\+BI-\/039.\hypertarget{md_docs_2SRS_autotoc_md25}{}\doxysection{\texorpdfstring{4. Evaluator\+Demo requirements}{4. Evaluator\+Demo requirements}}\label{md_docs_2SRS_autotoc_md25}
-\hypertarget{md_docs_2SRS_autotoc_md26}{}\doxysubsection{\texorpdfstring{4.\+1 Expressions and assignments}{4.\+1 Expressions and assignments}}\label{md_docs_2SRS_autotoc_md26}
+{\bfseries{Boundary behavior.}} {\ttfamily set\+Limb()} and {\ttfamily set\+Limb\+Raw()} shall prevent overflow when calculating the storage size needed for an extension. An out-\/of-\/range zero write through {\ttfamily set\+Limb()} remains a successful no-\/op, including at the largest representable index. {\ttfamily get\+Digit\+Count()} shall report {\ttfamily 0} when the exact digit count is not representable, as specified by FR-\/\+BI-\/039.\hypertarget{md_docs_2SRS_autotoc_md4-evaluatordemo-requirements}{}\doxysection{\texorpdfstring{4. Evaluator\+Demo requirements}{4. Evaluator\+Demo requirements}}\label{md_docs_2SRS_autotoc_md4-evaluatordemo-requirements}
+\hypertarget{md_docs_2SRS_autotoc_md41-expressions-and-assignments}{}\doxysubsection{\texorpdfstring{4.\+1 Expressions and assignments}{4.\+1 Expressions and assignments}}\label{md_docs_2SRS_autotoc_md41-expressions-and-assignments}
 
 \begin{DoxyTable}{2}{}{}{1}
 \SetCell{c,bg=\tableheadbgcolor,font=\bfseries}ID  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Requirement  \\
@@ -164,7 +164,7 @@ A valid \doxylink{classBigInt}{Big\+Int} C++ object may have a normalized repres
 {\ttfamily FR-\/\+DEMO-\/006}  &It shall permit an operand to reference a previously defined named variable.  \\
 {\ttfamily FR-\/\+DEMO-\/007}  &It shall permit an ordinary variable to receive the value of any supported evaluation, including a standalone integer literal, a previously defined variable reference, or an optionally signed single operand, without requiring a binary operator. It shall reject assignment to any case variation of {\ttfamily ans}.  \\
 \end{DoxyTable}
-\hypertarget{md_docs_2SRS_autotoc_md27}{}\doxysubsection{\texorpdfstring{4.\+2 Variables and session state}{4.\+2 Variables and session state}}\label{md_docs_2SRS_autotoc_md27}
+\hypertarget{md_docs_2SRS_autotoc_md42-variables-and-session-state}{}\doxysubsection{\texorpdfstring{4.\+2 Variables and session state}{4.\+2 Variables and session state}}\label{md_docs_2SRS_autotoc_md42-variables-and-session-state}
 
 \begin{DoxyTable}{2}{}{}{1}
 \SetCell{c,bg=\tableheadbgcolor,font=\bfseries}ID  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Requirement  \\
@@ -175,7 +175,7 @@ A valid \doxylink{classBigInt}{Big\+Int} C++ object may have a normalized repres
 {\ttfamily FR-\/\+DEMO-\/017}  &At session start, {\ttfamily ans} shall hold zero and shall remain unchanged by assignments or failed evaluations.  \\
 {\ttfamily FR-\/\+DEMO-\/018}  &Ordinary variable identifiers shall begin with ASCII A–Z, a–z, or {\ttfamily \_} and continue with ASCII letters, decimal digits, or {\ttfamily \_}; ordinary names are case-\/sensitive. All letter-\/case variants of {\ttfamily ans} identify the same predefined variable and shall be prohibited as targets of user-\/directed assignment or mutation.  \\
 \end{DoxyTable}
-\hypertarget{md_docs_2SRS_autotoc_md28}{}\doxysubsection{\texorpdfstring{4.\+3 Output and formatting}{4.\+3 Output and formatting}}\label{md_docs_2SRS_autotoc_md28}
+\hypertarget{md_docs_2SRS_autotoc_md43-output-and-formatting}{}\doxysubsection{\texorpdfstring{4.\+3 Output and formatting}{4.\+3 Output and formatting}}\label{md_docs_2SRS_autotoc_md43-output-and-formatting}
 
 \begin{DoxyTable}{2}{}{}{1}
 \SetCell{c,bg=\tableheadbgcolor,font=\bfseries}ID  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Requirement  \\
@@ -184,7 +184,7 @@ A valid \doxylink{classBigInt}{Big\+Int} C++ object may have a normalized repres
 {\ttfamily FR-\/\+DEMO-\/023}  &Evaluating an existing bare variable name, including any case variation of {\ttfamily ans}, shall display {\ttfamily \texorpdfstring{$<$}{<}name\texorpdfstring{$>$}{>} = \texorpdfstring{$<$}{<}value\texorpdfstring{$>$}{>}} and copy the referenced value into {\ttfamily ans}. An undefined variable name shall produce an error without changing state. Bare {\ttfamily ans} shall use the canonical display label {\ttfamily ans}.  \\
 {\ttfamily FR-\/\+DEMO-\/028}  &Successful unassigned binary expressions, unary expressions, and standalone numeric literals shall display {\ttfamily ans = \texorpdfstring{$<$}{<}value\texorpdfstring{$>$}{>}}. Successful assignments and bare variable-\/name evaluations shall display {\ttfamily \texorpdfstring{$<$}{<}name\texorpdfstring{$>$}{>} = \texorpdfstring{$<$}{<}value\texorpdfstring{$>$}{>}} using the automatic numeric-\/display policy. All successful unassigned evaluations update {\ttfamily ans}.  \\
 \end{DoxyTable}
-\hypertarget{md_docs_2SRS_autotoc_md29}{}\doxysubsection{\texorpdfstring{4.\+4 Commands}{4.\+4 Commands}}\label{md_docs_2SRS_autotoc_md29}
+\hypertarget{md_docs_2SRS_autotoc_md44-commands}{}\doxysubsection{\texorpdfstring{4.\+4 Commands}{4.\+4 Commands}}\label{md_docs_2SRS_autotoc_md44-commands}
 The command reference below summarizes commands specified by {\ttfamily FR-\/\+DEMO-\/019}, {\ttfamily FR-\/\+DEMO-\/022}, {\ttfamily FR-\/\+DEMO-\/026}, {\ttfamily FR-\/\+DEMO-\/027}, and {\ttfamily FR-\/\+DEMO-\/030}.
 
 
@@ -213,7 +213,7 @@ The command reference below summarizes commands specified by {\ttfamily FR-\/\+D
 {\ttfamily FR-\/\+DEMO-\/030}  &{\ttfamily @dumpvars} shall accept no arguments and display the predefined {\ttfamily ans} first, followed by every currently defined ordinary variable in deterministic alphabetical order. Each line shall use the original variable name and automatic numeric formatting ({\ttfamily name = value}). The command shall not modify stored values or {\ttfamily ans}; a fresh session shall display {\ttfamily ans = 0}.  \\
 {\ttfamily FR-\/\+DEMO-\/031}  &Commands shall accept leading/\+trailing ASCII spaces or tabs and separate arguments with one or more ASCII spaces or tabs. The command prefix {\ttfamily @} must be immediately adjacent to its name; command names and {\ttfamily pad} shall be case-\/insensitive. Missing, extra or unrecognized arguments, invalid variable references, unsupported flags, malformed precision tokens (including explicit signs, fractions and exponents), nonpositive or numerically unrepresentable precision values, and unknown commands shall produce recoverable errors without state changes. A precision token shall not be rejected solely because its digit sequence is long when its numeric value is representable.  \\
 \end{DoxyTable}
-\hypertarget{md_docs_2SRS_autotoc_md30}{}\doxysubsection{\texorpdfstring{4.\+5 Input handling and error recovery}{4.\+5 Input handling and error recovery}}\label{md_docs_2SRS_autotoc_md30}
+\hypertarget{md_docs_2SRS_autotoc_md45-input-handling-and-error-recovery}{}\doxysubsection{\texorpdfstring{4.\+5 Input handling and error recovery}{4.\+5 Input handling and error recovery}}\label{md_docs_2SRS_autotoc_md45-input-handling-and-error-recovery}
 
 \begin{DoxyTable}{2}{}{}{1}
 \SetCell{c,bg=\tableheadbgcolor,font=\bfseries}ID  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Requirement  \\
@@ -223,7 +223,7 @@ The command reference below summarizes commands specified by {\ttfamily FR-\/\+D
 {\ttfamily FR-\/\+DEMO-\/016}  &Following a recoverable input or evaluation error, the application shall accept another input.  \\
 {\ttfamily FR-\/\+DEMO-\/025}  &An empty or whitespace-\/only input line shall be ignored without output or state change.  \\
 \end{DoxyTable}
-\hypertarget{md_docs_2SRS_autotoc_md31}{}\doxysubsection{\texorpdfstring{4.\+6 Expression grammar}{4.\+6 Expression grammar}}\label{md_docs_2SRS_autotoc_md31}
+\hypertarget{md_docs_2SRS_autotoc_md46-expression-grammar}{}\doxysubsection{\texorpdfstring{4.\+6 Expression grammar}{4.\+6 Expression grammar}}\label{md_docs_2SRS_autotoc_md46-expression-grammar}
 A statement evaluates one optionally signed operand, optionally followed by {\bfseries{one}} binary operator and a second optionally signed operand. An assignment stores the result of either form. Expressions are parsed left to right and must consume the entire input line, apart from permitted boundary whitespace. Commands use the separate argument rules in §4.4.
 
 
@@ -247,7 +247,7 @@ A statement evaluates one optionally signed operand, optionally followed by {\bf
 
 {\bfseries{Unary/\+binary disambiguation.}} At the beginning of an operand (the beginning of an evaluation or immediately following a binary operator), a single {\ttfamily +} or {\ttfamily -\/} is a unary sign {\bfseries{only when directly attached}} to a literal or identifier. Between two operands, {\ttfamily +} or {\ttfamily -\/} is binary. Spaces and tabs are permitted around binary operators and {\ttfamily =}, but {\bfseries{not}} between a unary sign and its operand. For example, {\ttfamily a-\/b}, {\ttfamily a -\/ b}, {\ttfamily a -\/ -\/b}, {\ttfamily -\/a-\/b}, {\ttfamily -\/a-\/-\/b}, {\ttfamily -\/a + -\/b}, {\ttfamily a++b} and {\ttfamily a+-\/b} are syntactically valid. In contrast, {\ttfamily -\/ a}, {\ttfamily a -\/ -\/ b}, {\ttfamily -\/-\/a}, and {\ttfamily a-\/-\/-\/b} are invalid. Chained binary expressions, operator precedence, parentheses (including {\ttfamily -\/(a+b)}), and fractional/\+dotted or exponent-\/form integer operands are outside the mandatory grammar. A syntactically valid expression can still fail semantically (for example, {\ttfamily a \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} -\/3} uses a negative shift count). An empty or whitespace-\/only line follows FR-\/\+DEMO-\/025 rather than this grammar.
 
-{\bfseries{Grammar separation.}} This is intentionally narrower than \doxylink{classBigInt}{Big\+Int}\textquotesingle{}s decimal-\/string constructor syntax: the library may accept fractional text and truncate its value, but the mandatory calculator does not accept decimal-\/point literals. Similarly, an {\ttfamily @showscientific} precision argument is an unsigned {\bfseries{digit token}} representing a positive in-\/range integer, not a signed expression, fractional value, or arbitrary 20-\/digit-\/limited field.\hypertarget{md_docs_2SRS_autotoc_md32}{}\doxysubsection{\texorpdfstring{4.\+7 Example session}{4.\+7 Example session}}\label{md_docs_2SRS_autotoc_md32}
+{\bfseries{Grammar separation.}} This is intentionally narrower than \doxylink{classBigInt}{Big\+Int}\textquotesingle{}s decimal-\/string constructor syntax: the library may accept fractional text and truncate its value, but the mandatory calculator does not accept decimal-\/point literals. Similarly, an {\ttfamily @showscientific} precision argument is an unsigned {\bfseries{digit token}} representing a positive in-\/range integer, not a signed expression, fractional value, or arbitrary 20-\/digit-\/limited field.\hypertarget{md_docs_2SRS_autotoc_md47-example-session}{}\doxysubsection{\texorpdfstring{4.\+7 Example session}{4.\+7 Example session}}\label{md_docs_2SRS_autotoc_md47-example-session}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{>\ 123}
@@ -272,8 +272,8 @@ A statement evaluates one optionally signed operand, optionally followed by {\bf
 \DoxyCodeLine{>\ @exit}
 
 \end{DoxyCode}
-\hypertarget{md_docs_2SRS_autotoc_md33}{}\doxysection{\texorpdfstring{5. Optional extensions}{5. Optional extensions}}\label{md_docs_2SRS_autotoc_md33}
-These features do not form part of the required \doxylink{classBigInt}{Big\+Int} or integer-\/only evaluator deliverables.\hypertarget{md_docs_2SRS_autotoc_md34}{}\doxysubsection{\texorpdfstring{5.\+1 Big\+Int\+\_\+\+Math}{5.\+1 Big\+Int\+\_\+\+Math}}\label{md_docs_2SRS_autotoc_md34}
+\hypertarget{md_docs_2SRS_autotoc_md5-optional-extensions}{}\doxysection{\texorpdfstring{5. Optional extensions}{5. Optional extensions}}\label{md_docs_2SRS_autotoc_md5-optional-extensions}
+These features do not form part of the required \doxylink{classBigInt}{Big\+Int} or integer-\/only evaluator deliverables.\hypertarget{md_docs_2SRS_autotoc_md51-bigint_math}{}\doxysubsection{\texorpdfstring{5.\+1 Big\+Int\+\_\+\+Math}{5.\+1 Big\+Int\+\_\+\+Math}}\label{md_docs_2SRS_autotoc_md51-bigint_math}
 
 \begin{DoxyTable}{2}{}{}{1}
 \SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Function  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Proposed integer-\/domain behavior  \\
@@ -286,7 +286,7 @@ These features do not form part of the required \doxylink{classBigInt}{Big\+Int}
 \end{DoxyTable}
 
 
-If implemented, these functions belong to a separate module based on \doxylink{classBigInt}{Big\+Int}. Demonstrating them through the calculator is optional and would need a defined invocation syntax.\hypertarget{md_docs_2SRS_autotoc_md35}{}\doxysubsection{\texorpdfstring{5.\+2 Fractional-\/literal calculator mode}{5.\+2 Fractional-\/literal calculator mode}}\label{md_docs_2SRS_autotoc_md35}
+If implemented, these functions belong to a separate module based on \doxylink{classBigInt}{Big\+Int}. Demonstrating them through the calculator is optional and would need a defined invocation syntax.\hypertarget{md_docs_2SRS_autotoc_md52-fractional-literal-calculator-mode}{}\doxysubsection{\texorpdfstring{5.\+2 Fractional-\/literal calculator mode}{5.\+2 Fractional-\/literal calculator mode}}\label{md_docs_2SRS_autotoc_md52-fractional-literal-calculator-mode}
 The optional evaluator extension supports selected decimal-\/dot literal calculations using {\ttfamily long double} intermediates and converts their result to \doxylink{classBigInt}{Big\+Int} by truncation toward zero. This does not introduce persistent fractional variables or arbitrary-\/precision fractional storage.
 
 
@@ -300,7 +300,7 @@ A decimal-\/dot literal and integer literal outside finite {\ttfamily long doubl
 \end{DoxyTable}
 
 
-Floating-\/mode operations would be {\ttfamily +}, {\ttfamily -\/}, {\ttfamily \texorpdfstring{$\ast$}{*}}, {\ttfamily /}, and {\ttfamily \%} (remainder via {\ttfamily std::\+fmod}), but not shifts. Nonfinite values and zero divisors are rejected. Platform-\/dependent {\ttfamily long double} precision may affect integer results near truncation boundaries. The handling of nonzero decimal text underflowing to floating zero remains to be specified if this feature is selected.\hypertarget{md_docs_2SRS_autotoc_md36}{}\doxysection{\texorpdfstring{6. Nonfunctional and project requirements}{6. Nonfunctional and project requirements}}\label{md_docs_2SRS_autotoc_md36}
+Floating-\/mode operations would be {\ttfamily +}, {\ttfamily -\/}, {\ttfamily \texorpdfstring{$\ast$}{*}}, {\ttfamily /}, and {\ttfamily \%} (remainder via {\ttfamily std::\+fmod}), but not shifts. Nonfinite values and zero divisors are rejected. Platform-\/dependent {\ttfamily long double} precision may affect integer results near truncation boundaries. The handling of nonzero decimal text underflowing to floating zero remains to be specified if this feature is selected.\hypertarget{md_docs_2SRS_autotoc_md6-nonfunctional-and-project-requirements}{}\doxysection{\texorpdfstring{6. Nonfunctional and project requirements}{6. Nonfunctional and project requirements}}\label{md_docs_2SRS_autotoc_md6-nonfunctional-and-project-requirements}
 
 \begin{DoxyTable}{2}{}{}{1}
 \SetCell{c,bg=\tableheadbgcolor,font=\bfseries}ID  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Requirement  \\
@@ -319,5 +319,5 @@ Floating-\/mode operations would be {\ttfamily +}, {\ttfamily -\/}, {\ttfamily \
 \end{DoxyTable}
 
 
-The project targets C++23 and CMake with Google Test/\+\+CTest for testing. No fixed speed, memory-\/consumption, or maximum-\/digit benchmark is required.\hypertarget{md_docs_2SRS_autotoc_md37}{}\doxysection{\texorpdfstring{7. Verification}{7. Verification}}\label{md_docs_2SRS_autotoc_md37}
+The project targets C++23 and CMake with Google Test/\+\+CTest for testing. No fixed speed, memory-\/consumption, or maximum-\/digit benchmark is required.\hypertarget{md_docs_2SRS_autotoc_md7-verification}{}\doxysection{\texorpdfstring{7. Verification}{7. Verification}}\label{md_docs_2SRS_autotoc_md7-verification}
 The requirements will be verified through automated tests and representative calculator sessions, supplemented by artifact inspection and documented reviews where appropriate. Detailed test cases, traceability, and execution evidence are kept separate from this specification. 

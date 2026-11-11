@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['powersof10_0',['powersOf10',['../d6/d58/bigint__declaration_8hpp.html#a1287aa074ee9b5655cbc0d684ee495bc',1,'bigint_declaration.hpp']]]
+  ['m_5fbnegative_0',['m_bNegative',['../da/d5b/classBigInt.html#ad969c3da1bc62b1e653121e8e4f7a825',1,'BigInt']]],
+  ['m_5flstdigits_1',['m_lstDigits',['../da/d5b/classBigInt.html#abfe4710e84fd55a5335570273aaeab08',1,'BigInt']]]
 ];

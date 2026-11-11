@@ -17,6 +17,7 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript" src="../../darkmode_toggle.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -28,7 +29,7 @@
   <td id="projectalign">
    <div id="projectname">CSC_481-BigInt<span id="projectnumber">&#160;v0.1</span>
    </div>
-   <div id="projectbrief">Arbitrary precision arithmetics implementation using standard c++ tools</div>
+   <div id="projectbrief">Arbitrary precision arithmetics implementation using standard C++ tools</div>
   </td>
  </tr>
  </tbody>
@@ -113,9 +114,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d2/dc1/md_CONT
   <div class="headertitle"><div class="title">Contributing </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md10"></a></p>
+<div class="textblock"><p><a class="anchor" id="contributing"></a></p>
 <p>We use <b>feature branches, pull requests, code reviews, and automated tests</b> to maintain the project.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+<h1 class="doxsection"><a class="anchor" id="development-workflow"></a>
 Development workflow</h1>
 <ol type="1">
 <li><b>Create a branch.</b> Start from an up-to-date <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span>. Use a separate branch for each feature, bug fix, or task.</li>
@@ -126,7 +127,7 @@ Development workflow</h1>
 <li><b>Merge.</b> Merge only after the team agrees, review requirements are met, all discussions are resolved, and CI passes. Merge through the GitHub or CLion PR interface, not by pushing directly to <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span>.</li>
 </ol>
 <p>After merging, delete the completed feature branch when no longer needed and update your local <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span>.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+<h1 class="doxsection"><a class="anchor" id="testing-requirements"></a>
 Testing requirements</h1>
 <ul>
 <li><b>All automated tests must pass</b> before merging, including the required GitHub CI checks.</li>
@@ -135,7 +136,7 @@ Testing requirements</h1>
 <li>Tests belong in the relevant subproject's <span class="tt">tests/</span> directory and are automatically discovered through CMake and GoogleTest.</li>
 <li>Playground <span class="tt">main.cpp</span> files are for development and experimentation. They must compile successfully but are not executed by automated CI.</li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+<h1 class="doxsection"><a class="anchor" id="code-review"></a>
 Code review</h1>
 <ul>
 <li>Everyone should review proposed changes or explicitly indicate that they have no objections.</li>
@@ -144,7 +145,7 @@ Code review</h1>
 <li>Keep review discussions in the pull request so decisions remain visible.</li>
 <li>Do not modify or push to another contributor's branch without their agreement.</li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+<h1 class="doxsection"><a class="anchor" id="repository-rules"></a>
 Repository rules</h1>
 <ul>
 <li>Do not directly push ordinary development changes to <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span>.</li>

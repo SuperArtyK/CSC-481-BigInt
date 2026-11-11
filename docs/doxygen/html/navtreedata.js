@@ -26,49 +26,49 @@ var NAVTREE =
 [
   [ "CSC_481-BigInt", "index.html", [
     [ "CLion Workflow", "d4/d0d/md_CLION__WORKFLOW.html", [
-      [ "1. Create a feature branch", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md1", null ],
-      [ "2. Build and run tests", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md2", [
-        [ "Running individual tests", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md3", null ]
+      [ "1. Create a feature branch", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md1-create-a-feature-branch", null ],
+      [ "2. Build and run tests", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md2-build-and-run-tests", [
+        [ "Running individual tests", "d4/d0d/md_CLION__WORKFLOW.html#running-individual-tests", null ]
       ] ],
-      [ "3. Commit and push changes", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md4", null ],
-      [ "4. Create a pull request", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md5", null ],
-      [ "5. Review someone else's pull request", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md6", null ],
-      [ "6. Merge and finish", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md7", null ],
-      [ "Safety reminders", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md8", null ],
-      [ "References", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md9", null ]
+      [ "3. Commit and push changes", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md3-commit-and-push-changes", null ],
+      [ "4. Create a pull request", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md4-create-a-pull-request", null ],
+      [ "5. Review someone else's pull request", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md5-review-someone-elses-pull-request", null ],
+      [ "6. Merge and finish", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md6-merge-and-finish", null ],
+      [ "Safety reminders", "d4/d0d/md_CLION__WORKFLOW.html#safety-reminders", null ],
+      [ "References", "d4/d0d/md_CLION__WORKFLOW.html#references", null ]
     ] ],
     [ "Contributing", "d2/dc1/md_CONTRIBUTING.html", [
-      [ "Development workflow", "d2/dc1/md_CONTRIBUTING.html#autotoc_md11", null ],
-      [ "Testing requirements", "d2/dc1/md_CONTRIBUTING.html#autotoc_md12", null ],
-      [ "Code review", "d2/dc1/md_CONTRIBUTING.html#autotoc_md13", null ],
-      [ "Repository rules", "d2/dc1/md_CONTRIBUTING.html#autotoc_md14", null ]
+      [ "Development workflow", "d2/dc1/md_CONTRIBUTING.html#development-workflow", null ],
+      [ "Testing requirements", "d2/dc1/md_CONTRIBUTING.html#testing-requirements", null ],
+      [ "Code review", "d2/dc1/md_CONTRIBUTING.html#code-review", null ],
+      [ "Repository rules", "d2/dc1/md_CONTRIBUTING.html#repository-rules", null ]
     ] ],
     [ "BigInteger — Software Requirements Specification", "d9/df7/md_docs_2SRS.html", [
-      [ "1. Overview", "d9/df7/md_docs_2SRS.html#autotoc_md16", null ],
-      [ "2. User requirements", "d9/df7/md_docs_2SRS.html#autotoc_md17", null ],
-      [ "3. BigInt requirements", "d9/df7/md_docs_2SRS.html#autotoc_md18", [
-        [ "3.1 Values, construction, and decimal representation", "d9/df7/md_docs_2SRS.html#autotoc_md19", null ],
-        [ "3.2 Arithmetic and comparisons", "d9/df7/md_docs_2SRS.html#autotoc_md20", null ],
-        [ "3.3 Shifts", "d9/df7/md_docs_2SRS.html#autotoc_md21", null ],
-        [ "3.4 Value semantics", "d9/df7/md_docs_2SRS.html#autotoc_md22", null ],
-        [ "3.5 Additional operations, formatting, and limb access", "d9/df7/md_docs_2SRS.html#autotoc_md23", null ],
-        [ "3.6 Normalization contract and API classification", "d9/df7/md_docs_2SRS.html#autotoc_md24", null ]
+      [ "1. Overview", "d9/df7/md_docs_2SRS.html#autotoc_md1-overview", null ],
+      [ "2. User requirements", "d9/df7/md_docs_2SRS.html#autotoc_md2-user-requirements", null ],
+      [ "3. BigInt requirements", "d9/df7/md_docs_2SRS.html#autotoc_md3-bigint-requirements", [
+        [ "3.1 Values, construction, and decimal representation", "d9/df7/md_docs_2SRS.html#autotoc_md31-values-construction-and-decimal-representation", null ],
+        [ "3.2 Arithmetic and comparisons", "d9/df7/md_docs_2SRS.html#autotoc_md32-arithmetic-and-comparisons", null ],
+        [ "3.3 Shifts", "d9/df7/md_docs_2SRS.html#autotoc_md33-shifts", null ],
+        [ "3.4 Value semantics", "d9/df7/md_docs_2SRS.html#autotoc_md34-value-semantics", null ],
+        [ "3.5 Additional operations, formatting, and limb access", "d9/df7/md_docs_2SRS.html#autotoc_md35-additional-operations-formatting-and-limb-access", null ],
+        [ "3.6 Normalization contract and API classification", "d9/df7/md_docs_2SRS.html#autotoc_md36-normalization-contract-and-api-classification", null ]
       ] ],
-      [ "4. EvaluatorDemo requirements", "d9/df7/md_docs_2SRS.html#autotoc_md25", [
-        [ "4.1 Expressions and assignments", "d9/df7/md_docs_2SRS.html#autotoc_md26", null ],
-        [ "4.2 Variables and session state", "d9/df7/md_docs_2SRS.html#autotoc_md27", null ],
-        [ "4.3 Output and formatting", "d9/df7/md_docs_2SRS.html#autotoc_md28", null ],
-        [ "4.4 Commands", "d9/df7/md_docs_2SRS.html#autotoc_md29", null ],
-        [ "4.5 Input handling and error recovery", "d9/df7/md_docs_2SRS.html#autotoc_md30", null ],
-        [ "4.6 Expression grammar", "d9/df7/md_docs_2SRS.html#autotoc_md31", null ],
-        [ "4.7 Example session", "d9/df7/md_docs_2SRS.html#autotoc_md32", null ]
+      [ "4. EvaluatorDemo requirements", "d9/df7/md_docs_2SRS.html#autotoc_md4-evaluatordemo-requirements", [
+        [ "4.1 Expressions and assignments", "d9/df7/md_docs_2SRS.html#autotoc_md41-expressions-and-assignments", null ],
+        [ "4.2 Variables and session state", "d9/df7/md_docs_2SRS.html#autotoc_md42-variables-and-session-state", null ],
+        [ "4.3 Output and formatting", "d9/df7/md_docs_2SRS.html#autotoc_md43-output-and-formatting", null ],
+        [ "4.4 Commands", "d9/df7/md_docs_2SRS.html#autotoc_md44-commands", null ],
+        [ "4.5 Input handling and error recovery", "d9/df7/md_docs_2SRS.html#autotoc_md45-input-handling-and-error-recovery", null ],
+        [ "4.6 Expression grammar", "d9/df7/md_docs_2SRS.html#autotoc_md46-expression-grammar", null ],
+        [ "4.7 Example session", "d9/df7/md_docs_2SRS.html#autotoc_md47-example-session", null ]
       ] ],
-      [ "5. Optional extensions", "d9/df7/md_docs_2SRS.html#autotoc_md33", [
-        [ "5.1 BigInt_Math", "d9/df7/md_docs_2SRS.html#autotoc_md34", null ],
-        [ "5.2 Fractional-literal calculator mode", "d9/df7/md_docs_2SRS.html#autotoc_md35", null ]
+      [ "5. Optional extensions", "d9/df7/md_docs_2SRS.html#autotoc_md5-optional-extensions", [
+        [ "5.1 BigInt_Math", "d9/df7/md_docs_2SRS.html#autotoc_md51-bigint_math", null ],
+        [ "5.2 Fractional-literal calculator mode", "d9/df7/md_docs_2SRS.html#autotoc_md52-fractional-literal-calculator-mode", null ]
       ] ],
-      [ "6. Nonfunctional and project requirements", "d9/df7/md_docs_2SRS.html#autotoc_md36", null ],
-      [ "7. Verification", "d9/df7/md_docs_2SRS.html#autotoc_md37", null ]
+      [ "6. Nonfunctional and project requirements", "d9/df7/md_docs_2SRS.html#autotoc_md6-nonfunctional-and-project-requirements", null ],
+      [ "7. Verification", "d9/df7/md_docs_2SRS.html#autotoc_md7-verification", null ]
     ] ],
     [ "Todo List", "dd/da0/todo.html", null ],
     [ "Namespaces", "namespaces.html", [
@@ -84,7 +84,8 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ]
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -103,7 +104,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"df/d67/test__string__conversion_8cpp.html#a99075a6849f32a81333ba904abd599c3"
+"de/d78/BigInt__Math_2main_8cpp.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

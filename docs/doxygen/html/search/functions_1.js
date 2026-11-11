@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['digitcount_0',['digitCount',['../df/d93/utils_8hpp.html#a129812dcae9064feb53e76acefdcf826',1,'utils.hpp']]]
+  ['clear_0',['clear',['../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f',1,'BigInt']]]
 ];

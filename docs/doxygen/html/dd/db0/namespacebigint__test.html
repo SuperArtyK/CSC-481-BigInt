@@ -17,6 +17,7 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript" src="../../darkmode_toggle.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -28,7 +29,7 @@
   <td id="projectalign">
    <div id="projectname">CSC_481-BigInt<span id="projectnumber">&#160;v0.1</span>
    </div>
-   <div id="projectbrief">Arbitrary precision arithmetics implementation using standard c++ tools</div>
+   <div id="projectbrief">Arbitrary precision arithmetics implementation using standard C++ tools</div>
   </td>
  </tr>
  </tbody>
@@ -113,18 +114,28 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/db0/namespa
   <div class="headertitle"><div class="title">bigint_test Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Test support utilities for validating <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> internals and copy/move semantics.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Inspector" id="r_Inspector"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d6d/structbigint__test_1_1Inspector.html">Inspector</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test helper for inspecting the private internal representation of a <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a>.  <a href="../../dc/d6d/structbigint__test_1_1Inspector.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:afb392cf99372bf839e0efb54e337c7db" id="r_afb392cf99372bf839e0efb54e337c7db"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afb392cf99372bf839e0efb54e337c7db">expectRepresentation</a> (const <a class="el" href="../../da/d5b/classBigInt.html">BigInt</a> &amp;value, const std::vector&lt; <a class="el" href="../../d6/d58/bigint__declaration_8hpp.html#a042d6b4da3f9c82306b490bd23b24aeb">limb_t</a> &gt; &amp;expectedLimbs, const bool expectedNegative)</td></tr>
+<tr class="memdesc:afb392cf99372bf839e0efb54e337c7db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts that a bigint matches the expected internal representation.  <br /></td></tr>
 <tr class="memitem:a792481768a7337c9178bfe19e5e8ae42" id="r_a792481768a7337c9178bfe19e5e8ae42"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a792481768a7337c9178bfe19e5e8ae42">testCopyPreservesRepresentation</a> (const std::initializer_list&lt; <a class="el" href="../../d6/d58/bigint__declaration_8hpp.html#a042d6b4da3f9c82306b490bd23b24aeb">limb_t</a> &gt; &amp;sourceLimbs, const bool sourceNegative)</td></tr>
+<tr class="memdesc:a792481768a7337c9178bfe19e5e8ae42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies that copy-assignment preserves the original internal representation.  <br /></td></tr>
 <tr class="memitem:a1dc9ce8fdd5412f568c485ceeaff7978" id="r_a1dc9ce8fdd5412f568c485ceeaff7978"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1dc9ce8fdd5412f568c485ceeaff7978">testMovePreservesRepresentation</a> (const std::initializer_list&lt; <a class="el" href="../../d6/d58/bigint__declaration_8hpp.html#a042d6b4da3f9c82306b490bd23b24aeb">limb_t</a> &gt; &amp;sourceLimbs, const bool sourceNegative)</td></tr>
+<tr class="memdesc:a1dc9ce8fdd5412f568c485ceeaff7978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies that move-assignment preserves the source state while transferring ownership.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Test support utilities for validating <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> internals and copy/move semantics. </p>
+<p>This namespace contains helpers used by unit tests to inspect private representation details, assert expected storage layouts, and confirm that assignment operations preserve the value without changing internal sign or limb ordering. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="afb392cf99372bf839e0efb54e337c7db" name="afb392cf99372bf839e0efb54e337c7db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afb392cf99372bf839e0efb54e337c7db">&#9670;&#160;</a></span>expectRepresentation()</h2>
 
@@ -157,17 +168,27 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d28/test__helpers_8hpp_source.html#l00033">33</a> of file <a class="el" href="../../dd/d28/test__helpers_8hpp_source.html">test_helpers.hpp</a>.</p>
+<p>Asserts that a bigint matches the expected internal representation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td><a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> instance under test. </td></tr>
+    <tr><td class="paramname">expectedLimbs</td><td>Expected limb sequence in least-significant-first order. </td></tr>
+    <tr><td class="paramname">expectedNegative</td><td>Expected value of the sign flag. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/d28/test__helpers_8hpp_source.html#l00054">54</a> of file <a class="el" href="../../dd/d28/test__helpers_8hpp_source.html">test_helpers.hpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dd/db0/namespacebigint__test_afb392cf99372bf839e0efb54e337c7db_cgraph.png" border="0" usemap="#add/db0/namespacebigint__test_afb392cf99372bf839e0efb54e337c7db_cgraph" loading="lazy" alt=""/></div>
 <map name="add/db0/namespacebigint__test_afb392cf99372bf839e0efb54e337c7db_cgraph" id="add/db0/namespacebigint__test_afb392cf99372bf839e0efb54e337c7db_cgraph">
-<area shape="rect" title=" " alt="" coords="5,47,222,73"/>
+<area shape="rect" title="Asserts that a bigint matches the expected internal representation." alt="" coords="5,47,222,73"/>
 <area shape="poly" title=" " alt="" coords="75,46,68,38,73,28,88,22,114,20,141,23,157,32,152,32,140,28,113,25,90,27,77,32,74,37,80,46"/>
-<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a619484ef6d15d98c6486e08c9e8e839d" title=" " alt="" coords="270,5,413,48"/>
+<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a619484ef6d15d98c6486e08c9e8e839d" title="Returns the raw limb storage of the bigint in least&#45;significant&#45;first order." alt="" coords="270,5,413,48"/>
 <area shape="poly" title=" " alt="" coords="208,43,257,39,251,40,210,49"/>
-<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a514a3a70e55e44d933e6378f5bcfb9a4" title=" " alt="" coords="270,72,413,115"/>
+<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a514a3a70e55e44d933e6378f5bcfb9a4" title="Returns the sign flag stored in the bigint." alt="" coords="270,72,413,115"/>
 <area shape="poly" title=" " alt="" coords="209,71,257,80,251,81,209,77"/>
 </map>
 </div>
@@ -201,22 +222,31 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d28/test__helpers_8hpp_source.html#l00042">42</a> of file <a class="el" href="../../dd/d28/test__helpers_8hpp_source.html">test_helpers.hpp</a>.</p>
+<p>Verifies that copy-assignment preserves the original internal representation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourceLimbs</td><td>Initial limb sequence for the source bigint. </td></tr>
+    <tr><td class="paramname">sourceNegative</td><td>Initial sign state of the source bigint. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/d28/test__helpers_8hpp_source.html#l00066">66</a> of file <a class="el" href="../../dd/d28/test__helpers_8hpp_source.html">test_helpers.hpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dd/db0/namespacebigint__test_a792481768a7337c9178bfe19e5e8ae42_cgraph.png" border="0" usemap="#add/db0/namespacebigint__test_a792481768a7337c9178bfe19e5e8ae42_cgraph" loading="lazy" alt=""/></div>
 <map name="add/db0/namespacebigint__test_a792481768a7337c9178bfe19e5e8ae42_cgraph" id="add/db0/namespacebigint__test_a792481768a7337c9178bfe19e5e8ae42_cgraph">
-<area shape="rect" title=" " alt="" coords="5,68,207,111"/>
+<area shape="rect" title="Verifies that copy&#45;assignment preserves the original internal representation." alt="" coords="5,68,207,111"/>
 <area shape="poly" title=" " alt="" coords="58,67,56,58,64,49,81,43,106,41,133,44,151,52,146,53,132,49,106,47,82,49,67,53,61,59,63,68"/>
-<area shape="rect" href="../../dd/db0/namespacebigint__test.html#afb392cf99372bf839e0efb54e337c7db" title=" " alt="" coords="255,47,471,73"/>
+<area shape="rect" href="../../dd/db0/namespacebigint__test.html#afb392cf99372bf839e0efb54e337c7db" title="Asserts that a bigint matches the expected internal representation." alt="" coords="255,47,471,73"/>
 <area shape="poly" title=" " alt="" coords="207,75,242,74,236,75,208,80"/>
-<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title=" " alt="" coords="291,97,434,140"/>
+<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title="Loads a bigint directly with a supplied internal limb list and sign." alt="" coords="291,97,434,140"/>
 <area shape="poly" title=" " alt="" coords="207,98,278,108,273,109,207,104"/>
 <area shape="poly" title=" " alt="" coords="324,45,318,38,322,28,338,22,363,20,390,23,406,32,401,32,389,28,363,25,339,27,326,32,323,37,329,47"/>
-<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a619484ef6d15d98c6486e08c9e8e839d" title=" " alt="" coords="519,5,662,48"/>
+<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a619484ef6d15d98c6486e08c9e8e839d" title="Returns the raw limb storage of the bigint in least&#45;significant&#45;first order." alt="" coords="519,5,662,48"/>
 <area shape="poly" title=" " alt="" coords="458,43,506,39,501,40,459,49"/>
-<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a514a3a70e55e44d933e6378f5bcfb9a4" title=" " alt="" coords="519,72,662,115"/>
+<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a514a3a70e55e44d933e6378f5bcfb9a4" title="Returns the sign flag stored in the bigint." alt="" coords="519,72,662,115"/>
 <area shape="poly" title=" " alt="" coords="458,71,506,81,501,81,458,77"/>
 </map>
 </div>
@@ -250,22 +280,31 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d28/test__helpers_8hpp_source.html#l00057">57</a> of file <a class="el" href="../../dd/d28/test__helpers_8hpp_source.html">test_helpers.hpp</a>.</p>
+<p>Verifies that move-assignment preserves the source state while transferring ownership. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourceLimbs</td><td>Initial limb sequence for the source bigint. </td></tr>
+    <tr><td class="paramname">sourceNegative</td><td>Initial sign state of the source bigint. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/d28/test__helpers_8hpp_source.html#l00084">84</a> of file <a class="el" href="../../dd/d28/test__helpers_8hpp_source.html">test_helpers.hpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dd/db0/namespacebigint__test_a1dc9ce8fdd5412f568c485ceeaff7978_cgraph.png" border="0" usemap="#add/db0/namespacebigint__test_a1dc9ce8fdd5412f568c485ceeaff7978_cgraph" loading="lazy" alt=""/></div>
 <map name="add/db0/namespacebigint__test_a1dc9ce8fdd5412f568c485ceeaff7978_cgraph" id="add/db0/namespacebigint__test_a1dc9ce8fdd5412f568c485ceeaff7978_cgraph">
-<area shape="rect" title=" " alt="" coords="5,68,208,111"/>
+<area shape="rect" title="Verifies that move&#45;assignment preserves the source state while transferring ownership." alt="" coords="5,68,208,111"/>
 <area shape="poly" title=" " alt="" coords="58,67,56,58,64,49,81,43,107,41,134,44,152,52,147,53,133,49,106,47,82,49,67,53,61,59,63,68"/>
-<area shape="rect" href="../../dd/db0/namespacebigint__test.html#afb392cf99372bf839e0efb54e337c7db" title=" " alt="" coords="256,47,472,73"/>
+<area shape="rect" href="../../dd/db0/namespacebigint__test.html#afb392cf99372bf839e0efb54e337c7db" title="Asserts that a bigint matches the expected internal representation." alt="" coords="256,47,472,73"/>
 <area shape="poly" title=" " alt="" coords="208,75,243,74,237,75,209,80"/>
-<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title=" " alt="" coords="292,97,436,140"/>
+<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title="Loads a bigint directly with a supplied internal limb list and sign." alt="" coords="292,97,436,140"/>
 <area shape="poly" title=" " alt="" coords="208,98,279,109,274,109,208,104"/>
 <area shape="poly" title=" " alt="" coords="325,45,319,38,323,28,339,22,364,20,391,23,407,32,402,32,390,28,364,25,340,27,327,32,324,37,330,47"/>
-<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a619484ef6d15d98c6486e08c9e8e839d" title=" " alt="" coords="520,5,663,48"/>
+<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a619484ef6d15d98c6486e08c9e8e839d" title="Returns the raw limb storage of the bigint in least&#45;significant&#45;first order." alt="" coords="520,5,663,48"/>
 <area shape="poly" title=" " alt="" coords="459,43,507,39,502,40,460,49"/>
-<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a514a3a70e55e44d933e6378f5bcfb9a4" title=" " alt="" coords="520,72,663,115"/>
+<area shape="rect" href="../../dc/d6d/structbigint__test_1_1Inspector.html#a514a3a70e55e44d933e6378f5bcfb9a4" title="Returns the sign flag stored in the bigint." alt="" coords="520,72,663,115"/>
 <area shape="poly" title=" " alt="" coords="459,71,507,81,502,81,459,77"/>
 </map>
 </div>

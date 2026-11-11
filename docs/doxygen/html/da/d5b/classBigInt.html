@@ -17,6 +17,7 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript" src="../../darkmode_toggle.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -28,7 +29,7 @@
   <td id="projectalign">
    <div id="projectname">CSC_481-BigInt<span id="projectnumber">&#160;v0.1</span>
    </div>
-   <div id="projectbrief">Arbitrary precision arithmetics implementation using standard c++ tools</div>
+   <div id="projectbrief">Arbitrary precision arithmetics implementation using standard C++ tools</div>
   </td>
  </tr>
  </tbody>
@@ -118,6 +119,16 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/d5b/classBi
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html">bigint_declaration.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for BigInt:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dd/dec/classBigInt__coll__graph.png" border="0" usemap="#aBigInt_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="aBigInt_coll__map" id="aBigInt_coll__map">
+<area shape="rect" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale." alt="" coords="48,104,104,131"/>
+<area shape="rect" title=" " alt="" coords="5,5,147,32"/>
+<area shape="poly" title=" " alt="" coords="78,46,79,104,73,103,74,49"/>
+</map>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -159,6 +170,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad796e56e198962b2799c30ac66e755fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the most significant 0-limbs of the number, and removes negativity if number evaluates to 0.  <br /></td></tr>
 <tr class="memitem:a6f7132b05022dfd943a8d1836308886c" id="r_a6f7132b05022dfd943a8d1836308886c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6f7132b05022dfd943a8d1836308886c">isNormalised</a> () const noexcept</td></tr>
 <tr class="memdesc:a6f7132b05022dfd943a8d1836308886c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether bigint is normalised.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a8edccd25a50ff5ea287c7697973f8f1f" id="r_a8edccd25a50ff5ea287c7697973f8f1f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8edccd25a50ff5ea287c7697973f8f1f">clear</a> (const bool shrink=false)</td></tr>
+<tr class="memdesc:a8edccd25a50ff5ea287c7697973f8f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Completely clear the underlying bigint: clear containers and remove negativity.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:abfe4710e84fd55a5335570273aaeab08" id="r_abfe4710e84fd55a5335570273aaeab08"><td class="memItemLeft">std::deque&lt; <a class="el" href="../../d6/d58/bigint__declaration_8hpp.html#a042d6b4da3f9c82306b490bd23b24aeb">limb_t</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#abfe4710e84fd55a5335570273aaeab08">m_lstDigits</a></td></tr>
+<tr class="memitem:ad969c3da1bc62b1e653121e8e4f7a825" id="r_ad969c3da1bc62b1e653121e8e4f7a825"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad969c3da1bc62b1e653121e8e4f7a825">m_bNegative</a></td></tr>
+<tr class="memdesc:ad969c3da1bc62b1e653121e8e4f7a825"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag to indicate whether the bigint is negative.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Big integer type class, copies the functionality of regular integers, but on arbitrary scale. </p>
@@ -195,9 +217,12 @@ Here is the call graph for this function:</div>
 <area shape="rect" title="Default constructor for the class." alt="" coords="5,29,103,56"/>
 <area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="151,29,272,56"/>
 <area shape="poly" title=" " alt="" coords="103,40,138,42,132,43,103,45"/>
-<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="320,29,413,56"/>
-<area shape="poly" title=" " alt="" coords="273,40,307,43,302,43,273,45"/>
-<area shape="poly" title=" " alt="" coords="340,28,335,21,338,11,349,5,367,3,386,5,397,15,392,13,384,10,367,8,351,10,342,15,340,20,344,30"/>
+<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="459,29,553,56"/>
+<area shape="poly" title=" " alt="" coords="272,40,447,42,441,43,273,45"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="320,55,411,81"/>
+<area shape="poly" title=" " alt="" coords="273,50,307,58,302,58,272,55"/>
+<area shape="poly" title=" " alt="" coords="481,28,477,21,480,11,490,5,506,3,523,5,533,15,528,13,521,10,506,8,492,10,484,14,482,20,486,30"/>
+<area shape="poly" title=" " alt="" coords="411,57,441,54,446,54,412,62"/>
 </map>
 </div>
 
@@ -232,15 +257,18 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../da/d5b/classBigInt_adf7c2ffb0aa3ccee9ee814997f673bf0_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_adf7c2ffb0aa3ccee9ee814997f673bf0_cgraph" loading="lazy" alt=""/></div>
 <map name="ada/d5b/classBigInt_adf7c2ffb0aa3ccee9ee814997f673bf0_cgraph" id="ada/d5b/classBigInt_adf7c2ffb0aa3ccee9ee814997f673bf0_cgraph">
-<area shape="rect" title="Copy&#45;constructor for the class." alt="" coords="5,31,103,57"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="151,5,248,32"/>
-<area shape="poly" title=" " alt="" coords="103,33,138,29,133,30,104,38"/>
-<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="465,31,559,57"/>
-<area shape="poly" title=" " alt="" coords="103,41,450,41,450,47,103,47"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="296,5,417,32"/>
-<area shape="poly" title=" " alt="" coords="248,16,283,18,278,19,249,21"/>
-<area shape="poly" title=" " alt="" coords="418,26,453,34,447,34,418,31"/>
-<area shape="poly" title=" " alt="" coords="485,29,480,22,484,12,494,6,512,4,531,7,542,16,537,15,529,12,512,9,496,11,488,16,486,21,490,31"/>
+<area shape="rect" title="Copy&#45;constructor for the class." alt="" coords="5,55,103,81"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="151,29,248,56"/>
+<area shape="poly" title=" " alt="" coords="103,57,138,53,133,54,104,62"/>
+<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="605,29,698,56"/>
+<area shape="poly" title=" " alt="" coords="103,70,189,75,302,78,429,76,556,65,591,61,596,60,557,71,429,82,302,84,189,80,103,75"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="296,29,417,56"/>
+<area shape="poly" title=" " alt="" coords="248,40,283,42,278,43,249,45"/>
+<area shape="poly" title=" " alt="" coords="406,26,465,15,511,11,557,15,596,25,591,25,556,20,511,16,466,20,407,31"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="465,29,557,56"/>
+<area shape="poly" title=" " alt="" coords="418,40,453,43,447,43,418,45"/>
+<area shape="poly" title=" " alt="" coords="627,28,622,21,625,11,635,5,651,3,669,5,679,15,674,13,667,10,651,8,637,10,630,14,628,20,631,30"/>
+<area shape="poly" title=" " alt="" coords="557,40,591,43,586,43,557,45"/>
 </map>
 </div>
 
@@ -283,21 +311,70 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../da/d5b/classBigInt_af1de21c1909a005cb8f3036253d3b894_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_af1de21c1909a005cb8f3036253d3b894_cgraph" loading="lazy" alt=""/></div>
 <map name="ada/d5b/classBigInt_af1de21c1909a005cb8f3036253d3b894_cgraph" id="ada/d5b/classBigInt_af1de21c1909a005cb8f3036253d3b894_cgraph">
-<area shape="rect" title="Move&#45;constructor for the class." alt="" coords="5,31,103,57"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="151,5,248,32"/>
-<area shape="poly" title=" " alt="" coords="103,33,138,29,133,30,104,38"/>
-<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="465,31,559,57"/>
-<area shape="poly" title=" " alt="" coords="103,41,450,41,450,47,103,47"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="296,5,417,32"/>
-<area shape="poly" title=" " alt="" coords="248,16,283,18,278,19,249,21"/>
-<area shape="poly" title=" " alt="" coords="418,26,453,34,447,34,418,31"/>
-<area shape="poly" title=" " alt="" coords="485,29,480,22,484,12,494,6,512,4,531,7,542,16,537,15,529,12,512,9,496,11,488,16,486,21,490,31"/>
+<area shape="rect" title="Move&#45;constructor for the class." alt="" coords="5,55,103,81"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="151,29,248,56"/>
+<area shape="poly" title=" " alt="" coords="103,57,138,53,133,54,104,62"/>
+<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="605,29,698,56"/>
+<area shape="poly" title=" " alt="" coords="103,70,189,75,302,78,429,76,556,65,591,61,596,60,557,71,429,82,302,84,189,80,103,75"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="296,29,417,56"/>
+<area shape="poly" title=" " alt="" coords="248,40,283,42,278,43,249,45"/>
+<area shape="poly" title=" " alt="" coords="406,26,465,15,511,11,557,15,596,25,591,25,556,20,511,16,466,20,407,31"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="465,29,557,56"/>
+<area shape="poly" title=" " alt="" coords="418,40,453,43,447,43,418,45"/>
+<area shape="poly" title=" " alt="" coords="627,28,622,21,625,11,635,5,651,3,669,5,679,15,674,13,667,10,651,8,637,10,630,14,628,20,631,30"/>
+<area shape="poly" title=" " alt="" coords="557,40,591,43,586,43,557,45"/>
 </map>
 </div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a8edccd25a50ff5ea287c7697973f8f1f" name="a8edccd25a50ff5ea287c7697973f8f1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8edccd25a50ff5ea287c7697973f8f1f">&#9670;&#160;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BigInt::clear </td>
+          <td>(</td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>shrink</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Completely clear the underlying bigint: clear containers and remove negativity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shrink</td><td>Flag whether to shrink the underlying containers to fit (reallocate to size) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/dab/bigint__accessors_8hpp_source.html#l00057">57</a> of file <a class="el" href="../../d6/dab/bigint__accessors_8hpp_source.html">bigint_accessors.hpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d5b/classBigInt_a8edccd25a50ff5ea287c7697973f8f1f_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_a8edccd25a50ff5ea287c7697973f8f1f_cgraph" loading="lazy" alt=""/></div>
+<map name="ada/d5b/classBigInt_a8edccd25a50ff5ea287c7697973f8f1f_cgraph" id="ada/d5b/classBigInt_a8edccd25a50ff5ea287c7697973f8f1f_cgraph">
+<area shape="rect" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="5,29,97,56"/>
+<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="145,29,238,56"/>
+<area shape="poly" title=" " alt="" coords="97,40,131,42,126,43,97,45"/>
+<area shape="poly" title=" " alt="" coords="167,28,162,21,165,11,175,5,191,3,209,5,219,15,214,14,207,10,191,8,177,10,170,14,168,20,171,30"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a52a3dd47c689978179bc84b233c1145e" name="a52a3dd47c689978179bc84b233c1145e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a52a3dd47c689978179bc84b233c1145e">&#9670;&#160;</a></span>getDigitCount()</h2>
 
@@ -616,22 +693,25 @@ Here is the call graph for this function:</div>
 <map name="ada/d5b/classBigInt_ad796e56e198962b2799c30ac66e755fa_cgraph" id="ada/d5b/classBigInt_ad796e56e198962b2799c30ac66e755fa_cgraph">
 <area shape="rect" title="Removes the most significant 0&#45;limbs of the number, and removes negativity if number evaluates to 0." alt="" coords="5,107,125,133"/>
 <area shape="rect" href="../../da/d5b/classBigInt.html#ac0ea695e4944c59e97187943df8cf449" title="Returns the last, Most Significant, limb of the Bigint." alt="" coords="173,5,307,32"/>
-<area shape="poly" title=" " alt="" coords="84,104,171,48,196,38,192,41,174,53,88,108"/>
+<area shape="poly" title=" " alt="" coords="84,104,171,48,196,37,192,41,174,53,88,108"/>
 <area shape="rect" href="../../da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="355,56,499,83"/>
-<area shape="poly" title=" " alt="" coords="117,104,172,92,258,80,342,74,337,76,259,86,173,97,120,109"/>
+<area shape="poly" title=" " alt="" coords="117,104,172,92,258,80,342,74,337,76,259,86,173,97,120,108"/>
 <area shape="rect" href="../../da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c" title="Returns true if bigint evaluates to 0, false otherwise." alt="" coords="190,107,290,133"/>
 <area shape="poly" title=" " alt="" coords="124,117,177,119,172,121,126,123"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#ae66e5ab12ec81c5066a3d23207c500f7" title="Sets the negative flag of the bigint to the passed parameter." alt="" coords="173,157,306,184"/>
-<area shape="poly" title=" " alt="" coords="114,131,179,151,174,154,114,137"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#ae66e5ab12ec81c5066a3d23207c500f7" title="Sets the negative flag of the bigint to the passed parameter." alt="" coords="360,157,494,184"/>
+<area shape="poly" title=" " alt="" coords="118,131,173,143,262,155,348,165,342,166,261,160,172,148,119,137"/>
 <area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="179,208,300,235"/>
-<area shape="poly" title=" " alt="" coords="83,131,124,162,174,194,186,202,181,201,171,198,121,166,82,136"/>
+<area shape="poly" title=" " alt="" coords="86,131,174,187,197,201,192,201,171,192,85,136"/>
 <area shape="poly" title=" " alt="" coords="289,104,363,86,358,88,291,109"/>
 <area shape="rect" href="../../da/d5b/classBigInt.html#ab2a52efd44c2e7057cc5397dba711ef8" title="Returns the first, Least Significant, limb of the Bigint." alt="" coords="360,107,495,133"/>
 <area shape="poly" title=" " alt="" coords="289,117,346,119,341,121,290,123"/>
-<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="380,195,474,221"/>
-<area shape="poly" title=" " alt="" coords="307,181,368,196,363,196,307,187"/>
-<area shape="poly" title=" " alt="" coords="395,193,389,186,393,176,406,170,427,168,450,171,463,180,458,179,448,176,427,173,408,175,397,180,395,185,400,195"/>
-<area shape="poly" title=" " alt="" coords="301,214,362,213,368,212,301,220"/>
+<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="547,208,641,235"/>
+<area shape="poly" title=" " alt="" coords="474,182,536,203,530,203,474,187"/>
+<area shape="poly" title=" " alt="" coords="565,206,560,199,564,190,575,184,594,181,614,184,626,193,621,192,612,189,594,187,577,189,568,193,565,199,570,209"/>
+<area shape="poly" title=" " alt="" coords="301,219,534,220,529,222,301,224"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="382,259,473,285"/>
+<area shape="poly" title=" " alt="" coords="292,233,369,256,364,256,292,238"/>
+<area shape="poly" title=" " alt="" coords="473,256,531,240,536,239,474,261"/>
 </map>
 </div>
 
@@ -674,15 +754,18 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../da/d5b/classBigInt_ac7ae12ca3440f88100242876fa975735_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_ac7ae12ca3440f88100242876fa975735_cgraph" loading="lazy" alt=""/></div>
 <map name="ada/d5b/classBigInt_ac7ae12ca3440f88100242876fa975735_cgraph" id="ada/d5b/classBigInt_ac7ae12ca3440f88100242876fa975735_cgraph">
-<area shape="rect" title="Move&#45;assignment for the class." alt="" coords="5,31,124,57"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="172,5,269,32"/>
-<area shape="poly" title=" " alt="" coords="124,32,159,29,154,30,125,37"/>
-<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="486,31,580,57"/>
-<area shape="poly" title=" " alt="" coords="124,41,471,41,471,47,124,47"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="317,5,438,32"/>
-<area shape="poly" title=" " alt="" coords="269,16,304,18,299,19,269,21"/>
-<area shape="poly" title=" " alt="" coords="439,26,474,34,468,34,439,31"/>
-<area shape="poly" title=" " alt="" coords="506,29,501,22,505,12,515,6,533,4,552,7,563,16,558,15,550,12,533,9,517,11,509,16,507,21,511,32"/>
+<area shape="rect" title="Move&#45;assignment for the class." alt="" coords="5,55,124,81"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="172,29,269,56"/>
+<area shape="poly" title=" " alt="" coords="124,56,159,53,154,54,125,61"/>
+<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="626,29,719,56"/>
+<area shape="poly" title=" " alt="" coords="124,70,212,76,325,79,451,76,577,65,612,61,617,60,578,71,452,82,325,84,212,81,124,76"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="317,29,438,56"/>
+<area shape="poly" title=" " alt="" coords="269,40,304,42,299,43,269,45"/>
+<area shape="poly" title=" " alt="" coords="427,26,486,15,532,11,578,15,617,25,612,25,577,20,532,16,487,20,428,31"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="486,29,578,56"/>
+<area shape="poly" title=" " alt="" coords="439,40,474,43,468,43,439,45"/>
+<area shape="poly" title=" " alt="" coords="648,28,643,21,646,11,656,5,672,3,690,5,700,15,695,13,688,10,672,8,658,10,651,14,649,20,652,30"/>
+<area shape="poly" title=" " alt="" coords="578,40,612,43,607,43,578,45"/>
 </map>
 </div>
 
@@ -717,15 +800,18 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../da/d5b/classBigInt_a6506386510aa772c734109f863e879c8_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_a6506386510aa772c734109f863e879c8_cgraph" loading="lazy" alt=""/></div>
 <map name="ada/d5b/classBigInt_a6506386510aa772c734109f863e879c8_cgraph" id="ada/d5b/classBigInt_a6506386510aa772c734109f863e879c8_cgraph">
-<area shape="rect" title="Copy&#45;assignment for the class." alt="" coords="5,31,124,57"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="172,5,269,32"/>
-<area shape="poly" title=" " alt="" coords="124,32,159,29,154,30,125,37"/>
-<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="486,31,580,57"/>
-<area shape="poly" title=" " alt="" coords="124,41,471,41,471,47,124,47"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="317,5,438,32"/>
-<area shape="poly" title=" " alt="" coords="269,16,304,18,299,19,269,21"/>
-<area shape="poly" title=" " alt="" coords="439,26,474,34,468,34,439,31"/>
-<area shape="poly" title=" " alt="" coords="506,29,501,22,505,12,515,6,533,4,552,7,563,16,558,15,550,12,533,9,517,11,509,16,507,21,511,32"/>
+<area shape="rect" title="Copy&#45;assignment for the class." alt="" coords="5,55,124,81"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="172,29,269,56"/>
+<area shape="poly" title=" " alt="" coords="124,56,159,53,154,54,125,61"/>
+<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="626,29,719,56"/>
+<area shape="poly" title=" " alt="" coords="124,70,212,76,325,79,451,76,577,65,612,61,617,60,578,71,452,82,325,84,212,81,124,76"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="317,29,438,56"/>
+<area shape="poly" title=" " alt="" coords="269,40,304,42,299,43,269,45"/>
+<area shape="poly" title=" " alt="" coords="427,26,486,15,532,11,578,15,617,25,612,25,577,20,532,16,487,20,428,31"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="486,29,578,56"/>
+<area shape="poly" title=" " alt="" coords="439,40,474,43,468,43,439,45"/>
+<area shape="poly" title=" " alt="" coords="648,28,643,21,646,11,656,5,672,3,690,5,700,15,695,13,688,10,672,8,658,10,651,14,649,20,652,30"/>
+<area shape="poly" title=" " alt="" coords="578,40,612,43,607,43,578,45"/>
 </map>
 </div>
 
@@ -779,30 +865,33 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../da/d5b/classBigInt_ab1bc8c3de6ef5084e64c564e67cc72a7_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_ab1bc8c3de6ef5084e64c564e67cc72a7_cgraph" loading="lazy" alt=""/></div>
 <map name="ada/d5b/classBigInt_ab1bc8c3de6ef5084e64c564e67cc72a7_cgraph" id="ada/d5b/classBigInt_ab1bc8c3de6ef5084e64c564e67cc72a7_cgraph">
-<area shape="rect" title="Sets a magnitude limb and normalizes the result." alt="" coords="5,259,115,285"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="529,233,674,260"/>
-<area shape="poly" title=" " alt="" coords="107,283,163,295,264,299,365,292,458,278,531,264,537,264,459,283,366,297,264,305,162,300,106,289"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#ad796e56e198962b2799c30ac66e755fa" title="Removes the most significant 0&#45;limbs of the number, and removes negativity if number evaluates to 0." alt="" coords="171,132,290,159"/>
-<area shape="poly" title=" " alt="" coords="78,256,198,166,201,170,81,261"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#a91f23442d1a1f5ee68f2ae4b92fe760f" title="Sets a magnitude limb without normalizing the representation." alt="" coords="163,259,299,285"/>
-<area shape="poly" title=" " alt="" coords="115,269,150,272,144,272,115,275"/>
-<area shape="poly" title=" " alt="" coords="259,156,301,176,348,193,433,216,516,234,511,234,432,221,346,199,299,181,259,162"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#ac0ea695e4944c59e97187943df8cf449" title="Returns the last, Most Significant, limb of the Bigint." alt="" coords="347,157,481,184"/>
-<area shape="poly" title=" " alt="" coords="291,151,335,159,329,160,291,156"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c" title="Returns true if bigint evaluates to 0, false otherwise." alt="" coords="364,107,464,133"/>
-<area shape="poly" title=" " alt="" coords="290,135,352,128,347,130,292,140"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#ae66e5ab12ec81c5066a3d23207c500f7" title="Sets the negative flag of the bigint to the passed parameter." alt="" coords="348,56,481,83"/>
-<area shape="poly" title=" " alt="" coords="262,129,346,92,364,87,359,90,348,97,264,134"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="354,5,475,32"/>
-<area shape="poly" title=" " alt="" coords="243,129,286,87,346,42,358,38,354,40,348,46,289,91,246,133"/>
-<area shape="poly" title=" " alt="" coords="458,131,483,143,536,181,579,223,574,222,532,186,480,148,458,137"/>
-<area shape="rect" href="../../da/d5b/classBigInt.html#ab2a52efd44c2e7057cc5397dba711ef8" title="Returns the first, Least Significant, limb of the Bigint." alt="" coords="534,107,669,133"/>
-<area shape="poly" title=" " alt="" coords="464,117,521,119,515,121,464,123"/>
-<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="555,31,648,57"/>
-<area shape="poly" title=" " alt="" coords="480,58,542,51,537,53,482,63"/>
-<area shape="poly" title=" " alt="" coords="569,30,564,22,568,12,581,6,602,4,624,7,637,15,632,15,622,12,601,9,582,11,572,16,569,21,574,31"/>
-<area shape="poly" title=" " alt="" coords="475,24,542,35,537,36,476,30"/>
-<area shape="poly" title=" " alt="" coords="299,265,516,252,511,253,300,270"/>
+<area shape="rect" title="Sets a magnitude limb and normalizes the result." alt="" coords="5,309,115,336"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="529,284,674,311"/>
+<area shape="poly" title=" " alt="" coords="107,334,163,345,264,350,365,342,458,328,531,315,537,315,459,334,366,348,264,355,162,351,106,339"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#ad796e56e198962b2799c30ac66e755fa" title="Removes the most significant 0&#45;limbs of the number, and removes negativity if number evaluates to 0." alt="" coords="171,183,290,209"/>
+<area shape="poly" title=" " alt="" coords="78,307,198,217,201,221,81,311"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a91f23442d1a1f5ee68f2ae4b92fe760f" title="Sets a magnitude limb without normalizing the representation." alt="" coords="163,309,299,336"/>
+<area shape="poly" title=" " alt="" coords="115,320,150,322,144,323,115,325"/>
+<area shape="poly" title=" " alt="" coords="259,207,301,226,348,244,433,266,516,285,511,285,432,272,346,249,299,231,259,212"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#ac0ea695e4944c59e97187943df8cf449" title="Returns the last, Most Significant, limb of the Bigint." alt="" coords="347,208,481,235"/>
+<area shape="poly" title=" " alt="" coords="291,202,335,209,329,211,291,207"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c" title="Returns true if bigint evaluates to 0, false otherwise." alt="" coords="364,157,464,184"/>
+<area shape="poly" title=" " alt="" coords="290,185,352,179,347,181,292,190"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#ae66e5ab12ec81c5066a3d23207c500f7" title="Sets the negative flag of the bigint to the passed parameter." alt="" coords="535,107,668,133"/>
+<area shape="poly" title=" " alt="" coords="256,180,298,160,346,143,435,126,522,121,517,122,436,131,348,148,300,165,259,184"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="354,56,475,83"/>
+<area shape="poly" title=" " alt="" coords="245,180,288,142,346,99,369,89,364,92,348,104,292,146,248,184"/>
+<area shape="poly" title=" " alt="" coords="458,182,483,194,536,232,579,273,574,272,532,236,480,198,458,187"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#ab2a52efd44c2e7057cc5397dba711ef8" title="Returns the first, Least Significant, limb of the Bigint." alt="" coords="534,157,669,184"/>
+<area shape="poly" title=" " alt="" coords="464,168,521,170,515,171,464,173"/>
+<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="722,56,815,83"/>
+<area shape="poly" title=" " alt="" coords="647,103,710,87,705,89,649,109"/>
+<area shape="poly" title=" " alt="" coords="739,55,734,47,738,38,750,32,768,29,788,32,800,41,795,41,787,37,768,35,751,37,742,41,740,47,744,56"/>
+<area shape="poly" title=" " alt="" coords="475,67,708,68,703,70,476,72"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="556,5,647,32"/>
+<area shape="poly" title=" " alt="" coords="465,53,543,34,538,36,467,58"/>
+<area shape="poly" title=" " alt="" coords="648,30,710,51,705,51,648,35"/>
+<area shape="poly" title=" " alt="" coords="299,315,516,303,511,304,300,321"/>
 </map>
 </div>
 
@@ -948,9 +1037,12 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="../../da/d5b/classBigInt_aed7862704019b417cb9754feb5e5edec_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_aed7862704019b417cb9754feb5e5edec_cgraph" loading="lazy" alt=""/></div>
 <map name="ada/d5b/classBigInt_aed7862704019b417cb9754feb5e5edec_cgraph" id="ada/d5b/classBigInt_aed7862704019b417cb9754feb5e5edec_cgraph">
 <area shape="rect" title="Set the underlying bigint to 0." alt="" coords="5,29,127,56"/>
-<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="175,29,268,56"/>
-<area shape="poly" title=" " alt="" coords="127,40,162,42,157,43,127,45"/>
-<area shape="poly" title=" " alt="" coords="194,28,190,21,193,11,204,5,221,3,240,5,251,15,246,14,238,10,221,8,205,10,197,15,195,20,199,30"/>
+<area shape="rect" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="314,29,407,56"/>
+<area shape="poly" title=" " alt="" coords="127,40,299,40,298,45,127,45"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="175,55,266,81"/>
+<area shape="poly" title=" " alt="" coords="127,50,162,58,157,58,127,55"/>
+<area shape="poly" title=" " alt="" coords="336,28,332,21,335,11,345,5,361,3,378,5,388,15,383,14,376,10,361,8,346,10,339,14,337,20,341,30"/>
+<area shape="poly" title=" " alt="" coords="266,57,296,54,301,54,267,62"/>
 </map>
 </div>
 
@@ -1014,6 +1106,58 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="307,287,369,289,363,289,307,292"/>
 </map>
 </div>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ad969c3da1bc62b1e653121e8e4f7a825" name="ad969c3da1bc62b1e653121e8e4f7a825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad969c3da1bc62b1e653121e8e4f7a825">&#9670;&#160;</a></span>m_bNegative</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BigInt::m_bNegative</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flag to indicate whether the bigint is negative. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html#l00192">192</a> of file <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html">bigint_declaration.hpp</a>.</p>
+
+</div>
+</div>
+<a id="abfe4710e84fd55a5335570273aaeab08" name="abfe4710e84fd55a5335570273aaeab08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfe4710e84fd55a5335570273aaeab08">&#9670;&#160;</a></span>m_lstDigits</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::deque&lt;<a class="el" href="../../d6/d58/bigint__declaration_8hpp.html#a042d6b4da3f9c82306b490bd23b24aeb">limb_t</a>&gt; BigInt::m_lstDigits</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Storage for the limbs </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d6/d58/bigint__declaration_8hpp.html#a042d6b4da3f9c82306b490bd23b24aeb" title="The underlying type used to store digits in a bigint.">limb_t</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html#l00189">189</a> of file <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html">bigint_declaration.hpp</a>.</p>
 
 </div>
 </div>

@@ -1,20 +1,30 @@
 \doxysection{bigint\+\_\+test Namespace Reference}
 \hypertarget{namespacebigint__test}{}\label{namespacebigint__test}\index{bigint\_test@{bigint\_test}}
+
+
+Test support utilities for validating \doxylink{classBigInt}{Big\+Int} internals and copy/\+move semantics.  
+
+
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \doxymbox{\hyperlink{structbigint__test_1_1Inspector}{Inspector}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Test helper for inspecting the private internal representation of a \doxylink{classBigInt}{Big\+Int}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{namespacebigint__test_afb392cf99372bf839e0efb54e337c7db}{expect\+Representation}} (const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&value, const std::\+vector$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \&expected\+Limbs, const bool expected\+Negative)
-\item 
+\begin{DoxyCompactList}\small\item\em Asserts that a bigint matches the expected internal representation. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{namespacebigint__test_a792481768a7337c9178bfe19e5e8ae42}{test\+Copy\+Preserves\+Representation}} (const std::\+initializer\+\_\+list$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \&source\+Limbs, const bool source\+Negative)
-\item 
+\begin{DoxyCompactList}\small\item\em Verifies that copy-\/assignment preserves the original internal representation. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{namespacebigint__test_a1dc9ce8fdd5412f568c485ceeaff7978}{test\+Move\+Preserves\+Representation}} (const std::\+initializer\+\_\+list$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \&source\+Limbs, const bool source\+Negative)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Verifies that move-\/assignment preserves the source state while transferring ownership. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Test support utilities for validating \doxylink{classBigInt}{Big\+Int} internals and copy/\+move semantics. 
+
+This namespace contains helpers used by unit tests to inspect private representation details, assert expected storage layouts, and confirm that assignment operations preserve the value without changing internal sign or limb ordering. 
 
 \label{namespacebigint__test_doc-func-members}
 \Hypertarget{namespacebigint__test_doc-func-members}
@@ -27,9 +37,23 @@ void bigint\+\_\+test::\+expect\+Representation (\begin{DoxyParamCaption}\item[{
 
 
 
-Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00033}{33}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+Asserts that a bigint matches the expected internal representation. 
 
-Here is the call graph for this function:\nopagebreak
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \doxylink{classBigInt}{Big\+Int} instance under test. \\
+\hline
+{\em expected\+Limbs} & Expected limb sequence in least-\/significant-\/first order. \\
+\hline
+{\em expected\+Negative} & Expected value of the sign flag. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00054}{54}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -44,9 +68,21 @@ void bigint\+\_\+test::\+test\+Copy\+Preserves\+Representation (\begin{DoxyParam
 
 
 
-Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00042}{42}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+Verifies that copy-\/assignment preserves the original internal representation. 
 
-Here is the call graph for this function:\nopagebreak
+
+\begin{DoxyParams}{Parameters}
+{\em source\+Limbs} & Initial limb sequence for the source bigint. \\
+\hline
+{\em source\+Negative} & Initial sign state of the source bigint. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00066}{66}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -61,9 +97,21 @@ void bigint\+\_\+test::\+test\+Move\+Preserves\+Representation (\begin{DoxyParam
 
 
 
-Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00057}{57}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+Verifies that move-\/assignment preserves the source state while transferring ownership. 
 
-Here is the call graph for this function:\nopagebreak
+
+\begin{DoxyParams}{Parameters}
+{\em source\+Limbs} & Initial limb sequence for the source bigint. \\
+\hline
+{\em source\+Negative} & Initial sign state of the source bigint. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00084}{84}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

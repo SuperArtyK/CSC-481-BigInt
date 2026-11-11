@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['normalise_0',['normalise',['../da/d5b/classBigInt.html#ad796e56e198962b2799c30ac66e755fa',1,'BigInt']]]
+  ['main_0',['main',['../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp'],['../de/d78/BigInt__Math_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp'],['../d0/dfb/demo_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp']]]
 ];

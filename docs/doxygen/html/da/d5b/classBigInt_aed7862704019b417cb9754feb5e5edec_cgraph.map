@@ -1,6 +1,9 @@
 <map id="BigInt::setToZero" name="BigInt::setToZero">
 <area shape="rect" id="Node000001" title="Set the underlying bigint to 0." alt="" coords="5,29,127,56"/>
-<area shape="rect" id="Node000002" href="$df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="175,29,268,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,40,162,42,157,43,127,45"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="194,28,190,21,193,11,204,5,221,3,240,5,251,15,246,14,238,10,221,8,205,10,197,15,195,20,199,30"/>
+<area shape="rect" id="Node000002" href="$df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="314,29,407,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,40,299,40,298,45,127,45"/>
+<area shape="rect" id="Node000003" href="$da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="175,55,266,81"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="127,50,162,58,157,58,127,55"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="336,28,332,21,335,11,345,5,361,3,378,5,388,15,383,14,376,10,361,8,346,10,339,14,337,20,341,30"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="266,57,296,54,301,54,267,62"/>
 </map>

@@ -1,13 +1,13 @@
 <map id="bigint_test::testCopyPreservesRepresentation" name="bigint_test::testCopyPreservesRepresentation">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,68,207,111"/>
+<area shape="rect" id="Node000001" title="Verifies that copy&#45;assignment preserves the original internal representation." alt="" coords="5,68,207,111"/>
 <area shape="poly" id="edge6_Node000001_Node000001" title=" " alt="" coords="58,67,56,58,64,49,81,43,106,41,133,44,151,52,146,53,132,49,106,47,82,49,67,53,61,59,63,68"/>
-<area shape="rect" id="Node000002" href="$dd/db0/namespacebigint__test.html#afb392cf99372bf839e0efb54e337c7db" title=" " alt="" coords="255,47,471,73"/>
+<area shape="rect" id="Node000002" href="$dd/db0/namespacebigint__test.html#afb392cf99372bf839e0efb54e337c7db" title="Asserts that a bigint matches the expected internal representation." alt="" coords="255,47,471,73"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,75,242,74,236,75,208,80"/>
-<area shape="rect" id="Node000005" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title=" " alt="" coords="291,97,434,140"/>
+<area shape="rect" id="Node000005" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title="Loads a bigint directly with a supplied internal limb list and sign." alt="" coords="291,97,434,140"/>
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="207,98,278,108,273,109,207,104"/>
 <area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="324,45,318,38,322,28,338,22,363,20,390,23,406,32,401,32,389,28,363,25,339,27,326,32,323,37,329,47"/>
-<area shape="rect" id="Node000003" href="$dc/d6d/structbigint__test_1_1Inspector.html#a619484ef6d15d98c6486e08c9e8e839d" title=" " alt="" coords="519,5,662,48"/>
+<area shape="rect" id="Node000003" href="$dc/d6d/structbigint__test_1_1Inspector.html#a619484ef6d15d98c6486e08c9e8e839d" title="Returns the raw limb storage of the bigint in least&#45;significant&#45;first order." alt="" coords="519,5,662,48"/>
 <area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="458,43,506,39,501,40,459,49"/>
-<area shape="rect" id="Node000004" href="$dc/d6d/structbigint__test_1_1Inspector.html#a514a3a70e55e44d933e6378f5bcfb9a4" title=" " alt="" coords="519,72,662,115"/>
+<area shape="rect" id="Node000004" href="$dc/d6d/structbigint__test_1_1Inspector.html#a514a3a70e55e44d933e6378f5bcfb9a4" title="Returns the sign flag stored in the bigint." alt="" coords="519,72,662,115"/>
 <area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="458,71,506,81,501,81,458,77"/>
 </map>

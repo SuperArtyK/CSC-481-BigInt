@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,152,61,179"/>
 <area shape="rect" id="Node000002" href="$da/d5b/classBigInt.html#a52a3dd47c689978179bc84b233c1145e" title="Returns the total current digit count of the bigint." alt="" coords="109,77,252,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,149,107,114,123,109,119,112,110,118,54,154"/>
-<area shape="rect" id="Node000006" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title=" " alt="" coords="300,187,444,229"/>
+<area shape="rect" id="Node000006" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title="Loads a bigint directly with a supplied internal limb list and sign." alt="" coords="300,187,444,229"/>
 <area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="61,174,109,188,200,201,288,208,283,208,199,206,108,193,61,179"/>
 <area shape="rect" id="Node000007" href="$d1/dee/test__accessors_8cpp.html#a3613f5398f06b3fe208c5b4b9e9e9c7d" title=" " alt="" coords="153,152,208,179"/>
 <area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="61,163,139,163,136,167,62,168"/>

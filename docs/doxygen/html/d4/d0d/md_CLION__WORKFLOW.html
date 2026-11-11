@@ -17,6 +17,7 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript" src="../../darkmode_toggle.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -28,7 +29,7 @@
   <td id="projectalign">
    <div id="projectname">CSC_481-BigInt<span id="projectnumber">&#160;v0.1</span>
    </div>
-   <div id="projectbrief">Arbitrary precision arithmetics implementation using standard c++ tools</div>
+   <div id="projectbrief">Arbitrary precision arithmetics implementation using standard C++ tools</div>
   </td>
  </tr>
  </tbody>
@@ -113,11 +114,11 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/d0d/md_CLIO
   <div class="headertitle"><div class="title">CLion Workflow </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
+<div class="textblock"><p><a class="anchor" id="clion-workflow"></a></p>
 <p>A practical guide to Git, pull requests, and automated testing in CLion. For team rules and contribution requirements, see <a class="el" href="../../d2/dc1/md_CONTRIBUTING.html" title="Contributing">Contributing</a>.</p>
 <p><b>Normal workflow:</b> Create branch → Develop → Build/test → Commit → Push → Pull request → Review → Merge.</p>
 <p><b>Remember:</b> Commit saves changes locally. Push uploads commits to GitHub. Neither automatically creates a pull request.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md1-create-a-feature-branch"></a>
 1. Create a feature branch</h1>
 <ol type="1">
 <li>Use the branch widget in CLion to switch to <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span>.</li>
@@ -128,7 +129,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/d0d/md_CLIO
 </ol>
 <p>Confirm that the new branch is selected before making changes.</p>
 <p><b>Important:</b> If you already have uncommitted changes, commit or safely preserve them before switching branches. You can also create and check out a new branch from your current branch to carry those changes over.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md2-build-and-run-tests"></a>
 2. Build and run tests</h1>
 <p>Before committing or requesting review:</p>
 <ol type="1">
@@ -138,7 +139,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/d0d/md_CLIO
 <li>Inspect the results in the test runner. All tests should pass.</li>
 </ol>
 <p>If <span class="tt">All CTest</span> isn't available, reload CMake or look under <b>Run → Edit Configurations → CTest Application</b>. Ensure the configuration builds the necessary test targets (usually <b>All targets</b>) before running.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+<h2 class="doxsection"><a class="anchor" id="running-individual-tests"></a>
 Running individual tests</h2>
 <ul>
 <li>Click the gutter icon beside a GoogleTest <span class="tt">TEST(...)</span> function to run or debug that test.</li>
@@ -147,7 +148,7 @@ Running individual tests</h2>
 <li>GoogleTest is downloaded by CMake; no separate installation is needed.</li>
 </ul>
 <p>The playground executables (<span class="tt"><a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a></span>, <span class="tt">BigInt_Math</span>, <span class="tt">EvaluatorDemo</span>) can be run separately using their own configurations. CTest does not execute these playgrounds.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md3-commit-and-push-changes"></a>
 3. Commit and push changes</h1>
 <ol type="1">
 <li>Open <b>Commit</b> (<span class="tt">Alt+0</span>).</li>
@@ -158,7 +159,7 @@ Running individual tests</h2>
 <li>Click <b>Push</b>.</li>
 </ol>
 <p>You can make multiple commits and pushes on the same branch. Uncommitted changes are never included in a push.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md4-create-a-pull-request"></a>
 4. Create a pull request</h1>
 <ol type="1">
 <li>Push your feature branch.</li>
@@ -169,7 +170,7 @@ Running individual tests</h2>
 </ol>
 <p>New commits pushed to the feature branch automatically update the existing PR.</p>
 <p>GitHub Actions runs CI for pull requests targeting <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span>. Check the workflow results and resolve failures before merging.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md5-review-someone-elses-pull-request"></a>
 5. Review someone else's pull request</h1>
 <ol type="1">
 <li>Open <b>Git → GitHub → View Pull Requests</b>.</li>
@@ -185,7 +186,7 @@ Running individual tests</h2>
 <li>Open the new worktree in CLion and build/test it normally.</li>
 </ol>
 <p>The worktree has its own working files, so your original project's uncommitted changes remain untouched. Do not push experimental changes to the author's branch without permission.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md6-merge-and-finish"></a>
 6. Merge and finish</h1>
 <p>When the team agrees, the required approvals are present, review discussions are resolved, and <b>CI / Required</b> passes:</p>
 <ol type="1">
@@ -195,7 +196,7 @@ Running individual tests</h2>
 <li>Switch back to <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span> and update it before starting another task.</li>
 </ol>
 <p>Do not merge locally into <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span> and push it as a substitute for a reviewed PR.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+<h1 class="doxsection"><a class="anchor" id="safety-reminders"></a>
 Safety reminders</h1>
 <ul>
 <li>Check your current branch before committing or pushing.</li>
@@ -205,7 +206,7 @@ Safety reminders</h1>
 <li>Use separate worktrees when testing other contributors' changes.</li>
 <li>Do not commit local build output or CLion workspace settings.</li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+<h1 class="doxsection"><a class="anchor" id="references"></a>
 References</h1>
 <ul>
 <li><a href="https://www.jetbrains.com/help/clion/manage-branches.html">CLion: Git branches</a></li>

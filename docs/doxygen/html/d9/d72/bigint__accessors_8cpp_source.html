@@ -17,6 +17,7 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript" src="../../darkmode_toggle.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -28,7 +29,7 @@
   <td id="projectalign">
    <div id="projectname">CSC_481-BigInt<span id="projectnumber">&#160;v0.1</span>
    </div>
-   <div id="projectbrief">Arbitrary precision arithmetics implementation using standard c++ tools</div>
+   <div id="projectbrief">Arbitrary precision arithmetics implementation using standard C++ tools</div>
   </td>
  </tr>
  </tbody>
@@ -163,10 +164,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/d72/bigint_
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">// index is larger than what can be stored</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">if</span> (index &gt;= this-&gt;<a class="code hl_function" href="../../da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393">getLimbCount</a>()) {</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <a class="code hl_define" href="../../df/d93/utils_8hpp.html#a8951b71186b3b14ce155d67282587812">cdbg</a>&lt;&lt;<span class="stringliteral">&quot;Index is &gt;= than current limb count &quot;</span>&lt;&lt;this-&gt;<a class="code hl_function" href="../../da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393">getLimbCount</a>()&lt;&lt;<span class="stringliteral">&quot;; resizing...&quot;</span>&lt;&lt;<a class="code hl_define" href="../../df/d93/utils_8hpp.html#a9732970f9ca82af5d3e94cf069402340">NLC</a>;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        this-&gt;m_lstDigits.resize(index + 1, 0);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        this-&gt;<a class="code hl_variable" href="../../da/d5b/classBigInt.html#abfe4710e84fd55a5335570273aaeab08">m_lstDigits</a>.resize(index + 1, 0);</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    this-&gt;m_lstDigits[index] = value;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    this-&gt;<a class="code hl_variable" href="../../da/d5b/classBigInt.html#abfe4710e84fd55a5335570273aaeab08">m_lstDigits</a>[index] = value;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// succeeded</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
@@ -228,7 +229,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/d72/bigint_
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    </div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordflow">while</span> (this-&gt;<a class="code hl_function" href="../../da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393">getLimbCount</a>() &gt; 1 &amp;&amp; this-&gt;<a class="code hl_function" href="../../da/d5b/classBigInt.html#ac0ea695e4944c59e97187943df8cf449">getLastLimb</a>() == 0) {</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        this-&gt;m_lstDigits.pop_back();</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        this-&gt;<a class="code hl_variable" href="../../da/d5b/classBigInt.html#abfe4710e84fd55a5335570273aaeab08">m_lstDigits</a>.pop_back();</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        </div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordflow">if</span> (this-&gt;<a class="code hl_function" href="../../da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c">isZero</a>()) {</div>
@@ -272,6 +273,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/d72/bigint_
 <div class="ttc" id="aclassBigInt_html_ab090d1656a4ea58f01ab2fdf37b3af9c"><div class="ttname"><a href="../../da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c">BigInt::isZero</a></div><div class="ttdeci">bool isZero() const noexcept</div><div class="ttdoc">Returns true if bigint evaluates to 0, false otherwise.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/dab/bigint__accessors_8hpp_source.html#l00047">bigint_accessors.hpp:47</a></div></div>
 <div class="ttc" id="aclassBigInt_html_ab1bc8c3de6ef5084e64c564e67cc72a7"><div class="ttname"><a href="../../da/d5b/classBigInt.html#ab1bc8c3de6ef5084e64c564e67cc72a7">BigInt::setLimb</a></div><div class="ttdeci">bool setLimb(const std::size_t index, const limb_t value)</div><div class="ttdoc">Sets a magnitude limb and normalizes the result.</div><div class="ttdef"><b>Definition</b> <a href="#l00011">bigint_accessors.cpp:11</a></div></div>
 <div class="ttc" id="aclassBigInt_html_ab1daffa824bd573240330ea9aea5dbbc"><div class="ttname"><a href="../../da/d5b/classBigInt.html#ab1daffa824bd573240330ea9aea5dbbc">BigInt::getLimb</a></div><div class="ttdeci">limb_t getLimb(const std::size_t index) const noexcept</div><div class="ttdoc">Returns the limb value at the given index, 0-based.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/dab/bigint__accessors_8hpp_source.html#l00028">bigint_accessors.hpp:28</a></div></div>
+<div class="ttc" id="aclassBigInt_html_abfe4710e84fd55a5335570273aaeab08"><div class="ttname"><a href="../../da/d5b/classBigInt.html#abfe4710e84fd55a5335570273aaeab08">BigInt::m_lstDigits</a></div><div class="ttdeci">std::deque&lt; limb_t &gt; m_lstDigits</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d58/bigint__declaration_8hpp_source.html#l00189">bigint_declaration.hpp:189</a></div></div>
 <div class="ttc" id="aclassBigInt_html_ac0ea695e4944c59e97187943df8cf449"><div class="ttname"><a href="../../da/d5b/classBigInt.html#ac0ea695e4944c59e97187943df8cf449">BigInt::getLastLimb</a></div><div class="ttdeci">limb_t getLastLimb() const noexcept</div><div class="ttdoc">Returns the last, Most Significant, limb of the Bigint.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/dab/bigint__accessors_8hpp_source.html#l00035">bigint_accessors.hpp:35</a></div></div>
 <div class="ttc" id="aclassBigInt_html_ad796e56e198962b2799c30ac66e755fa"><div class="ttname"><a href="../../da/d5b/classBigInt.html#ad796e56e198962b2799c30ac66e755fa">BigInt::normalise</a></div><div class="ttdeci">void normalise()</div><div class="ttdoc">Removes the most significant 0-limbs of the number, and removes negativity if number evaluates to 0.</div><div class="ttdef"><b>Definition</b> <a href="#l00096">bigint_accessors.cpp:96</a></div></div>
 <div class="ttc" id="aclassBigInt_html_ae66e5ab12ec81c5066a3d23207c500f7"><div class="ttname"><a href="../../da/d5b/classBigInt.html#ae66e5ab12ec81c5066a3d23207c500f7">BigInt::setNegative</a></div><div class="ttdeci">void setNegative(const bool neg)</div><div class="ttdoc">Sets the negative flag of the bigint to the passed parameter.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/dab/bigint__accessors_8hpp_source.html#l00051">bigint_accessors.hpp:51</a></div></div>

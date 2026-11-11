@@ -1,8 +1,8 @@
 <map id="TEST" name="TEST">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,93,61,120"/>
-<area shape="rect" id="Node000002" href="$d1/dee/test__accessors_8cpp.html#afb392cf99372bf839e0efb54e337c7db" title=" " alt="" coords="109,5,257,32"/>
+<area shape="rect" id="Node000002" href="$d1/dee/test__accessors_8cpp.html#afb392cf99372bf839e0efb54e337c7db" title="Asserts that a bigint matches the expected internal representation." alt="" coords="109,5,257,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="48,91,107,48,133,37,130,41,110,53,52,95"/>
-<area shape="rect" id="Node000003" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title=" " alt="" coords="305,56,448,99"/>
+<area shape="rect" id="Node000003" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title="Loads a bigint directly with a supplied internal limb list and sign." alt="" coords="305,56,448,99"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="59,100,108,92,291,79,288,83,109,97,63,104"/>
 <area shape="rect" id="Node000004" href="$d1/dee/test__accessors_8cpp.html#a3613f5398f06b3fe208c5b4b9e9e9c7d" title=" " alt="" coords="155,131,210,157"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="60,111,142,132,138,135,62,116"/>

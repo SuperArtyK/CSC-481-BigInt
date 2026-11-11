@@ -1,8 +1,8 @@
 <map id="TEST" name="TEST">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,93,61,120"/>
-<area shape="rect" id="Node000002" href="$d1/dee/test__accessors_8cpp.html#afb392cf99372bf839e0efb54e337c7db" title=" " alt="" coords="109,5,257,32"/>
+<area shape="rect" id="Node000002" href="$d1/dee/test__accessors_8cpp.html#afb392cf99372bf839e0efb54e337c7db" title="Asserts that a bigint matches the expected internal representation." alt="" coords="109,5,257,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="48,91,107,48,134,37,130,41,110,53,52,95"/>
-<area shape="rect" id="Node000003" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title=" " alt="" coords="306,69,449,112"/>
+<area shape="rect" id="Node000003" href="$dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d" title="Loads a bigint directly with a supplied internal limb list and sign." alt="" coords="306,69,449,112"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="60,99,108,92,202,87,293,88,288,90,203,92,109,97,62,104"/>
 <area shape="rect" id="Node000004" href="$da/d5b/classBigInt.html#a91f23442d1a1f5ee68f2ae4b92fe760f" title="Sets a magnitude limb without normalizing the representation." alt="" coords="115,181,251,208"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="48,118,76,143,110,167,122,175,117,175,107,172,73,147,47,123"/>

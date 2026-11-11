@@ -2,23 +2,33 @@
 \hypertarget{structbigint__test_1_1Inspector}{}\label{structbigint__test_1_1Inspector}\index{bigint\_test::Inspector@{bigint\_test::Inspector}}
 
 
+Test helper for inspecting the private internal representation of a \doxylink{classBigInt}{Big\+Int}.  
+
+
+
+
 {\ttfamily \+\#include $<$test\+\_\+helpers.\+hpp$>$}
 
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static std::\+vector$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a619484ef6d15d98c6486e08c9e8e839d}{get\+Limbs}} (const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&bint)
-\item 
+\begin{DoxyCompactList}\small\item\em Returns the raw limb storage of the bigint in least-\/significant-\/first order. \end{DoxyCompactList}\item 
 static bool \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a514a3a70e55e44d933e6378f5bcfb9a4}{get\+Negative}} (const \doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&bint)
-\item 
+\begin{DoxyCompactList}\small\item\em Returns the sign flag stored in the bigint. \end{DoxyCompactList}\item 
 static void \doxymbox{\hyperlink{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}{load}} (\doxymbox{\hyperlink{classBigInt}{Big\+Int}} \&bint, const std::\+initializer\+\_\+list$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \&limbs, const bool neg)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Loads a bigint directly with a supplied internal limb list and sign. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Test helper for inspecting the private internal representation of a \doxylink{classBigInt}{Big\+Int}. 
+
+\begin{DoxyNote}{Note}
+This is intentionally a test-\/only bridge that exposes internals so unit tests can verify normalization, sign handling, and storage layout without relying on user-\/facing behavior. 
+\end{DoxyNote}
 
 
-Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00016}{16}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00023}{23}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
 
 
 
@@ -33,7 +43,19 @@ std::\+vector$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c823
 
 
 
-Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00018}{18}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+Returns the raw limb storage of the bigint in least-\/significant-\/first order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bint} & \doxylink{classBigInt}{Big\+Int} instance to inspect. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector containing the stored magnitude limbs. 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00028}{28}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
 
 \Hypertarget{structbigint__test_1_1Inspector_a514a3a70e55e44d933e6378f5bcfb9a4}\index{bigint\_test::Inspector@{bigint\_test::Inspector}!getNegative@{getNegative}}
 \index{getNegative@{getNegative}!bigint\_test::Inspector@{bigint\_test::Inspector}}
@@ -43,7 +65,19 @@ bool bigint\+\_\+test::\+\+Inspector::\+get\+Negative (\begin{DoxyParamCaption}\
 
 
 
-Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00022}{22}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+Returns the sign flag stored in the bigint. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bint} & \doxylink{classBigInt}{Big\+Int} instance to inspect. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the value is negative, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00035}{35}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
 
 \Hypertarget{structbigint__test_1_1Inspector_a5d2265b8166f0adbdbede0c8fda1af3d}\index{bigint\_test::Inspector@{bigint\_test::Inspector}!load@{load}}
 \index{load@{load}!bigint\_test::Inspector@{bigint\_test::Inspector}}
@@ -53,7 +87,20 @@ void bigint\+\_\+test::\+\+Inspector::\+load (\begin{DoxyParamCaption}\item[{\do
 
 
 
-Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00026}{26}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
+Loads a bigint directly with a supplied internal limb list and sign. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bint} & \doxylink{classBigInt}{Big\+Int} instance to populate. \\
+\hline
+{\em limbs} & Sequence of magnitude limbs in least-\/significant-\/first order. \\
+\hline
+{\em neg} & Sign flag to assign to the bigint. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{test__helpers_8hpp_source_l00043}{43}} of file \doxymbox{\hyperlink{test__helpers_8hpp_source}{test\+\_\+helpers.\+hpp}}.
 
 
 

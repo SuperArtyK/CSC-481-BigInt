@@ -9,6 +9,16 @@ Big integer type class, copies the functionality of regular integers, but on arb
 
 {\ttfamily \+\#include $<$bigint\+\_\+declaration.\+hpp$>$}
 
+
+
+Collaboration diagram for Big\+Int:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{dd/dec/classBigInt__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -50,6 +60,18 @@ void \doxymbox{\hyperlink{classBigInt_ad796e56e198962b2799c30ac66e755fa}{normali
 \begin{DoxyCompactList}\small\item\em Removes the most significant 0-\/limbs of the number, and removes negativity if number evaluates to 0. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{classBigInt_a6f7132b05022dfd943a8d1836308886c}{is\+Normalised}} () const noexcept
 \begin{DoxyCompactList}\small\item\em Checks whether bigint is normalised. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classBigInt_a8edccd25a50ff5ea287c7697973f8f1f}{clear}} (const bool shrink=false)
+\begin{DoxyCompactList}\small\item\em Completely clear the underlying bigint: clear containers and remove negativity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+deque$<$ \doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}} $>$ \doxymbox{\hyperlink{classBigInt_abfe4710e84fd55a5335570273aaeab08}{m\+\_\+lst\+Digits}}
+\item 
+bool \doxymbox{\hyperlink{classBigInt_ad969c3da1bc62b1e653121e8e4f7a825}{m\+\_\+b\+Negative}}
+\begin{DoxyCompactList}\small\item\em Flag to indicate whether the bigint is negative. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -86,7 +108,8 @@ Default constructor for the class.
 
 Definition at line \doxymbox{\hyperlink{bigint__construction_8cpp_source_l00008}{8}} of file \doxymbox{\hyperlink{bigint__construction_8cpp_source}{bigint\+\_\+construction.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -112,7 +135,8 @@ Copy-\/constructor for the class.
 
 Definition at line \doxymbox{\hyperlink{bigint__construction_8cpp_source_l00014}{14}} of file \doxymbox{\hyperlink{bigint__construction_8cpp_source}{bigint\+\_\+construction.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -138,7 +162,8 @@ Move-\/constructor for the class.
 
 Definition at line \doxymbox{\hyperlink{bigint__construction_8cpp_source_l00019}{19}} of file \doxymbox{\hyperlink{bigint__construction_8cpp_source}{bigint\+\_\+construction.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -150,6 +175,33 @@ Here is the call graph for this function:\nopagebreak
 \label{classBigInt_doc-func-members}
 \Hypertarget{classBigInt_doc-func-members}
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classBigInt_a8edccd25a50ff5ea287c7697973f8f1f}\index{BigInt@{BigInt}!clear@{clear}}
+\index{clear@{clear}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily \label{classBigInt_a8edccd25a50ff5ea287c7697973f8f1f} 
+void Big\+Int::\+clear (\begin{DoxyParamCaption}\item[{const bool}]{shrink}{ = {\ttfamily false}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Completely clear the underlying bigint: clear containers and remove negativity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shrink} & Flag whether to shrink the underlying containers to fit (reallocate to size) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__accessors_8hpp_source_l00057}{57}} of file \doxymbox{\hyperlink{bigint__accessors_8hpp_source}{bigint\+\_\+accessors.\+hpp}}.
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{da/d5b/classBigInt_a8edccd25a50ff5ea287c7697973f8f1f_cgraph}
+\end{center}
+\end{figure}
 \Hypertarget{classBigInt_a52a3dd47c689978179bc84b233c1145e}\index{BigInt@{BigInt}!getDigitCount@{getDigitCount}}
 \index{getDigitCount@{getDigitCount}!BigInt@{BigInt}}
 \doxysubsubsection{\texorpdfstring{getDigitCount()}{getDigitCount()}}
@@ -170,7 +222,8 @@ If limbcount exceeds LIMB\+\_\+\+DIGITCOUNT\+\_\+\+MAX (overflows), it returns 0
 
 Definition at line \doxymbox{\hyperlink{bigint__accessors_8hpp_source_l00021}{21}} of file \doxymbox{\hyperlink{bigint__accessors_8hpp_source}{bigint\+\_\+accessors.\+hpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -276,7 +329,8 @@ True if bigint is normalised, false otherwise
 
 Definition at line \doxymbox{\hyperlink{bigint__accessors_8cpp_source_l00118}{118}} of file \doxymbox{\hyperlink{bigint__accessors_8cpp_source}{bigint\+\_\+accessors.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -305,7 +359,8 @@ It\textquotesingle{}s evaluated to 0 only if it contains only 1 limb, and that l
 
 Definition at line \doxymbox{\hyperlink{bigint__accessors_8hpp_source_l00047}{47}} of file \doxymbox{\hyperlink{bigint__accessors_8hpp_source}{bigint\+\_\+accessors.\+hpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -334,7 +389,8 @@ Remember to run this after each non-\/normalising operation that reduces the big
 
 Definition at line \doxymbox{\hyperlink{bigint__accessors_8cpp_source_l00096}{96}} of file \doxymbox{\hyperlink{bigint__accessors_8cpp_source}{bigint\+\_\+accessors.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -360,7 +416,8 @@ Move-\/assignment for the class.
 
 Definition at line \doxymbox{\hyperlink{bigint__construction_8cpp_source_l00036}{36}} of file \doxymbox{\hyperlink{bigint__construction_8cpp_source}{bigint\+\_\+construction.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -386,7 +443,8 @@ Copy-\/assignment for the class.
 
 Definition at line \doxymbox{\hyperlink{bigint__construction_8cpp_source_l00025}{25}} of file \doxymbox{\hyperlink{bigint__construction_8cpp_source}{bigint\+\_\+construction.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -435,7 +493,8 @@ Storage allocation and capacity failures may throw exceptions.
 
 Definition at line \doxymbox{\hyperlink{bigint__accessors_8cpp_source_l00011}{11}} of file \doxymbox{\hyperlink{bigint__accessors_8cpp_source}{bigint\+\_\+accessors.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -485,7 +544,8 @@ Storage allocation and capacity failures may throw exceptions.
 
 Definition at line \doxymbox{\hyperlink{bigint__accessors_8cpp_source_l00026}{26}} of file \doxymbox{\hyperlink{bigint__accessors_8cpp_source}{bigint\+\_\+accessors.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -514,7 +574,8 @@ Sets the negative flag of the bigint to the passed parameter.
 
 Definition at line \doxymbox{\hyperlink{bigint__accessors_8hpp_source_l00051}{51}} of file \doxymbox{\hyperlink{bigint__accessors_8hpp_source}{bigint\+\_\+accessors.\+hpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -540,11 +601,12 @@ Set the underlying bigint to 0.
 
 Definition at line \doxymbox{\hyperlink{bigint__accessors_8hpp_source_l00011}{11}} of file \doxymbox{\hyperlink{bigint__accessors_8hpp_source}{bigint\+\_\+accessors.\+hpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=277pt]{da/d5b/classBigInt_aed7862704019b417cb9754feb5e5edec_cgraph}
+\includegraphics[width=350pt]{da/d5b/classBigInt_aed7862704019b417cb9754feb5e5edec_cgraph}
 \end{center}
 \end{figure}
 \Hypertarget{classBigInt_a94a494aca7e98d925bbb81de5cc4d9df}\index{BigInt@{BigInt}!toStringDec@{toStringDec}}
@@ -569,13 +631,46 @@ The length of the string is at most 1 \texorpdfstring{$\ast$}{*} \doxylink{class
 
 Definition at line \doxymbox{\hyperlink{bigint__accessors_8cpp_source_l00056}{56}} of file \doxymbox{\hyperlink{bigint__accessors_8cpp_source}{bigint\+\_\+accessors.\+cpp}}.
 
-Here is the call graph for this function:\nopagebreak
+Here is the call graph for this function:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{da/d5b/classBigInt_a94a494aca7e98d925bbb81de5cc4d9df_cgraph}
 \end{center}
 \end{figure}
+
+
+\label{classBigInt_doc-variable-members}
+\Hypertarget{classBigInt_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classBigInt_ad969c3da1bc62b1e653121e8e4f7a825}\index{BigInt@{BigInt}!m\_bNegative@{m\_bNegative}}
+\index{m\_bNegative@{m\_bNegative}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{m\_bNegative}{m\_bNegative}}
+{\footnotesize\ttfamily \label{classBigInt_ad969c3da1bc62b1e653121e8e4f7a825} 
+bool Big\+Int::\+m\+\_\+b\+Negative\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flag to indicate whether the bigint is negative. 
+
+
+
+Definition at line \doxymbox{\hyperlink{bigint__declaration_8hpp_source_l00192}{192}} of file \doxymbox{\hyperlink{bigint__declaration_8hpp_source}{bigint\+\_\+declaration.\+hpp}}.
+
+\Hypertarget{classBigInt_abfe4710e84fd55a5335570273aaeab08}\index{BigInt@{BigInt}!m\_lstDigits@{m\_lstDigits}}
+\index{m\_lstDigits@{m\_lstDigits}!BigInt@{BigInt}}
+\doxysubsubsection{\texorpdfstring{m\_lstDigits}{m\_lstDigits}}
+{\footnotesize\ttfamily \label{classBigInt_abfe4710e84fd55a5335570273aaeab08} 
+std::\+deque$<$\doxymbox{\hyperlink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t}}$>$ Big\+Int::\+m\+\_\+lst\+Digits\hspace{0.3cm}{\ttfamily [private]}}
+
+Storage for the limbs \begin{DoxySeeAlso}{See also}
+\doxylink{bigint__declaration_8hpp_a042d6b4da3f9c82306b490bd23b24aeb}{limb\+\_\+t} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{bigint__declaration_8hpp_source_l00189}{189}} of file \doxymbox{\hyperlink{bigint__declaration_8hpp_source}{bigint\+\_\+declaration.\+hpp}}.
+
 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['load_0',['load',['../dc/d6d/structbigint__test_1_1Inspector.html#a5d2265b8166f0adbdbede0c8fda1af3d',1,'bigint_test::Inspector']]]
+  ['isnegative_0',['isNegative',['../da/d5b/classBigInt.html#a95f4a2cafc7ab33729f40d0415831044',1,'BigInt']]],
+  ['isnormalised_1',['isNormalised',['../da/d5b/classBigInt.html#a6f7132b05022dfd943a8d1836308886c',1,'BigInt']]],
+  ['iszero_2',['isZero',['../da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c',1,'BigInt']]]
 ];

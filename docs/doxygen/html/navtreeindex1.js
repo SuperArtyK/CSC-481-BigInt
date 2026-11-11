@@ -1,5 +1,14 @@
 var NAVTREEINDEX1 =
 {
+"de/d78/BigInt__Math_2main_8cpp.html":[6,0,1,1],
+"de/d78/BigInt__Math_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[6,0,1,1,0],
+"de/d78/BigInt__Math_2main_8cpp_source.html":[6,0,1,1],
+"df/d65/BigInt__Math_2tests_2test__gtest__framework_8cpp.html":[6,0,1,0,0],
+"df/d65/BigInt__Math_2tests_2test__gtest__framework_8cpp.html#a45919f96b3ef4aefcbec657c1b459503":[6,0,1,0,0,0],
+"df/d65/BigInt__Math_2tests_2test__gtest__framework_8cpp_source.html":[6,0,1,0,0],
+"df/d67/test__string__conversion_8cpp.html":[6,0,0,2,0,9],
+"df/d67/test__string__conversion_8cpp.html#a5b70a8218ce745b3f0b5964f842e98f2":[6,0,0,2,0,9,4],
+"df/d67/test__string__conversion_8cpp.html#a914613bd61a94c82e9dcaddb845934e2":[6,0,0,2,0,9,3],
 "df/d67/test__string__conversion_8cpp.html#a99075a6849f32a81333ba904abd599c3":[6,0,0,2,0,9,1],
 "df/d67/test__string__conversion_8cpp.html#ad1286a81e988a65b89b25fd6ecea6d02":[6,0,0,2,0,9,2],
 "df/d67/test__string__conversion_8cpp.html#afb392cf99372bf839e0efb54e337c7db":[6,0,0,2,0,9,0],
@@ -30,6 +39,7 @@ var NAVTREEINDEX1 =
 "files.html":[6,0],
 "functions.html":[5,3,0],
 "functions_func.html":[5,3,1],
+"functions_vars.html":[5,3,2],
 "globals.html":[6,1,0],
 "globals_defs.html":[6,1,4],
 "globals_func.html":[6,1,1],
