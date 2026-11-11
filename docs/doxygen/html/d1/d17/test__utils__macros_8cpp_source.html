@@ -114,49 +114,37 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/d17/test__u
   <div class="headertitle"><div class="title">test_utils_macros.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d1/d17/test__utils__macros_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by artyk on 11/2/26.</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;gtest/gtest.h&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d93/utils_8hpp.html">bigint/utils.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;bigint/utils.hpp&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="../../d1/d17/test__utils__macros_8cpp.html#a05c87b796c52032e551255cb028a7f23">    8</a></span><a class="code hl_function" href="../../d1/dee/test__accessors_8cpp.html#a3613f5398f06b3fe208c5b4b9e9e9c7d">TEST</a>(UtilsTest, NewLine) {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    EXPECT_EQ(<a class="code hl_define" href="../../df/d93/utils_8hpp.html#a9732970f9ca82af5d3e94cf069402340">NLC</a>, <span class="charliteral">&#39;\n&#39;</span>);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    EXPECT_EQ(std::string(<a class="code hl_define" href="../../df/d93/utils_8hpp.html#acc1931a50f4cdc27035829dbb830d22a">NLS</a>), <span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>TEST(UtilsTest, NewLine) {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    EXPECT_EQ(NLC, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    EXPECT_EQ(std::string(NLS), <span class="stringliteral">&quot;\n&quot;</span>);</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>}</div>
-</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d1/d17/test__utils__macros_8cpp.html#ac31cb9c19bdf718ab64f3277efa0d578">   13</a></span><a class="code hl_function" href="../../d1/dee/test__accessors_8cpp.html#a3613f5398f06b3fe208c5b4b9e9e9c7d">TEST</a>(UtilsTest, Mod0) {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    EXPECT_EQ(<a class="code hl_define" href="../../df/d93/utils_8hpp.html#a0b18554cc402bdf206516c506cc83ce6">mod0</a>(15,5), (15%5) == 0);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    EXPECT_EQ(<a class="code hl_define" href="../../df/d93/utils_8hpp.html#a0b18554cc402bdf206516c506cc83ce6">mod0</a>(15,4), (15%4) == 0);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>TEST(UtilsTest, Mod0) {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    EXPECT_EQ(mod0(15,5), (15%5) == 0);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    EXPECT_EQ(mod0(15,4), (15%4) == 0);</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
-</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d1/d17/test__utils__macros_8cpp.html#a60a7432ad6636670e19f4adab9e3073b">   18</a></span><a class="code hl_function" href="../../d1/dee/test__accessors_8cpp.html#a3613f5398f06b3fe208c5b4b9e9e9c7d">TEST</a>(UtilsTest, BoolToString) {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    EXPECT_EQ(<a class="code hl_function" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61">boolToString</a>(<span class="keyword">true</span>), <span class="stringliteral">&quot;true&quot;</span>);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    EXPECT_EQ(<a class="code hl_function" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61">boolToString</a>(123), <span class="stringliteral">&quot;true&quot;</span>);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    EXPECT_EQ(<a class="code hl_function" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61">boolToString</a>(<span class="keyword">false</span>), <span class="stringliteral">&quot;false&quot;</span>);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    EXPECT_EQ(<a class="code hl_function" href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61">boolToString</a>(0), <span class="stringliteral">&quot;false&quot;</span>);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>TEST(UtilsTest, BoolToString) {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    EXPECT_EQ(boolToString(<span class="keyword">true</span>), <span class="stringliteral">&quot;true&quot;</span>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    EXPECT_EQ(boolToString(123), <span class="stringliteral">&quot;true&quot;</span>);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    EXPECT_EQ(boolToString(<span class="keyword">false</span>), <span class="stringliteral">&quot;false&quot;</span>);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    EXPECT_EQ(boolToString(0), <span class="stringliteral">&quot;false&quot;</span>);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
-</div>
-<div class="ttc" id="atest__accessors_8cpp_html_a3613f5398f06b3fe208c5b4b9e9e9c7d"><div class="ttname"><a href="../../d1/dee/test__accessors_8cpp.html#a3613f5398f06b3fe208c5b4b9e9e9c7d">TEST</a></div><div class="ttdeci">TEST(BigintAccessors, GetLimbCount)</div><div class="ttdef"><b>Definition</b> <a href="../../d1/dee/test__accessors_8cpp_source.html#l00023">test_accessors.cpp:23</a></div></div>
-<div class="ttc" id="autils_8hpp_html"><div class="ttname"><a href="../../df/d93/utils_8hpp.html">utils.hpp</a></div></div>
-<div class="ttc" id="autils_8hpp_html_a0b18554cc402bdf206516c506cc83ce6"><div class="ttname"><a href="../../df/d93/utils_8hpp.html#a0b18554cc402bdf206516c506cc83ce6">mod0</a></div><div class="ttdeci">#define mod0(dividend, divisor)</div><div class="ttdoc">Macro for the check (dividend % divisor) == 0.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d93/utils_8hpp_source.html#l00036">utils.hpp:36</a></div></div>
-<div class="ttc" id="autils_8hpp_html_a4431dd5957aff8abc884e068d8202b61"><div class="ttname"><a href="../../df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61">boolToString</a></div><div class="ttdeci">constexpr std::string_view boolToString(const bool val) noexcept</div><div class="ttdef"><b>Definition</b> <a href="../../df/d93/utils_8hpp_source.html#l00038">utils.hpp:38</a></div></div>
-<div class="ttc" id="autils_8hpp_html_a9732970f9ca82af5d3e94cf069402340"><div class="ttname"><a href="../../df/d93/utils_8hpp.html#a9732970f9ca82af5d3e94cf069402340">NLC</a></div><div class="ttdeci">#define NLC</div><div class="ttdoc">Macro for quick typing of the new character symbol.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d93/utils_8hpp_source.html#l00028">utils.hpp:28</a></div></div>
-<div class="ttc" id="autils_8hpp_html_acc1931a50f4cdc27035829dbb830d22a"><div class="ttname"><a href="../../df/d93/utils_8hpp.html#acc1931a50f4cdc27035829dbb830d22a">NLS</a></div><div class="ttdeci">#define NLS</div><div class="ttdoc">Macro for quick typing of the new character c-string.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d93/utils_8hpp_source.html#l00031">utils.hpp:31</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_ee83dfb7bed8608b6a52d5fb325ce3b7.html">BigInt</a></li><li class="navelem"><a href="../../dir_2da95de57111a49751ead615e711f560.html">tests</a></li><li class="navelem"><a href="../../dir_581dff00c0f90bb2fe51ea26ce30b8b4.html">utils</a></li><li class="navelem"><a href="../../d1/d17/test__utils__macros_8cpp.html">test_utils_macros.cpp</a></li>
+    <li class="navelem"><b>BigInt</b></li><li class="navelem"><b>tests</b></li><li class="navelem"><b>utils</b></li><li class="navelem"><b>test_utils_macros.cpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

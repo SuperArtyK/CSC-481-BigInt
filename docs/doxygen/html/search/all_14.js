@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['powersof10_0',['powersOf10',['../d6/d58/bigint__declaration_8hpp.html#a1287aa074ee9b5655cbc0d684ee495bc',1,'bigint_declaration.hpp']]],
-  ['project_20requirements_1',['6. Nonfunctional and project requirements',['../d9/df7/md_docs_2SRS.html#autotoc_md6-nonfunctional-and-project-requirements',1,'']]],
-  ['pull_20request_2',['pull request',['../d4/d0d/md_CLION__WORKFLOW.html#autotoc_md4-create-a-pull-request',1,'4. Create a pull request'],['../d4/d0d/md_CLION__WORKFLOW.html#autotoc_md5-review-someone-elses-pull-request',1,'5. Review someone else&apos;s pull request']]],
-  ['push_20changes_3',['3. Commit and push changes',['../d4/d0d/md_CLION__WORKFLOW.html#autotoc_md3-commit-and-push-changes',1,'']]]
+  ['project_20requirements_0',['6. Nonfunctional and project requirements',['../d9/df7/md_docs_2SRS.html#autotoc_md6-nonfunctional-and-project-requirements',1,'']]],
+  ['pull_20request_1',['pull request',['../d4/d0d/md_CLION__WORKFLOW.html#autotoc_md4-create-a-pull-request',1,'4. Create a pull request'],['../d4/d0d/md_CLION__WORKFLOW.html#autotoc_md5-review-someone-elses-pull-request',1,'5. Review someone else&apos;s pull request']]],
+  ['push_20changes_2',['3. Commit and push changes',['../d4/d0d/md_CLION__WORKFLOW.html#autotoc_md3-commit-and-push-changes',1,'']]]
 ];

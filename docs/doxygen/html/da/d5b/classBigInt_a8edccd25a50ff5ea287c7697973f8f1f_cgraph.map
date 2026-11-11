@@ -1,6 +1,0 @@
-<map id="BigInt::clear" name="BigInt::clear">
-<area shape="rect" id="Node000001" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="5,29,97,56"/>
-<area shape="rect" id="Node000002" href="$df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="145,29,238,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,40,131,42,126,43,97,45"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="167,28,162,21,165,11,175,5,191,3,209,5,219,15,214,14,207,10,191,8,177,10,170,14,168,20,171,30"/>
-</map>

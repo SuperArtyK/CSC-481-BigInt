@@ -1,23 +1,20 @@
 <map id="BigInt::toStringDec" name="BigInt::toStringDec">
-<area shape="rect" id="Node000001" title="Returns the current bigint as string representation, in decimal notation." alt="" coords="5,149,138,176"/>
-<area shape="rect" id="Node000002" href="$da/d5b/classBigInt.html#a52a3dd47c689978179bc84b233c1145e" title="Returns the total current digit count of the bigint." alt="" coords="186,73,329,100"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,146,210,104,207,109,108,151"/>
-<area shape="rect" id="Node000004" href="$da/d5b/classBigInt.html#ac0ea695e4944c59e97187943df8cf449" title="Returns the last, Most Significant, limb of the Bigint." alt="" coords="382,5,516,32"/>
-<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="82,147,123,103,152,79,184,59,230,41,277,29,369,19,364,22,278,35,231,47,187,64,155,83,127,107,86,150"/>
-<area shape="rect" id="Node000005" href="$da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="377,131,521,157"/>
-<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="138,157,363,146,361,151,139,162"/>
-<area shape="rect" id="Node000006" href="$da/d5b/classBigInt.html#ab1daffa824bd573240330ea9aea5dbbc" title="Returns the limb value at the given index, 0&#45;based." alt="" coords="203,175,312,201"/>
-<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="137,169,190,177,185,180,138,174"/>
-<area shape="rect" id="Node000007" href="$da/d5b/classBigInt.html#a95f4a2cafc7ab33729f40d0415831044" title="Returns true if bigint is negative, false otherwise." alt="" coords="195,225,320,252"/>
-<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="103,174,187,211,204,219,199,220,185,216,102,179"/>
-<area shape="rect" id="Node000008" href="$da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c" title="Returns true if bigint evaluates to 0, false otherwise." alt="" coords="208,276,307,303"/>
-<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="86,174,129,217,157,241,187,262,198,270,193,269,184,266,154,245,125,221,84,179"/>
-<area shape="rect" id="Node000003" href="$df/d93/utils_8hpp.html#a129812dcae9064feb53e76acefdcf826" title=" " alt="" coords="409,80,489,107"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="329,87,396,91,391,92,330,92"/>
-<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="296,70,376,41,397,37,392,39,378,47,298,75"/>
-<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="304,98,390,125,385,126,304,103"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="416,79,411,71,415,62,428,55,449,53,472,56,486,65,480,65,471,61,449,59,429,61,418,65,416,71,421,80"/>
-<area shape="poly" id="edge12_Node000008_Node000005" title=" " alt="" coords="306,273,328,262,357,240,384,215,426,171,431,168,388,219,360,244,330,266,307,278"/>
-<area shape="rect" id="Node000009" href="$da/d5b/classBigInt.html#ab2a52efd44c2e7057cc5397dba711ef8" title="Returns the first, Least Significant, limb of the Bigint." alt="" coords="382,276,517,303"/>
-<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="307,287,369,289,363,289,307,292"/>
+<area shape="rect" id="Node000001" title="Returns the current bigint as string representation, in decimal notation." alt="" coords="5,112,138,139"/>
+<area shape="rect" id="Node000002" href="$da/d5b/classBigInt.html#a52a3dd47c689978179bc84b233c1145e" title="Retrieves the total current digit count of the bigint." alt="" coords="186,36,329,63"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,109,210,67,207,71,108,114"/>
+<area shape="rect" id="Node000003" href="$da/d5b/classBigInt.html#ac0ea695e4944c59e97187943df8cf449" title="Retrieves the last, Most Significant, limb of the Bigint." alt="" coords="382,11,516,37"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="81,110,122,64,151,40,185,22,230,9,277,4,324,3,369,8,364,10,323,9,278,9,231,14,187,27,154,44,125,68,85,113"/>
+<area shape="rect" id="Node000004" href="$da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="377,87,521,113"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="138,118,363,103,361,108,139,124"/>
+<area shape="rect" id="Node000005" href="$da/d5b/classBigInt.html#ab1daffa824bd573240330ea9aea5dbbc" title="Retrieves the limb value at the given index, 0&#45;based." alt="" coords="203,137,312,164"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="137,132,190,140,185,142,138,137"/>
+<area shape="rect" id="Node000006" href="$da/d5b/classBigInt.html#a95f4a2cafc7ab33729f40d0415831044" title="Returns true if bigint is negative, false otherwise." alt="" coords="195,188,320,215"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="103,137,187,174,204,182,199,182,185,179,102,142"/>
+<area shape="rect" id="Node000007" href="$da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c" title="Checks whether the bigint has magnitude of 0." alt="" coords="208,239,307,265"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="86,137,129,180,157,204,187,224,198,232,193,232,184,229,154,208,125,184,84,142"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="329,37,369,34,364,36,331,42"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="311,61,384,82,378,83,311,66"/>
+<area shape="poly" id="edge10_Node000007_Node000004" title=" " alt="" coords="306,236,328,224,358,201,385,175,427,127,432,125,389,178,361,205,330,229,308,241"/>
+<area shape="rect" id="Node000008" href="$da/d5b/classBigInt.html#ab2a52efd44c2e7057cc5397dba711ef8" title="Returns the first, Least Significant, limb of the Bigint." alt="" coords="382,239,517,265"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="307,249,369,252,363,252,307,255"/>
 </map>

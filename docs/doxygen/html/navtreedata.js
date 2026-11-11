@@ -25,24 +25,6 @@
 var NAVTREE =
 [
   [ "CSC_481-BigInt", "index.html", [
-    [ "CLion Workflow", "d4/d0d/md_CLION__WORKFLOW.html", [
-      [ "1. Create a feature branch", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md1-create-a-feature-branch", null ],
-      [ "2. Build and run tests", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md2-build-and-run-tests", [
-        [ "Running individual tests", "d4/d0d/md_CLION__WORKFLOW.html#running-individual-tests", null ]
-      ] ],
-      [ "3. Commit and push changes", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md3-commit-and-push-changes", null ],
-      [ "4. Create a pull request", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md4-create-a-pull-request", null ],
-      [ "5. Review someone else's pull request", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md5-review-someone-elses-pull-request", null ],
-      [ "6. Merge and finish", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md6-merge-and-finish", null ],
-      [ "Safety reminders", "d4/d0d/md_CLION__WORKFLOW.html#safety-reminders", null ],
-      [ "References", "d4/d0d/md_CLION__WORKFLOW.html#references", null ]
-    ] ],
-    [ "Contributing", "d2/dc1/md_CONTRIBUTING.html", [
-      [ "Development workflow", "d2/dc1/md_CONTRIBUTING.html#development-workflow", null ],
-      [ "Testing requirements", "d2/dc1/md_CONTRIBUTING.html#testing-requirements", null ],
-      [ "Code review", "d2/dc1/md_CONTRIBUTING.html#code-review", null ],
-      [ "Repository rules", "d2/dc1/md_CONTRIBUTING.html#repository-rules", null ]
-    ] ],
     [ "BigInteger — Software Requirements Specification", "d9/df7/md_docs_2SRS.html", [
       [ "1. Overview", "d9/df7/md_docs_2SRS.html#autotoc_md1-overview", null ],
       [ "2. User requirements", "d9/df7/md_docs_2SRS.html#autotoc_md2-user-requirements", null ],
@@ -70,7 +52,24 @@ var NAVTREE =
       [ "6. Nonfunctional and project requirements", "d9/df7/md_docs_2SRS.html#autotoc_md6-nonfunctional-and-project-requirements", null ],
       [ "7. Verification", "d9/df7/md_docs_2SRS.html#autotoc_md7-verification", null ]
     ] ],
-    [ "Todo List", "dd/da0/todo.html", null ],
+    [ "CLion Workflow", "d4/d0d/md_CLION__WORKFLOW.html", [
+      [ "1. Create a feature branch", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md1-create-a-feature-branch", null ],
+      [ "2. Build and run tests", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md2-build-and-run-tests", [
+        [ "Running individual tests", "d4/d0d/md_CLION__WORKFLOW.html#running-individual-tests", null ]
+      ] ],
+      [ "3. Commit and push changes", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md3-commit-and-push-changes", null ],
+      [ "4. Create a pull request", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md4-create-a-pull-request", null ],
+      [ "5. Review someone else's pull request", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md5-review-someone-elses-pull-request", null ],
+      [ "6. Merge and finish", "d4/d0d/md_CLION__WORKFLOW.html#autotoc_md6-merge-and-finish", null ],
+      [ "Safety reminders", "d4/d0d/md_CLION__WORKFLOW.html#safety-reminders", null ],
+      [ "References", "d4/d0d/md_CLION__WORKFLOW.html#references", null ]
+    ] ],
+    [ "Contributing", "d2/dc1/md_CONTRIBUTING.html", [
+      [ "Development workflow", "d2/dc1/md_CONTRIBUTING.html#development-workflow", null ],
+      [ "Testing requirements", "d2/dc1/md_CONTRIBUTING.html#testing-requirements", null ],
+      [ "Code review", "d2/dc1/md_CONTRIBUTING.html#code-review", null ],
+      [ "Repository rules", "d2/dc1/md_CONTRIBUTING.html#repository-rules", null ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -89,22 +88,14 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ],
-      [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ],
-        [ "Macros", "globals_defs.html", null ]
-      ] ]
+      [ "File List", "files.html", "files_dup" ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"de/d78/BigInt__Math_2main_8cpp.html"
+"annotated.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

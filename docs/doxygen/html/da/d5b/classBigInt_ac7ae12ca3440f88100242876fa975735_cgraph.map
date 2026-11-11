@@ -1,14 +1,9 @@
 <map id="BigInt::operator=" name="BigInt::operator=">
-<area shape="rect" id="Node000001" title="Move&#45;assignment for the class." alt="" coords="5,55,124,81"/>
-<area shape="rect" id="Node000002" href="$da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="172,29,269,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,56,159,53,154,54,125,61"/>
-<area shape="rect" id="Node000004" href="$df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="626,29,719,56"/>
-<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="124,70,212,76,325,79,451,76,577,65,612,61,617,60,578,71,452,82,325,84,212,81,124,76"/>
-<area shape="rect" id="Node000003" href="$da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="317,29,438,56"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="269,40,304,42,299,43,269,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="427,26,486,15,532,11,578,15,617,25,612,25,577,20,532,16,487,20,428,31"/>
-<area shape="rect" id="Node000005" href="$da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="486,29,578,56"/>
-<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="439,40,474,43,468,43,439,45"/>
-<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="648,28,643,21,646,11,656,5,672,3,690,5,700,15,695,13,688,10,672,8,658,10,651,14,649,20,652,30"/>
-<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="578,40,612,43,607,43,578,45"/>
+<area shape="rect" id="Node000001" title="Move&#45;assignment for the class." alt="" coords="5,5,124,32"/>
+<area shape="rect" id="Node000002" href="$da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="172,5,269,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,16,159,18,153,19,124,21"/>
+<area shape="rect" id="Node000003" href="$da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="317,5,438,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="269,16,304,19,299,19,269,21"/>
+<area shape="rect" id="Node000004" href="$da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="486,5,578,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="439,16,474,19,468,19,439,21"/>
 </map>

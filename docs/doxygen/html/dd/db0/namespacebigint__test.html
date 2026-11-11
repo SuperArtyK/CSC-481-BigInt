@@ -125,11 +125,11 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afb392cf99372bf839e0efb54e337c7db" id="r_afb392cf99372bf839e0efb54e337c7db"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afb392cf99372bf839e0efb54e337c7db">expectRepresentation</a> (const <a class="el" href="../../da/d5b/classBigInt.html">BigInt</a> &amp;value, const std::vector&lt; <a class="el" href="../../d6/d58/bigint__declaration_8hpp.html#a042d6b4da3f9c82306b490bd23b24aeb">limb_t</a> &gt; &amp;expectedLimbs, const bool expectedNegative)</td></tr>
+<tr class="memitem:afb392cf99372bf839e0efb54e337c7db" id="r_afb392cf99372bf839e0efb54e337c7db"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afb392cf99372bf839e0efb54e337c7db">expectRepresentation</a> (const <a class="el" href="../../da/d5b/classBigInt.html">BigInt</a> &amp;value, const std::vector&lt; limb_t &gt; &amp;expectedLimbs, const bool expectedNegative)</td></tr>
 <tr class="memdesc:afb392cf99372bf839e0efb54e337c7db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts that a bigint matches the expected internal representation.  <br /></td></tr>
-<tr class="memitem:a792481768a7337c9178bfe19e5e8ae42" id="r_a792481768a7337c9178bfe19e5e8ae42"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a792481768a7337c9178bfe19e5e8ae42">testCopyPreservesRepresentation</a> (const std::initializer_list&lt; <a class="el" href="../../d6/d58/bigint__declaration_8hpp.html#a042d6b4da3f9c82306b490bd23b24aeb">limb_t</a> &gt; &amp;sourceLimbs, const bool sourceNegative)</td></tr>
+<tr class="memitem:a792481768a7337c9178bfe19e5e8ae42" id="r_a792481768a7337c9178bfe19e5e8ae42"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a792481768a7337c9178bfe19e5e8ae42">testCopyPreservesRepresentation</a> (const std::initializer_list&lt; limb_t &gt; &amp;sourceLimbs, const bool sourceNegative)</td></tr>
 <tr class="memdesc:a792481768a7337c9178bfe19e5e8ae42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies that copy-assignment preserves the original internal representation.  <br /></td></tr>
-<tr class="memitem:a1dc9ce8fdd5412f568c485ceeaff7978" id="r_a1dc9ce8fdd5412f568c485ceeaff7978"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1dc9ce8fdd5412f568c485ceeaff7978">testMovePreservesRepresentation</a> (const std::initializer_list&lt; <a class="el" href="../../d6/d58/bigint__declaration_8hpp.html#a042d6b4da3f9c82306b490bd23b24aeb">limb_t</a> &gt; &amp;sourceLimbs, const bool sourceNegative)</td></tr>
+<tr class="memitem:a1dc9ce8fdd5412f568c485ceeaff7978" id="r_a1dc9ce8fdd5412f568c485ceeaff7978"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1dc9ce8fdd5412f568c485ceeaff7978">testMovePreservesRepresentation</a> (const std::initializer_list&lt; limb_t &gt; &amp;sourceLimbs, const bool sourceNegative)</td></tr>
 <tr class="memdesc:a1dc9ce8fdd5412f568c485ceeaff7978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies that move-assignment preserves the source state while transferring ownership.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
@@ -153,7 +153,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="../../d6/d58/bigint__declaration_8hpp.html#a042d6b4da3f9c82306b490bd23b24aeb">limb_t</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>expectedLimbs</em></span>, </td>
+          <td class="paramtype">const std::vector&lt; limb_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>expectedLimbs</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -207,7 +207,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void bigint_test::testCopyPreservesRepresentation </td>
           <td>(</td>
-          <td class="paramtype">const std::initializer_list&lt; <a class="el" href="../../d6/d58/bigint__declaration_8hpp.html#a042d6b4da3f9c82306b490bd23b24aeb">limb_t</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>sourceLimbs</em></span>, </td>
+          <td class="paramtype">const std::initializer_list&lt; limb_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>sourceLimbs</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -265,7 +265,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void bigint_test::testMovePreservesRepresentation </td>
           <td>(</td>
-          <td class="paramtype">const std::initializer_list&lt; <a class="el" href="../../d6/d58/bigint__declaration_8hpp.html#a042d6b4da3f9c82306b490bd23b24aeb">limb_t</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>sourceLimbs</em></span>, </td>
+          <td class="paramtype">const std::initializer_list&lt; limb_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>sourceLimbs</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

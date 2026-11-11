@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp'],['../de/d78/BigInt__Math_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp'],['../d0/dfb/demo_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp']]]
+  ['operator_3d_0',['operator=',['../da/d5b/classBigInt.html#a6506386510aa772c734109f863e879c8',1,'BigInt::operator=(const BigInt &amp;bint)'],['../da/d5b/classBigInt.html#ac7ae12ca3440f88100242876fa975735',1,'BigInt::operator=(BigInt &amp;&amp;bint) noexcept']]]
 ];

@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/ddd/test__d
   <div class="headertitle"><div class="title">test_debug_output_enabled.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d0/ddd/test__debug__output__enabled_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by artyk on 10/30/26.</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
@@ -125,19 +125,18 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/ddd/test__d
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;gtest/gtest.h&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;gtest/internal/gtest-port.h&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../d0/ddd/test__debug__output__enabled_8cpp.html#a9c4d4f46e70cc3b7dee9a2fe9c1bbf4d">   12</a></span><span class="preprocessor">#define DEBUGMODE 1</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define DEBUGMODE 1</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d93/utils_8hpp.html">bigint/utils.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;bigint/utils.hpp&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d0/ddd/test__debug__output__enabled_8cpp.html#ac3effe1bcee4310a5f0e556cfbea88fd">   16</a></span><a class="code hl_function" href="../../d1/dee/test__accessors_8cpp.html#a3613f5398f06b3fe208c5b4b9e9e9c7d">TEST</a>(UtilsTest, Printf_DebugOutEnabled) {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>TEST(UtilsTest, Printf_DebugOutEnabled) {</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    testing::internal::CaptureStdout();</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">//DO NOT MOVE SEPARATE 2 LINES</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">//THEY MUST STAY TOGETHER or test will always fail.</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">//because of the silly line check</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> call_line = __LINE__ + 1;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_define" href="../../df/d93/utils_8hpp.html#a0fb7bf82c787085c8b1ef0ad7d028424">dprintf</a>(<span class="stringliteral">&quot;Answer to life, universe, and everything: %d&quot;</span>, 42);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    dprintf(<span class="stringliteral">&quot;Answer to life, universe, and everything: %d&quot;</span>, 42);</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    std::fflush(stdout);</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">const</span> std::string actual = testing::internal::GetCapturedStdout();</div>
@@ -148,17 +147,15 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/ddd/test__d
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    EXPECT_EQ(actual, expected);</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
-</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d0/ddd/test__debug__output__enabled_8cpp.html#a02c745977d71ead1acb791beefb89824">   35</a></span><a class="code hl_function" href="../../d1/dee/test__accessors_8cpp.html#a3613f5398f06b3fe208c5b4b9e9e9c7d">TEST</a>(UtilsTest, Cout_DebugOutEnabled) {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>TEST(UtilsTest, Cout_DebugOutEnabled) {</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    testing::internal::CaptureStdout();</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">//DO NOT MOVE SEPARATE 2 LINES</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="comment">//THEY MUST STAY TOGETHER or test will always fail.</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">//because of the silly line check</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> call_line = __LINE__ + 1;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_define" href="../../df/d93/utils_8hpp.html#a8951b71186b3b14ce155d67282587812">cdbg</a> &lt;&lt; <span class="stringliteral">&quot;Answer to life, universe, and everything: 42\n&quot;</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    cdbg &lt;&lt; <span class="stringliteral">&quot;Answer to life, universe, and everything: 42\n&quot;</span>;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    std::fflush(stdout);</div>
@@ -170,18 +167,13 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/ddd/test__d
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    EXPECT_EQ(actual, expected);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
-</div>
-<div class="ttc" id="atest__accessors_8cpp_html_a3613f5398f06b3fe208c5b4b9e9e9c7d"><div class="ttname"><a href="../../d1/dee/test__accessors_8cpp.html#a3613f5398f06b3fe208c5b4b9e9e9c7d">TEST</a></div><div class="ttdeci">TEST(BigintAccessors, GetLimbCount)</div><div class="ttdef"><b>Definition</b> <a href="../../d1/dee/test__accessors_8cpp_source.html#l00023">test_accessors.cpp:23</a></div></div>
-<div class="ttc" id="autils_8hpp_html"><div class="ttname"><a href="../../df/d93/utils_8hpp.html">utils.hpp</a></div></div>
-<div class="ttc" id="autils_8hpp_html_a0fb7bf82c787085c8b1ef0ad7d028424"><div class="ttname"><a href="../../df/d93/utils_8hpp.html#a0fb7bf82c787085c8b1ef0ad7d028424">dprintf</a></div><div class="ttdeci">#define dprintf(...)</div><div class="ttdoc">Macro for the debug printf() printing, use the same way as you have used printf before....</div><div class="ttdef"><b>Definition</b> <a href="../../df/d93/utils_8hpp_source.html#l00132">utils.hpp:132</a></div></div>
-<div class="ttc" id="autils_8hpp_html_a8951b71186b3b14ce155d67282587812"><div class="ttname"><a href="../../df/d93/utils_8hpp.html#a8951b71186b3b14ce155d67282587812">cdbg</a></div><div class="ttdeci">#define cdbg</div><div class="ttdoc">Macro for the debug cout printing, use the same way as you have used cout for simple printing before....</div><div class="ttdef"><b>Definition</b> <a href="../../df/d93/utils_8hpp_source.html#l00141">utils.hpp:141</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_ee83dfb7bed8608b6a52d5fb325ce3b7.html">BigInt</a></li><li class="navelem"><a href="../../dir_2da95de57111a49751ead615e711f560.html">tests</a></li><li class="navelem"><a href="../../dir_581dff00c0f90bb2fe51ea26ce30b8b4.html">utils</a></li><li class="navelem"><a href="../../d0/ddd/test__debug__output__enabled_8cpp.html">test_debug_output_enabled.cpp</a></li>
+    <li class="navelem"><b>BigInt</b></li><li class="navelem"><b>tests</b></li><li class="navelem"><b>utils</b></li><li class="navelem"><b>test_debug_output_enabled.cpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

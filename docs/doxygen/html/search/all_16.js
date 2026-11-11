@@ -13,8 +13,5 @@ var searchData=
   ['software_20requirements_20specification_10',['BigInteger — Software Requirements Specification',['../d9/df7/md_docs_2SRS.html',1,'']]],
   ['someone_20else_20s_20pull_20request_11',['5. Review someone else&apos;s pull request',['../d4/d0d/md_CLION__WORKFLOW.html#autotoc_md5-review-someone-elses-pull-request',1,'']]],
   ['specification_12',['BigInteger — Software Requirements Specification',['../d9/df7/md_docs_2SRS.html',1,'']]],
-  ['srs_2emd_13',['SRS.md',['../d1/de5/SRS_8md.html',1,'']]],
-  ['state_14',['4.2 Variables and session state',['../d9/df7/md_docs_2SRS.html#autotoc_md42-variables-and-session-state',1,'']]],
-  ['storage_5fmask_15',['STORAGE_MASK',['../d6/d58/bigint__declaration_8hpp.html#a563238eb9ba06eee69a9c9f2d07ec7ce',1,'bigint_declaration.hpp']]],
-  ['storage_5fmax_16',['STORAGE_MAX',['../d6/d58/bigint__declaration_8hpp.html#a1a9ecb55a792d1b415f57aabf39ff02e',1,'bigint_declaration.hpp']]]
+  ['state_13',['4.2 Variables and session state',['../d9/df7/md_docs_2SRS.html#autotoc_md42-variables-and-session-state',1,'']]]
 ];

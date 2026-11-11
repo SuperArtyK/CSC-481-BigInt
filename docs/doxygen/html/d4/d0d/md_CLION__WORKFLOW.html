@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/d0d/md_CLIO
 <h1 class="doxsection"><a class="anchor" id="autotoc_md1-create-a-feature-branch"></a>
 1. Create a feature branch</h1>
 <ol type="1">
-<li>Use the branch widget in CLion to switch to <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span>.</li>
+<li>Use the branch widget in CLion to switch to <span class="tt">main</span>.</li>
 <li>Update it using <b>Git → Update Project</b> (<span class="tt">Ctrl+T</span>).</li>
 <li>Open the branch widget and select <b>New Branch from 'main'</b>.</li>
 <li>Enter a descriptive name, such as <span class="tt">feature/addition</span> or <span class="tt">fix/division</span>.</li>
@@ -164,12 +164,12 @@ Running individual tests</h2>
 <ol type="1">
 <li>Push your feature branch.</li>
 <li>Choose <b>Git → GitHub → Create Pull Request</b>, or open the repository on GitHub.</li>
-<li>Set the base branch to <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span> and the head branch to your feature branch.</li>
+<li>Set the base branch to <span class="tt">main</span> and the head branch to your feature branch.</li>
 <li>Provide a title, a description of the changes, and how you tested them.</li>
 <li>Request team review. Use a <b>draft PR</b> for unfinished work.</li>
 </ol>
 <p>New commits pushed to the feature branch automatically update the existing PR.</p>
-<p>GitHub Actions runs CI for pull requests targeting <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span>. Check the workflow results and resolve failures before merging.</p>
+<p>GitHub Actions runs CI for pull requests targeting <span class="tt">main</span>. Check the workflow results and resolve failures before merging.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md5-review-someone-elses-pull-request"></a>
 5. Review someone else's pull request</h1>
 <ol type="1">
@@ -193,15 +193,15 @@ Running individual tests</h2>
 <li>Merge using the pull request interface in CLion or GitHub.</li>
 <li>Delete the completed feature branch when no longer needed.</li>
 <li>Remove temporary review worktrees after confirming that they contain no work you need to keep.</li>
-<li>Switch back to <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span> and update it before starting another task.</li>
+<li>Switch back to <span class="tt">main</span> and update it before starting another task.</li>
 </ol>
-<p>Do not merge locally into <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span> and push it as a substitute for a reviewed PR.</p>
+<p>Do not merge locally into <span class="tt">main</span> and push it as a substitute for a reviewed PR.</p>
 <h1 class="doxsection"><a class="anchor" id="safety-reminders"></a>
 Safety reminders</h1>
 <ul>
 <li>Check your current branch before committing or pushing.</li>
 <li>Avoid switching branches with uncommitted changes unless you understand how Git will handle them.</li>
-<li>Never force-push to <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span>.</li>
+<li>Never force-push to <span class="tt">main</span>.</li>
 <li>Reviewing a PR doesn't require checking out its branch.</li>
 <li>Use separate worktrees when testing other contributors' changes.</li>
 <li>Do not commit local build output or CLion workspace settings.</li>

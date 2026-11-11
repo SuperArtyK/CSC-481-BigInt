@@ -1,6 +1,0 @@
-<map id="BigInt::setNegative" name="BigInt::setNegative">
-<area shape="rect" id="Node000001" title="Sets the negative flag of the bigint to the passed parameter." alt="" coords="5,29,139,56"/>
-<area shape="rect" id="Node000002" href="$df/d93/utils_8hpp.html#a4431dd5957aff8abc884e068d8202b61" title=" " alt="" coords="187,29,280,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,40,174,42,168,43,139,45"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="205,28,200,21,204,11,215,5,233,3,253,5,264,15,259,14,251,10,233,8,217,10,208,15,206,20,210,30"/>
-</map>

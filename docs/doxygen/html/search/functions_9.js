@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['operator_3d_0',['operator=',['../da/d5b/classBigInt.html#a6506386510aa772c734109f863e879c8',1,'BigInt::operator=(const BigInt &amp;bint)'],['../da/d5b/classBigInt.html#ac7ae12ca3440f88100242876fa975735',1,'BigInt::operator=(BigInt &amp;&amp;bint) noexcept']]]
+  ['testcopypreservesrepresentation_0',['testCopyPreservesRepresentation',['../dd/db0/namespacebigint__test.html#a792481768a7337c9178bfe19e5e8ae42',1,'bigint_test']]],
+  ['testmovepreservesrepresentation_1',['testMovePreservesRepresentation',['../dd/db0/namespacebigint__test.html#a1dc9ce8fdd5412f568c485ceeaff7978',1,'bigint_test']]],
+  ['tostringdec_2',['toStringDec',['../da/d5b/classBigInt.html#a94a494aca7e98d925bbb81de5cc4d9df',1,'BigInt']]]
 ];

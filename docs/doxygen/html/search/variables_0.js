@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['limb_5fdigitcount_5fmax_0',['LIMB_DIGITCOUNT_MAX',['../d6/d58/bigint__declaration_8hpp.html#a14b4b96a8d10a5b9166c111f09a562e9',1,'bigint_declaration.hpp']]],
-  ['limb_5fdigits_1',['LIMB_DIGITS',['../d6/d58/bigint__declaration_8hpp.html#adace4e53cc742cf9f5c1566198cbaae7',1,'bigint_declaration.hpp']]]
+  ['m_5fbnegative_0',['m_bNegative',['../da/d5b/classBigInt.html#ad969c3da1bc62b1e653121e8e4f7a825',1,'BigInt']]],
+  ['m_5flstdigits_1',['m_lstDigits',['../da/d5b/classBigInt.html#abfe4710e84fd55a5335570273aaeab08',1,'BigInt']]]
 ];

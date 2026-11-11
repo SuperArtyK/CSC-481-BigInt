@@ -119,14 +119,14 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d2/dc1/md_CONT
 <h1 class="doxsection"><a class="anchor" id="development-workflow"></a>
 Development workflow</h1>
 <ol type="1">
-<li><b>Create a branch.</b> Start from an up-to-date <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span>. Use a separate branch for each feature, bug fix, or task.</li>
+<li><b>Create a branch.</b> Start from an up-to-date <span class="tt">main</span>. Use a separate branch for each feature, bug fix, or task.</li>
 <li><b>Develop and commit.</b> Make focused changes and commit regularly. Push your branch to GitHub whenever needed.</li>
 <li><b>Build and test.</b> Verify that the project builds and all relevant CTest tests pass locally before requesting review. Add or update unit tests when changing functionality.</li>
-<li><b>Open a pull request.</b> Target <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span>, describe your changes, reference relevant issues, and explain how you tested them. Use a draft PR if the changes aren't ready for review.</li>
+<li><b>Open a pull request.</b> Target <span class="tt">main</span>, describe your changes, reference relevant issues, and explain how you tested them. Use a draft PR if the changes aren't ready for review.</li>
 <li><b>Review and revise.</b> Discuss feedback in the PR. Make corrections on the same branch and push them to update the PR automatically.</li>
-<li><b>Merge.</b> Merge only after the team agrees, review requirements are met, all discussions are resolved, and CI passes. Merge through the GitHub or CLion PR interface, not by pushing directly to <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span>.</li>
+<li><b>Merge.</b> Merge only after the team agrees, review requirements are met, all discussions are resolved, and CI passes. Merge through the GitHub or CLion PR interface, not by pushing directly to <span class="tt">main</span>.</li>
 </ol>
-<p>After merging, delete the completed feature branch when no longer needed and update your local <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span>.</p>
+<p>After merging, delete the completed feature branch when no longer needed and update your local <span class="tt">main</span>.</p>
 <h1 class="doxsection"><a class="anchor" id="testing-requirements"></a>
 Testing requirements</h1>
 <ul>
@@ -148,8 +148,8 @@ Code review</h1>
 <h1 class="doxsection"><a class="anchor" id="repository-rules"></a>
 Repository rules</h1>
 <ul>
-<li>Do not directly push ordinary development changes to <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span>.</li>
-<li>Do not force-push to <span class="tt"><a class="el" href="../../de/d55/BigInt_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></span> or bypass the normal review process.</li>
+<li>Do not directly push ordinary development changes to <span class="tt">main</span>.</li>
+<li>Do not force-push to <span class="tt">main</span> or bypass the normal review process.</li>
 <li>The repository owner retains an administrative bypass for exceptional maintenance or recovery, but follows the same PR and review process during normal development.</li>
 <li>Prefer small, focused pull requests that are straightforward to review and test.</li>
 </ul>

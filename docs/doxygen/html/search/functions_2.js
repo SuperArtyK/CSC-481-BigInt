@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['digitcount_0',['digitCount',['../df/d93/utils_8hpp.html#a129812dcae9064feb53e76acefdcf826',1,'utils.hpp']]]
+  ['expectrepresentation_0',['expectRepresentation',['../dd/db0/namespacebigint__test.html#afb392cf99372bf839e0efb54e337c7db',1,'bigint_test']]]
 ];
