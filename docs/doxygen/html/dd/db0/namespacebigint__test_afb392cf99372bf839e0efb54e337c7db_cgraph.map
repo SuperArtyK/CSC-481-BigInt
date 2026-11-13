@@ -1,0 +1,8 @@
+<map id="bigint_test::expectRepresentation" name="bigint_test::expectRepresentation">
+<area shape="rect" id="Node000001" title="Asserts that a bigint matches the expected internal representation." alt="" coords="5,31,222,57"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="68,30,61,22,66,12,84,6,114,4,146,7,164,16,159,16,144,12,113,9,85,11,70,16,66,21,74,30"/>
+<area shape="rect" id="Node000002" href="$dc/d6d/structbigint__test_1_1Inspector.html#a619484ef6d15d98c6486e08c9e8e839d" title="Returns the raw limb storage of the bigint in least&#45;significant&#45;first order." alt="" coords="278,5,482,32"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="222,31,265,29,260,30,223,36"/>
+<area shape="rect" id="Node000003" href="$dc/d6d/structbigint__test_1_1Inspector.html#a514a3a70e55e44d933e6378f5bcfb9a4" title="Returns the sign flag stored in the bigint." alt="" coords="270,56,491,83"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="222,52,257,57,251,57,222,57"/>
+</map>

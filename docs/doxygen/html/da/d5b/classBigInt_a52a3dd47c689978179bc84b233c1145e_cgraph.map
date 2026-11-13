@@ -1,0 +1,7 @@
+<map id="BigInt::getDigitCount" name="BigInt::getDigitCount">
+<area shape="rect" id="Node000001" title="Retrieves the total current digit count of the bigint." alt="" coords="5,31,149,57"/>
+<area shape="rect" id="Node000002" href="$da/d5b/classBigInt.html#ac0ea695e4944c59e97187943df8cf449" title="Retrieves the last, Most Significant, limb of the Bigint." alt="" coords="202,5,336,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,32,188,29,183,30,150,37"/>
+<area shape="rect" id="Node000003" href="$da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="197,56,341,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="149,51,184,58,179,58,149,56"/>
+</map>

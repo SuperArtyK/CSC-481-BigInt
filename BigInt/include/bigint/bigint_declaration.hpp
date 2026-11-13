@@ -93,10 +93,12 @@ public:
 	
 	/// @brief Copy-assignment for the class
 	/// @param bint the bigint to copy values from
+	/// @return Reference to the object after the assignment
 	BigInt& operator=(const BigInt& bint);
 	
 	/// @brief Move-assignment for the class
 	/// @param bint the bigint to move values from
+	/// @return Reference to the object after the assignment
 	BigInt& operator=(BigInt&& bint) noexcept;
 	
 	/// @brief Set the underlying bigint to 0
@@ -104,36 +106,45 @@ public:
 	inline void setToZero(const bool shrink = false);
 
 	/// @brief Returns the limb count of the bigint
+	/// @return limb_t value of current total limb count
 	[[nodiscard]] inline std::size_t getLimbCount() const noexcept;
 	
-	/// @brief Returns the total current digit count of the bigint
+	/// @brief Retrieves the total current digit count of the bigint
 	/// @attention If limbcount exceeds LIMB_DIGITCOUNT_MAX (overflows), it returns 0
 	/// @see BigInt::getLimbCount()
+	/// @return Calculated total digit count as limb_t
 	[[nodiscard]] inline std::uintmax_t getDigitCount() const noexcept;
 	
-	/// @brief Returns the limb value at the given index, 0-based
+	/// @brief Retrieves the limb value at the given index, 0-based
+	/// @param index Zero-based limb index, least significant first.
 	/// @note If the index is outside of the bigint's range, returns a 0
+	/// @return limb_t value of the limb at the specified index
 	[[nodiscard]] inline limb_t getLimb(const std::size_t index) const noexcept;
 	
-	/// @brief Returns the last, **Most** Significant, limb of the Bigint
+	/// @brief Retrieves the last, **Most** Significant, limb of the Bigint
+	/// @return limb_t value of the last limb
 	[[nodiscard]] inline limb_t getLastLimb() const noexcept;
 	
 	/// @brief Returns the first, **Least** Significant, limb of the Bigint
+	/// @return limb_t value of the first limb
 	[[nodiscard]] inline limb_t getFirstLimb() const noexcept;
 	
 	/// @brief Returns true if bigint is negative, false otherwise
+	/// @return bool value of the negativity status
 	[[nodiscard]] inline bool isNegative() const noexcept;
 	
-	/// @brief Returns true if bigint evaluates to 0, false otherwise
+	/// @brief Checks whether the bigint has magnitude of 0
 	/// @note It's evaluated to 0 only if it contains only 1 limb, and that limb is equal to 0
 	/// @see BigInt::getLimbCount()
 	/// @see BigInt::getFirstLimb()
+	/// @return True if magnitude is 0, false otherwise
 	[[nodiscard]] inline bool isZero() const noexcept;
 	
 	/// @brief Returns the current bigint as string representation, in decimal notation
 	/// @note The length of the string is at most 1 * BigInt::isNegative() + BigInt::getDigitCount()
 	/// @see BigInt::isNegative()
 	/// @see BigInt::getDigitCount()
+	/// @return Decimal string representation of the bigint as std::string
 	[[nodiscard]] std::string toStringDec() const;
 	
 	/// @brief Sets the negative flag of the bigint to the passed parameter
