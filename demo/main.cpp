@@ -3,7 +3,6 @@
 #include <iostream>
 #include <regex>
 
-//TODO: CleanUP;
 int main() {
     Calculator calc;
     std::string equation;
