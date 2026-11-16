@@ -38,7 +38,7 @@ int main() {
             ans = calc.operationHandle(num1, op, num2);
             std::cout << "result: " << ans << std::endl;
         } catch (const std::exception& error) {
-            std::err << "ERROR INVALID ARGUMENT << error.what() << std::endl;
+            std::cerr << "ERROR:" << error.what() << std::endl;
                 return 1;
         }
 
