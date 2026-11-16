@@ -38,7 +38,8 @@ int main() {
             ans = calc.operationHandle(num1, op, num2);
             std::cout << "result: " << ans << std::endl;
         } catch (const std::exception& error) {
-            std::cout << "Error Invalid Argument" << std::endl;
+            std::err << "ERROR INVALID ARGUMENT << error.what() << std::endl;
+                return 1;
         }
 
         std::cout << "ans = " << ans << std::endl;
