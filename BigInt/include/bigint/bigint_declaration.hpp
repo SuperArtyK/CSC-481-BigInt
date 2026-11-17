@@ -90,6 +90,7 @@ public:
 
 	template <std::integral T>
 	BigInt(T num) : m_bNegative(false) {
+		cdbg<<"Constructing from an integral type: "<<num<<NLC;
 		this->copyFromInt(num);
 	}
 	
