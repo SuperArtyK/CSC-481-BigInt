@@ -44,6 +44,7 @@ int Calculator::operationHandle(const std::string& num1, char op, const std::str
         case '+': result = left + right; break;
         case '-': result = left - right; break;
         case '*': result = left * right; break;
+        case '%': result = left % right; break;
         case '/':
             if (right == 0) {
                 throw std::invalid_argument("Cannot divide by zero");
