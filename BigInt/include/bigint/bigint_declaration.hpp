@@ -71,17 +71,15 @@ namespace bigint_test {
 }
 
 
-
 /// @brief Big integer type class, copies the functionality of regular integers, but on arbitrary scale.
 /// @note Technical limit for the size of the BigInt is std::size_t*digits(limb_t)
 /// @see limb_t
 /// @see limbDigits
 class BigInt {
 public:
-	
 	/// @brief Default constructor for the class
 	BigInt();
-	
+
 	/// @brief Copy-constructor for the class
 	/// @param bint the bigint to copy values from
 	BigInt(const BigInt& bint);
@@ -89,76 +87,28 @@ public:
 	/// @brief Move-constructor for the class
 	/// @param bint the bigint to move values from
 	BigInt(BigInt&& bint) noexcept;
-	
-	template<std::integral T>
+
+	template <std::integral T>
 	BigInt(T num) : m_bNegative(false) {
 		this->copyFromInt(num);
-	}
-	
-	template<std::integral T>
-	void copyFromInt(const T num) {
-		//clear the bigint, as always
-		this->clear(false);
-		
-		// Riiiight, handling bools with unsigned is ill-formed
-		// I need to handle them separately
-		// don't forget the "remove const-volatile" or it won't proceed!
-		if constexpr (std::is_same<typename std::remove_cv<T>::type, bool>::value) {
-			this->m_lstDigits.push_back(num);
-		}
-		else {
-			//'kay, actual logic is here
-			
-			//unsigned type to handle all
-			using unsigned_t = std::make_unsigned<T>::type;
-			
-			unsigned_t unum;
-			
-			if constexpr (std::is_signed<T>::value) {
-				this->m_bNegative = (num<0);
-				unum = (num < 0) ? unsigned_t(0) - static_cast<unsigned_t>(num) : static_cast<unsigned_t>(num);
-			}
-			else {
-				unum = static_cast<unsigned_t>(num);
-			}
-			
-			if constexpr (std::numeric_limits<T>::max() > STORAGE_MAX) {
-				if (unum > STORAGE_MAX) {
-					while (unum > 0) {
-						this->m_lstDigits.push_back(unum % STORAGE_MASK);
-						unum /= STORAGE_MASK;
-					}
-				}
-				else {
-					this->m_lstDigits.push_back(unum);
-				}
-			}
-			else {
-				this->m_lstDigits.push_back(unum);
-			}
-			
-			
-			
-		}
-		
 	}
 	
 	/// @brief Copy-assignment for the class
 	/// @param bint the bigint to copy values from
 	/// @return Reference to the object after the assignment
 	BigInt& operator=(const BigInt& bint);
-	
+
 	/// @brief Move-assignment for the class
 	/// @param bint the bigint to move values from
 	/// @return Reference to the object after the assignment
 	BigInt& operator=(BigInt&& bint) noexcept;
-	
-	template<std::integral T>
+
+	template <std::integral T>
 	BigInt& operator=(const T num) {
 		this->copyFromInt(num);
 		return *this;
 	}
-	
+
 	/// @brief Set the underlying bigint to 0
 	/// @param shrink Flag whether to shrink the underlying containers to fit (reallocate to size)
 	inline void setToZero(const bool shrink = false);
@@ -166,50 +116,50 @@ public:
 	/// @brief Returns the limb count of the bigint
 	/// @return limb_t value of current total limb count
 	[[nodiscard]] inline std::size_t getLimbCount() const noexcept;
-	
+
 	/// @brief Retrieves the total current digit count of the bigint
 	/// @attention If limbcount exceeds LIMB_DIGITCOUNT_MAX (overflows), it returns 0
 	/// @see BigInt::getLimbCount()
 	/// @return Calculated total digit count as limb_t
 	[[nodiscard]] inline std::uintmax_t getDigitCount() const noexcept;
-	
+
 	/// @brief Retrieves the limb value at the given index, 0-based
 	/// @param index Zero-based limb index, least significant first.
 	/// @note If the index is outside of the bigint's range, returns a 0
 	/// @return limb_t value of the limb at the specified index
 	[[nodiscard]] inline limb_t getLimb(const std::size_t index) const noexcept;
-	
+
 	/// @brief Retrieves the last, **Most** Significant, limb of the Bigint
 	/// @return limb_t value of the last limb
 	[[nodiscard]] inline limb_t getLastLimb() const noexcept;
-	
+
 	/// @brief Returns the first, **Least** Significant, limb of the Bigint
 	/// @return limb_t value of the first limb
 	[[nodiscard]] inline limb_t getFirstLimb() const noexcept;
-	
+
 	/// @brief Returns true if bigint is negative, false otherwise
 	/// @return bool value of the negativity status
 	[[nodiscard]] inline bool isNegative() const noexcept;
-	
+
 	/// @brief Checks whether the bigint has magnitude of 0
 	/// @note It's evaluated to 0 only if it contains only 1 limb, and that limb is equal to 0
 	/// @see BigInt::getLimbCount()
 	/// @see BigInt::getFirstLimb()
 	/// @return True if magnitude is 0, false otherwise
 	[[nodiscard]] inline bool isZero() const noexcept;
-	
+
 	/// @brief Returns the current bigint as string representation, in decimal notation
 	/// @note The length of the string is at most 1 * BigInt::isNegative() + BigInt::getDigitCount()
 	/// @see BigInt::isNegative()
 	/// @see BigInt::getDigitCount()
 	/// @return Decimal string representation of the bigint as std::string
 	[[nodiscard]] std::string toStringDec() const;
-	
+
 	/// @brief Sets the negative flag of the bigint to the passed parameter
 	/// @param neg The negativity status value
 	/// @see BigInt::isNegative()
 	inline void setNegative(const bool neg);
-	
+
 	/// @brief Sets a magnitude limb and normalizes the result.
 	/// @param index Zero-based limb index, least significant first.
 	/// @param value New limb value.
@@ -221,7 +171,7 @@ public:
 	/// @see BigInt::setLimbRaw()
 	/// @see BigInt::normalise()
 	bool setLimb(const std::size_t index, const limb_t value);
-	
+
 	/// @brief Sets a magnitude limb without normalizing the representation.
 	/// @param index Zero-based limb index, least significant first.
 	/// @param value New limb value.
@@ -246,9 +196,8 @@ public:
 	/// @returns True if bigint is normalised, false otherwise
 	/// @see BigInt::isZero()
 	[[nodiscard]] bool isNormalised() const noexcept;
-	
+
 private:
-	
 	/// @brief Completely clear the underlying bigint: clear containers and remove negativity
 	/// @param shrink Flag whether to shrink the underlying containers to fit (reallocate to size)
 	inline void clear(const bool shrink = false);
@@ -256,13 +205,60 @@ private:
 	/// Storage for the limbs
 	/// @see limb_t
 	std::deque<limb_t> m_lstDigits;
-	
+
 	/// Flag to indicate whether the bigint is negative
 	bool m_bNegative;
 	
+	template <std::integral T>
+void copyFromInt(const T num) {
+		//clear the bigint, as always
+		this->clear(false);
+
+		// Riiiight, handling bools with unsigned is ill-formed
+		// I need to handle them separately
+		// don't forget the "remove const-volatile" or it won't proceed!
+		if constexpr (std::is_same<typename std::remove_cv<T>::type, bool>::value) {
+			this->m_lstDigits.push_back(num);
+		}
+		else {
+			//'kay, actual logic is here
+
+			//unsigned type to handle all
+			using unsigned_t = std::make_unsigned<T>::type;
+
+			unsigned_t unum;
+	
+			// just in case the value could be negative
+			if constexpr (std::is_signed<T>::value) {
+				this->m_bNegative = ( num < 0 );
+				unum = ( num < 0 ) ? unsigned_t(0) - static_cast<unsigned_t>(num) : static_cast<unsigned_t>(num);
+			}
+			else {
+				unum = static_cast<unsigned_t>(num);
+			}
+
+			// and if it's bigger than a single limb
+			if constexpr (std::numeric_limits<T>::max() > STORAGE_MAX) {
+				if (unum > STORAGE_MAX) {
+					while (unum > 0) {
+						this->m_lstDigits.push_back(unum % STORAGE_MASK);
+						unum /= STORAGE_MASK;
+					}
+				}
+				else {
+					//awww, I don't wanna repeat codeee
+					this->m_lstDigits.push_back(unum);
+				}
+			}
+			else {
+				this->m_lstDigits.push_back(unum);
+			}
+		}
+	}
+	
+	
 	friend bigint_test::Inspector;
 };
-
 
 
 #endif //CSC_481_BIGINT_BIGINT_DECLARATION_HPP
