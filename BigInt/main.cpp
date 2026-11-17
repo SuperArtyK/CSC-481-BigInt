@@ -14,10 +14,12 @@ using std::cin;
 
 int main() {
     cdbg << "Hello from BigInt!\n";
-    
+    cdbg<<(std::is_same<typename std::remove_cv<const bool>::type, bool>::value)<<NLC;
     dprintf("Answer to life, universe, and everything: %d", 42);
     
-    BigInt b;
+    BigInt b = (unsigned long long)123123123123;
+    b = 1234;
+    cout << b.toStringDec()<<NLC;
     BigInt a = std::move(b);
     std::srand(4);
     
