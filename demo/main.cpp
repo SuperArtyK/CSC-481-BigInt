@@ -12,7 +12,7 @@ int main()
 
     //filter through allowed symbols
     const std::regex format(
-        R"(^\s*(ans|-?\d+)\s*([+*/-])\s*(ans|-?\d+)\s*$)");
+        R"(^\s*(ans|-?\d+)\s*([+*%/-])\s*(ans|-?\d+)\s*$)");
 
     while (true)
     {
