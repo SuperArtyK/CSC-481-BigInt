@@ -4,7 +4,8 @@
 #include <regex>
 
 //ToDo: cleanup main.cpp code
-int main() {
+int main()
+{
     Calculator calc;
     std::string equation;
     int ans = 0;
@@ -13,14 +14,22 @@ int main() {
     const std::regex format(
         R"(^\s*(ans|-?\d+)\s*([+*/-])\s*(ans|-?\d+)\s*$)");
 
-    while (true) {
+    while (true)
+    {
         std::cout << "Enter an equation: ";
-        if (!std::getline(std::cin, equation)) {
+        if (!std::getline(std::cin, equation))
+        {
+            break;
+        }
+
+        if (std::regex_match(equation,std::regex("@exit", std::regex_constants::icase)))
+        {
             break;
         }
 
         std::smatch parts;
-        if (!std::regex_match(equation, parts, format)) {
+        if (!std::regex_match(equation, parts, format))
+        {
             std::cout << "Please Enter a Valid Operation in Format: [number] [arithmetic] [number]" << std::endl;
             continue;
         }
@@ -34,10 +43,13 @@ int main() {
         std::cout << "operation: " << op << std::endl;
         std::cout << "num2: " << num2 << std::endl;
 
-        try {
+        try
+        {
             ans = calc.operationHandle(num1, op, num2);
             std::cout << "result: " << ans << std::endl;
-        } catch (const std::exception& error) {
+        }
+        catch (const std::exception& error)
+        {
             std::cerr << "ERROR:" << error.what() << std::endl;
                 return 1;
         }
