@@ -90,6 +90,58 @@ public:
 	/// @param bint the bigint to move values from
 	BigInt(BigInt&& bint) noexcept;
 	
+	template<std::integral T>
+	BigInt(T num) : m_bNegative(false) {
+		this->copyFromInt(num);
+	}
+	
+	template<std::integral T>
+	void copyFromInt(const T num) {
+		//clear the bigint, as always
+		this->clear(false);
+		
+		// Riiiight, handling bools with unsigned is ill-formed
+		// I need to handle them separately
+		// don't forget the "remove const-volatile" or it won't proceed!
+		if constexpr (std::is_same<typename std::remove_cv<T>::type, bool>::value) {
+			this->m_lstDigits.push_back(num);
+		}
+		else {
+			//'kay, actual logic is here
+			
+			//unsigned type to handle all
+			using unsigned_t = std::make_unsigned<T>::type;
+			
+			unsigned_t unum;
+			
+			if constexpr (std::is_signed<T>::value) {
+				this->m_bNegative = (num<0);
+				unum = (num < 0) ? unsigned_t(0) - static_cast<unsigned_t>(num) : static_cast<unsigned_t>(num);
+			}
+			else {
+				unum = static_cast<unsigned_t>(num);
+			}
+			
+			if constexpr (std::numeric_limits<T>::max() > STORAGE_MAX) {
+				if (unum > STORAGE_MAX) {
+					while (unum > 0) {
+						this->m_lstDigits.push_back(unum % STORAGE_MASK);
+						unum /= STORAGE_MASK;
+					}
+				}
+				else {
+					this->m_lstDigits.push_back(unum);
+				}
+			}
+			else {
+				this->m_lstDigits.push_back(unum);
+			}
+			
+			
+			
+		}
+		
+	}
 	
 	/// @brief Copy-assignment for the class
 	/// @param bint the bigint to copy values from
@@ -100,6 +152,12 @@ public:
 	/// @param bint the bigint to move values from
 	/// @return Reference to the object after the assignment
 	BigInt& operator=(BigInt&& bint) noexcept;
+	
+	template<std::integral T>
+	BigInt& operator=(const T num) {
+		this->copyFromInt(num);
+		return *this;
+	}
 	
 	/// @brief Set the underlying bigint to 0
 	/// @param shrink Flag whether to shrink the underlying containers to fit (reallocate to size)
