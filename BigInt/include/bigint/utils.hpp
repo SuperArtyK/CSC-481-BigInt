@@ -39,88 +39,122 @@ constexpr std::string_view boolToString(const bool val) noexcept {
 	return ( val ) ? "true" : "false";
 }
 
+/// @brief Struct to contain the results of the string validation performed by the function
+struct StrValidation {
+	/// @brief Enum to communicate the status of the validated string
+	enum class ValStatus : int {
+		/// String represents a valid number, conforms to all rules
+		Valid,
+		/// String is empty or full or whitespace characters
+		Empty,
+		/// String doesn't represent a valid number, some rules failed
+		Invalid,
+	};
+
+	/// @brief Integer part of the number
+	/// @remark Sign is excluded
+	/// @note It's empty if string failed the validation
+	std::string_view intPart;
+	/// @brief Decimal fraction part of the number if provided
+	/// @remark Sign and the decimal dot are excluded
+	/// @note It's empty if string failed the validation, or no decimal fraction was detected
+	std::string_view decPart;
+
+	/// @brief The result/status of the validation
+	ValStatus status = ValStatus::Invalid;
+
+	/// @brief Flag to indicate whether the parsed number is negative
+	bool negative = false;
+	/// @brief Flag to indicate whether the decimal fraction part is non-zero
+	bool hasNonZeroFraction = false;
+};
+
 template <typename T>
-    requires (
-        std::numeric_limits<std::remove_cv_t<T>>::is_specialized &&
-        std::numeric_limits<std::remove_cv_t<T>>::is_integer &&
-        std::numeric_limits<std::remove_cv_t<T>>::is_bounded
-    )
+	requires (
+		std::numeric_limits<std::remove_cv_t<T>>::is_specialized &&
+		std::numeric_limits<std::remove_cv_t<T>>::is_integer &&
+		std::numeric_limits<std::remove_cv_t<T>>::is_bounded
+	)
 [[nodiscard]] constexpr std::size_t digitCount(T value) noexcept {
-    using V = std::remove_cv_t<T>;
-    using Limits = std::numeric_limits<V>;
+	using V = std::remove_cv_t<T>;
+	using Limits = std::numeric_limits<V>;
 
-    if constexpr (std::same_as<V, bool>) {
-        return 1;
-    } else {
-        V x = value;
+	if constexpr (std::same_as<V, bool>) {
+		return 1;
+	}
+	else {
+		V x = value;
 
-        // Normalize signed values to negative.
-        if constexpr (Limits::is_signed) {
-            if (x > V{0}) {
-                x = -x;
-            }
-        }
+		// Normalize signed values to negative.
+		if constexpr (Limits::is_signed) {
+			if (x > V{0}) {
+				x = -x;
+			}
+		}
 
-        // Determine the maximum decimal digit count
-        // entirely at compile time.
-        constexpr std::size_t maxDigits = [] {
-            V bound = [] {
-                if constexpr (Limits::is_signed) {
-                    return Limits::lowest();
-                } else {
-                    return Limits::max();
-                }
-            }();
+		// Determine the maximum decimal digit count
+		// entirely at compile time.
+		constexpr std::size_t maxDigits = [] {
+			V bound = [] {
+				if constexpr (Limits::is_signed) {
+					return Limits::lowest();
+				}
+				else {
+					return Limits::max();
+				}
+			}();
 
-            std::size_t n = 1;
+			std::size_t n = 1;
 
-            while ((bound /= 10) != 0) {
-                ++n;
-            }
+			while (( bound /= 10 ) != 0) {
+				++n;
+			}
 
-            return n;
-        }();
+			return n;
+		}();
 
-        // Generate a binary search tree at compile time.
-        const auto search =
-            [&]<std::size_t lo, std::size_t hi>(
-                auto&& self
-            ) -> std::size_t {
-                if constexpr (lo == hi) {
-                    return lo;
-                } else {
-                    constexpr std::size_t mid =
-                        lo + (hi - lo + 1) / 2;
+		// Generate a binary search tree at compile time.
+		const auto search =
+			[&]<std::size_t lo, std::size_t hi>(
+			auto&& self
+		) -> std::size_t {
+			if constexpr (lo == hi) {
+				return lo;
+			}
+			else {
+				constexpr std::size_t mid =
+					lo + ( hi - lo + 1 ) / 2;
 
-                    // Generate the threshold at compile time.
-                    constexpr V threshold = [](std::size_t digits) {
-                        V power = V{1};
+				// Generate the threshold at compile time.
+				constexpr V threshold = [](std::size_t digits) {
+					V power = V{1};
 
-                        if constexpr (Limits::is_signed) {
-                            power = -power;
-                        }
+					if constexpr (Limits::is_signed) {
+						power = -power;
+					}
 
-                        for (std::size_t i = 1; i < digits; ++i) {
-                            power = static_cast<V>(power * 10);
-                        }
+					for (std::size_t i = 1; i < digits; ++i) {
+						power = static_cast<V>(power * 10);
+					}
 
-                        return power;
-                    }(mid);
+					return power;
+				}(mid);
 
-                    if constexpr (Limits::is_signed) {
-                        return x <= threshold
-                            ? self.template operator()<mid, hi>(self)
-                            : self.template operator()<lo, mid - 1>(self);
-                    } else {
-                        return x >= threshold
-                            ? self.template operator()<mid, hi>(self)
-                            : self.template operator()<lo, mid - 1>(self);
-                    }
-                }
-            };
+				if constexpr (Limits::is_signed) {
+					return x <= threshold
+						       ? self.template operator()<mid, hi>(self)
+						       : self.template operator()<lo, mid - 1>(self);
+				}
+				else {
+					return x >= threshold
+						       ? self.template operator()<mid, hi>(self)
+						       : self.template operator()<lo, mid - 1>(self);
+				}
+			}
+		};
 
-        return search.template operator()<1, maxDigits>(search);
-    }
+		return search.template operator()<1, maxDigits>(search);
+	}
 }
 
 #if DEBUGMODE
