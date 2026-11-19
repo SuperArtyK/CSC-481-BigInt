@@ -40,7 +40,7 @@ constexpr std::string_view boolToString(const bool val) noexcept {
 }
 
 template<typename T, typename Y>
-constexpr bool isInRange(const T& low, const T& high, const Y& val, const bool inclusive) {
+constexpr bool isInRange(const T& low, const T& high, const Y& val, const bool inclusive = true) {
 	if (inclusive) {
 		if (val < low || val > high) {
 			return false;
