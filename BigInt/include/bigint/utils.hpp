@@ -39,9 +39,9 @@ constexpr std::string_view boolToString(const bool val) noexcept {
 	return ( val ) ? "true" : "false";
 }
 
-template<typename T, typename Y>
-constexpr bool isInRange(const T& low, const T& high, const Y& val, const bool inclusive = true) {
-	if (inclusive) {
+template<bool inclusive = true, typename T, typename Y>
+constexpr bool isInRange(const T& low, const T& high, const Y& val) {
+	if constexpr (inclusive) {
 		if (val < low || val > high) {
 			return false;
 		}
@@ -54,6 +54,9 @@ constexpr bool isInRange(const T& low, const T& high, const Y& val, const bool i
 	return true;
 }
 
+constexpr bool charIsNum(const char val) noexcept {
+	return isInRange<true, char, char>('0', '9', val);
+}
 
 constexpr std::string_view trimWhitespace(const std::string_view str) noexcept {
 	constexpr std::string_view whitespace = " \t\n\r\f\v";
@@ -196,7 +199,7 @@ StrValidation strIsNum(std::string_view str) noexcept {
 	bool metPoint = false;
 	bool metSign = false;
 	
-	if (str[0] == '+') {
+	if () {
 		
 	}
 	
