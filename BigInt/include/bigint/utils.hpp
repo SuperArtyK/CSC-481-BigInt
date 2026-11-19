@@ -39,6 +39,22 @@ constexpr std::string_view boolToString(const bool val) noexcept {
 	return ( val ) ? "true" : "false";
 }
 
+template<typename T, typename Y>
+constexpr bool isInRange(const T& low, const T& high, const Y& val, const bool inclusive) {
+	if (inclusive) {
+		if (val < low || val > high) {
+			return false;
+		}
+	}
+	else {
+		if (val <= low || val >= high) {
+			return false;
+		}
+	}
+	return true;
+}
+
+
 /// @brief Struct to contain the results of the string validation performed by the function
 struct StrValidation {
 	/// @brief Enum to communicate the status of the validated string
