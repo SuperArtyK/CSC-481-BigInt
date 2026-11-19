@@ -55,6 +55,18 @@ constexpr bool isInRange(const T& low, const T& high, const Y& val, const bool i
 }
 
 
+constexpr std::string_view trimWhitespace(const std::string_view str) noexcept {
+	constexpr std::string_view whitespace = " \t\n\r\f\v";
+
+	const auto first = str.find_first_not_of(whitespace);
+	if (first == std::string_view::npos)
+		return {};
+
+	const auto last = str.find_last_not_of(whitespace);
+	return str.substr(first, last - first + 1);
+}
+
+
 /// @brief Struct to contain the results of the string validation performed by the function
 struct StrValidation {
 	/// @brief Enum to communicate the status of the validated string
