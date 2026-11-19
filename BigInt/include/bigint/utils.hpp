@@ -185,6 +185,30 @@ template <typename T>
 	}
 }
 
+StrValidation strIsNum(std::string_view str) noexcept {
+	
+	str = trimWhitespace(str);
+	
+	if (str.empty()) {
+		return {.status = StrValidation::ValStatus::Empty};
+	}
+	
+	bool metPoint = false;
+	bool metSign = false;
+	
+	if (str[0] == '+') {
+		
+	}
+	
+	
+	for (std::size_t i = 0; i < str.size(); i++) {
+		if ()
+	}
+	
+	
+}
+
+
 #if DEBUGMODE
 /// @brief Macro for the **debug printf()** printing, use the same way as you have used printf before.
 /// Prints "[DEBUG] [filename] [function name that called it::invoked line] -> stuff that you wanted the printf to print"
