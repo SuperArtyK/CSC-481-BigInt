@@ -12,7 +12,7 @@
 
 template <std::integral T>
 BigInt::BigInt(const T num): m_bNegative(false) {
-	cdbg<<"Constructing from an integral type: "<<num<<NLC;
+	cdbg<<"Constructing from an integral type: "<<+num<<NLC;
 	this->copyFromInt(num);
 }
 
