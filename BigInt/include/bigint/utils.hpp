@@ -205,19 +205,17 @@ inline StrValidation strIsNum(std::string_view str) noexcept {
 	// sign work
 	bool metPeriod = false;
 	
-	//optimisation! switch case to also early-exit it
 	switch (str[i]) {
 		
 	case '-': 
 		result.negative = true;
+		[[fallthrough]];
 	case '+':
-		str = str.substr(1); // move the starting char to the next, if it's a sign
-	case '.': 
-		//check if the string is just this single non-numeric char 
-		// (or empty if sign)
-		if (str.size() <= 1) {
+		if (str.size() == 1) {
 			return {.status = StrValidation::ValStatus::Invalid};
 		}
+		str.remove_prefix(1); // move the starting char to the next, if it's a sign
+		break;
 		
 	default:
 		
@@ -236,7 +234,7 @@ inline StrValidation strIsNum(std::string_view str) noexcept {
 	
 	result.intPart = str.substr(0, i);
 	if (metPeriod) {
-		result.decPart = str.substr(i++);
+		result.decPart = str.substr(++i);
 	}
 	
 	//decimal part
@@ -252,9 +250,12 @@ inline StrValidation strIsNum(std::string_view str) noexcept {
 		}
 	}
 	
+	// check if we even scanned any actual digits
+	if (result.intPart.empty() && result.decPart.empty()) {
+		return {.status = StrValidation::ValStatus::Invalid};
+	}
+	
 	result.status = StrValidation::ValStatus::Valid;
-	
-	
 	
 	return result;
 }
