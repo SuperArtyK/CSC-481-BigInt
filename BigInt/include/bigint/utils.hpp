@@ -210,9 +210,11 @@ struct StrValidation {
 	/// @brief The result/status of the validation
 	ValStatus status = ValStatus::Invalid;
 
-	/// @brief Flag to indicate whether the parsed number is negative
+	/// @brief Whether the validated input had a leading minus sign.
+	/// @note May be true even when the numeric value truncates to zero.
 	bool negative = false;
-	/// @brief Flag to indicate whether the decimal fraction part is non-zero
+	/// @brief Whether the fractional portion contains any nonzero digit.
+	/// @note Does not affect integer conversion, but can be used to determine exact numerical ordering in comparisons.
 	bool hasNonZeroFraction = false;
 };
 
