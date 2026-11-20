@@ -193,64 +193,58 @@ inline StrValidation strIsNum(std::string_view str) noexcept {
 	StrValidation result;
 
 	str = trimWhitespace(str);
-
+	
+	// empty string, for some reason
 	if (str.empty()) {
-		result.status = StrValidation::ValStatus::Empty;
-		return result;
+		return {.status = StrValidation::ValStatus::Empty};
 	}
 	
-	bool metPoint = false;
-	bool metSign = false;
-	bool metPointDigits = false;
-
-	if (str[0] == '+') {
-		metSign = true;
-		result.negative = false;
-	}
-	else if (str[0] == '-') {
-		metSign = true;
-		result.negative = true;
-	}
-	
-	if (metSign) {
-		str = str.substr(1);
-	}
-	
+	//assume that the string is at least 1 non-whitespace char 
 	std::size_t i = 0;
+	
+	// sign work
+	bool metPeriod = false;
+	
+	//optimisation! switch case to also early-exit it
+	switch (str[i]) {
+		
+	case '-': 
+		result.negative = true;
+	case '+':
+		str = str.substr(1); // move the starting char to the next, if it's a sign
+	case '.': 
+		//check if the string is just this single non-numeric char 
+		// (or empty if sign)
+		if (str.size() <= 1) {
+			return {.status = StrValidation::ValStatus::Invalid};
+		}
+		
+	default:
+		
+	}
+	
+	//integer part
 	for (; i < str.size(); i++) {
 		if (!charIsNum(str[i])) {
-			if (str[i] == '.' && !metPoint) {
-				// Remember next time damn it
-				// "==" is not assignment, don't glance over it! (bruh)
-				metPoint = true;
-				result.intPart = str.substr(0,i);
-				
-				//advance i to next char after the '.'
-				i++;
-				//...so that the loop below doesn't skip immediately
-				
-				
-				result.decPart = str.substr(i);
+			if (str[i] == '.') {
+				metPeriod = true;
 				break;
 			}
 			return {.status = StrValidation::ValStatus::Invalid};
 		}
 	}
 	
+	result.intPart = str.substr(0, i);
+	if (metPeriod) {
+		result.decPart = str.substr(i++);
+	}
+	
+	//decimal part
 	for (; i < str.size(); i++) {
 		if (!charIsNum(str[i])) {
 			return {.status = StrValidation::ValStatus::Invalid};
 		}
-		if (!metPointDigits) {
-			if (str[i] > '0') {
-				metPointDigits = true;
-				result.hasNonZeroFraction = true;
-			}
-		}
-		
 	}
-	
-	result.status = StrValidation::ValStatus::Valid;
 	
 	return result;
 }
