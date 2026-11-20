@@ -244,7 +244,17 @@ inline StrValidation strIsNum(std::string_view str) noexcept {
 		if (!charIsNum(str[i])) {
 			return {.status = StrValidation::ValStatus::Invalid};
 		}
+		if (!result.hasNonZeroFraction) {
+			if (str[i] > '0') {
+				// literally if larger than 0 (now constrained to 0->9)
+				result.hasNonZeroFraction = true;
+			}
+		}
 	}
+	
+	result.status = StrValidation::ValStatus::Valid;
+	
+	
 	
 	return result;
 }
