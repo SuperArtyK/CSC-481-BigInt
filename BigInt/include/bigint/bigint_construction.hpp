@@ -72,6 +72,10 @@ void BigInt::copyFromInt(const T num) {
 template <std::floating_point T>
 void BigInt::copyFromFloat(const T num) {
 	
+	if (!std::isfinite(num)) {
+		throw std::domain_error("Non-finite floating-point value is not permitted");
+	}
+	
 	// float is close to 0, so round 
 	if (isInRange<false, T,T>(-1,1,num)) {
 		this->setToZero();
