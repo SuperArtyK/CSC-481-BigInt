@@ -175,11 +175,11 @@ struct StrValidation {
 	/// @brief Integer part of the number
 	/// @remark Sign is excluded
 	/// @note It's empty if string failed the validation, or no integers were detected
-	std::string_view intPart;
+	std::string_view intPart{};
 	/// @brief Decimal fraction part of the number if provided
 	/// @remark Sign and the decimal dot are excluded
 	/// @note It's empty if string failed the validation, or no decimal fraction was detected
-	std::string_view decPart;
+	std::string_view decPart{};
 
 	/// @brief The result/status of the validation
 	ValStatus status = ValStatus::Invalid;
