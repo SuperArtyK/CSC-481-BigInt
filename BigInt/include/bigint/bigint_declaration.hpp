@@ -91,6 +91,8 @@ public:
 	template <std::integral T>
 	BigInt(const T num);
 
+	explicit BigInt(const std::string_view str);
+
 	/// @brief Copy-assignment for the class
 	/// @param bint the bigint to copy values from
 	/// @return Reference to the object after the assignment
@@ -103,6 +105,8 @@ public:
 
 	template <std::integral T>
 	BigInt& operator=(const T num);
+	
+	BigInt& operator=(const std::string_view str);
 
 	/// @brief Set the underlying bigint to 0
 	/// @param shrink Flag whether to shrink the underlying containers to fit (reallocate to size)
@@ -191,8 +195,6 @@ public:
 	/// @returns True if bigint is normalised, false otherwise
 	/// @see BigInt::isZero()
 	[[nodiscard]] bool isNormalised() const noexcept;
-
-	
 
 private:
 	template <std::integral T>
