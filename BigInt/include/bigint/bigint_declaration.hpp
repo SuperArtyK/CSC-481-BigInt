@@ -191,7 +191,41 @@ public:
 	/// @returns True if bigint is normalised, false otherwise
 	/// @see BigInt::isZero()
 	[[nodiscard]] bool isNormalised() const noexcept;
-
+	
+	void copyFromString(const std::string_view str) {
+		StrValidation result = strIsNum(str);
+		
+		if (result.status == StrValidation::ValStatus::Invalid) {
+			throw std::invalid_argument{"Passed string is not a number!"};
+		}
+		if (result.status == StrValidation::ValStatus::Empty) {
+			this->setToZero();
+			return;
+		}
+		
+		this->copyFromValidString(result);
+	}
+	
+	void copyFromValidString(const StrValidation result) {
+		
+		const std::string_view str = result.intPart;
+		if (str.empty()) {
+			this->setToZero();
+			return;
+		}
+		
+		this->m_bNegative = result.negative;
+		
+		const std::size_t limbCount = str.size();
+		
+		this->m_lstDigits.resize(limbCount);
+		
+		
+		
+	}
+	
+	
+	
 private:
 	template <std::integral T>
 	void copyFromInt(const T num);
