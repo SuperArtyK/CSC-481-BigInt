@@ -39,7 +39,7 @@ constexpr std::string_view boolToString(const bool val) noexcept {
 	return ( val ) ? "true" : "false";
 }
 
-template<bool inclusive = true, typename T, typename Y>
+template <bool inclusive = true, typename T, typename Y>
 constexpr bool isInRange(const T& low, const T& high, const Y& val) {
 	if constexpr (inclusive) {
 		if (val < low || val > high) {
@@ -189,26 +189,61 @@ template <typename T>
 }
 
 StrValidation strIsNum(std::string_view str) noexcept {
-	
+	StrValidation result;
+
 	str = trimWhitespace(str);
-	
+
 	if (str.empty()) {
-		return {.status = StrValidation::ValStatus::Empty};
+		result.status = StrValidation::ValStatus::Empty;
+		return result;
 	}
 	
 	bool metPoint = false;
 	bool metSign = false;
+	bool metPointDigits = false;
+
+	if (str[0] == '+') {
+		metSign = true;
+		result.negative = false;
+	}
+	else if (str[0] == '-') {
+		metSign = true;
+		result.negative = true;
+	}
 	
-	if () {
+	if (metSign) {
+		str = str.substr(1);
+	}
+	
+	std::size_t i = 0;
+	for (; i < str.size(); i++) {
+		if (!charIsNum(str[i])) {
+			if (str[i] == '.' && !metPoint) {
+				metPoint == true;
+				result.intPart = str.substr(0,i+1);
+				result.decPart = str.substr(i);
+				break;
+			}
+			return {.status = StrValidation::ValStatus::Invalid};
+		}
+	}
+	
+	for (; i < str.size(); i++) {
+		if (!charIsNum(str[i])) {
+			return {.status = StrValidation::ValStatus::Invalid};
+		}
+		if (!metPointDigits) {
+			if (str[i] > '0') {
+				metPointDigits = true;
+				result.hasNonZeroFraction = true;
+			}
+		}
 		
 	}
 	
+	result.status = StrValidation::ValStatus::Valid;
 	
-	for (std::size_t i = 0; i < str.size(); i++) {
-		if ()
-	}
-	
-	
+	return result;
 }
 
 
