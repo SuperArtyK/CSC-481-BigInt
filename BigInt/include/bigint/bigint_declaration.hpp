@@ -202,12 +202,13 @@ public:
 	/// @see BigInt::isZero()
 	[[nodiscard]] bool isNormalised() const noexcept;
 	
-	template<std::floating_point T>
-	void copyFromFloat(const T num);
-
+	
 private:
 	template <std::integral T>
 	void copyFromInt(const T num);
+	
+	template<std::floating_point T>
+	void copyFromFloat(const T num);
 	
 	void copyFromString(const std::string_view str);
 	

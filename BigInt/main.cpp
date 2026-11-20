@@ -7,6 +7,7 @@
 #include <cinttypes>
 #include <cstdint>
 #include <cstdlib>
+#include <float.h>
 
 using std::cout;
 using std::endl;
@@ -28,10 +29,11 @@ int main() {
     a = std::move(c);
     std::srand(4);
     
-    BigInt d;
-    d.copyFromFloat(1e20f);
+    BigInt d = 1234567890.f;
     cout<<d.toStringDec()<<NLC;
-    
+    d = std::numeric_limits<long double>::max();
+    cout<<d.toStringDec()<<NLC;
+
     
     cout<<powersOf10[0]<<NLC;
     cout<<powersOf10[18]<<NLC;
