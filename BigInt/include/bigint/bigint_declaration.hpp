@@ -101,9 +101,12 @@ public:
 	template <std::floating_point T>
 	BigInt(const T num);
 	
-	/// @brief Constructs the bigint from the passed string, if it's a valid number
-	/// @param str The string to copy the numbers from, after validating
-	/// @throw std::invalid_argument If the string is not a valid number
+	/// @brief Constructs a BigInt from decimal numeric text.
+	/// @param str Decimal text to convert.
+	/// @throws std::invalid_argument If the nonempty text is malformed.
+	/// @note Fractional digits are truncated toward zero.
+	/// @note Empty or space/tab-only input produces canonical zero.
+	/// @note Successful conversion produces a normalized representation.
 	/// @see BigInt::copyFromString()
 	explicit BigInt(const std::string_view str);
 
@@ -133,6 +136,8 @@ public:
 	/// @brief Assigns the value of the bigint to the passed string, if it's a valid number
 	/// @param str The string to copy the numbers from, after validating
 	/// @throw std::invalid_argument If the string is not a valid number
+	/// @return Reference to the modified BigInt.
+	/// @note Invalid input preserves the previous stored representation.
 	/// @see BigInt::copyFromString()
 	BigInt& operator=(const std::string_view str);
 
@@ -145,7 +150,9 @@ public:
 	[[nodiscard]] inline std::size_t getLimbCount() const noexcept;
 
 	/// @brief Retrieves the total current digit count of the bigint
+	/// @pre The BigInt is normalized.
 	/// @attention If limbcount exceeds LIMB_DIGITCOUNT_MAX (overflows), it returns 0
+	/// @pre The BigInt is normalized.
 	/// @see BigInt::getLimbCount()
 	/// @return Calculated total digit count as limb_t
 	[[nodiscard]] inline std::uintmax_t getDigitCount() const noexcept;
@@ -157,10 +164,14 @@ public:
 	[[nodiscard]] inline limb_t getLimb(const std::size_t index) const noexcept;
 
 	/// @brief Retrieves the last, **Most** Significant, limb of the Bigint
+	/// @pre The BigInt contains at least one limb.
+	/// @warning Calling this function with empty storage is undefined behavior.
 	/// @return limb_t value of the last limb
 	[[nodiscard]] inline limb_t getLastLimb() const noexcept;
 
 	/// @brief Returns the first, **Least** Significant, limb of the Bigint
+	/// @pre The BigInt contains at least one limb.
+	/// @warning Calling this function with empty storage is undefined behavior.
 	/// @return limb_t value of the first limb
 	[[nodiscard]] inline limb_t getFirstLimb() const noexcept;
 
@@ -169,6 +180,7 @@ public:
 	[[nodiscard]] inline bool isNegative() const noexcept;
 
 	/// @brief Checks whether the bigint has magnitude of 0
+	/// @pre The BigInt is normalized.
 	/// @note It's evaluated to 0 only if it contains only 1 limb, and that limb is equal to 0
 	/// @see BigInt::getLimbCount()
 	/// @see BigInt::getFirstLimb()
@@ -232,10 +244,12 @@ private:
 	template <std::integral T>
 	void copyFromInt(const T num);
 	
-	/// @brief Set the bigint to the passed floating point value
-	/// @tparam T Any float type, according to std::floating_point
-	/// @param num The value of the passed float
-	/// @throw std::domain_error If the passed float is not finite
+	/// @brief Replaces the value with the integer part of a floating-point number.
+	/// @tparam T Floating-point type supported by std::floating_point.
+	/// @param num Floating-point value to convert.
+	/// @throws std::domain_error If the value is NaN or infinity.
+	/// @note Truncates toward zero, preserving the exact integer part of the received floating-point value.
+	/// @note Successful conversion produces a normalized representation.
 	template<std::floating_point T>
 	void copyFromFloat(const T num);
 	
@@ -245,8 +259,11 @@ private:
 	/// @see strIsNum()
 	void copyFromString(const std::string_view str);
 	
-	/// @brief Sets the value of the bigint to the passed validated string
-	/// @param result The validation result of the string, assuming that it's valid
+	/// @brief Replaces the value using prevalidated decimal components.
+	/// @param result Validated numeric components or an Empty validation result.
+	/// @pre The validation status is Valid or Empty.
+	/// @note The fractional part is discarded, and the result is normalized.
+	/// @note Empty input or a zero integer portion produces canonical zero.
 	void copyFromValidString(const StrValidation& result);
 
 	/// @brief Completely clear the underlying bigint: clear containers and remove negativity
