@@ -69,5 +69,26 @@ void BigInt::copyFromInt(const T num) {
 	}
 }
 
+template <std::floating_point T>
+void BigInt::copyFromFloat(const T num) {
+	
+	// float is close to 0, so round 
+	if (isInRange<false, T,T>(-1,1,num)) {
+		this->setToZero();
+	}
+		
+	StrValidation res;
+		
+	//alloc the stack space for char array
+	// YES, we just simply convert the float to a string lmao
+	char fltnum[std::numeric_limits<T>::max_exponent10 + 3]{};
+				
+	res.intPart = std::string_view(fltnum, std::to_chars(fltnum, fltnum + sizeof(fltnum) - 1, std::trunc(std::abs(num))).ptr);
+	res.negative = (num < 0);
+		
+	this->copyFromValidString(res);	
+}
+
+
 
 #endif //CSC_481_BIGINT_BIGINT_CONSTRUCTION_HPP
