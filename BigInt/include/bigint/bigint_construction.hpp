@@ -16,6 +16,13 @@ BigInt::BigInt(const T num): m_bNegative(false) {
 	this->copyFromInt(num);
 }
 
+template <std::floating_point T>
+BigInt::BigInt(const T num): m_bNegative(false) {
+	cdbg<<"Constructing from an floating-point type: "<<num<<NLC;
+	this->copyFromFloat(num);
+}
+
+
 template <std::integral T>
 BigInt& BigInt::operator=(const T num) {
 	this->copyFromInt(num);

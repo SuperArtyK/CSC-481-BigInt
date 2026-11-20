@@ -90,7 +90,10 @@ public:
 
 	template <std::integral T>
 	BigInt(const T num);
-
+	
+	template <std::floating_point T>
+	BigInt(const T num);
+	
 	explicit BigInt(const std::string_view str);
 
 	/// @brief Copy-assignment for the class
