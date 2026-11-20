@@ -6,6 +6,8 @@
 #define CSC_481_BIGINT_BIGINT_CONSTRUCTION_HPP
 
 #include "bigint_declaration.hpp"
+#include <charconv>
+#include <stdexcept>
 
 // all template stuff goes here
 
