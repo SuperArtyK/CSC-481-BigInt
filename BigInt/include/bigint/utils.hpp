@@ -39,67 +39,6 @@ constexpr std::string_view boolToString(const bool val) noexcept {
 	return ( val ) ? "true" : "false";
 }
 
-template <bool inclusive = true, typename T, typename Y>
-constexpr bool isInRange(const T& low, const T& high, const Y& val) {
-	if constexpr (inclusive) {
-		if (val < low || val > high) {
-			return false;
-		}
-	}
-	else {
-		if (val <= low || val >= high) {
-			return false;
-		}
-	}
-	return true;
-}
-
-constexpr bool charIsNum(const char val) noexcept {
-	return isInRange<true, char, char>('0', '9', val);
-}
-
-constexpr std::string_view trimWhitespace(const std::string_view str) noexcept {
-	constexpr std::string_view whitespace = " \t\n\r\f\v";
-
-	const auto first = str.find_first_not_of(whitespace);
-	if (first == std::string_view::npos)
-		return {};
-
-	const auto last = str.find_last_not_of(whitespace);
-	return str.substr(first, last - first + 1);
-}
-
-
-/// @brief Struct to contain the results of the string validation performed by the function
-struct StrValidation {
-	/// @brief Enum to communicate the status of the validated string
-	enum class ValStatus : int {
-		/// String represents a valid number, conforms to all rules
-		Valid,
-		/// String is empty or full or whitespace characters
-		Empty,
-		/// String doesn't represent a valid number, some rules failed
-		Invalid,
-	};
-
-	/// @brief Integer part of the number
-	/// @remark Sign is excluded
-	/// @note It's empty if string failed the validation
-	std::string_view intPart;
-	/// @brief Decimal fraction part of the number if provided
-	/// @remark Sign and the decimal dot are excluded
-	/// @note It's empty if string failed the validation, or no decimal fraction was detected
-	std::string_view decPart;
-
-	/// @brief The result/status of the validation
-	ValStatus status = ValStatus::Invalid;
-
-	/// @brief Flag to indicate whether the parsed number is negative
-	bool negative = false;
-	/// @brief Flag to indicate whether the decimal fraction part is non-zero
-	bool hasNonZeroFraction = false;
-};
-
 template <typename T>
 	requires (
 		std::numeric_limits<std::remove_cv_t<T>>::is_specialized &&
@@ -188,7 +127,69 @@ template <typename T>
 	}
 }
 
-StrValidation strIsNum(std::string_view str) noexcept {
+
+template <bool inclusive = true, typename T, typename Y>
+constexpr bool isInRange(const T& low, const T& high, const Y& val) {
+	if constexpr (inclusive) {
+		if (val < low || val > high) {
+			return false;
+		}
+	}
+	else {
+		if (val <= low || val >= high) {
+			return false;
+		}
+	}
+	return true;
+}
+
+constexpr bool charIsNum(const char val) noexcept {
+	return isInRange<true, char, char>('0', '9', val);
+}
+
+constexpr std::string_view trimWhitespace(const std::string_view str) noexcept {
+	constexpr std::string_view whitespace = " \t\n\r\f\v";
+
+	const auto first = str.find_first_not_of(whitespace);
+	if (first == std::string_view::npos)
+		return {};
+
+	const auto last = str.find_last_not_of(whitespace);
+	return str.substr(first, last - first + 1);
+}
+
+
+/// @brief Struct to contain the results of the string validation performed by the function
+struct StrValidation {
+	/// @brief Enum to communicate the status of the validated string
+	enum class ValStatus : int {
+		/// String represents a valid number, conforms to all rules
+		Valid,
+		/// String is empty or full or whitespace characters
+		Empty,
+		/// String doesn't represent a valid number, some rules failed
+		Invalid,
+	};
+
+	/// @brief Integer part of the number
+	/// @remark Sign is excluded
+	/// @note It's empty if string failed the validation
+	std::string_view intPart;
+	/// @brief Decimal fraction part of the number if provided
+	/// @remark Sign and the decimal dot are excluded
+	/// @note It's empty if string failed the validation, or no decimal fraction was detected
+	std::string_view decPart;
+
+	/// @brief The result/status of the validation
+	ValStatus status = ValStatus::Invalid;
+
+	/// @brief Flag to indicate whether the parsed number is negative
+	bool negative = false;
+	/// @brief Flag to indicate whether the decimal fraction part is non-zero
+	bool hasNonZeroFraction = false;
+};
+
+inline StrValidation strIsNum(std::string_view str) noexcept {
 	StrValidation result;
 
 	str = trimWhitespace(str);
