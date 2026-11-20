@@ -28,6 +28,11 @@ int main() {
     a = std::move(c);
     std::srand(4);
     
+    BigInt d;
+    d.copyFromFloat(1e20f);
+    cout<<d.toStringDec()<<NLC;
+    
+    
     cout<<powersOf10[0]<<NLC;
     cout<<powersOf10[18]<<NLC;
     
