@@ -94,6 +94,7 @@ void BigInt::copyFromFloat(const T num) {
 	// float is close to 0, so round 
 	if (isInRange<false, T,T>(-1,1,num)) {
 		this->setToZero();
+		return;
 	}
 		
 	StrValidation res;
