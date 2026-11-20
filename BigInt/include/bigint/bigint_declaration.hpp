@@ -87,13 +87,24 @@ public:
 	/// @brief Move-constructor for the class
 	/// @param bint the bigint to move values from
 	BigInt(BigInt&& bint) noexcept;
-
+	
+	/// @brief Construct the bigint from the passed integer
+	/// @tparam T Any integer type, according to std::integral
+	/// @param num The value of the passed integer
 	template <std::integral T>
 	BigInt(const T num);
 	
+	/// @brief Construct the bigint from the passed floating point
+	/// @tparam T Any float type, according to std::floating_point
+	/// @param num The value of the passed float
+	/// @throw std::domain_error If the passed float is not finite
 	template <std::floating_point T>
 	BigInt(const T num);
 	
+	/// @brief Constructs the bigint from the passed string, if it's a valid number
+	/// @param str The string to copy the numbers from, after validating
+	/// @throw std::invalid_argument If the string is not a valid number
+	/// @see BigInt::copyFromString()
 	explicit BigInt(const std::string_view str);
 
 	/// @brief Copy-assignment for the class
@@ -106,12 +117,23 @@ public:
 	/// @return Reference to the object after the assignment
 	BigInt& operator=(BigInt&& bint) noexcept;
 
+	/// @brief Assign the bigint to the passed integer value
+	/// @tparam T Any integer type, according to std::integral
+	/// @param num The value of the passed integer
 	template <std::integral T>
 	BigInt& operator=(const T num);
 	
+	/// @brief Assign the bigint to the passed floating point value
+	/// @tparam T Any float type, according to std::floating_point
+	/// @param num The value of the passed float
+	/// @throw std::domain_error If the passed float is not finite
 	template <std::floating_point T>
 	BigInt& operator=(const T num);
 	
+	/// @brief Assigns the value of the bigint to the passed string, if it's a valid number
+	/// @param str The string to copy the numbers from, after validating
+	/// @throw std::invalid_argument If the string is not a valid number
+	/// @see BigInt::copyFromString()
 	BigInt& operator=(const std::string_view str);
 
 	/// @brief Set the underlying bigint to 0
@@ -204,14 +226,27 @@ public:
 	
 	
 private:
+	/// @brief Set the bigint to the passed integer value
+	/// @tparam T Any integer type, according to std::integral
+	/// @param num The value of the passed integer
 	template <std::integral T>
 	void copyFromInt(const T num);
 	
+	/// @brief Set the bigint to the passed floating point value
+	/// @tparam T Any float type, according to std::floating_point
+	/// @param num The value of the passed float
+	/// @throw std::domain_error If the passed float is not finite
 	template<std::floating_point T>
 	void copyFromFloat(const T num);
 	
+	/// @brief Sets the value of the bigint to the passed string, if it's a valid number
+	/// @param str The string to copy the numbers from, after validating
+	/// @throw std::invalid_argument If the string is not a valid number
+	/// @see strIsNum()
 	void copyFromString(const std::string_view str);
 	
+	/// @brief Sets the value of the bigint to the passed validated string
+	/// @param result The validation result of the string, assuming that it's valid
 	void copyFromValidString(const StrValidation& result);
 
 	/// @brief Completely clear the underlying bigint: clear containers and remove negativity
