@@ -109,6 +109,9 @@ public:
 	template <std::integral T>
 	BigInt& operator=(const T num);
 	
+	template <std::floating_point T>
+	BigInt& operator=(const T num);
+	
 	BigInt& operator=(const std::string_view str);
 
 	/// @brief Set the underlying bigint to 0

@@ -29,6 +29,12 @@ BigInt& BigInt::operator=(const T num) {
 	return *this;
 }
 
+template <std::floating_point T>
+BigInt& BigInt::operator=(const T num) {
+	this->copyFromFloat(num);
+	return *this;
+}
+
 template <std::integral T>
 void BigInt::copyFromInt(const T num) {
 	//clear the bigint, as always
@@ -96,7 +102,8 @@ void BigInt::copyFromFloat(const T num) {
 				
 	res.intPart = std::string_view(fltnum, std::to_chars(fltnum, fltnum + sizeof(fltnum) - 1, std::trunc(std::abs(num))).ptr);
 	res.negative = (num < 0);
-		
+	
+	cdbg<<"Converted the passed float to the string and prepared the \"validation result\""<<NLC;
 	this->copyFromValidString(res);	
 }
 
