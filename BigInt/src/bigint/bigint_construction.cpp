@@ -3,7 +3,7 @@
 //
 
 #include "bigint/bigint.hpp"
-
+#include <stdexcept>
 
 BigInt::BigInt(): 
 	m_bNegative(false) {
