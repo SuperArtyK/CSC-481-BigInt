@@ -25,12 +25,14 @@ BigInt::BigInt(const T num): m_bNegative(false) {
 
 template <std::integral T>
 BigInt& BigInt::operator=(const T num) {
+	cdbg<<"Assigning from an integral type: "<<+num<<NLC;
 	this->copyFromInt(num);
 	return *this;
 }
 
 template <std::floating_point T>
 BigInt& BigInt::operator=(const T num) {
+	cdbg<<"Assigning from an floating-point type: "<<num<<NLC;
 	this->copyFromFloat(num);
 	return *this;
 }
