@@ -173,7 +173,7 @@ struct StrValidation {
 
 	/// @brief Integer part of the number
 	/// @remark Sign is excluded
-	/// @note It's empty if string failed the validation
+	/// @note It's empty if string failed the validation, or no integers were detected
 	std::string_view intPart;
 	/// @brief Decimal fraction part of the number if provided
 	/// @remark Sign and the decimal dot are excluded
@@ -218,7 +218,7 @@ inline StrValidation strIsNum(std::string_view str) noexcept {
 		break;
 		
 	default:
-		
+		break;
 	}
 	
 	//integer part
