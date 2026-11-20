@@ -220,7 +220,9 @@ inline StrValidation strIsNum(std::string_view str) noexcept {
 	for (; i < str.size(); i++) {
 		if (!charIsNum(str[i])) {
 			if (str[i] == '.' && !metPoint) {
-				metPoint == true;
+				// Remember next time damn it
+				// "==" is not assignment, don't glance over it! (bruh)
+				metPoint = true;
 				result.intPart = str.substr(0,i+1);
 				result.decPart = str.substr(i);
 				break;
