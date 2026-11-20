@@ -20,7 +20,12 @@ int main() {
     BigInt b = (unsigned long long)123123123123;
     b = 1234;
     cout << b.toStringDec()<<NLC;
+    BigInt c("0000000000111111111122222222223333333333444444444455555555556666666666777777777788888888889999999999");
+    cout<<c.toStringDec()<<NLC;
+    c = "9999999999888888888877777777776666666666555555555544444444443333333333222222222211111111110000000000";
+    cout<<c.toStringDec()<<NLC;
     BigInt a = std::move(b);
+    a = std::move(c);
     std::srand(4);
     
     cout<<powersOf10[0]<<NLC;
