@@ -97,19 +97,20 @@ void BigInt::copyFromFloat(const T num) {
 		return;
 	}
 		
-	StrValidation res;
-		
 	//alloc the stack space for char array
 	// YES, we just simply convert the float to a string lmao
 	char fltnum[std::numeric_limits<T>::max_exponent10 + 3]{};
 	
 	// to the next one digging this code
 	// Do not forget the formatting rules and precision!!
-	res.intPart = std::string_view(fltnum, std::to_chars(fltnum, fltnum + sizeof(fltnum) - 1, std::trunc(std::abs(num)), std::chars_format::fixed, 0).ptr);
-	res.negative = (num < 0);
+	StrValidation result{
+		.intPart = std::string_view(fltnum, std::to_chars(fltnum, fltnum + sizeof(fltnum) - 1, std::trunc(std::abs(num)), std::chars_format::fixed, 0).ptr),
+		.status = StrValidation::ValStatus::Valid,
+		.negative = (num < 0)
+	};
 	
 	cdbg<<"Converted the passed float to the string and prepared the \"validation result\""<<NLC;
-	this->copyFromValidString(res);	
+	this->copyFromValidString(result);
 }
 
 
