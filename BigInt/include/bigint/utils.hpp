@@ -148,7 +148,8 @@ constexpr bool charIsNum(const char val) noexcept {
 }
 
 constexpr std::string_view trimWhitespace(const std::string_view str) noexcept {
-	constexpr std::string_view whitespace = " \t\n\r\f\v";
+	//constexpr std::string_view whitespace = " \t\n\r\f\v";
+	constexpr std::string_view whitespace = " \t";
 
 	const auto first = str.find_first_not_of(whitespace);
 	if (first == std::string_view::npos)
