@@ -62,12 +62,7 @@ void BigInt::copyFromString(const std::string_view str) {
 		cdbg<<"Passed string is sadly invalid"<<NLC;
 		throw std::invalid_argument{"Passed string is not a number!"};
 	}
-	if (result.status == StrValidation::ValStatus::Empty) {
-		cdbg<<"Passed string is empty. Setting bigint to 0 instead"<<NLC;
-		this->setToZero();
-		return;
-	}
-
+	
 	this->copyFromValidString(result);
 }
 
@@ -75,6 +70,13 @@ void BigInt::copyFromValidString(const StrValidation& result) {
 	cdbg<<"Copying values from the validated string."<<NLC;
 	cdbg<<"Integer part size: "<<result.intPart.size()<<"; Fraction part size:"<<result.decPart.size()
 		<<"; Negative: "<<boolToString(result.negative)<<"; Fractional part is non-zero: "<<boolToString(result.hasNonZeroFraction)<<NLC;
+	
+	if (result.status == StrValidation::ValStatus::Empty) {
+		cdbg<<"Passed string is empty. Setting bigint to 0 instead"<<NLC;
+		this->setToZero();
+		return;
+	}
+	
 	
 	std::string_view str = result.intPart;
 
