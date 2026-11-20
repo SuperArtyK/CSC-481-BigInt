@@ -223,7 +223,13 @@ inline StrValidation strIsNum(std::string_view str) noexcept {
 				// Remember next time damn it
 				// "==" is not assignment, don't glance over it! (bruh)
 				metPoint = true;
-				result.intPart = str.substr(0,i+1);
+				result.intPart = str.substr(0,i);
+				
+				//advance i to next char after the '.'
+				i++;
+				//...so that the loop below doesn't skip immediately
+				
+				
 				result.decPart = str.substr(i);
 				break;
 			}
