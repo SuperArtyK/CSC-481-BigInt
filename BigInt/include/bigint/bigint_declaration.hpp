@@ -192,63 +192,15 @@ public:
 	/// @see BigInt::isZero()
 	[[nodiscard]] bool isNormalised() const noexcept;
 
-	void copyFromString(const std::string_view str) {
-		StrValidation result = strIsNum(str);
-
-		if (result.status == StrValidation::ValStatus::Invalid) {
-			throw std::invalid_argument{"Passed string is not a number!"};
-		}
-		if (result.status == StrValidation::ValStatus::Empty) {
-			this->setToZero();
-			return;
-		}
-
-		this->copyFromValidString(result);
-	}
-
-	void copyFromValidString(const StrValidation& result) {
-		std::string_view str = result.intPart;
-
-		// Remove unnecessary leading zeros.
-		const std::size_t first = str.find_first_not_of('0');
-
-		// Empty integer portion or zero magnitude.
-		if (first == std::string_view::npos) {
-			this->setToZero();
-			return;
-		}
-
-		str.remove_prefix(first);
-
-		// Calculate the required number of limbs.
-		const std::size_t limbCount = 1 + ( str.size() - 1 ) / LIMB_DIGITS;
-
-		// Resize storage once.
-		this->m_lstDigits.resize(limbCount);
-
-		// Convert decimal groups from least to most significant.
-		std::size_t end = str.size();
-
-		for (std::size_t i = 0; i < limbCount; ++i) {
-			const std::size_t start = end > LIMB_DIGITS ? end - LIMB_DIGITS : 0;
-
-			limb_t value = 0;
-
-			for (std::size_t j = start; j < end; ++j) {
-				value = value * 10 + static_cast<limb_t>(str[j] - '0');
-			}
-
-			this->m_lstDigits[i] = value;
-			end = start;
-		}
-
-		// Set the sign after successful magnitude construction.
-		this->m_bNegative = result.negative;
-	}
+	
 
 private:
 	template <std::integral T>
 	void copyFromInt(const T num);
+	
+	void copyFromString(const std::string_view str);
+	
+	void copyFromValidString(const StrValidation& result);
 
 	/// @brief Completely clear the underlying bigint: clear containers and remove negativity
 	/// @param shrink Flag whether to shrink the underlying containers to fit (reallocate to size)
