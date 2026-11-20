@@ -35,10 +35,18 @@
 /// @param divisor The divisor of the operation
 #define mod0(dividend, divisor) (!(dividend % divisor))
 
+/// @brief Converts a boolean to its lowercase text representation.
+/// @param val Boolean value to convert.
+/// @return "true" or "false" as a string view.
 constexpr std::string_view boolToString(const bool val) noexcept {
 	return ( val ) ? "true" : "false";
 }
 
+/// @brief Counts the decimal digits needed to represent an integer's magnitude.
+/// @tparam T A bounded integer type with specialized std::numeric_limits.
+/// @param value Integer value to inspect.
+/// @return Number of decimal digits, excluding the sign. Zero has one digit.
+/// @note Supports signed minimum values without negating them.
 template <typename T>
 	requires (
 		std::numeric_limits<std::remove_cv_t<T>>::is_specialized &&
@@ -127,7 +135,15 @@ template <typename T>
 	}
 }
 
-
+/// @brief Checks whether a value lies within the specified bounds.
+/// @tparam inclusive Whether to include the endpoints. Defaults to true.
+/// @tparam T Type of the lower and upper bounds.
+/// @tparam Y Type of the value being checked.
+/// @param low Lower bound.
+/// @param high Upper bound.
+/// @param val Value to check.
+/// @return True if the value satisfies the selected range condition.
+/// @note Assumes the lower bound does not exceed the upper bound.
 template <bool inclusive = true, typename T, typename Y>
 constexpr bool isInRange(const T& low, const T& high, const Y& val) {
 	if constexpr (inclusive) {
@@ -143,10 +159,19 @@ constexpr bool isInRange(const T& low, const T& high, const Y& val) {
 	return true;
 }
 
+/// @brief Checks whether a character is an ASCII decimal digit.
+/// @param val Character to inspect.
+/// @return True for characters '0' through '9'; false otherwise.
+/// @note Does not use locale-dependent character classification.
 constexpr bool charIsNum(const char val) noexcept {
 	return isInRange<true, char, char>('0', '9', val);
 }
 
+/// @brief Removes leading and trailing ASCII spaces and horizontal tabs.
+/// @param str String view to trim.
+/// @return A view of the trimmed input, or an empty view if no characters remain.
+/// @note Does not remove embedded whitespace or modify the input.
+/// @note The returned view does not own the original character storage.
 constexpr std::string_view trimWhitespace(const std::string_view str) noexcept {
 	//constexpr std::string_view whitespace = " \t\n\r\f\v";
 	constexpr std::string_view whitespace = " \t";
@@ -161,6 +186,7 @@ constexpr std::string_view trimWhitespace(const std::string_view str) noexcept {
 
 
 /// @brief Struct to contain the results of the string validation performed by the function
+/// @see strIsNum()
 struct StrValidation {
 	/// @brief Enum to communicate the status of the validated string
 	enum class ValStatus : int {
@@ -190,6 +216,13 @@ struct StrValidation {
 	bool hasNonZeroFraction = false;
 };
 
+/// @brief Validates a decimal numeric string and identifies its components.
+/// @param str String view to validate.
+/// @return Validation status, integer and fractional digit views, and sign metadata.
+/// @note Accepts an optional sign, decimal point, and surrounding ASCII spaces or tabs. At least one decimal digit is required.
+/// @note Empty or space/tab-only input returns ValStatus::Empty. Other malformed input returns ValStatus::Invalid.
+/// @note Returned digit views exclude the sign and decimal point. They retain leading zeroes and may individually be empty.
+/// @note The returned views reference the original input storage. They remain valid only while that storage remains valid.
 inline StrValidation strIsNum(std::string_view str) noexcept {
 	StrValidation result;
 
