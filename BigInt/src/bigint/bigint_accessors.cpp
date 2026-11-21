@@ -96,7 +96,7 @@ void BigInt::normalise() {
 		cdbg << "Bigint has no limbs, setting it to 0" << NLC;
 		this->setToZero();
 	}
-#ifdef DEBUGMODE
+#if DEBUGMODE
 	if (this->getLimbCount() > 1 && this->getLastLimb() == 0) {
 		cdbg << "Non-first limb equals to 0; launching the pop_back loop" << NLC;
 	}
