@@ -123,6 +123,7 @@ public:
 	/// @brief Assign the bigint to the passed integer value
 	/// @tparam T Any integer type, according to std::integral
 	/// @param num The value of the passed integer
+	/// @return Reference to the object after the assignment
 	template <std::integral T>
 	BigInt& operator=(const T num);
 
@@ -130,14 +131,15 @@ public:
 	/// @tparam T Any float type, according to std::floating_point
 	/// @param num The value of the passed float
 	/// @throw std::domain_error If the passed float is not finite
+	/// @return Reference to the object after the assignment
 	template <std::floating_point T>
 	BigInt& operator=(const T num);
 
 	/// @brief Assigns the value of the bigint to the passed string, if it's a valid number
 	/// @param str The string to copy the numbers from, after validating
 	/// @throw std::invalid_argument If the string is not a valid number
-	/// @return Reference to the modified BigInt.
 	/// @note Invalid input preserves the previous stored representation.
+	/// @return Reference to the object after the assignment
 	/// @see BigInt::copyFromString()
 	BigInt& operator=(const std::string_view str);
 
