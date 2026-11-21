@@ -13,5 +13,7 @@ var searchData=
   ['software_20requirements_20specification_10',['BigInteger — Software Requirements Specification',['../d9/df7/md_docs_2SRS.html',1,'']]],
   ['someone_20else_20s_20pull_20request_11',['5. Review someone else&apos;s pull request',['../d4/d0d/md_CLION__WORKFLOW.html#autotoc_md5-review-someone-elses-pull-request',1,'']]],
   ['specification_12',['BigInteger — Software Requirements Specification',['../d9/df7/md_docs_2SRS.html',1,'']]],
-  ['state_13',['4.2 Variables and session state',['../d9/df7/md_docs_2SRS.html#autotoc_md42-variables-and-session-state',1,'']]]
+  ['state_13',['4.2 Variables and session state',['../d9/df7/md_docs_2SRS.html#autotoc_md42-variables-and-session-state',1,'']]],
+  ['status_14',['status',['../d2/da3/structStrValidation.html#a575f4ba2686495ae21c51b8459c80209',1,'StrValidation']]],
+  ['strvalidation_15',['StrValidation',['../d2/da3/structStrValidation.html',1,'']]]
 ];
