@@ -6,6 +6,7 @@
 #define CSC_481_BIGINT_BIGINT_HPP
 
 #include "bigint_declaration.hpp"
+#include "bigint_construction.hpp"
 #include "bigint_accessors.hpp"
 
 
