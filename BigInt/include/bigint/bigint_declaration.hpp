@@ -87,20 +87,20 @@ public:
 	/// @brief Move-constructor for the class
 	/// @param bint the bigint to move values from
 	BigInt(BigInt&& bint) noexcept;
-	
+
 	/// @brief Construct the bigint from the passed integer
 	/// @tparam T Any integer type, according to std::integral
 	/// @param num The value of the passed integer
 	template <std::integral T>
 	BigInt(const T num);
-	
+
 	/// @brief Construct the bigint from the passed floating point
 	/// @tparam T Any float type, according to std::floating_point
 	/// @param num The value of the passed float
 	/// @throw std::domain_error If the passed float is not finite
 	template <std::floating_point T>
 	BigInt(const T num);
-	
+
 	/// @brief Constructs a BigInt from decimal numeric text.
 	/// @param str Decimal text to convert.
 	/// @throws std::invalid_argument If the nonempty text is malformed.
@@ -125,14 +125,14 @@ public:
 	/// @param num The value of the passed integer
 	template <std::integral T>
 	BigInt& operator=(const T num);
-	
+
 	/// @brief Assign the bigint to the passed floating point value
 	/// @tparam T Any float type, according to std::floating_point
 	/// @param num The value of the passed float
 	/// @throw std::domain_error If the passed float is not finite
 	template <std::floating_point T>
 	BigInt& operator=(const T num);
-	
+
 	/// @brief Assigns the value of the bigint to the passed string, if it's a valid number
 	/// @param str The string to copy the numbers from, after validating
 	/// @throw std::invalid_argument If the string is not a valid number
@@ -235,30 +235,29 @@ public:
 	/// @returns True if bigint is normalised, false otherwise
 	/// @see BigInt::isZero()
 	[[nodiscard]] bool isNormalised() const noexcept;
-	
-	
+
 private:
 	/// @brief Set the bigint to the passed integer value
 	/// @tparam T Any integer type, according to std::integral
 	/// @param num The value of the passed integer
 	template <std::integral T>
 	void copyFromInt(const T num);
-	
+
 	/// @brief Replaces the value with the integer part of a floating-point number.
 	/// @tparam T Floating-point type supported by std::floating_point.
 	/// @param num Floating-point value to convert.
 	/// @throws std::domain_error If the value is NaN or infinity.
 	/// @note Truncates toward zero, preserving the exact integer part of the received floating-point value.
 	/// @note Successful conversion produces a normalized representation.
-	template<std::floating_point T>
+	template <std::floating_point T>
 	void copyFromFloat(const T num);
-	
+
 	/// @brief Sets the value of the bigint to the passed string, if it's a valid number
 	/// @param str The string to copy the numbers from, after validating
 	/// @throw std::invalid_argument If the string is not a valid number
 	/// @see strIsNum()
 	void copyFromString(const std::string_view str);
-	
+
 	/// @brief Replaces the value using prevalidated decimal components.
 	/// @param result Validated numeric components or an Empty validation result.
 	/// @pre The validation status is Valid or Empty.

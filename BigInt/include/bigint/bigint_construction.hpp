@@ -13,28 +13,28 @@
 
 
 template <std::integral T>
-BigInt::BigInt(const T num): m_bNegative(false) {
-	cdbg<<"Constructing from an integral type: "<<+num<<NLC;
+BigInt::BigInt(const T num) : m_bNegative(false) {
+	cdbg << "Constructing from an integral type: " << +num << NLC;
 	this->copyFromInt(num);
 }
 
 template <std::floating_point T>
-BigInt::BigInt(const T num): m_bNegative(false) {
-	cdbg<<"Constructing from an floating-point type: "<<num<<NLC;
+BigInt::BigInt(const T num) : m_bNegative(false) {
+	cdbg << "Constructing from an floating-point type: " << num << NLC;
 	this->copyFromFloat(num);
 }
 
 
 template <std::integral T>
 BigInt& BigInt::operator=(const T num) {
-	cdbg<<"Assigning from an integral type: "<<+num<<NLC;
+	cdbg << "Assigning from an integral type: " << +num << NLC;
 	this->copyFromInt(num);
 	return *this;
 }
 
 template <std::floating_point T>
 BigInt& BigInt::operator=(const T num) {
-	cdbg<<"Assigning from an floating-point type: "<<num<<NLC;
+	cdbg << "Assigning from an floating-point type: " << num << NLC;
 	this->copyFromFloat(num);
 	return *this;
 }
@@ -57,7 +57,7 @@ void BigInt::copyFromInt(const T num) {
 		using unsigned_t = std::make_unsigned<T>::type;
 
 		unsigned_t unum;
-	
+
 		// just in case the value could be negative
 		if constexpr (std::is_signed<T>::value) {
 			this->m_bNegative = ( num < 0 );
@@ -88,33 +88,32 @@ void BigInt::copyFromInt(const T num) {
 
 template <std::floating_point T>
 void BigInt::copyFromFloat(const T num) {
-	
 	if (!std::isfinite(num)) {
 		throw std::domain_error("Non-finite floating-point value is not permitted");
 	}
-	
+
 	// float is close to 0, so round 
-	if (isInRange<false, T,T>(-1,1,num)) {
+	if (isInRange<false, T, T>(-1, 1, num)) {
 		this->setToZero();
 		return;
 	}
-		
+
 	//alloc the stack space for char array
 	// YES, we just simply convert the float to a string lmao
 	char fltnum[std::numeric_limits<T>::max_exponent10 + 3]{};
-	
+
 	// to the next one digging this code
 	// Do not forget the formatting rules and precision!!
 	StrValidation result{
-		.intPart = std::string_view(fltnum, std::to_chars(fltnum, fltnum + sizeof(fltnum) - 1, std::trunc(std::abs(num)), std::chars_format::fixed, 0).ptr),
+		.intPart = std::string_view(fltnum, std::to_chars(fltnum, fltnum + sizeof( fltnum ) - 1,
+		                                                  std::trunc(std::abs(num)), std::chars_format::fixed, 0).ptr),
 		.status = StrValidation::ValStatus::Valid,
-		.negative = (num < 0)
+		.negative = ( num < 0 )
 	};
-	
-	cdbg<<"Converted the passed float to the string and prepared the \"validation result\""<<NLC;
+
+	cdbg << "Converted the passed float to the string and prepared the \"validation result\"" << NLC;
 	this->copyFromValidString(result);
 }
-
 
 
 #endif //CSC_481_BIGINT_BIGINT_CONSTRUCTION_HPP

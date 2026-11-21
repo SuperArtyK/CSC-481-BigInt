@@ -229,21 +229,20 @@ inline StrValidation strIsNum(std::string_view str) noexcept {
 	StrValidation result;
 
 	str = trimWhitespace(str);
-	
+
 	// empty string, for some reason
 	if (str.empty()) {
 		return {.status = StrValidation::ValStatus::Empty};
 	}
-	
+
 	//assume that the string is at least 1 non-whitespace char 
 	std::size_t i = 0;
-	
+
 	// sign work
 	bool metPeriod = false;
-	
+
 	switch (str[i]) {
-		
-	case '-': 
+	case '-':
 		result.negative = true;
 		[[fallthrough]];
 	case '+':
@@ -252,11 +251,11 @@ inline StrValidation strIsNum(std::string_view str) noexcept {
 		}
 		str.remove_prefix(1); // move the starting char to the next, if it's a sign
 		break;
-		
+
 	default:
 		break;
 	}
-	
+
 	//integer part
 	for (; i < str.size(); i++) {
 		if (!charIsNum(str[i])) {
@@ -267,12 +266,12 @@ inline StrValidation strIsNum(std::string_view str) noexcept {
 			return {.status = StrValidation::ValStatus::Invalid};
 		}
 	}
-	
+
 	result.intPart = str.substr(0, i);
 	if (metPeriod) {
 		result.decPart = str.substr(++i);
 	}
-	
+
 	//decimal part
 	for (; i < str.size(); i++) {
 		if (!charIsNum(str[i])) {
@@ -285,14 +284,14 @@ inline StrValidation strIsNum(std::string_view str) noexcept {
 			}
 		}
 	}
-	
+
 	// check if we even scanned any actual digits
 	if (result.intPart.empty() && result.decPart.empty()) {
 		return {.status = StrValidation::ValStatus::Invalid};
 	}
-	
+
 	result.status = StrValidation::ValStatus::Valid;
-	
+
 	return result;
 }
 

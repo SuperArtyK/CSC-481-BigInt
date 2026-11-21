@@ -5,32 +5,35 @@
 #include "bigint/bigint.hpp"
 #include <stdexcept>
 
-BigInt::BigInt(): 
+BigInt::BigInt() :
 	m_bNegative(false) {
-	cdbg<<"Constructing empty bigint"<<NLC;
+	cdbg << "Constructing empty bigint" << NLC;
 	this->setToZero(false);
 }
 
-BigInt::BigInt(const BigInt& bint): 
+BigInt::BigInt(const BigInt& bint) :
 	m_lstDigits(bint.m_lstDigits), m_bNegative(bint.m_bNegative) {
-	cdbg<<"Constructing from another bigint, limbs: "<<bint.m_lstDigits.size()<<", is negative:"<<boolToString(bint.m_bNegative)<<NLC;
+	cdbg << "Constructing from another bigint, limbs: " << bint.m_lstDigits.size() << ", is negative:" <<
+		boolToString(bint.m_bNegative) << NLC;
 }
 
 BigInt::BigInt(BigInt&& bint) noexcept {
-	cdbg<<"Moving from another bigint, limbs: "<<bint.m_lstDigits.size()<<", is negative:"<<boolToString(bint.m_bNegative)<<NLC;
+	cdbg << "Moving from another bigint, limbs: " << bint.m_lstDigits.size() << ", is negative:" <<
+		boolToString(bint.m_bNegative) << NLC;
 	this->m_lstDigits = std::move(bint.m_lstDigits);
 	this->m_bNegative = bint.m_bNegative;
 }
 
 BigInt::BigInt(const std::string_view str) {
-	cdbg<<"Constructing from std::string_view; size: "<<str.size()<<NLC;
+	cdbg << "Constructing from std::string_view; size: " << str.size() << NLC;
 	this->copyFromString(str);
 }
 
 BigInt& BigInt::operator=(const BigInt& bint) {
-	cdbg<<"Assigning from another bigint, limbs: "<<bint.m_lstDigits.size()<<", is negative:"<<boolToString(bint.m_bNegative)<<NLC;
+	cdbg << "Assigning from another bigint, limbs: " << bint.m_lstDigits.size() << ", is negative:" <<
+		boolToString(bint.m_bNegative) << NLC;
 	if (this == &bint) {
-		cdbg<<"WARNING: Self assignment detected! Returning early..."<<NLC;
+		cdbg << "WARNING: Self assignment detected! Returning early..." << NLC;
 		return *this;
 	}
 	this->m_lstDigits = bint.m_lstDigits;
@@ -39,9 +42,10 @@ BigInt& BigInt::operator=(const BigInt& bint) {
 }
 
 BigInt& BigInt::operator=(BigInt&& bint) noexcept {
-	cdbg<<"Move-assignment from another bigint, limbs: "<<bint.m_lstDigits.size()<<", is negative:"<<boolToString(bint.m_bNegative)<<NLC;
+	cdbg << "Move-assignment from another bigint, limbs: " << bint.m_lstDigits.size() << ", is negative:" <<
+		boolToString(bint.m_bNegative) << NLC;
 	if (this == &bint) {
-		cdbg<<"WARNING: Self assignment detected! Returning early..."<<NLC;
+		cdbg << "WARNING: Self assignment detected! Returning early..." << NLC;
 		return *this;
 	}
 	this->m_lstDigits = std::move(bint.m_lstDigits);
@@ -50,7 +54,7 @@ BigInt& BigInt::operator=(BigInt&& bint) noexcept {
 }
 
 BigInt& BigInt::operator=(const std::string_view str) {
-	cdbg<<"Assigning from std::string_view; size: "<<str.size()<<NLC;
+	cdbg << "Assigning from std::string_view; size: " << str.size() << NLC;
 	this->copyFromString(str);
 	return *this;
 }
@@ -59,33 +63,34 @@ void BigInt::copyFromString(const std::string_view str) {
 	StrValidation result = strIsNum(str);
 
 	if (result.status == StrValidation::ValStatus::Invalid) {
-		cdbg<<"Passed string is sadly invalid"<<NLC;
+		cdbg << "Passed string is sadly invalid" << NLC;
 		throw std::invalid_argument{"Passed string is not a number!"};
 	}
-	
+
 	this->copyFromValidString(result);
 }
 
 void BigInt::copyFromValidString(const StrValidation& result) {
-	cdbg<<"Copying values from the validated string."<<NLC;
-	cdbg<<"Integer part size: "<<result.intPart.size()<<"; Fraction part size:"<<result.decPart.size()
-		<<"; Negative: "<<boolToString(result.negative)<<"; Fractional part is non-zero: "<<boolToString(result.hasNonZeroFraction)<<NLC;
-	
+	cdbg << "Copying values from the validated string." << NLC;
+	cdbg << "Integer part size: " << result.intPart.size() << "; Fraction part size:" << result.decPart.size()
+		<< "; Negative: " << boolToString(result.negative) << "; Fractional part is non-zero: " << boolToString(
+			result.hasNonZeroFraction) << NLC;
+
 	if (result.status == StrValidation::ValStatus::Empty) {
-		cdbg<<"Passed string is empty. Setting bigint to 0 instead"<<NLC;
+		cdbg << "Passed string is empty. Setting bigint to 0 instead" << NLC;
 		this->setToZero();
 		return;
 	}
-	
-	
+
+
 	std::string_view str = result.intPart;
 
 	// Remove unnecessary leading zeros.
 	const std::size_t first = str.find_first_not_of('0');
-	
+
 	// Empty integer portion or zero magnitude.
 	if (first == std::string_view::npos) {
-		cdbg<<"String is empty after clearing leading 0's. Setting bigint to 0"<<NLC;
+		cdbg << "String is empty after clearing leading 0's. Setting bigint to 0" << NLC;
 		this->setToZero();
 		return;
 	}
@@ -94,8 +99,8 @@ void BigInt::copyFromValidString(const StrValidation& result) {
 
 	// Calculate the required number of limbs.
 	const std::size_t limbCount = 1 + ( str.size() - 1 ) / LIMB_DIGITS;
-	cdbg<<"Calculated limb count: "<<limbCount<<NLC;
-	
+	cdbg << "Calculated limb count: " << limbCount << NLC;
+
 	// Resize storage once.
 	this->m_lstDigits.resize(limbCount);
 
