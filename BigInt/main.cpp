@@ -1,6 +1,5 @@
 
 #include <iostream>
-#include "bigint/utils.hpp"
 #include "bigint/bigint.hpp"
 
 #include <cinttypes>
