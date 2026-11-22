@@ -12,6 +12,10 @@ var searchData=
   ['construction_20and_20decimal_20representation_9',['3.1 Values, construction, and decimal representation',['../d9/df7/md_docs_2SRS.html#autotoc_md31-values-construction-and-decimal-representation',1,'']]],
   ['contract_20and_20api_20classification_10',['3.6 Normalization contract and API classification',['../d9/df7/md_docs_2SRS.html#autotoc_md36-normalization-contract-and-api-classification',1,'']]],
   ['contributing_11',['Contributing',['../d2/dc1/md_CONTRIBUTING.html',1,'']]],
-  ['create_20a_20feature_20branch_12',['1. Create a feature branch',['../d4/d0d/md_CLION__WORKFLOW.html#autotoc_md1-create-a-feature-branch',1,'']]],
-  ['create_20a_20pull_20request_13',['4. Create a pull request',['../d4/d0d/md_CLION__WORKFLOW.html#autotoc_md4-create-a-pull-request',1,'']]]
+  ['copyfromfloat_12',['copyFromFloat',['../da/d5b/classBigInt.html#a4851523d218ff463fee18e9de91b8e4c',1,'BigInt']]],
+  ['copyfromint_13',['copyFromInt',['../da/d5b/classBigInt.html#a30248041550a3cf0c0ab10fca8a77a78',1,'BigInt']]],
+  ['copyfromstring_14',['copyFromString',['../da/d5b/classBigInt.html#afb9ba08a51cfa8ed3803d7cec6c30eb3',1,'BigInt']]],
+  ['copyfromvalidstring_15',['copyFromValidString',['../da/d5b/classBigInt.html#ae38c234c844ed1ac80dbc472e35cbb78',1,'BigInt']]],
+  ['create_20a_20feature_20branch_16',['1. Create a feature branch',['../d4/d0d/md_CLION__WORKFLOW.html#autotoc_md1-create-a-feature-branch',1,'']]],
+  ['create_20a_20pull_20request_17',['4. Create a pull request',['../d4/d0d/md_CLION__WORKFLOW.html#autotoc_md4-create-a-pull-request',1,'']]]
 ];

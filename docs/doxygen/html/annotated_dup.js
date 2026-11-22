@@ -4,5 +4,6 @@ var annotated_dup =
       [ "Inspector", "dc/d6d/structbigint__test_1_1Inspector.html", "dc/d6d/structbigint__test_1_1Inspector" ]
     ] ],
     [ "BigInt", "da/d5b/classBigInt.html", "da/d5b/classBigInt" ],
-    [ "DigitCountTypedTest", "da/d9f/classDigitCountTypedTest.html", null ]
+    [ "DigitCountTypedTest", "da/d9f/classDigitCountTypedTest.html", null ],
+    [ "StrValidation", "d2/da3/structStrValidation.html", "d2/da3/structStrValidation" ]
 ];

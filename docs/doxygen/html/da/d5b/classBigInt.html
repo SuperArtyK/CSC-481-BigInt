@@ -125,13 +125,13 @@ Collaboration diagram for BigInt:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dd/dec/classBigInt__coll__graph.png" border="0" usemap="#aBigInt_coll__map" loading="lazy" alt="Collaboration graph"/></div>
 <map name="aBigInt_coll__map" id="aBigInt_coll__map">
-<area shape="rect" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale." alt="" coords="5,288,384,763"/>
+<area shape="rect" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale." alt="" coords="5,288,384,976"/>
 <area shape="rect" title=" " alt="" coords="75,147,206,216"/>
-<area shape="poly" title=" " alt="" coords="140,213,145,264,146,271,140,271,140,264,139,219"/>
+<area shape="poly" title=" " alt="" coords="140,213,145,264,145,271,140,271,140,264,140,219"/>
 <area shape="rect" title=" " alt="" coords="117,5,163,75"/>
 <area shape="poly" title=" " alt="" coords="140,72,143,130,138,130,140,77"/>
 <area shape="rect" title=" " alt="" coords="232,147,267,216"/>
-<area shape="poly" title=" " alt="" coords="245,213,238,272,233,271,243,218"/>
+<area shape="poly" title=" " alt="" coords="246,213,241,272,236,271,245,219"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -143,10 +143,26 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:adf7c2ffb0aa3ccee9ee814997f673bf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy-constructor for the class.  <br /></td></tr>
 <tr class="memitem:af1de21c1909a005cb8f3036253d3b894" id="r_af1de21c1909a005cb8f3036253d3b894"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af1de21c1909a005cb8f3036253d3b894">BigInt</a> (<a class="el" href="../../da/d5b/classBigInt.html">BigInt</a> &amp;&amp;bint) noexcept</td></tr>
 <tr class="memdesc:af1de21c1909a005cb8f3036253d3b894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-constructor for the class.  <br /></td></tr>
+<tr class="memitem:a1bd57fa96f0281cd0200351d579fc9aa" id="r_a1bd57fa96f0281cd0200351d579fc9aa"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
+<tr class="memitem:a1bd57fa96f0281cd0200351d579fc9aa template"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1bd57fa96f0281cd0200351d579fc9aa">BigInt</a> (const T num)</td></tr>
+<tr class="memdesc:a1bd57fa96f0281cd0200351d579fc9aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the bigint from the passed integer.  <br /></td></tr>
+<tr class="memitem:a1bd57fa96f0281cd0200351d579fc9aa" id="r_a1bd57fa96f0281cd0200351d579fc9aa"><td class="memTemplParams" colspan="2">template&lt;std::floating_point T&gt; </td></tr>
+<tr class="memitem:a1bd57fa96f0281cd0200351d579fc9aa template"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1bd57fa96f0281cd0200351d579fc9aa">BigInt</a> (const T num)</td></tr>
+<tr class="memdesc:a1bd57fa96f0281cd0200351d579fc9aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the bigint from the passed floating point.  <br /></td></tr>
+<tr class="memitem:a93ea9ab2119406fcc1dfdc18924be036" id="r_a93ea9ab2119406fcc1dfdc18924be036"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a93ea9ab2119406fcc1dfdc18924be036">BigInt</a> (const std::string_view str)</td></tr>
+<tr class="memdesc:a93ea9ab2119406fcc1dfdc18924be036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> from decimal numeric text.  <br /></td></tr>
 <tr class="memitem:a6506386510aa772c734109f863e879c8" id="r_a6506386510aa772c734109f863e879c8"><td class="memItemLeft"><a class="el" href="../../da/d5b/classBigInt.html">BigInt</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6506386510aa772c734109f863e879c8">operator=</a> (const <a class="el" href="../../da/d5b/classBigInt.html">BigInt</a> &amp;bint)</td></tr>
 <tr class="memdesc:a6506386510aa772c734109f863e879c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy-assignment for the class.  <br /></td></tr>
 <tr class="memitem:ac7ae12ca3440f88100242876fa975735" id="r_ac7ae12ca3440f88100242876fa975735"><td class="memItemLeft"><a class="el" href="../../da/d5b/classBigInt.html">BigInt</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac7ae12ca3440f88100242876fa975735">operator=</a> (<a class="el" href="../../da/d5b/classBigInt.html">BigInt</a> &amp;&amp;bint) noexcept</td></tr>
 <tr class="memdesc:ac7ae12ca3440f88100242876fa975735"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-assignment for the class.  <br /></td></tr>
+<tr class="memitem:a3715ecb6a523d15685c997e236cf87b9" id="r_a3715ecb6a523d15685c997e236cf87b9"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
+<tr class="memitem:a3715ecb6a523d15685c997e236cf87b9 template"><td class="memItemLeft"><a class="el" href="../../da/d5b/classBigInt.html">BigInt</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3715ecb6a523d15685c997e236cf87b9">operator=</a> (const T num)</td></tr>
+<tr class="memdesc:a3715ecb6a523d15685c997e236cf87b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign the bigint to the passed integer value.  <br /></td></tr>
+<tr class="memitem:a3715ecb6a523d15685c997e236cf87b9" id="r_a3715ecb6a523d15685c997e236cf87b9"><td class="memTemplParams" colspan="2">template&lt;std::floating_point T&gt; </td></tr>
+<tr class="memitem:a3715ecb6a523d15685c997e236cf87b9 template"><td class="memItemLeft"><a class="el" href="../../da/d5b/classBigInt.html">BigInt</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3715ecb6a523d15685c997e236cf87b9">operator=</a> (const T num)</td></tr>
+<tr class="memdesc:a3715ecb6a523d15685c997e236cf87b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign the bigint to the passed floating point value.  <br /></td></tr>
+<tr class="memitem:ab5aa0c2a2a22be674226ecc2fb192bef" id="r_ab5aa0c2a2a22be674226ecc2fb192bef"><td class="memItemLeft"><a class="el" href="../../da/d5b/classBigInt.html">BigInt</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab5aa0c2a2a22be674226ecc2fb192bef">operator=</a> (const std::string_view str)</td></tr>
+<tr class="memdesc:ab5aa0c2a2a22be674226ecc2fb192bef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns the value of the bigint to the passed string, if it's a valid number.  <br /></td></tr>
 <tr class="memitem:aed7862704019b417cb9754feb5e5edec" id="r_aed7862704019b417cb9754feb5e5edec"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aed7862704019b417cb9754feb5e5edec">setToZero</a> (const bool shrink=false)</td></tr>
 <tr class="memdesc:aed7862704019b417cb9754feb5e5edec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the underlying bigint to 0.  <br /></td></tr>
 <tr class="memitem:a364f902e99cfe9e85fdb8629f1a36393" id="r_a364f902e99cfe9e85fdb8629f1a36393"><td class="memItemLeft">std::size_t&#160;</td><td class="memItemRight"><a class="el" href="#a364f902e99cfe9e85fdb8629f1a36393">getLimbCount</a> () const noexcept</td></tr>
@@ -178,6 +194,16 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
+<tr class="memitem:a30248041550a3cf0c0ab10fca8a77a78" id="r_a30248041550a3cf0c0ab10fca8a77a78"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
+<tr class="memitem:a30248041550a3cf0c0ab10fca8a77a78 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a30248041550a3cf0c0ab10fca8a77a78">copyFromInt</a> (const T num)</td></tr>
+<tr class="memdesc:a30248041550a3cf0c0ab10fca8a77a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the bigint to the passed integer value.  <br /></td></tr>
+<tr class="memitem:a4851523d218ff463fee18e9de91b8e4c" id="r_a4851523d218ff463fee18e9de91b8e4c"><td class="memTemplParams" colspan="2">template&lt;std::floating_point T&gt; </td></tr>
+<tr class="memitem:a4851523d218ff463fee18e9de91b8e4c template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4851523d218ff463fee18e9de91b8e4c">copyFromFloat</a> (const T num)</td></tr>
+<tr class="memdesc:a4851523d218ff463fee18e9de91b8e4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the value with the integer part of a floating-point number.  <br /></td></tr>
+<tr class="memitem:afb9ba08a51cfa8ed3803d7cec6c30eb3" id="r_afb9ba08a51cfa8ed3803d7cec6c30eb3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afb9ba08a51cfa8ed3803d7cec6c30eb3">copyFromString</a> (const std::string_view str)</td></tr>
+<tr class="memdesc:afb9ba08a51cfa8ed3803d7cec6c30eb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the bigint to the passed string, if it's a valid number.  <br /></td></tr>
+<tr class="memitem:ae38c234c844ed1ac80dbc472e35cbb78" id="r_ae38c234c844ed1ac80dbc472e35cbb78"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae38c234c844ed1ac80dbc472e35cbb78">copyFromValidString</a> (const <a class="el" href="../../d2/da3/structStrValidation.html">StrValidation</a> &amp;result)</td></tr>
+<tr class="memdesc:ae38c234c844ed1ac80dbc472e35cbb78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the value using prevalidated decimal components.  <br /></td></tr>
 <tr class="memitem:a8edccd25a50ff5ea287c7697973f8f1f" id="r_a8edccd25a50ff5ea287c7697973f8f1f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8edccd25a50ff5ea287c7697973f8f1f">clear</a> (const bool shrink=false)</td></tr>
 <tr class="memdesc:a8edccd25a50ff5ea287c7697973f8f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Completely clear the underlying bigint: clear containers and remove negativity.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -194,10 +220,10 @@ Private Attributes</h2></td></tr>
 <dd>
 limbDigits </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html#l00079">79</a> of file <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html">bigint_declaration.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html#l00078">78</a> of file <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html">bigint_declaration.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af677021c0987fc2a48da06837ed29c58" name="af677021c0987fc2a48da06837ed29c58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af677021c0987fc2a48da06837ed29c58">&#9670;&#160;</a></span>BigInt() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af677021c0987fc2a48da06837ed29c58">&#9670;&#160;</a></span>BigInt() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -230,7 +256,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a id="adf7c2ffb0aa3ccee9ee814997f673bf0" name="adf7c2ffb0aa3ccee9ee814997f673bf0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf7c2ffb0aa3ccee9ee814997f673bf0">&#9670;&#160;</a></span>BigInt() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adf7c2ffb0aa3ccee9ee814997f673bf0">&#9670;&#160;</a></span>BigInt() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -271,7 +297,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a id="af1de21c1909a005cb8f3036253d3b894" name="af1de21c1909a005cb8f3036253d3b894"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1de21c1909a005cb8f3036253d3b894">&#9670;&#160;</a></span>BigInt() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af1de21c1909a005cb8f3036253d3b894">&#9670;&#160;</a></span>BigInt() <span class="overload">[3/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -301,7 +327,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html#l00019">19</a> of file <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html">bigint_construction.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html#l00020">20</a> of file <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html">bigint_construction.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -314,6 +340,177 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="248,16,283,19,278,19,248,21"/>
 <area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="465,5,557,32"/>
 <area shape="poly" title=" " alt="" coords="418,16,453,19,447,19,418,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1bd57fa96f0281cd0200351d579fc9aa" name="a1bd57fa96f0281cd0200351d579fc9aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bd57fa96f0281cd0200351d579fc9aa">&#9670;&#160;</a></span>BigInt() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::floating_point T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">BigInt::BigInt </td>
+          <td>(</td>
+          <td class="paramtype">const T</td>          <td class="paramname"><span class="paramname"><em>num</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct the bigint from the passed integer. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Any integer type, according to std::integral </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>The value of the passed integer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dcf/bigint__construction_8hpp_source.html#l00016">16</a> of file <a class="el" href="../../dd/dcf/bigint__construction_8hpp_source.html">bigint_construction.hpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d5b/classBigInt_a1bd57fa96f0281cd0200351d579fc9aa_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_a1bd57fa96f0281cd0200351d579fc9aa_cgraph" loading="lazy" alt=""/></div>
+<map name="ada/d5b/classBigInt_a1bd57fa96f0281cd0200351d579fc9aa_cgraph" id="ada/d5b/classBigInt_a1bd57fa96f0281cd0200351d579fc9aa_cgraph">
+<area shape="rect" title="Construct the bigint from the passed floating point." alt="" coords="5,5,103,32"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="317,5,414,32"/>
+<area shape="poly" title=" " alt="" coords="103,16,302,16,301,21,103,21"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a6506386510aa772c734109f863e879c8" title="Copy&#45;assignment for the class." alt="" coords="151,31,269,57"/>
+<area shape="poly" title=" " alt="" coords="103,24,138,31,133,32,103,29"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="462,5,584,32"/>
+<area shape="poly" title=" " alt="" coords="415,16,449,19,444,19,415,21"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="632,5,723,32"/>
+<area shape="poly" title=" " alt="" coords="584,16,619,19,614,19,584,21"/>
+<area shape="poly" title=" " alt="" coords="269,32,299,29,304,29,270,37"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1bd57fa96f0281cd0200351d579fc9aa" name="a1bd57fa96f0281cd0200351d579fc9aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bd57fa96f0281cd0200351d579fc9aa">&#9670;&#160;</a></span>BigInt() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::floating_point T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">BigInt::BigInt </td>
+          <td>(</td>
+          <td class="paramtype">const T</td>          <td class="paramname"><span class="paramname"><em>num</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct the bigint from the passed floating point. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Any float type, according to std::floating_point </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>The value of the passed float </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::domain_error</td><td>If the passed float is not finite </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d5b/classBigInt_a1bd57fa96f0281cd0200351d579fc9aa_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_a1bd57fa96f0281cd0200351d579fc9aa_cgraph" loading="lazy" alt=""/></div>
+<map name="ada/d5b/classBigInt_a1bd57fa96f0281cd0200351d579fc9aa_cgraph" id="ada/d5b/classBigInt_a1bd57fa96f0281cd0200351d579fc9aa_cgraph">
+<area shape="rect" title="Construct the bigint from the passed floating point." alt="" coords="5,5,103,32"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="317,5,414,32"/>
+<area shape="poly" title=" " alt="" coords="103,16,302,16,301,21,103,21"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a6506386510aa772c734109f863e879c8" title="Copy&#45;assignment for the class." alt="" coords="151,31,269,57"/>
+<area shape="poly" title=" " alt="" coords="103,24,138,31,133,32,103,29"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="462,5,584,32"/>
+<area shape="poly" title=" " alt="" coords="415,16,449,19,444,19,415,21"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="632,5,723,32"/>
+<area shape="poly" title=" " alt="" coords="584,16,619,19,614,19,584,21"/>
+<area shape="poly" title=" " alt="" coords="269,32,299,29,304,29,270,37"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a93ea9ab2119406fcc1dfdc18924be036" name="a93ea9ab2119406fcc1dfdc18924be036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93ea9ab2119406fcc1dfdc18924be036">&#9670;&#160;</a></span>BigInt() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BigInt::BigInt </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> from decimal numeric text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Decimal text to convert. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>If the nonempty text is malformed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Fractional digits are truncated toward zero. </dd>
+<dd>
+Empty or space/tab-only input produces canonical zero. </dd>
+<dd>
+Successful conversion produces a normalized representation. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#afb9ba08a51cfa8ed3803d7cec6c30eb3" title="Sets the value of the bigint to the passed string, if it&#39;s a valid number.">BigInt::copyFromString()</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html#l00027">27</a> of file <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html">bigint_construction.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d5b/classBigInt_a93ea9ab2119406fcc1dfdc18924be036_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_a93ea9ab2119406fcc1dfdc18924be036_cgraph" loading="lazy" alt=""/></div>
+<map name="ada/d5b/classBigInt_a93ea9ab2119406fcc1dfdc18924be036_cgraph" id="ada/d5b/classBigInt_a93ea9ab2119406fcc1dfdc18924be036_cgraph">
+<area shape="rect" title="Constructs a BigInt from decimal numeric text." alt="" coords="5,5,103,32"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#afb9ba08a51cfa8ed3803d7cec6c30eb3" title="Sets the value of the bigint to the passed string, if it&#39;s a valid number." alt="" coords="151,5,306,32"/>
+<area shape="poly" title=" " alt="" coords="103,16,138,18,133,19,103,21"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#ae38c234c844ed1ac80dbc472e35cbb78" title="Replaces the value using prevalidated decimal components." alt="" coords="354,5,537,32"/>
+<area shape="poly" title=" " alt="" coords="307,16,341,19,336,19,307,21"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="585,5,707,32"/>
+<area shape="poly" title=" " alt="" coords="538,16,573,19,567,19,538,21"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="755,5,846,32"/>
+<area shape="poly" title=" " alt="" coords="707,16,742,19,737,19,707,21"/>
 </map>
 </div>
 
@@ -355,6 +552,233 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a4851523d218ff463fee18e9de91b8e4c" name="a4851523d218ff463fee18e9de91b8e4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4851523d218ff463fee18e9de91b8e4c">&#9670;&#160;</a></span>copyFromFloat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::floating_point T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BigInt::copyFromFloat </td>
+          <td>(</td>
+          <td class="paramtype">const T</td>          <td class="paramname"><span class="paramname"><em>num</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Replaces the value with the integer part of a floating-point number. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Floating-point type supported by std::floating_point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>Floating-point value to convert. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::domain_error</td><td>If the value is NaN or infinity. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Truncates toward zero, preserving the exact integer part of the received floating-point value. </dd>
+<dd>
+Successful conversion produces a normalized representation. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dcf/bigint__construction_8hpp_source.html#l00090">90</a> of file <a class="el" href="../../dd/dcf/bigint__construction_8hpp_source.html">bigint_construction.hpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d5b/classBigInt_a4851523d218ff463fee18e9de91b8e4c_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_a4851523d218ff463fee18e9de91b8e4c_cgraph" loading="lazy" alt=""/></div>
+<map name="ada/d5b/classBigInt_a4851523d218ff463fee18e9de91b8e4c_cgraph" id="ada/d5b/classBigInt_a4851523d218ff463fee18e9de91b8e4c_cgraph">
+<area shape="rect" title="Replaces the value with the integer part of a floating&#45;point number." alt="" coords="5,31,156,57"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#ae38c234c844ed1ac80dbc472e35cbb78" title="Replaces the value using prevalidated decimal components." alt="" coords="204,5,387,32"/>
+<area shape="poly" title=" " alt="" coords="156,32,191,31,185,32,156,38"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="435,31,556,57"/>
+<area shape="poly" title=" " alt="" coords="156,41,420,41,419,47,156,47"/>
+<area shape="poly" title=" " alt="" coords="388,28,422,34,417,34,387,33"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="604,31,696,57"/>
+<area shape="poly" title=" " alt="" coords="557,41,592,44,586,44,557,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a30248041550a3cf0c0ab10fca8a77a78" name="a30248041550a3cf0c0ab10fca8a77a78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30248041550a3cf0c0ab10fca8a77a78">&#9670;&#160;</a></span>copyFromInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::integral T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BigInt::copyFromInt </td>
+          <td>(</td>
+          <td class="paramtype">const T</td>          <td class="paramname"><span class="paramname"><em>num</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the bigint to the passed integer value. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Any integer type, according to std::integral </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>The value of the passed integer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dcf/bigint__construction_8hpp_source.html#l00043">43</a> of file <a class="el" href="../../dd/dcf/bigint__construction_8hpp_source.html">bigint_construction.hpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d5b/classBigInt_a30248041550a3cf0c0ab10fca8a77a78_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_a30248041550a3cf0c0ab10fca8a77a78_cgraph" loading="lazy" alt=""/></div>
+<map name="ada/d5b/classBigInt_a30248041550a3cf0c0ab10fca8a77a78_cgraph" id="ada/d5b/classBigInt_a30248041550a3cf0c0ab10fca8a77a78_cgraph">
+<area shape="rect" title="Set the bigint to the passed integer value." alt="" coords="5,5,142,32"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="190,5,281,32"/>
+<area shape="poly" title=" " alt="" coords="142,16,177,18,172,19,142,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afb9ba08a51cfa8ed3803d7cec6c30eb3" name="afb9ba08a51cfa8ed3803d7cec6c30eb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb9ba08a51cfa8ed3803d7cec6c30eb3">&#9670;&#160;</a></span>copyFromString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BigInt::copyFromString </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the value of the bigint to the passed string, if it's a valid number. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The string to copy the numbers from, after validating </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>If the string is not a valid number </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>strIsNum() </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html#l00062">62</a> of file <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html">bigint_construction.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d5b/classBigInt_afb9ba08a51cfa8ed3803d7cec6c30eb3_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_afb9ba08a51cfa8ed3803d7cec6c30eb3_cgraph" loading="lazy" alt=""/></div>
+<map name="ada/d5b/classBigInt_afb9ba08a51cfa8ed3803d7cec6c30eb3_cgraph" id="ada/d5b/classBigInt_afb9ba08a51cfa8ed3803d7cec6c30eb3_cgraph">
+<area shape="rect" title="Sets the value of the bigint to the passed string, if it&#39;s a valid number." alt="" coords="5,5,161,32"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#ae38c234c844ed1ac80dbc472e35cbb78" title="Replaces the value using prevalidated decimal components." alt="" coords="209,5,392,32"/>
+<area shape="poly" title=" " alt="" coords="161,16,196,19,191,19,161,21"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="440,5,561,32"/>
+<area shape="poly" title=" " alt="" coords="392,16,427,19,422,19,392,21"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="609,5,701,32"/>
+<area shape="poly" title=" " alt="" coords="562,16,597,19,591,19,562,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae38c234c844ed1ac80dbc472e35cbb78" name="ae38c234c844ed1ac80dbc472e35cbb78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae38c234c844ed1ac80dbc472e35cbb78">&#9670;&#160;</a></span>copyFromValidString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BigInt::copyFromValidString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/da3/structStrValidation.html">StrValidation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Replaces the value using prevalidated decimal components. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">result</td><td>Validated numeric components or an Empty validation result. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The validation status is Valid or Empty. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The fractional part is discarded, and the result is normalized. </dd>
+<dd>
+Empty input or a zero integer portion produces canonical zero. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html#l00073">73</a> of file <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html">bigint_construction.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d5b/classBigInt_ae38c234c844ed1ac80dbc472e35cbb78_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_ae38c234c844ed1ac80dbc472e35cbb78_cgraph" loading="lazy" alt=""/></div>
+<map name="ada/d5b/classBigInt_ae38c234c844ed1ac80dbc472e35cbb78_cgraph" id="ada/d5b/classBigInt_ae38c234c844ed1ac80dbc472e35cbb78_cgraph">
+<area shape="rect" title="Replaces the value using prevalidated decimal components." alt="" coords="5,5,189,32"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="237,5,358,32"/>
+<area shape="poly" title=" " alt="" coords="189,16,224,19,219,19,189,21"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="406,5,497,32"/>
+<area shape="poly" title=" " alt="" coords="359,16,393,19,388,19,359,21"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a52a3dd47c689978179bc84b233c1145e" name="a52a3dd47c689978179bc84b233c1145e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a52a3dd47c689978179bc84b233c1145e">&#9670;&#160;</a></span>getDigitCount()</h2>
 
@@ -379,7 +803,9 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Retrieves the total current digit count of the bigint. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> is normalized. </dd></dl>
 <dl class="section attention"><dt>Attention</dt><dd>If limbcount exceeds LIMB_DIGITCOUNT_MAX (overflows), it returns 0 </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> is normalized. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint.">BigInt::getLimbCount()</a> </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Calculated total digit count as limb_t </dd></dl>
 
@@ -423,6 +849,8 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Returns the first, <b>Least</b> Significant, limb of the Bigint. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> contains at least one limb. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Calling this function with empty storage is undefined behavior. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>limb_t value of the first limb </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/dab/bigint__accessors_8hpp_source.html#l00039">39</a> of file <a class="el" href="../../d6/dab/bigint__accessors_8hpp_source.html">bigint_accessors.hpp</a>.</p>
@@ -453,6 +881,8 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Retrieves the last, <b>Most</b> Significant, limb of the Bigint. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> contains at least one limb. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Calling this function with empty storage is undefined behavior. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>limb_t value of the last limb </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/dab/bigint__accessors_8hpp_source.html#l00035">35</a> of file <a class="el" href="../../d6/dab/bigint__accessors_8hpp_source.html">bigint_accessors.hpp</a>.</p>
@@ -585,7 +1015,7 @@ Here is the call graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd>True if bigint is normalised, false otherwise </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="#ab090d1656a4ea58f01ab2fdf37b3af9c" title="Checks whether the bigint has magnitude of 0.">BigInt::isZero()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d72/bigint__accessors_8cpp_source.html#l00118">118</a> of file <a class="el" href="../../d9/d72/bigint__accessors_8cpp_source.html">bigint_accessors.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d72/bigint__accessors_8cpp_source.html#l00116">116</a> of file <a class="el" href="../../d9/d72/bigint__accessors_8cpp_source.html">bigint_accessors.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -632,6 +1062,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Checks whether the bigint has magnitude of 0. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The <a class="el" href="../../da/d5b/classBigInt.html" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale.">BigInt</a> is normalized. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>It's evaluated to 0 only if it contains only 1 limb, and that limb is equal to 0 </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint.">BigInt::getLimbCount()</a> </dd>
 <dd>
@@ -675,7 +1106,7 @@ Here is the call graph for this function:</div>
 Remember to run this after each non-normalising operation that reduces the bigint size. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="#ab090d1656a4ea58f01ab2fdf37b3af9c" title="Checks whether the bigint has magnitude of 0.">BigInt::isZero()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d72/bigint__accessors_8cpp_source.html#l00096">96</a> of file <a class="el" href="../../d9/d72/bigint__accessors_8cpp_source.html">bigint_accessors.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d72/bigint__accessors_8cpp_source.html#l00094">94</a> of file <a class="el" href="../../d9/d72/bigint__accessors_8cpp_source.html">bigint_accessors.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -703,7 +1134,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a id="ac7ae12ca3440f88100242876fa975735" name="ac7ae12ca3440f88100242876fa975735"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7ae12ca3440f88100242876fa975735">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7ae12ca3440f88100242876fa975735">&#9670;&#160;</a></span>operator=() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -734,7 +1165,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the object after the assignment </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html#l00036">36</a> of file <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html">bigint_construction.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html#l00044">44</a> of file <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html">bigint_construction.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -753,7 +1184,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a id="a6506386510aa772c734109f863e879c8" name="a6506386510aa772c734109f863e879c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6506386510aa772c734109f863e879c8">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6506386510aa772c734109f863e879c8">&#9670;&#160;</a></span>operator=() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -776,7 +1207,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the object after the assignment </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html#l00025">25</a> of file <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html">bigint_construction.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html#l00032">32</a> of file <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html">bigint_construction.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -789,6 +1220,171 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="269,16,304,19,299,19,269,21"/>
 <area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="486,5,578,32"/>
 <area shape="poly" title=" " alt="" coords="439,16,474,19,468,19,439,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab5aa0c2a2a22be674226ecc2fb192bef" name="ab5aa0c2a2a22be674226ecc2fb192bef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5aa0c2a2a22be674226ecc2fb192bef">&#9670;&#160;</a></span>operator=() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d5b/classBigInt.html">BigInt</a> &amp; BigInt::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assigns the value of the bigint to the passed string, if it's a valid number. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The string to copy the numbers from, after validating </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>If the string is not a valid number </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Invalid input preserves the previous stored representation. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the object after the assignment </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#afb9ba08a51cfa8ed3803d7cec6c30eb3" title="Sets the value of the bigint to the passed string, if it&#39;s a valid number.">BigInt::copyFromString()</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html#l00056">56</a> of file <a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html">bigint_construction.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d5b/classBigInt_ab5aa0c2a2a22be674226ecc2fb192bef_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_ab5aa0c2a2a22be674226ecc2fb192bef_cgraph" loading="lazy" alt=""/></div>
+<map name="ada/d5b/classBigInt_ab5aa0c2a2a22be674226ecc2fb192bef_cgraph" id="ada/d5b/classBigInt_ab5aa0c2a2a22be674226ecc2fb192bef_cgraph">
+<area shape="rect" title="Assigns the value of the bigint to the passed string, if it&#39;s a valid number." alt="" coords="5,31,124,57"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="418,5,515,32"/>
+<area shape="poly" title=" " alt="" coords="124,38,403,20,403,25,124,43"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#afb9ba08a51cfa8ed3803d7cec6c30eb3" title="Sets the value of the bigint to the passed string, if it&#39;s a valid number." alt="" coords="172,56,327,83"/>
+<area shape="poly" title=" " alt="" coords="124,49,159,56,154,57,124,55"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="606,31,728,57"/>
+<area shape="poly" title=" " alt="" coords="516,22,594,34,588,34,516,27"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="776,31,867,57"/>
+<area shape="poly" title=" " alt="" coords="728,41,763,44,758,44,728,47"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#ae38c234c844ed1ac80dbc472e35cbb78" title="Replaces the value using prevalidated decimal components." alt="" coords="375,56,558,83"/>
+<area shape="poly" title=" " alt="" coords="328,67,362,69,357,69,328,72"/>
+<area shape="poly" title=" " alt="" coords="558,55,588,54,594,53,559,60"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3715ecb6a523d15685c997e236cf87b9" name="a3715ecb6a523d15685c997e236cf87b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3715ecb6a523d15685c997e236cf87b9">&#9670;&#160;</a></span>operator=() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::floating_point T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d5b/classBigInt.html">BigInt</a> &amp; BigInt::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const T</td>          <td class="paramname"><span class="paramname"><em>num</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assign the bigint to the passed floating point value. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Any float type, according to std::floating_point </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>The value of the passed float </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::domain_error</td><td>If the passed float is not finite </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the object after the assignment </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d5b/classBigInt_a3715ecb6a523d15685c997e236cf87b9_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_a3715ecb6a523d15685c997e236cf87b9_cgraph" loading="lazy" alt=""/></div>
+<map name="ada/d5b/classBigInt_a3715ecb6a523d15685c997e236cf87b9_cgraph" id="ada/d5b/classBigInt_a3715ecb6a523d15685c997e236cf87b9_cgraph">
+<area shape="rect" title="Assign the bigint to the passed integer value." alt="" coords="5,31,124,57"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="172,5,269,32"/>
+<area shape="poly" title=" " alt="" coords="124,32,159,28,154,30,125,37"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a30248041550a3cf0c0ab10fca8a77a78" title="Set the bigint to the passed integer value." alt="" coords="317,56,453,83"/>
+<area shape="poly" title=" " alt="" coords="124,46,302,60,300,65,124,51"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="324,5,446,32"/>
+<area shape="poly" title=" " alt="" coords="269,16,312,18,307,19,270,21"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="501,31,593,57"/>
+<area shape="poly" title=" " alt="" coords="446,26,489,35,483,35,446,31"/>
+<area shape="poly" title=" " alt="" coords="453,56,483,54,489,53,454,61"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3715ecb6a523d15685c997e236cf87b9" name="a3715ecb6a523d15685c997e236cf87b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3715ecb6a523d15685c997e236cf87b9">&#9670;&#160;</a></span>operator=() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::floating_point T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d5b/classBigInt.html">BigInt</a> &amp; BigInt::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const T</td>          <td class="paramname"><span class="paramname"><em>num</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assign the bigint to the passed integer value. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Any integer type, according to std::integral </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>The value of the passed integer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the object after the assignment </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dcf/bigint__construction_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../dd/dcf/bigint__construction_8hpp_source.html">bigint_construction.hpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d5b/classBigInt_a3715ecb6a523d15685c997e236cf87b9_cgraph.png" border="0" usemap="#ada/d5b/classBigInt_a3715ecb6a523d15685c997e236cf87b9_cgraph" loading="lazy" alt=""/></div>
+<map name="ada/d5b/classBigInt_a3715ecb6a523d15685c997e236cf87b9_cgraph" id="ada/d5b/classBigInt_a3715ecb6a523d15685c997e236cf87b9_cgraph">
+<area shape="rect" title="Assign the bigint to the passed integer value." alt="" coords="5,31,124,57"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="172,5,269,32"/>
+<area shape="poly" title=" " alt="" coords="124,32,159,28,154,30,125,37"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a30248041550a3cf0c0ab10fca8a77a78" title="Set the bigint to the passed integer value." alt="" coords="317,56,453,83"/>
+<area shape="poly" title=" " alt="" coords="124,46,302,60,300,65,124,51"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="324,5,446,32"/>
+<area shape="poly" title=" " alt="" coords="269,16,312,18,307,19,270,21"/>
+<area shape="rect" href="../../da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="501,31,593,57"/>
+<area shape="poly" title=" " alt="" coords="446,26,489,35,483,35,446,31"/>
+<area shape="poly" title=" " alt="" coords="453,56,483,54,489,53,454,61"/>
 </map>
 </div>
 
@@ -1087,7 +1683,7 @@ Here is the call graph for this function:</div>
 
 <p>Flag to indicate whether the bigint is negative. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html#l00203">203</a> of file <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html">bigint_declaration.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html#l00279">279</a> of file <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html">bigint_declaration.hpp</a>.</p>
 
 </div>
 </div>
@@ -1112,13 +1708,14 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Storage for the limbs </p><dl class="section see"><dt>See also</dt><dd>limb_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html#l00200">200</a> of file <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html">bigint_declaration.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html#l00276">276</a> of file <a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html">bigint_declaration.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>BigInt/include/bigint/<a class="el" href="../../d6/d58/bigint__declaration_8hpp_source.html">bigint_declaration.hpp</a></li>
 <li>BigInt/include/bigint/<a class="el" href="../../d6/dab/bigint__accessors_8hpp_source.html">bigint_accessors.hpp</a></li>
+<li>BigInt/include/bigint/<a class="el" href="../../dd/dcf/bigint__construction_8hpp_source.html">bigint_construction.hpp</a></li>
 <li>BigInt/src/bigint/<a class="el" href="../../d9/d72/bigint__accessors_8cpp_source.html">bigint_accessors.cpp</a></li>
 <li>BigInt/src/bigint/<a class="el" href="../../dd/d84/bigint__construction_8cpp_source.html">bigint_construction.cpp</a></li>
 </ul>

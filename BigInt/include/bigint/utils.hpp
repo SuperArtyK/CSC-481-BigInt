@@ -19,9 +19,8 @@
 // Will probably change it later
 #ifndef DEBUGMODE
 /// @brief Macro to toggle the debug functionality in the library
-/// @TODO Change debug mode to be off by default
-/// That includes debug printing.
-#define DEBUGMODE 1
+/// @note That includes debug output/printing
+#define DEBUGMODE 0
 #endif
 
 /// @brief Macro for quick typing of the new character symbol
@@ -35,93 +34,266 @@
 /// @param divisor The divisor of the operation
 #define mod0(dividend, divisor) (!(dividend % divisor))
 
+/// @brief Converts a boolean to its lowercase text representation.
+/// @param val Boolean value to convert.
+/// @return "true" or "false" as a string view.
 constexpr std::string_view boolToString(const bool val) noexcept {
 	return ( val ) ? "true" : "false";
 }
 
+/// @brief Counts the decimal digits needed to represent an integer's magnitude.
+/// @tparam T A bounded integer type with specialized std::numeric_limits.
+/// @param value Integer value to inspect.
+/// @return Number of decimal digits, excluding the sign. Zero has one digit.
+/// @note Supports signed minimum values without negating them.
 template <typename T>
-    requires (
-        std::numeric_limits<std::remove_cv_t<T>>::is_specialized &&
-        std::numeric_limits<std::remove_cv_t<T>>::is_integer &&
-        std::numeric_limits<std::remove_cv_t<T>>::is_bounded
-    )
+	requires (
+		std::numeric_limits<std::remove_cv_t<T>>::is_specialized &&
+		std::numeric_limits<std::remove_cv_t<T>>::is_integer &&
+		std::numeric_limits<std::remove_cv_t<T>>::is_bounded
+	)
 [[nodiscard]] constexpr std::size_t digitCount(T value) noexcept {
-    using V = std::remove_cv_t<T>;
-    using Limits = std::numeric_limits<V>;
+	using V = std::remove_cv_t<T>;
+	using Limits = std::numeric_limits<V>;
 
-    if constexpr (std::same_as<V, bool>) {
-        return 1;
-    } else {
-        V x = value;
+	if constexpr (std::same_as<V, bool>) {
+		return 1;
+	}
+	else {
+		V x = value;
 
-        // Normalize signed values to negative.
-        if constexpr (Limits::is_signed) {
-            if (x > V{0}) {
-                x = -x;
-            }
-        }
+		// Normalize signed values to negative.
+		if constexpr (Limits::is_signed) {
+			if (x > V{0}) {
+				x = -x;
+			}
+		}
 
-        // Determine the maximum decimal digit count
-        // entirely at compile time.
-        constexpr std::size_t maxDigits = [] {
-            V bound = [] {
-                if constexpr (Limits::is_signed) {
-                    return Limits::lowest();
-                } else {
-                    return Limits::max();
-                }
-            }();
+		// Determine the maximum decimal digit count
+		// entirely at compile time.
+		constexpr std::size_t maxDigits = [] {
+			V bound = [] {
+				if constexpr (Limits::is_signed) {
+					return Limits::lowest();
+				}
+				else {
+					return Limits::max();
+				}
+			}();
 
-            std::size_t n = 1;
+			std::size_t n = 1;
 
-            while ((bound /= 10) != 0) {
-                ++n;
-            }
+			while (( bound /= 10 ) != 0) {
+				++n;
+			}
 
-            return n;
-        }();
+			return n;
+		}();
 
-        // Generate a binary search tree at compile time.
-        const auto search =
-            [&]<std::size_t lo, std::size_t hi>(
-                auto&& self
-            ) -> std::size_t {
-                if constexpr (lo == hi) {
-                    return lo;
-                } else {
-                    constexpr std::size_t mid =
-                        lo + (hi - lo + 1) / 2;
+		// Generate a binary search tree at compile time.
+		const auto search =
+			[&]<std::size_t lo, std::size_t hi>(
+			auto&& self
+		) -> std::size_t {
+			if constexpr (lo == hi) {
+				return lo;
+			}
+			else {
+				constexpr std::size_t mid =
+					lo + ( hi - lo + 1 ) / 2;
 
-                    // Generate the threshold at compile time.
-                    constexpr V threshold = [](std::size_t digits) {
-                        V power = V{1};
+				// Generate the threshold at compile time.
+				constexpr V threshold = [](std::size_t digits) {
+					V power = V{1};
 
-                        if constexpr (Limits::is_signed) {
-                            power = -power;
-                        }
+					if constexpr (Limits::is_signed) {
+						power = -power;
+					}
 
-                        for (std::size_t i = 1; i < digits; ++i) {
-                            power = static_cast<V>(power * 10);
-                        }
+					for (std::size_t i = 1; i < digits; ++i) {
+						power = static_cast<V>(power * 10);
+					}
 
-                        return power;
-                    }(mid);
+					return power;
+				}(mid);
 
-                    if constexpr (Limits::is_signed) {
-                        return x <= threshold
-                            ? self.template operator()<mid, hi>(self)
-                            : self.template operator()<lo, mid - 1>(self);
-                    } else {
-                        return x >= threshold
-                            ? self.template operator()<mid, hi>(self)
-                            : self.template operator()<lo, mid - 1>(self);
-                    }
-                }
-            };
+				if constexpr (Limits::is_signed) {
+					return x <= threshold
+						       ? self.template operator()<mid, hi>(self)
+						       : self.template operator()<lo, mid - 1>(self);
+				}
+				else {
+					return x >= threshold
+						       ? self.template operator()<mid, hi>(self)
+						       : self.template operator()<lo, mid - 1>(self);
+				}
+			}
+		};
 
-        return search.template operator()<1, maxDigits>(search);
-    }
+		return search.template operator()<1, maxDigits>(search);
+	}
 }
+
+/// @brief Checks whether a value lies within the specified bounds.
+/// @tparam inclusive Whether to include the endpoints. Defaults to true.
+/// @tparam T Type of the lower and upper bounds.
+/// @tparam Y Type of the value being checked.
+/// @param low Lower bound.
+/// @param high Upper bound.
+/// @param val Value to check.
+/// @return True if the value satisfies the selected range condition.
+/// @note Assumes the lower bound does not exceed the upper bound.
+template <bool inclusive = true, typename T, typename Y>
+constexpr bool isInRange(const T& low, const T& high, const Y& val) {
+	if constexpr (inclusive) {
+		if (val < low || val > high) {
+			return false;
+		}
+	}
+	else {
+		if (val <= low || val >= high) {
+			return false;
+		}
+	}
+	return true;
+}
+
+/// @brief Checks whether a character is an ASCII decimal digit.
+/// @param val Character to inspect.
+/// @return True for characters '0' through '9'; false otherwise.
+/// @note Does not use locale-dependent character classification.
+constexpr bool charIsNum(const char val) noexcept {
+	return isInRange<true, char, char>('0', '9', val);
+}
+
+/// @brief Removes leading and trailing ASCII spaces and horizontal tabs.
+/// @param str String view to trim.
+/// @return A view of the trimmed input, or an empty view if no characters remain.
+/// @note Does not remove embedded whitespace or modify the input.
+/// @note The returned view does not own the original character storage.
+constexpr std::string_view trimWhitespace(const std::string_view str) noexcept {
+	//constexpr std::string_view whitespace = " \t\n\r\f\v";
+	constexpr std::string_view whitespace = " \t";
+
+	const auto first = str.find_first_not_of(whitespace);
+	if (first == std::string_view::npos)
+		return {};
+
+	const auto last = str.find_last_not_of(whitespace);
+	return str.substr(first, last - first + 1);
+}
+
+
+/// @brief Struct to contain the results of the string validation performed by the function
+/// @see strIsNum()
+struct StrValidation {
+	/// @brief Enum to communicate the status of the validated string
+	enum class ValStatus : int {
+		/// String represents a valid number, conforms to all rules
+		Valid,
+		/// String is empty or full or whitespace characters
+		Empty,
+		/// String doesn't represent a valid number, some rules failed
+		Invalid,
+	};
+
+	/// @brief Integer part of the number
+	/// @remark Sign is excluded
+	/// @note It's empty if string failed the validation, or no integers were detected
+	std::string_view intPart{};
+	/// @brief Decimal fraction part of the number if provided
+	/// @remark Sign and the decimal dot are excluded
+	/// @note It's empty if string failed the validation, or no decimal fraction was detected
+	std::string_view decPart{};
+
+	/// @brief The result/status of the validation
+	ValStatus status = ValStatus::Invalid;
+
+	/// @brief Whether the validated input had a leading minus sign.
+	/// @note May be true even when the numeric value truncates to zero.
+	bool negative = false;
+	/// @brief Whether the fractional portion contains any nonzero digit.
+	/// @note Does not affect integer conversion, but can be used to determine exact numerical ordering in comparisons.
+	bool hasNonZeroFraction = false;
+};
+
+/// @brief Validates a decimal numeric string and identifies its components.
+/// @param str String view to validate.
+/// @return Validation status, integer and fractional digit views, and sign metadata.
+/// @note Accepts an optional sign, decimal point, and surrounding ASCII spaces or tabs. At least one decimal digit is required.
+/// @note Empty or space/tab-only input returns ValStatus::Empty. Other malformed input returns ValStatus::Invalid.
+/// @note Returned digit views exclude the sign and decimal point. They retain leading zeroes and may individually be empty.
+/// @note The returned views reference the original input storage. They remain valid only while that storage remains valid.
+inline StrValidation strIsNum(std::string_view str) noexcept {
+	StrValidation result;
+
+	str = trimWhitespace(str);
+
+	// empty string, for some reason
+	if (str.empty()) {
+		return {.status = StrValidation::ValStatus::Empty};
+	}
+
+	//assume that the string is at least 1 non-whitespace char 
+	std::size_t i = 0;
+
+	// sign work
+	bool metPeriod = false;
+
+	switch (str[i]) {
+	case '-':
+		result.negative = true;
+		[[fallthrough]];
+	case '+':
+		if (str.size() == 1) {
+			return {.status = StrValidation::ValStatus::Invalid};
+		}
+		str.remove_prefix(1); // move the starting char to the next, if it's a sign
+		break;
+
+	default:
+		break;
+	}
+
+	//integer part
+	for (; i < str.size(); i++) {
+		if (!charIsNum(str[i])) {
+			if (str[i] == '.') {
+				metPeriod = true;
+				break;
+			}
+			return {.status = StrValidation::ValStatus::Invalid};
+		}
+	}
+
+	result.intPart = str.substr(0, i);
+	if (metPeriod) {
+		result.decPart = str.substr(++i);
+	}
+
+	//decimal part
+	for (; i < str.size(); i++) {
+		if (!charIsNum(str[i])) {
+			return {.status = StrValidation::ValStatus::Invalid};
+		}
+		if (!result.hasNonZeroFraction) {
+			if (str[i] > '0') {
+				// literally if larger than 0 (now constrained to 0->9)
+				result.hasNonZeroFraction = true;
+			}
+		}
+	}
+
+	// check if we even scanned any actual digits
+	if (result.intPart.empty() && result.decPart.empty()) {
+		return {.status = StrValidation::ValStatus::Invalid};
+	}
+
+	result.status = StrValidation::ValStatus::Valid;
+
+	return result;
+}
+
 
 #if DEBUGMODE
 /// @brief Macro for the **debug printf()** printing, use the same way as you have used printf before.

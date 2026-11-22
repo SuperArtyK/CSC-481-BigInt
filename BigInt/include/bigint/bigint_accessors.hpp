@@ -10,7 +10,7 @@
 
 inline void BigInt::setToZero(const bool shrink) {
 	this->clear(shrink);
-	cdbg<<"Setting to 0: limb 0 is now 0; negative = "<<boolToString(this->m_bNegative)<<NLC;
+	cdbg << "Setting to 0: limb 0 is now 0; negative = " << boolToString(this->m_bNegative) << NLC;
 	this->m_lstDigits.push_back(0);
 }
 
@@ -49,7 +49,7 @@ inline bool BigInt::isZero() const noexcept {
 }
 
 inline void BigInt::setNegative(const bool neg) {
-	cdbg<<"Setting negative to "<<boolToString(neg);
+	cdbg << "Setting negative to " << boolToString(neg);
 	this->m_bNegative = neg;
 }
 
