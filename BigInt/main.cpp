@@ -1,5 +1,4 @@
 
-#define DEBUGMODE 1
 #include <iostream>
 #include "bigint/utils.hpp"
 #include "bigint/bigint.hpp"
