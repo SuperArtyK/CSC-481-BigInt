@@ -92,7 +92,7 @@ void BigInt::copyFromFloat(const T num) {
 		throw std::domain_error("Non-finite floating-point value is not permitted");
 	}
 
-	// float is close to 0, so round 
+	// float is below magnitude 1, so round down
 	if (isInRange<false, T, T>(-1, 1, num)) {
 		this->setToZero();
 		return;

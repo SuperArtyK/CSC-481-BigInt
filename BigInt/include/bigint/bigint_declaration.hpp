@@ -189,11 +189,12 @@ public:
 	/// @return True if magnitude is 0, false otherwise
 	[[nodiscard]] inline bool isZero() const noexcept;
 
-	/// @brief Returns the current bigint as string representation, in decimal notation
+	
+	/// @brief Returns the complete decimal representation of the BigInt.
+	/// @pre The BigInt is normalized.
+	/// @note Zero is represented as "0".
 	/// @note The length of the string is at most 1 * BigInt::isNegative() + BigInt::getDigitCount()
-	/// @see BigInt::isNegative()
-	/// @see BigInt::getDigitCount()
-	/// @return Decimal string representation of the bigint as std::string
+	/// @return Exact decimal text without rounding or scientific notation.
 	[[nodiscard]] std::string toStringDec() const;
 
 	/// @brief Sets the negative flag of the bigint to the passed parameter
