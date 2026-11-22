@@ -239,6 +239,10 @@ public:
 	/// @see BigInt::isZero()
 	[[nodiscard]] bool isNormalised() const noexcept;
 
+	explicit operator bool() const noexcept{
+		return this->isZero();
+	}
+	
 private:
 	/// @brief Set the bigint to the passed integer value
 	/// @tparam T Any integer type, according to std::integral
