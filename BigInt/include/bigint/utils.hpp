@@ -19,9 +19,8 @@
 // Will probably change it later
 #ifndef DEBUGMODE
 /// @brief Macro to toggle the debug functionality in the library
-/// @TODO Change debug mode to be off by default
-/// That includes debug printing.
-#define DEBUGMODE 1
+/// @note That includes debug output/printing
+#define DEBUGMODE 0
 #endif
 
 /// @brief Macro for quick typing of the new character symbol
