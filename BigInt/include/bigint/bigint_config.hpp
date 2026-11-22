@@ -12,4 +12,8 @@
 #define DEBUGMODE 1
 #endif
 
+#ifdef CSC_481_BIGINT_UTILS_HPP
+#error Utils.hpp was included before bigint_config.hpp! Some default settings there overshadow settings here, so make sure ot fix the include order
+#endif
+
 #endif //CSC_481_BIGINT_BIGINT_CONFIG_HPP
