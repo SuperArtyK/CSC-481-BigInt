@@ -5,7 +5,7 @@
 #ifndef CSC_481_BIGINT_BIGINT_DECLARATION_HPP
 #define CSC_481_BIGINT_BIGINT_DECLARATION_HPP
 
-
+#include "bigint_config.hpp"
 #include "utils.hpp"
 #include <deque>
 #include <climits>

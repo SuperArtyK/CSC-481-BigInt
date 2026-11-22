@@ -2,9 +2,7 @@
 // Created by artyk on 11/1/26.
 //
 
-#include "bigint/bigint_declaration.hpp"
-#include "bigint/bigint_accessors.hpp"
-#include "bigint/utils.hpp"
+#include "bigint/bigint.hpp"
 #include <limits>
 #include <stdexcept>
 
