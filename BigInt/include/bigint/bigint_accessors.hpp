@@ -54,7 +54,7 @@ inline void BigInt::setNegative(const bool neg) {
 }
 
 inline BigInt::operator bool() const noexcept {
-	return this->isZero();
+	return !this->isZero();
 }
 
 
