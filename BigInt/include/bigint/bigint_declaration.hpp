@@ -243,7 +243,7 @@ public:
 		return this->isZero();
 	}
 
-	std::string toStringSci(const std::size_t maxSigDig, const bool pad) const {
+	[[nodiscard]] std::string toStringSci(const std::size_t maxSigDig, const bool pad) const {
 		if (!this->isNormalised()) {
 			throw std::logic_error("BigInt must be normalised");
 		}
