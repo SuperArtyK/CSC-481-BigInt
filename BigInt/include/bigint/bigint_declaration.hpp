@@ -322,10 +322,30 @@ private:
 	/// @throws std::logic_error If the BigInt is not normalised.
 	/// @see BigInt::toString()
 	friend inline std::ostream& operator<<(std::ostream& os, const BigInt& value);
+	
+	friend std::istream& operator>>(std::istream& is, BigInt& value);
 };
 
 inline std::ostream& operator<<(std::ostream& os, const BigInt& value) {
 	return os << value.toString();
+}
+
+inline std::istream& operator>>(std::istream& is, BigInt& value) {
+	std::string token;
+
+	if (!(is >> token)) {
+		return is;
+	}
+
+	try {
+		BigInt parsed{std::string_view{token}};
+		value = std::move(parsed);
+	}
+	catch (const std::invalid_argument&) {
+		is.setstate(std::ios::failbit);
+	}
+
+	return is;
 }
 
 #endif //CSC_481_BIGINT_BIGINT_DECLARATION_HPP
