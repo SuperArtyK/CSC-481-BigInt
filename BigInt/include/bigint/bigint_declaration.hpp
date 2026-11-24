@@ -191,16 +191,34 @@ public:
 	[[nodiscard]] inline bool isZero() const noexcept;
 
 
-	/// @brief Returns the complete decimal representation of the BigInt.
-	/// @pre The BigInt is normalized.
+	/// @brief Converts the BigInt to its exact decimal representation.
+	/// @pre The BigInt is normalised.
+	/// @return Decimal text without rounding or scientific notation.
 	/// @note Zero is represented as "0".
-	/// @note The length of the string is at most 1 * BigInt::isNegative() + BigInt::getDigitCount()
-	/// @return Exact decimal text without rounding or scientific notation.
+	/// @throws std::logic_error If the BigInt is not normalised.
+	/// @see BigInt::toString()
 	[[nodiscard]] std::string toStringDec() const;
 
-
+	/// @brief Converts the BigInt to scientific notation.
+	/// @pre The BigInt is normalised.
+	/// @param maxSigDig Maximum number of significant digits; must be positive.
+	/// @param pad If true, pads the mantissa to exactly maxSigDig digits.
+	/// @return Scientific notation with an explicitly signed exponent.
+	/// @note Rounds to nearest, with ties away from zero.
+	/// @note Without padding, trailing zeroes are removed only when the original digit count exceeds maxSigDig.
+	/// @remark Zero is displayed with maxSigDig significant digits,  regardless of the padding setting.
+	/// @throws std::invalid_argument If maxSigDig is zero.
+	/// @throws std::logic_error If the BigInt is not normalised.
+	/// @see BigInt::toString()
 	[[nodiscard]] std::string toStringSci(const std::size_t maxSigDig = 20, const bool pad = false) const;
 
+	/// @brief Converts the BigInt to its default display representation.
+	/// @pre The BigInt is normalised.
+	/// @return Exact decimal text for up to 20 digits; compact scientific notation with up to 20 significant digits otherwise.
+	/// @note Large values may be rounded for display. Use toStringDec() for an exact decimal representation.
+	/// @throws std::logic_error If the BigInt is not normalised.
+	/// @see BigInt::toStringDec()
+	/// @see BigInt::toStringSci()
 	[[nodiscard]] std::string toString() const;
 
 	/// @brief Sets the negative flag of the bigint to the passed parameter
@@ -244,7 +262,12 @@ public:
 	/// @returns True if bigint is normalised, false otherwise
 	/// @see BigInt::isZero()
 	[[nodiscard]] bool isNormalised() const noexcept;
-
+	
+	/// @brief Converts the BigInt to its Boolean value.
+	/// @pre The BigInt is normalised.
+	/// @return False if the value is zero; true otherwise.
+	/// @note Conversion is explicit and does not modify the BigInt.
+	/// @see BigInt::isZero()
 	[[nodiscard]] explicit operator bool() const noexcept;
 
 private:
@@ -289,6 +312,15 @@ private:
 
 	//friendzone :3
 	friend bigint_test::Inspector;
+	
+	/// @brief Writes the BigInt using its default display representation.
+	/// @param os Output stream to write to.
+	/// @param value BigInt value to display.
+	/// @return Reference to the output stream.
+	/// @pre The BigInt is normalised.
+	/// @note Uses toString(); numeric formatting manipulators do not customize the BigInt's numeric representation.
+	/// @throws std::logic_error If the BigInt is not normalised.
+	/// @see BigInt::toString()
 	friend inline std::ostream& operator<<(std::ostream& os, const BigInt& value);
 };
 
