@@ -53,6 +53,10 @@ inline void BigInt::setNegative(const bool neg) {
 	this->m_bNegative = neg;
 }
 
+inline BigInt::operator bool() const noexcept {
+	return this->isZero();
+}
+
 
 inline std::string BigInt::toString() const {
 	if (this->getDigitCount()>20) {

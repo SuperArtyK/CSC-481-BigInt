@@ -244,9 +244,7 @@ public:
 	/// @see BigInt::isZero()
 	[[nodiscard]] bool isNormalised() const noexcept;
 
-	explicit operator bool() const noexcept {
-		return this->isZero();
-	}
+	explicit operator bool() const noexcept;
 
 private:
 	/// @brief Set the bigint to the passed integer value
