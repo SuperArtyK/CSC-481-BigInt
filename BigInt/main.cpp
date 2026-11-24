@@ -16,8 +16,8 @@ int main() {
     
     BigInt a("1234567890123456789012345678901234567890");
     
-    
-    cout<<a.toStringSci(21, false);
+    cout<<"Fixed:   "<<a.toStringDec()<<NLC;
+    cout<<"Decimal: "<<a.toStringSci(21, false)<<NLC;
     
     
     return 0;
