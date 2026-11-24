@@ -7,6 +7,9 @@
 //filter through allowed symbols
 inline const std::regex format(R"(^\s*(ans|-?\d+)\s*([+*%/-])\s*(ans|-?\d+)\s*$)");
 
+bool exitCommand(const std::string& equation);
+bool showVar(const std::string& equation);
+
 class Calculator {
 private:
     int ans;
