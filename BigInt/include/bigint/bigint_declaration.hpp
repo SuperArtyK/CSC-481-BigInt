@@ -243,7 +243,7 @@ public:
 		return this->isZero();
 	}
 
-	[[nodiscard]] std::string toStringSci(const std::size_t maxSigDig, const bool pad) const;
+	[[nodiscard]] std::string toStringSci(const std::size_t maxSigDig = 20, const bool pad = false) const;
 
 private:
 	/// @brief Set the bigint to the passed integer value
