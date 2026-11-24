@@ -17,6 +17,7 @@
 #include <exception>
 #include <ranges>
 #include <string>
+#include <ostream>
 
 /// @brief The underlying type used to store digits in a bigint
 /// @see BigInt
