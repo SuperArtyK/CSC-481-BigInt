@@ -27,6 +27,11 @@ int main()
             break;
         }
 
+        if (std::regex_match(equation, std::regex("@show[ \t]+ans", std ::regex_constants::icase))) {
+            std::cout << "ans = " << ans << std::endl;
+            continue;
+        }
+
         std::smatch parts;
         if (!std::regex_match(equation, parts, format))
         {
