@@ -2,6 +2,7 @@
 #define DEMO_ACCESSORS_HPP
 
 #include <string>
+#include <regex>
 
 //filter through allowed symbols
 inline const std::regex format(R"(^\s*(ans|-?\d+)\s*([+*%/-])\s*(ans|-?\d+)\s*$)");
