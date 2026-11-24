@@ -126,6 +126,51 @@ TEST(BigintStringConversion, ToStringDecRepeatedFormattingIsStable) {
 }
 
 
+TEST(BigintStringConversion, ToStringDecRejectsNonNormalisedRepresentation) {
+	struct Case {
+		std::initializer_list<limb_t> limbs;
+		bool negative;
+		std::string expectedAfterNormalisation;
+	};
+	const Case cases[]{
+		{{}, false, "0"},
+		{{}, true, "0"},
+		{{0}, true, "0"},
+		{{0, 0}, false, "0"},
+		{{0, 0}, true, "0"},
+		{{5, 0}, false, "5"},
+		{{5, 0}, true, "-5"},
+		{{10, 0, 0}, true, "-10"},
+	};
+
+	for (const Case& testCase : cases) {
+		SCOPED_TRACE(
+			::testing::Message()
+				<< "Input limbs: "
+				<< ::testing::PrintToString(std::vector<limb_t>(testCase.limbs))
+				<< ", negative: " << testCase.negative
+		);
+
+		BigInt value;
+		tester::load(value, testCase.limbs, testCase.negative);
+		ASSERT_FALSE(value.isNormalised());
+
+		const BigInt& constantValue = value;
+		EXPECT_THROW(constantValue.toStringDec(), std::logic_error);
+		expectRepresentation(
+			value,
+			std::vector<limb_t>(testCase.limbs),
+			testCase.negative
+		);
+
+		// Formatting does not repair the representation; the caller must.
+		value.normalise();
+		ASSERT_TRUE(value.isNormalised());
+		EXPECT_EQ(constantValue.toStringDec(), testCase.expectedAfterNormalisation);
+	}
+}
+
+
 namespace {
 
 struct SciCase {
