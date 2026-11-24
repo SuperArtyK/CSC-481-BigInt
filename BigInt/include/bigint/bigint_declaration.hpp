@@ -189,7 +189,7 @@ public:
 	/// @return True if magnitude is 0, false otherwise
 	[[nodiscard]] inline bool isZero() const noexcept;
 
-	
+
 	/// @brief Returns the complete decimal representation of the BigInt.
 	/// @pre The BigInt is normalized.
 	/// @note Zero is represented as "0".
@@ -239,10 +239,101 @@ public:
 	/// @see BigInt::isZero()
 	[[nodiscard]] bool isNormalised() const noexcept;
 
-	explicit operator bool() const noexcept{
+	explicit operator bool() const noexcept {
 		return this->isZero();
 	}
-	
+
+	std::string toStringSci(const std::size_t maxSigDig, const bool pad) const {
+		if (!this->isNormalised()) {
+			throw std::logic_error(
+				"Violation of precondition: BigInt must be normalized"
+			);
+		}
+
+		if (maxSigDig == 0) {
+			throw std::invalid_argument(
+				"Maximum significant digits must be positive"
+			);
+		}
+
+		// Obtain exact decimal digits.
+		const std::string decimal = this->toStringDec();
+
+		std::string_view magnitude(decimal);
+
+		if (this->isNegative()) {
+			magnitude.remove_prefix(1);
+		}
+
+		std::size_t exponent = magnitude.size() - 1;
+
+		// Scientific zero uses the requested precision.
+		if (this->isZero()) {
+			std::string result = "0";
+
+			if (maxSigDig > 1) {
+				result += '.';
+				result.append(maxSigDig - 1, '0');
+			}
+
+			return result + "e+0";
+		}
+
+		const bool needsRounding = magnitude.size() > maxSigDig;
+		const std::size_t digitsToKeep =
+			std::min(maxSigDig, magnitude.size());
+
+		std::string digits(magnitude.substr(0, digitsToKeep));
+
+		// Round to nearest, ties away from zero.
+		if (needsRounding && magnitude[maxSigDig] >= '5') {
+			std::size_t i = digits.size();
+
+			while (i > 0 && digits[i - 1] == '9') {
+				digits[--i] = '0';
+			}
+
+			if (i == 0) {
+				digits[0] = '1';
+				++exponent;
+			}
+			else {
+				++digits[i - 1];
+			}
+		}
+
+		// Trim only if digits were discarded.
+		if (needsRounding && !pad) {
+			while (digits.size() > 1 && digits.back() == '0') {
+				digits.pop_back();
+			}
+		}
+
+		// Pad significant digits if requested.
+		if (pad && digits.size() < maxSigDig) {
+			digits.append(maxSigDig - digits.size(), '0');
+		}
+
+		// Assemble scientific notation.
+		std::string result;
+
+		if (this->isNegative()) {
+			result.push_back('-');
+		}
+
+		result.push_back(digits[0]);
+
+		if (digits.size() > 1) {
+			result.push_back('.');
+			result.append(digits, 1, std::string::npos);
+		}
+
+		result += "e+";
+		result += std::to_string(exponent);
+
+		return result;
+	}
+
 private:
 	/// @brief Set the bigint to the passed integer value
 	/// @tparam T Any integer type, according to std::integral
