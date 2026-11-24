@@ -10,10 +10,6 @@ int main()
     std::string equation;
     int ans = 0;
 
-    //filter through allowed symbols
-    const std::regex format(
-        R"(^\s*(ans|-?\d+)\s*([+*%/-])\s*(ans|-?\d+)\s*$)");
-
     while (true)
     {
         std::cout << "Enter an equation: ";
