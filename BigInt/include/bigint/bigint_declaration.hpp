@@ -275,6 +275,15 @@ public:
 		return *this;
 	}
 	
+	[[nodiscard]] inline BigInt operator+() const {
+		return *this;
+	}
+	
+	[[nodiscard]] inline BigInt operator-() const {
+		BigInt temp = *this;
+		temp.negate();
+		return temp;
+	}
 	
 	
 	
