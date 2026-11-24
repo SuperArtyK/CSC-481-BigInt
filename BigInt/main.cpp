@@ -16,8 +16,9 @@ int main() {
     
     BigInt a("1234567890123456789012345678901234567890");
     
-    cout<<"Fixed:   "<<a.toStringDec()<<NLC;
+    cout<<"Decimal:    "<<a.toStringDec()<<NLC;
     cout<<"Scientific: "<<a.toStringSci(21, false)<<NLC;
+    cout<<"Default:    "<<a.toString()<<NLC;
     
     
     return 0;

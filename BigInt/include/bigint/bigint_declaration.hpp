@@ -244,7 +244,13 @@ public:
 	}
 
 	[[nodiscard]] std::string toStringSci(const std::size_t maxSigDig = 20, const bool pad = false) const;
-
+	
+	[[nodiscard]] inline std::string toString() const {
+		if (this->getDigitCount()>20) {
+			return this->toStringSci();
+		}
+		return this->toStringDec();
+	}
 private:
 	/// @brief Set the bigint to the passed integer value
 	/// @tparam T Any integer type, according to std::integral
