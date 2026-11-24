@@ -52,6 +52,10 @@ bool BigInt::setLimbRaw(const std::size_t index, const limb_t value) {
 }
 
 std::string BigInt::toStringDec() const {
+	if (!this->isNormalised()) {
+		throw std::logic_error("BigInt must be normalised");
+	}
+	
 	if (this->isZero()) {
 		return "0";
 	}
