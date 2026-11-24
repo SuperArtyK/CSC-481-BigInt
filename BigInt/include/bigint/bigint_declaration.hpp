@@ -245,87 +245,70 @@ public:
 
 	std::string toStringSci(const std::size_t maxSigDig, const bool pad) const {
 		if (!this->isNormalised()) {
-			throw std::logic_error(
-				"Violation of precondition: BigInt must be normalized"
-			);
+			throw std::logic_error("BigInt must be normalised");
 		}
 
 		if (maxSigDig == 0) {
-			throw std::invalid_argument(
-				"Maximum significant digits must be positive"
-			);
+			throw std::invalid_argument("Precision must be positive");
 		}
 
-		// Obtain exact decimal digits.
-		const std::string decimal = this->toStringDec();
+		std::string result = this->toStringDec();
 
-		std::string_view magnitude(decimal);
-
-		if (this->isNegative()) {
-			magnitude.remove_prefix(1);
-		}
-
-		std::size_t exponent = magnitude.size() - 1;
-
-		// Scientific zero uses the requested precision.
-		if (this->isZero()) {
-			std::string result = "0";
-
+		// Special handling for zero.
+		if (result == "0") {
 			if (maxSigDig > 1) {
-				result += '.';
+				result.push_back('.');
 				result.append(maxSigDig - 1, '0');
 			}
 
 			return result + "e+0";
 		}
 
-		const bool needsRounding = magnitude.size() > maxSigDig;
-		const std::size_t digitsToKeep =
-			std::min(maxSigDig, magnitude.size());
+		const std::size_t signOffset = this->isNegative() ? 1 : 0;
+		const std::size_t digitCount = result.size() - signOffset;
+		const bool needsRounding = digitCount > maxSigDig;
 
-		std::string digits(magnitude.substr(0, digitsToKeep));
+		std::size_t exponent = digitCount - 1;
 
-		// Round to nearest, ties away from zero.
-		if (needsRounding && magnitude[maxSigDig] >= '5') {
-			std::size_t i = digits.size();
+		if (needsRounding) {
+			// Save the first discarded digit before truncating.
+			const char roundingDigit = result[signOffset + maxSigDig];
+			result.resize(signOffset + maxSigDig);
 
-			while (i > 0 && digits[i - 1] == '9') {
-				digits[--i] = '0';
+			// Round to nearest, ties away from zero.
+			if (roundingDigit >= '5') {
+				std::size_t i = result.size();
+
+				// Propagate carry through trailing nines.
+				while (i > signOffset && result[i - 1] == '9') {
+					result[--i] = '0';
+				}
+
+				if (i == signOffset) {
+					// All retained digits were nines.
+					result[signOffset] = '1';
+					++exponent;
+				}
+				else {
+					++result[i - 1];
+				}
 			}
 
-			if (i == 0) {
-				digits[0] = '1';
-				++exponent;
-			}
-			else {
-				++digits[i - 1];
-			}
-		}
-
-		// Trim only if digits were discarded.
-		if (needsRounding && !pad) {
-			while (digits.size() > 1 && digits.back() == '0') {
-				digits.pop_back();
+			// Remove trailing zeroes only if digits were discarded.
+			if (!pad) {
+				while (result.size() > signOffset + 1 &&
+					result.back() == '0') {
+					result.pop_back();
+				}
 			}
 		}
-
-		// Pad significant digits if requested.
-		if (pad && digits.size() < maxSigDig) {
-			digits.append(maxSigDig - digits.size(), '0');
+		else if (pad) {
+			result.append(maxSigDig - digitCount, '0');
 		}
 
-		// Assemble scientific notation.
-		std::string result;
-
-		if (this->isNegative()) {
-			result.push_back('-');
-		}
-
-		result.push_back(digits[0]);
-
-		if (digits.size() > 1) {
-			result.push_back('.');
-			result.append(digits, 1, std::string::npos);
+		// Insert decimal point after the first significant digit.
+		if (result.size() > signOffset + 1) {
+			result.insert(signOffset + 1, 1, '.');
 		}
 
 		result += "e+";
