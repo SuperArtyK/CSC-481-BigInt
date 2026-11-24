@@ -289,6 +289,7 @@ private:
 
 	//friendzone :3
 	friend bigint_test::Inspector;
+	friend inline std::ostream& operator<<(std::ostream& os, const BigInt& value);
 };
 
 inline std::ostream& operator<<(std::ostream& os, const BigInt& value) {
