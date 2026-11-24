@@ -197,6 +197,11 @@ public:
 	/// @return Exact decimal text without rounding or scientific notation.
 	[[nodiscard]] std::string toStringDec() const;
 
+
+	[[nodiscard]] std::string toStringSci(const std::size_t maxSigDig = 20, const bool pad = false) const;
+
+	[[nodiscard]] std::string toString() const;
+
 	/// @brief Sets the negative flag of the bigint to the passed parameter
 	/// @param neg The negativity status value
 	/// @see BigInt::isNegative()
@@ -243,14 +248,6 @@ public:
 		return this->isZero();
 	}
 
-	[[nodiscard]] std::string toStringSci(const std::size_t maxSigDig = 20, const bool pad = false) const;
-	
-	[[nodiscard]] inline std::string toString() const {
-		if (this->getDigitCount()>20) {
-			return this->toStringSci();
-		}
-		return this->toStringDec();
-	}
 private:
 	/// @brief Set the bigint to the passed integer value
 	/// @tparam T Any integer type, according to std::integral

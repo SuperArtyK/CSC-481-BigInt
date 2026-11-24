@@ -54,6 +54,13 @@ inline void BigInt::setNegative(const bool neg) {
 }
 
 
+inline std::string BigInt::toString() const {
+	if (this->getDigitCount()>20) {
+		return this->toStringSci();
+	}
+	return this->toStringDec();
+}
+
 inline void BigInt::clear(const bool shrink) {
 	cdbg << "Clearing the bigint; shrinking = " << boolToString(shrink) << NLC;
 	this->m_lstDigits.clear();
