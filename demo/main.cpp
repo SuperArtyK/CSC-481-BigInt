@@ -18,22 +18,30 @@ int main()
             break;
         }
 
-        if (std::regex_match(equation,std::regex("@exit", std::regex_constants::icase)))
-        {
+        if (exitCommand(equation)) {
             break;
         }
 
+        if (showVar(equation)) {
+            std::cout << "ans = " << ans << std::endl;
+            continue;
+        }
+        
+        //This is a comment to showcase my verison of the code. Please work o nthe version you feel more confortable with.
+        /*
         if (std::regex_match(equation, std::regex("@show[ \t]+ans", std ::regex_constants::icase))) {
             std::cout << "ans = " << ans << std::endl;
             continue;
         }
-
+        */
+        
         std::smatch parts;
         if (!std::regex_match(equation, parts, format))
         {
             std::cout << "Please Enter a Valid Operation in Format: [number] [arithmetic] [number]" << std::endl;
             continue;
         }
+
 
         std::string num1 = parts[1].str();
         char op = parts[2].str()[0];
