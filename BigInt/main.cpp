@@ -19,6 +19,7 @@ int main() {
     cout<<"Decimal:    "<<a.toStringDec()<<NLC;
     cout<<"Scientific: "<<a.toStringSci(20, true)<<NLC;
     cout<<"Default:    "<<a.toString()<<NLC;
+    cout<<"ostream<<:  "<<a<<NLC;
     
     
     return 0;

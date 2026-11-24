@@ -292,5 +292,8 @@ private:
 	friend bigint_test::Inspector;
 };
 
+inline std::ostream& operator<<(std::ostream& os, const BigInt& value) {
+	return os << value.toString();
+}
 
 #endif //CSC_481_BIGINT_BIGINT_DECLARATION_HPP
