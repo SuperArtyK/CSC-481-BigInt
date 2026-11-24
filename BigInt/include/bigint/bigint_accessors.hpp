@@ -59,6 +59,10 @@ inline BigInt::operator bool() const noexcept {
 
 
 inline std::string BigInt::toString() const {
+	if (!this->isNormalised()) {
+		throw std::logic_error("BigInt must be normalised");
+	}
+	
 	if (this->getDigitCount()>20) {
 		return this->toStringSci();
 	}
