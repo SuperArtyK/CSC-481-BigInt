@@ -1,14 +1,24 @@
 #include "bigint/demo_accessors.hpp"
-#include <stdexcept>
 #include <string>
-#include <regex>
 
 
 Calculator::Calculator() : ans(0), hasAnswer(false) {}
 
+bool exitCommand(const std::string& equation) {
+    static const std::regex exit_pattern(R"(\s*@exit\s*)", std::regex_constants::icase);
+    return std::regex_match(equation, exit_pattern);
+}
+
+bool showVar(const std::string& equation) {
+    static const std::regex showVar_pattern(R"(\s*@show[ \t]+ans\s*)", std::regex_constants::icase);
+    return std::regex_match(equation, showVar_pattern);
+}
+
+//filter through allowed symbols
 static int parseNumber(const std::string& text) {
     std::size_t charactersRead = 0;
     int value = std::stoll(text, &charactersRead);
+
 
     if (charactersRead != text.size()) {
         throw std::invalid_argument("Invalid number");
