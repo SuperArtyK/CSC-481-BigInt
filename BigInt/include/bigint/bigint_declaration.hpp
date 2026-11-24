@@ -271,7 +271,9 @@ public:
 	[[nodiscard]] explicit operator bool() const noexcept;
 	
 	inline BigInt& negate() {
-		this->m_bNegative = !this->m_bNegative;
+		if (!this->isZero()) {
+			this->m_bNegative = !this->m_bNegative;
+		}
 		return *this;
 	}
 	
