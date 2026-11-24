@@ -269,7 +269,15 @@ public:
 	/// @note Conversion is explicit and does not modify the BigInt.
 	/// @see BigInt::isZero()
 	[[nodiscard]] explicit operator bool() const noexcept;
-
+	
+	inline BigInt& negate() {
+		this->m_bNegative = !this->m_bNegative;
+		return *this;
+	}
+	
+	
+	
+	
 private:
 	/// @brief Set the bigint to the passed integer value
 	/// @tparam T Any integer type, according to std::integral
