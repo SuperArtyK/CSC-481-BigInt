@@ -154,6 +154,26 @@ void expectScientificCases(const std::initializer_list<SciCase>& cases) {
 	}
 }
 
+
+struct DisplayCase {
+	std::string input;
+	std::string expected;
+};
+
+void expectDefaultDisplayCases(const std::initializer_list<DisplayCase>& cases) {
+	for (const DisplayCase& testCase : cases) {
+		SCOPED_TRACE(::testing::Message() << "Input: " << testCase.input);
+
+		BigInt value{std::string_view(testCase.input)};
+		const std::vector<limb_t> originalLimbs = tester::getLimbs(value);
+		const bool originalNegative = tester::getNegative(value);
+		const BigInt& constantValue = value;
+
+		EXPECT_EQ(constantValue.toString(), testCase.expected);
+		expectRepresentation(value, originalLimbs, originalNegative);
+	}
+}
+
 } // namespace
 
 
@@ -333,6 +353,115 @@ TEST(BigintStringConversion, ToStringSciRejectsNonNormalisedRepresentation) {
 
 		EXPECT_THROW(value.toStringSci(4, false), std::logic_error);
 		EXPECT_THROW(value.toStringSci(4, true), std::logic_error);
+		expectRepresentation(value, std::vector<limb_t>(testCase.limbs), testCase.negative);
+	}
+}
+
+
+TEST(BigintStringConversion, ToStringUsesExactDecimalForAtMostTwentyDigits) {
+	expectDefaultDisplayCases({
+		{"0", "0"},
+		{"1", "1"},
+		{"-1", "-1"},
+		{"9", "9"},
+		{"-9", "-9"},
+		{"10", "10"},
+		{"-42", "-42"},
+		{"123456789012345678", "123456789012345678"},
+		{"-999999999999999999", "-999999999999999999"},
+		{"1000000000000000000", "1000000000000000000"},
+		{"-1000000000000000000", "-1000000000000000000"},
+		{"10000000000000000000", "10000000000000000000"},
+		{"99999999999999999999", "99999999999999999999"},
+		{"-99999999999999999999", "-99999999999999999999"},
+		{"12345678901234567890", "12345678901234567890"},
+		{"-12345678901234567890", "-12345678901234567890"},
+		{"10000000000000000001", "10000000000000000001"},
+	});
+}
+
+TEST(BigintStringConversion, ToStringUsesCompactScientificForMoreThanTwentyDigits) {
+	expectDefaultDisplayCases({
+		{"100000000000000000000", "1e+20"},
+		{"-100000000000000000000", "-1e+20"},
+		{"100000000000000000001", "1e+20"},
+		{"200000000000000000000", "2e+20"},
+		{"123456789012345678901", "1.234567890123456789e+20"},
+		{"-123456789012345678901", "-1.234567890123456789e+20"},
+		{"123456789012345678904", "1.234567890123456789e+20"},
+		{"123456789012345678905", "1.2345678901234567891e+20"},
+		{"123456789012345678995", "1.23456789012345679e+20"},
+		{"123000000000000000000000000000", "1.23e+29"},
+		{"-123000000000000000000000000000", "-1.23e+29"},
+		{"987654321098765432123456789012345678", "9.8765432109876543212e+35"},
+	});
+}
+
+TEST(BigintStringConversion, ToStringRoundsAcrossTheTwentyDigitBoundary) {
+	expectDefaultDisplayCases({
+		{std::string(20, '9'), std::string(20, '9')},
+		{std::string(20, '9') + "0", "9." + std::string(19, '9') + "e+20"},
+		{std::string(20, '9') + "4", "9." + std::string(19, '9') + "e+20"},
+		{std::string(20, '9') + "5", "1e+21"},
+		{"-" + std::string(20, '9') + "5", "-1e+21"},
+	});
+}
+
+TEST(BigintStringConversion, ToStringHandlesLargeValuesAndInternalZeroLimbs) {
+	const std::string allNines(5000, '9');
+	const std::string powerOfTen = "1" + std::string(4999, '0');
+	expectDefaultDisplayCases({
+		{allNines, "1e+5000"},
+		{"-" + allNines, "-1e+5000"},
+		{powerOfTen, "1e+4999"},
+	});
+
+	BigInt value;
+	tester::load(value, {1, 0, 1}, true);
+	const BigInt& constantValue = value;
+	EXPECT_EQ(constantValue.toString(), "-1e+36");
+	expectRepresentation(value, {1, 0, 1}, true);
+}
+
+TEST(BigintStringConversion, ToStringRepeatedFormattingIsStable) {
+	BigInt value("123456789012345678901");
+	const std::vector<limb_t> originalLimbs = tester::getLimbs(value);
+	const bool originalNegative = tester::getNegative(value);
+	const BigInt& constantValue = value;
+
+	EXPECT_EQ(constantValue.toString(), "1.234567890123456789e+20");
+	EXPECT_EQ(constantValue.toString(), "1.234567890123456789e+20");
+	expectRepresentation(value, originalLimbs, originalNegative);
+}
+
+TEST(BigintStringConversion, ToStringRejectsNonNormalisedRepresentation) {
+	struct Case {
+		std::initializer_list<limb_t> limbs;
+		bool negative;
+	};
+	const Case cases[]{
+		{{}, false},
+		{{}, true},
+		{{0}, true},
+		{{0, 0}, false},
+		{{0, 0}, true},
+		{{5, 0}, false},
+		{{10, 0, 0}, true},
+	};
+
+	for (const Case& testCase : cases) {
+		SCOPED_TRACE(
+			::testing::Message()
+				<< "Input limbs: "
+				<< ::testing::PrintToString(std::vector<limb_t>(testCase.limbs))
+				<< ", negative: " << testCase.negative
+		);
+
+		BigInt value;
+		tester::load(value, testCase.limbs, testCase.negative);
+		ASSERT_FALSE(value.isNormalised());
+
+		EXPECT_THROW(value.toString(), std::logic_error);
 		expectRepresentation(value, std::vector<limb_t>(testCase.limbs), testCase.negative);
 	}
 }
