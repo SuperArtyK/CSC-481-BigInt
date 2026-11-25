@@ -2,17 +2,19 @@
 #include <exception>
 #include <iostream>
 #include <regex>
+#include <map>
 
 //ToDo: cleanup main.cpp code
 int main()
 {
+    std::map<std::string, int> customVars;
     Calculator calc;
     std::string equation;
     int ans = 0;
 
     while (true)
     {
-        std::cout << "Enter an equation: ";
+        std::cout << "Enter an equation: " << std::flush;
         if (!std::getline(std::cin, equation))
         {
             break;
@@ -26,22 +28,21 @@ int main()
             std::cout << "ans = " << ans << std::endl;
             continue;
         }
-        
-        //This is a comment to showcase my verison of the code. Please work o nthe version you feel more confortable with.
+
+        //This is a comment to showcase my version of the code. Please work on the version you feel more comfortable with.
         /*
         if (std::regex_match(equation, std::regex("@show[ \t]+ans", std ::regex_constants::icase))) {
             std::cout << "ans = " << ans << std::endl;
             continue;
         }
         */
-        
+
         std::smatch parts;
         if (!std::regex_match(equation, parts, format))
         {
             std::cout << "Please Enter a Valid Operation in Format: [number] [arithmetic] [number]" << std::endl;
             continue;
         }
-
 
         std::string num1 = parts[1].str();
         char op = parts[2].str()[0];
@@ -60,7 +61,7 @@ int main()
         catch (const std::exception& error)
         {
             std::cerr << "ERROR:" << error.what() << std::endl;
-                return 1;
+            continue;
         }
 
         std::cout << "ans = " << ans << std::endl;
