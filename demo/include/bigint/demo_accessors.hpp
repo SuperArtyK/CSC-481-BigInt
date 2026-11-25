@@ -3,17 +3,21 @@
 
 #include <string>
 #include <regex>
+#include <map>
 
 //filter through allowed symbols
-inline const std::regex format(R"(^\s*(ans|-?\d+)\s*([+*%/-])\s*(ans|-?\d+)\s*$)");
+inline const std::regex format(R"(^\s*([a-zA-Z][a-zA-Z0-9]*|\d+)\s*([+*%/=-])\s*([a-zA-Z][a-zA-Z0-9]*|\d+)\s*$)");
 
 bool exitCommand(const std::string& equation);
 bool showVar(const std::string& equation);
 
 class Calculator {
 private:
-    int ans;
+    int ans, value, left, right;
     bool hasAnswer;
+    std::string varString;
+    std::map<std::string, int> customVars;
+
 
 public:
     Calculator();
