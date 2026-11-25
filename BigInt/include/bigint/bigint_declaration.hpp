@@ -274,6 +274,12 @@ public:
 	/// @see BigInt::isZero()
 	[[nodiscard]] explicit operator bool() const noexcept;
 	
+	/// @brief Reverses the sign of the BigInt in place.
+	/// @pre The BigInt is normalised.
+	/// @return Reference to the modified BigInt.
+	/// @note Zero remains nonnegative.
+	/// @note The magnitude and limb representation are unchanged.
+	/// @see BigInt::operator-()
 	inline BigInt& negate() {
 		if (!this->isZero()) {
 			this->m_bNegative = !this->m_bNegative;
@@ -281,10 +287,20 @@ public:
 		return *this;
 	}
 	
+	/// @brief Returns an unchanged copy of the BigInt.
+	/// @pre The BigInt is normalised.
+	/// @return An independent BigInt with the same value and representation.
+	/// @note The original BigInt is not modified.
 	[[nodiscard]] inline BigInt operator+() const {
 		return *this;
 	}
 	
+	/// @brief Returns the arithmetic negation of the BigInt.
+	/// @pre The BigInt is normalised.
+	/// @return An independent BigInt with its sign reversed.
+	/// @note Zero remains nonnegative.
+	/// @note The original BigInt and its magnitude are unchanged.
+	/// @see BigInt::negate()
 	[[nodiscard]] inline BigInt operator-() const {
 		BigInt temp = *this;
 		temp.negate();
