@@ -53,6 +53,61 @@ inline void BigInt::setNegative(const bool neg) {
 	this->m_bNegative = neg;
 }
 
+inline BigInt::operator bool() const noexcept {
+	return !this->isZero();
+}
+
+inline BigInt& BigInt::negate() {
+	if (!this->isZero()) {
+		this->m_bNegative = !this->m_bNegative;
+	}
+	return *this;
+}
+
+inline BigInt BigInt::operator+() const {
+	return *this;
+}
+
+inline BigInt BigInt::operator-() const {
+	BigInt temp = *this;
+	temp.negate();
+	return temp;
+}
+
+
+inline std::string BigInt::toString() const {
+	if (!this->isNormalised()) {
+		throw std::logic_error("BigInt must be normalised");
+	}
+	
+	if (this->getDigitCount()>20) {
+		return this->toStringSci();
+	}
+	return this->toStringDec();
+}
+
+
+inline std::ostream& operator<<(std::ostream& os, const BigInt& value) {
+	return os << value.toString();
+}
+
+inline std::istream& operator>>(std::istream& is, BigInt& value) {
+	std::string token;
+
+	if (!(is >> token)) {
+		return is;
+	}
+
+	try {
+		BigInt parsed{std::string_view{token}};
+		value = std::move(parsed);
+	}
+	catch (const std::invalid_argument&) {
+		is.setstate(std::ios::failbit);
+	}
+
+	return is;
+}
 
 inline void BigInt::clear(const bool shrink) {
 	cdbg << "Clearing the bigint; shrinking = " << boolToString(shrink) << NLC;

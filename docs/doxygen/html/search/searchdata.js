@@ -7,7 +7,8 @@ var indexSectionsWithContent =
   4: "dhimns",
   5: "v",
   6: "eiv",
-  7: "1234567abcdefghilmnoprstuvw—"
+  7: "o",
+  8: "1234567abcdefghilmnoprstuvw—"
 };
 
 var indexSectionNames =
@@ -19,7 +20,8 @@ var indexSectionNames =
   4: "variables",
   5: "enums",
   6: "enumvalues",
-  7: "pages"
+  7: "related",
+  8: "pages"
 };
 
 var indexSectionLabels =
@@ -31,6 +33,7 @@ var indexSectionLabels =
   4: "Variables",
   5: "Enumerations",
   6: "Enumerator",
-  7: "Pages"
+  7: "Friends",
+  8: "Pages"
 };
 

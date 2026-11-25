@@ -1,0 +1,15 @@
+<map id="BigInt::negate" name="BigInt::negate">
+<area shape="rect" id="Node000001" title="Reverses the sign of the BigInt in place." alt="" coords="5,31,108,57"/>
+<area shape="rect" id="Node000002" href="$da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="157,5,254,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,33,144,28,139,31,109,38"/>
+<area shape="rect" id="Node000005" href="$da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c" title="Checks whether the bigint has magnitude of 0." alt="" coords="156,56,255,83"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="108,50,143,57,138,59,108,55"/>
+<area shape="rect" id="Node000003" href="$da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="314,5,436,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="254,16,302,18,297,19,255,21"/>
+<area shape="rect" id="Node000004" href="$da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="495,5,587,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="436,16,482,18,477,19,437,21"/>
+<area shape="rect" id="Node000006" href="$da/d5b/classBigInt.html#ab2a52efd44c2e7057cc5397dba711ef8" title="Returns the first, Least Significant, limb of the Bigint." alt="" coords="308,56,443,83"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="255,67,295,69,289,70,256,72"/>
+<area shape="rect" id="Node000007" href="$da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="303,107,447,133"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="253,81,316,102,311,102,252,86"/>
+</map>

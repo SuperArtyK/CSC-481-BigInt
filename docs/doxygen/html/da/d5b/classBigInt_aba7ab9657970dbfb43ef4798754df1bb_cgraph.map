@@ -1,0 +1,9 @@
+<map id="BigInt::operator bool" name="BigInt::operator bool">
+<area shape="rect" id="Node000001" title="Converts the BigInt to its Boolean value." alt="" coords="5,31,144,57"/>
+<area shape="rect" id="Node000002" href="$da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c" title="Checks whether the bigint has magnitude of 0." alt="" coords="192,31,291,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,41,179,44,174,44,144,47"/>
+<area shape="rect" id="Node000003" href="$da/d5b/classBigInt.html#ab2a52efd44c2e7057cc5397dba711ef8" title="Returns the first, Least Significant, limb of the Bigint." alt="" coords="344,5,479,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="291,34,331,31,325,31,292,39"/>
+<area shape="rect" id="Node000004" href="$da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="339,56,483,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="292,49,326,56,321,56,291,54"/>
+</map>
