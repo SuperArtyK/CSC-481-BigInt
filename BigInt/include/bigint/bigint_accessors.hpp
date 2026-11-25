@@ -69,6 +69,29 @@ inline std::string BigInt::toString() const {
 	return this->toStringDec();
 }
 
+
+inline std::ostream& operator<<(std::ostream& os, const BigInt& value) {
+	return os << value.toString();
+}
+
+inline std::istream& operator>>(std::istream& is, BigInt& value) {
+	std::string token;
+
+	if (!(is >> token)) {
+		return is;
+	}
+
+	try {
+		BigInt parsed{std::string_view{token}};
+		value = std::move(parsed);
+	}
+	catch (const std::invalid_argument&) {
+		is.setstate(std::ios::failbit);
+	}
+
+	return is;
+}
+
 inline void BigInt::clear(const bool shrink) {
 	cdbg << "Clearing the bigint; shrinking = " << boolToString(shrink) << NLC;
 	this->m_lstDigits.clear();
