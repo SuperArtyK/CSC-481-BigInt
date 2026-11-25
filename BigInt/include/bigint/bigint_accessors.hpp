@@ -57,6 +57,23 @@ inline BigInt::operator bool() const noexcept {
 	return !this->isZero();
 }
 
+inline BigInt& BigInt::negate() {
+	if (!this->isZero()) {
+		this->m_bNegative = !this->m_bNegative;
+	}
+	return *this;
+}
+
+inline BigInt BigInt::operator+() const {
+	return *this;
+}
+
+inline BigInt BigInt::operator-() const {
+	BigInt temp = *this;
+	temp.negate();
+	return temp;
+}
+
 
 inline std::string BigInt::toString() const {
 	if (!this->isNormalised()) {

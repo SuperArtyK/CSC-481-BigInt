@@ -280,34 +280,22 @@ public:
 	/// @note Zero remains nonnegative.
 	/// @note The magnitude and limb representation are unchanged.
 	/// @see BigInt::operator-()
-	inline BigInt& negate() {
-		if (!this->isZero()) {
-			this->m_bNegative = !this->m_bNegative;
-		}
-		return *this;
-	}
-	
+	BigInt& negate();
+
 	/// @brief Returns an unchanged copy of the BigInt.
 	/// @pre The BigInt is normalised.
 	/// @return An independent BigInt with the same value and representation.
 	/// @note The original BigInt is not modified.
-	[[nodiscard]] inline BigInt operator+() const {
-		return *this;
-	}
-	
+	[[nodiscard]] BigInt operator+() const;
+
 	/// @brief Returns the arithmetic negation of the BigInt.
 	/// @pre The BigInt is normalised.
 	/// @return An independent BigInt with its sign reversed.
 	/// @note Zero remains nonnegative.
 	/// @note The original BigInt and its magnitude are unchanged.
 	/// @see BigInt::negate()
-	[[nodiscard]] inline BigInt operator-() const {
-		BigInt temp = *this;
-		temp.negate();
-		return temp;
-	}
+	[[nodiscard]] BigInt operator-() const;
 
-	
 private:
 	/// @brief Set the bigint to the passed integer value
 	/// @tparam T Any integer type, according to std::integral
