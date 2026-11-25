@@ -286,8 +286,7 @@ public:
 		temp.negate();
 		return temp;
 	}
-	
-	
+
 	
 private:
 	/// @brief Set the bigint to the passed integer value
