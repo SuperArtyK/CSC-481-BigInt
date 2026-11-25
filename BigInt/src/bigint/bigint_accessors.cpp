@@ -5,6 +5,8 @@
 #include "bigint/bigint.hpp"
 #include <limits>
 #include <stdexcept>
+#include <algorithm>
+#include <charconv>
 
 bool BigInt::setLimb(const std::size_t index, const limb_t value) {
 	if (index >= this->getLimbCount() && value == 0) {
@@ -101,7 +103,43 @@ std::string BigInt::toStringSci(const std::size_t maxSigDig, const bool pad) con
 		throw std::invalid_argument("Precision must be positive");
 	}
 
-	std::string result = this->toStringDec();
+	const std::size_t digitCount = static_cast<std::size_t>(this->getDigitCount());
+	const bool needsRounding = digitCount > maxSigDig;
+	std::string result;
+
+	if (this->isZero() || !needsRounding) {
+		// All digits are needed, so use the existing exact conversion.
+		result = this->toStringDec();
+	}
+	else {
+		// Only the first maxSigDig digits and one rounding digit are needed.
+		// Build that prefix directly from the most significant limbs.
+		if (this->isNegative()) {
+			result.push_back('-');
+		}
+
+		std::size_t remaining = maxSigDig + 1;
+		char numBuf[LIMB_DIGITS + 1];
+		const std::size_t limbCount = this->getLimbCount();
+
+		for (std::size_t i = limbCount; i-- > 0 && remaining > 0;) {
+			const auto end = std::to_chars(
+				numBuf, numBuf + sizeof(numBuf), this->getLimb(i)
+			).ptr;
+			const std::size_t len = static_cast<std::size_t>(end - numBuf);
+
+			if (i != limbCount - 1) {
+				// Every non-leading limb occupies exactly LIMB_DIGITS digits.
+				const std::size_t zeros = std::min(LIMB_DIGITS - len, remaining);
+				result.append(zeros, '0');
+				remaining -= zeros;
+			}
+
+			const std::size_t copied = std::min(len, remaining);
+			result.append(numBuf, copied);
+			remaining -= copied;
+		}
+	}
 
 	// Special handling for zero.
 	if (result == "0") {
@@ -114,9 +152,6 @@ std::string BigInt::toStringSci(const std::size_t maxSigDig, const bool pad) con
 	}
 
 	const std::size_t signOffset = this->isNegative() ? 1 : 0;
-	const std::size_t digitCount = result.size() - signOffset;
-	const bool needsRounding = digitCount > maxSigDig;
-
 	std::size_t exponent = digitCount - 1;
 
 	if (needsRounding) {
@@ -124,17 +159,15 @@ std::string BigInt::toStringSci(const std::size_t maxSigDig, const bool pad) con
 		const char roundingDigit = result[signOffset + maxSigDig];
 		result.resize(signOffset + maxSigDig);
 
-		// Round to nearest, ties away from zero.
+		// Round to nearest, with ties away from zero.
 		if (roundingDigit >= '5') {
 			std::size_t i = result.size();
 
-			// Propagate carry through trailing nines.
 			while (i > signOffset && result[i - 1] == '9') {
 				result[--i] = '0';
 			}
 
 			if (i == signOffset) {
-				// All retained digits were nines.
 				result[signOffset] = '1';
 				++exponent;
 			}
@@ -143,28 +176,26 @@ std::string BigInt::toStringSci(const std::size_t maxSigDig, const bool pad) con
 			}
 		}
 
-		// Remove trailing zeroes only if digits were discarded.
+		// Strip trailing zeros only when digits were discarded.
 		if (!pad) {
-			while (result.size() > signOffset + 1 &&
-				result.back() == '0') {
+			while (result.size() > signOffset + 1 && result.back() == '0') {
 				result.pop_back();
-				}
+			}
 		}
 	}
 	else if (pad) {
 		result.append(maxSigDig - digitCount, '0');
 	}
 
-	// Insert decimal point after the first significant digit.
 	if (result.size() > signOffset + 1) {
 		result.insert(signOffset + 1, 1, '.');
 	}
 
 	result += "e+";
 	result += std::to_string(exponent);
-
 	return result;
 }
+
 
 
 void BigInt::normalise() {
