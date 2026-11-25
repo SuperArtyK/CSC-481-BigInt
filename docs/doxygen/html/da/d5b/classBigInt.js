@@ -19,7 +19,11 @@ var classBigInt =
     [ "isNegative", "da/d5b/classBigInt.html#a95f4a2cafc7ab33729f40d0415831044", null ],
     [ "isNormalised", "da/d5b/classBigInt.html#a6f7132b05022dfd943a8d1836308886c", null ],
     [ "isZero", "da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c", null ],
+    [ "negate", "da/d5b/classBigInt.html#ab691faf20784c2d1548845654ab51d2a", null ],
     [ "normalise", "da/d5b/classBigInt.html#ad796e56e198962b2799c30ac66e755fa", null ],
+    [ "operator bool", "da/d5b/classBigInt.html#aba7ab9657970dbfb43ef4798754df1bb", null ],
+    [ "operator+", "da/d5b/classBigInt.html#a34c8cba8f37b03e6973398585f7f8927", null ],
+    [ "operator-", "da/d5b/classBigInt.html#a4a4ded170439fee88f133d0202b5c182", null ],
     [ "operator=", "da/d5b/classBigInt.html#ac7ae12ca3440f88100242876fa975735", null ],
     [ "operator=", "da/d5b/classBigInt.html#a6506386510aa772c734109f863e879c8", null ],
     [ "operator=", "da/d5b/classBigInt.html#ab5aa0c2a2a22be674226ecc2fb192bef", null ],
@@ -29,7 +33,11 @@ var classBigInt =
     [ "setLimbRaw", "da/d5b/classBigInt.html#a91f23442d1a1f5ee68f2ae4b92fe760f", null ],
     [ "setNegative", "da/d5b/classBigInt.html#ae66e5ab12ec81c5066a3d23207c500f7", null ],
     [ "setToZero", "da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec", null ],
+    [ "toString", "da/d5b/classBigInt.html#aff71eef13bdf853d18b04d1422e9d754", null ],
     [ "toStringDec", "da/d5b/classBigInt.html#a94a494aca7e98d925bbb81de5cc4d9df", null ],
+    [ "toStringSci", "da/d5b/classBigInt.html#a899a30bd299e3367c0009632da269bf5", null ],
+    [ "operator<<", "da/d5b/classBigInt.html#ae0545768a8072a7ecf4ace520cba1764", null ],
+    [ "operator>>", "da/d5b/classBigInt.html#a64ddfdcf271b677c28d310eb321378cb", null ],
     [ "m_bNegative", "da/d5b/classBigInt.html#ad969c3da1bc62b1e653121e8e4f7a825", null ],
     [ "m_lstDigits", "da/d5b/classBigInt.html#abfe4710e84fd55a5335570273aaeab08", null ]
 ];

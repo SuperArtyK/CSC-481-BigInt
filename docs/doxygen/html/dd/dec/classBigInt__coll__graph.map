@@ -1,9 +1,9 @@
 <map id="BigInt" name="BigInt">
-<area shape="rect" id="Node000001" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale." alt="" coords="5,288,384,976"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="75,147,206,216"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,213,145,264,145,271,140,271,140,264,140,219"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="117,5,163,75"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="140,72,143,130,138,130,140,77"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="232,147,267,216"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="246,213,241,272,236,271,245,219"/>
+<area shape="rect" id="Node000001" title="Big integer type class, copies the functionality of regular integers, but on arbitrary scale." alt="" coords="5,288,515,1104"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="140,147,271,216"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,213,210,264,211,271,206,271,205,264,205,219"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="183,5,228,75"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="206,72,208,130,203,130,205,77"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="298,147,332,216"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="312,213,308,272,303,271,311,218"/>
 </map>

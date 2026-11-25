@@ -4,5 +4,7 @@ var searchData=
   ['testing_20requirements_1',['Testing requirements',['../d2/dc1/md_CONTRIBUTING.html#testing-requirements',1,'']]],
   ['testmovepreservesrepresentation_2',['testMovePreservesRepresentation',['../dd/db0/namespacebigint__test.html#a1dc9ce8fdd5412f568c485ceeaff7978',1,'bigint_test']]],
   ['tests_3',['tests',['../d4/d0d/md_CLION__WORKFLOW.html#autotoc_md2-build-and-run-tests',1,'2. Build and run tests'],['../d4/d0d/md_CLION__WORKFLOW.html#running-individual-tests',1,'Running individual tests']]],
-  ['tostringdec_4',['toStringDec',['../da/d5b/classBigInt.html#a94a494aca7e98d925bbb81de5cc4d9df',1,'BigInt']]]
+  ['tostring_4',['toString',['../da/d5b/classBigInt.html#aff71eef13bdf853d18b04d1422e9d754',1,'BigInt']]],
+  ['tostringdec_5',['toStringDec',['../da/d5b/classBigInt.html#a94a494aca7e98d925bbb81de5cc4d9df',1,'BigInt']]],
+  ['tostringsci_6',['toStringSci',['../da/d5b/classBigInt.html#a899a30bd299e3367c0009632da269bf5',1,'BigInt']]]
 ];

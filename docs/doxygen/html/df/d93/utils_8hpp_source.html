@@ -135,254 +135,254 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/d93/utils_8
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">// if debugmode wasn&#39;t defiend prior to inclusion of the utils, subtitute our own, and allow debug mode.</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">// Will probably change it later</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#ifndef DEBUGMODE</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define DEBUGMODE 1</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#define NLC &#39;\n&#39;</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#define NLS &quot;\n&quot;</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#define mod0(dividend, divisor) (!(dividend % divisor))</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">constexpr</span> std::string_view boolToString(<span class="keyword">const</span> <span class="keywordtype">bool</span> val) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">return</span> ( val ) ? <span class="stringliteral">&quot;true&quot;</span> : <span class="stringliteral">&quot;false&quot;</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">requires</span> (</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        std::numeric_limits&lt;std::remove_cv_t&lt;T&gt;&gt;::is_specialized &amp;&amp;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        std::numeric_limits&lt;std::remove_cv_t&lt;T&gt;&gt;::is_integer &amp;&amp;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        std::numeric_limits&lt;std::remove_cv_t&lt;T&gt;&gt;::is_bounded</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    )</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>[[nodiscard]] <span class="keyword">constexpr</span> std::size_t digitCount(T value) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">using </span>V = std::remove_cv_t&lt;T&gt;;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">using </span>Limits = std::numeric_limits&lt;V&gt;;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::same_as&lt;V, bool&gt;) {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        V x = value;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="comment">// Normalize signed values to negative.</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Limits::is_signed) {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="keywordflow">if</span> (x &gt; V{0}) {</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                x = -x;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        }</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="comment">// Determine the maximum decimal digit count</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="comment">// entirely at compile time.</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keyword">constexpr</span> std::size_t maxDigits = [] {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            V bound = [] {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Limits::is_signed) {</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                    <span class="keywordflow">return</span> Limits::lowest();</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                }</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                    <span class="keywordflow">return</span> Limits::max();</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                }</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            }();</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            std::size_t n = 1;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            <span class="keywordflow">while</span> (( bound /= 10 ) != 0) {</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                ++n;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            }</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keywordflow">return</span> n;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        }();</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="comment">// Generate a binary search tree at compile time.</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keyword">const</span> <span class="keyword">auto</span> search =</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            [&amp;]&lt;std::size_t lo, std::size_t hi&gt;(</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="keyword">auto</span>&amp;&amp; self</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        ) -&gt; std::size_t {</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (lo == hi) {</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                <span class="keywordflow">return</span> lo;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            }</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                <span class="keyword">constexpr</span> std::size_t mid =</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                    lo + ( hi - lo + 1 ) / 2;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                <span class="comment">// Generate the threshold at compile time.</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                <span class="keyword">constexpr</span> V threshold = [](std::size_t digits) {</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                    V power = V{1};</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Limits::is_signed) {</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>                        power = -power;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                    }</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                    <span class="keywordflow">for</span> (std::size_t i = 1; i &lt; digits; ++i) {</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                        power = <span class="keyword">static_cast&lt;</span>V<span class="keyword">&gt;</span>(power * 10);</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                    }</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                    <span class="keywordflow">return</span> power;</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                }(mid);</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Limits::is_signed) {</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                    <span class="keywordflow">return</span> x &lt;= threshold</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                               ? self.template operator()&lt;mid, hi&gt;(self)</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                               : self.template operator()&lt;lo, mid - 1&gt;(self);</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                }</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                    <span class="keywordflow">return</span> x &gt;= threshold</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                               ? self.template operator()&lt;mid, hi&gt;(self)</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                               : self.template operator()&lt;lo, mid - 1&gt;(self);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                }</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            }</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        };</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keywordflow">return</span> search.template operator()&lt;1, maxDigits&gt;(search);</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    }</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>}</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keyword">template</span> &lt;<span class="keywordtype">bool</span> inclusive = true, <span class="keyword">typename</span> T, <span class="keyword">typename</span> Y&gt;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="keyword">constexpr</span> <span class="keywordtype">bool</span> isInRange(<span class="keyword">const</span> T&amp; low, <span class="keyword">const</span> T&amp; high, <span class="keyword">const</span> Y&amp; val) {</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (inclusive) {</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keywordflow">if</span> (val &lt; low || val &gt; high) {</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        }</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    }</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="keywordflow">if</span> (val &lt;= low || val &gt;= high) {</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        }</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    }</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>}</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span></div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="keyword">constexpr</span> <span class="keywordtype">bool</span> charIsNum(<span class="keyword">const</span> <span class="keywordtype">char</span> val) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordflow">return</span> isInRange&lt;true, char, char&gt;(<span class="charliteral">&#39;0&#39;</span>, <span class="charliteral">&#39;9&#39;</span>, val);</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>}</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span></div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="keyword">constexpr</span> std::string_view trimWhitespace(<span class="keyword">const</span> std::string_view str) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="comment">//constexpr std::string_view whitespace = &quot; \t\n\r\f\v&quot;;</span></div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keyword">constexpr</span> std::string_view whitespace = <span class="stringliteral">&quot; \t&quot;</span>;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keyword">const</span> <span class="keyword">auto</span> first = str.find_first_not_of(whitespace);</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordflow">if</span> (first == std::string_view::npos)</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="keywordflow">return</span> {};</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keyword">const</span> <span class="keyword">auto</span> last = str.find_last_not_of(whitespace);</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordflow">return</span> str.substr(first, last - first + 1);</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>}</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span></div>
-<div class="foldopen" id="foldopen00190" data-start="{" data-end="};">
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html">  190</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d2/da3/structStrValidation.html">StrValidation</a> {</div>
-<div class="foldopen" id="foldopen00192" data-start="{" data-end="};">
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100">  192</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100">ValStatus</a> : <span class="keywordtype">int</span> {</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a3ac705f2acd51a4613f9188c05c91d0d">  194</a></span>        Valid,</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100ace2c8aed9c2fa0cfbed56cbda4d8bf07">  196</a></span>        Empty,</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b">  198</a></span>        Invalid,</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    };</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define DEBUGMODE 0</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#define NLC &#39;\n&#39;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#define NLS &quot;\n&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#define mod0(dividend, divisor) (!(dividend % divisor))</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">constexpr</span> std::string_view boolToString(<span class="keyword">const</span> <span class="keywordtype">bool</span> val) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">return</span> ( val ) ? <span class="stringliteral">&quot;true&quot;</span> : <span class="stringliteral">&quot;false&quot;</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">requires</span> (</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        std::numeric_limits&lt;std::remove_cv_t&lt;T&gt;&gt;::is_specialized &amp;&amp;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        std::numeric_limits&lt;std::remove_cv_t&lt;T&gt;&gt;::is_integer &amp;&amp;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        std::numeric_limits&lt;std::remove_cv_t&lt;T&gt;&gt;::is_bounded</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    )</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>[[nodiscard]] <span class="keyword">constexpr</span> std::size_t digitCount(T value) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">using </span>V = std::remove_cv_t&lt;T&gt;;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">using </span>Limits = std::numeric_limits&lt;V&gt;;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::same_as&lt;V, bool&gt;) {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        V x = value;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="comment">// Normalize signed values to negative.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Limits::is_signed) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">if</span> (x &gt; V{0}) {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                x = -x;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="comment">// Determine the maximum decimal digit count</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="comment">// entirely at compile time.</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keyword">constexpr</span> std::size_t maxDigits = [] {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            V bound = [] {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Limits::is_signed) {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                    <span class="keywordflow">return</span> Limits::lowest();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                    <span class="keywordflow">return</span> Limits::max();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            }();</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            std::size_t n = 1;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordflow">while</span> (( bound /= 10 ) != 0) {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                ++n;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keywordflow">return</span> n;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        }();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="comment">// Generate a binary search tree at compile time.</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keyword">const</span> <span class="keyword">auto</span> search =</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            [&amp;]&lt;std::size_t lo, std::size_t hi&gt;(</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="keyword">auto</span>&amp;&amp; self</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        ) -&gt; std::size_t {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (lo == hi) {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                <span class="keywordflow">return</span> lo;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                <span class="keyword">constexpr</span> std::size_t mid =</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                    lo + ( hi - lo + 1 ) / 2;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                <span class="comment">// Generate the threshold at compile time.</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                <span class="keyword">constexpr</span> V threshold = [](std::size_t digits) {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                    V power = V{1};</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Limits::is_signed) {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                        power = -power;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>                    }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                    <span class="keywordflow">for</span> (std::size_t i = 1; i &lt; digits; ++i) {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                        power = <span class="keyword">static_cast&lt;</span>V<span class="keyword">&gt;</span>(power * 10);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                    }</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                    <span class="keywordflow">return</span> power;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                }(mid);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Limits::is_signed) {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                    <span class="keywordflow">return</span> x &lt;= threshold</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                               ? self.template operator()&lt;mid, hi&gt;(self)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                               : self.template operator()&lt;lo, mid - 1&gt;(self);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                    <span class="keywordflow">return</span> x &gt;= threshold</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                               ? self.template operator()&lt;mid, hi&gt;(self)</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                               : self.template operator()&lt;lo, mid - 1&gt;(self);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            }</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        };</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">return</span> search.template operator()&lt;1, maxDigits&gt;(search);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="keyword">template</span> &lt;<span class="keywordtype">bool</span> inclusive = true, <span class="keyword">typename</span> T, <span class="keyword">typename</span> Y&gt;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keyword">constexpr</span> <span class="keywordtype">bool</span> isInRange(<span class="keyword">const</span> T&amp; low, <span class="keyword">const</span> T&amp; high, <span class="keyword">const</span> Y&amp; val) {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (inclusive) {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keywordflow">if</span> (val &lt; low || val &gt; high) {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        }</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <span class="keywordflow">if</span> (val &lt;= low || val &gt;= high) {</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        }</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    }</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>}</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="keyword">constexpr</span> <span class="keywordtype">bool</span> charIsNum(<span class="keyword">const</span> <span class="keywordtype">char</span> val) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordflow">return</span> isInRange&lt;true, char, char&gt;(<span class="charliteral">&#39;0&#39;</span>, <span class="charliteral">&#39;9&#39;</span>, val);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>}</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="keyword">constexpr</span> std::string_view trimWhitespace(<span class="keyword">const</span> std::string_view str) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="comment">//constexpr std::string_view whitespace = &quot; \t\n\r\f\v&quot;;</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keyword">constexpr</span> std::string_view whitespace = <span class="stringliteral">&quot; \t&quot;</span>;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keyword">const</span> <span class="keyword">auto</span> first = str.find_first_not_of(whitespace);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordflow">if</span> (first == std::string_view::npos)</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keyword">const</span> <span class="keyword">auto</span> last = str.find_last_not_of(whitespace);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keywordflow">return</span> str.substr(first, last - first + 1);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>}</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span></div>
+<div class="foldopen" id="foldopen00189" data-start="{" data-end="};">
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html">  189</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d2/da3/structStrValidation.html">StrValidation</a> {</div>
+<div class="foldopen" id="foldopen00191" data-start="{" data-end="};">
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100">  191</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100">ValStatus</a> : <span class="keywordtype">int</span> {</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a3ac705f2acd51a4613f9188c05c91d0d">  193</a></span>        Valid,</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100ace2c8aed9c2fa0cfbed56cbda4d8bf07">  195</a></span>        Empty,</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b">  197</a></span>        Invalid,</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    };</div>
 </div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span></div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#aac0836a2ec8dec6d7689710d63250ce1">  204</a></span>    std::string_view <a class="code hl_variable" href="../../d2/da3/structStrValidation.html#aac0836a2ec8dec6d7689710d63250ce1">intPart</a>{};</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#a442b35d3af64bb0be53dd0ac966ce6e2">  208</a></span>    std::string_view <a class="code hl_variable" href="../../d2/da3/structStrValidation.html#a442b35d3af64bb0be53dd0ac966ce6e2">decPart</a>{};</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span></div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#a575f4ba2686495ae21c51b8459c80209">  211</a></span>    <a class="code hl_enumeration" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100">ValStatus</a> <a class="code hl_variable" href="../../d2/da3/structStrValidation.html#a575f4ba2686495ae21c51b8459c80209">status</a> = <a class="code hl_enumvalue" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b">ValStatus::Invalid</a>;</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span></div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#a97af08f7dee88181088e6243370440f8">  215</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d2/da3/structStrValidation.html#a97af08f7dee88181088e6243370440f8">negative</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#ad44f465d6b56491e6786c5dae13b8dd8">  218</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d2/da3/structStrValidation.html#ad44f465d6b56491e6786c5dae13b8dd8">hasNonZeroFraction</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>};</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#aac0836a2ec8dec6d7689710d63250ce1">  203</a></span>    std::string_view <a class="code hl_variable" href="../../d2/da3/structStrValidation.html#aac0836a2ec8dec6d7689710d63250ce1">intPart</a>{};</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#a442b35d3af64bb0be53dd0ac966ce6e2">  207</a></span>    std::string_view <a class="code hl_variable" href="../../d2/da3/structStrValidation.html#a442b35d3af64bb0be53dd0ac966ce6e2">decPart</a>{};</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#a575f4ba2686495ae21c51b8459c80209">  210</a></span>    <a class="code hl_enumeration" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100">ValStatus</a> <a class="code hl_variable" href="../../d2/da3/structStrValidation.html#a575f4ba2686495ae21c51b8459c80209">status</a> = <a class="code hl_enumvalue" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b">ValStatus::Invalid</a>;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#a97af08f7dee88181088e6243370440f8">  214</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d2/da3/structStrValidation.html#a97af08f7dee88181088e6243370440f8">negative</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="../../d2/da3/structStrValidation.html#ad44f465d6b56491e6786c5dae13b8dd8">  217</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d2/da3/structStrValidation.html#ad44f465d6b56491e6786c5dae13b8dd8">hasNonZeroFraction</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>};</div>
 </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span></div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="keyword">inline</span> <a class="code hl_struct" href="../../d2/da3/structStrValidation.html">StrValidation</a> strIsNum(std::string_view str) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <a class="code hl_struct" href="../../d2/da3/structStrValidation.html">StrValidation</a> result;</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    str = trimWhitespace(str);</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="comment">// empty string, for some reason</span></div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordflow">if</span> (str.empty()) {</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        <span class="keywordflow">return</span> {.status = <a class="code hl_enumvalue" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100ace2c8aed9c2fa0cfbed56cbda4d8bf07">StrValidation::ValStatus::Empty</a>};</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    }</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="comment">//assume that the string is at least 1 non-whitespace char </span></div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    std::size_t i = 0;</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="comment">// sign work</span></div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordtype">bool</span> metPeriod = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="keywordflow">switch</span> (str[i]) {</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="keywordflow">case</span> <span class="charliteral">&#39;-&#39;</span>:</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#a97af08f7dee88181088e6243370440f8">negative</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        [[fallthrough]];</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="keywordflow">case</span> <span class="charliteral">&#39;+&#39;</span>:</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        <span class="keywordflow">if</span> (str.size() == 1) {</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>            <span class="keywordflow">return</span> {.status = <a class="code hl_enumvalue" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b">StrValidation::ValStatus::Invalid</a>};</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        }</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        str.remove_prefix(1); <span class="comment">// move the starting char to the next, if it&#39;s a sign</span></div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    }</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="comment">//integer part</span></div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keywordflow">for</span> (; i &lt; str.size(); i++) {</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        <span class="keywordflow">if</span> (!charIsNum(str[i])) {</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            <span class="keywordflow">if</span> (str[i] == <span class="charliteral">&#39;.&#39;</span>) {</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>                metPeriod = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            }</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            <span class="keywordflow">return</span> {.status = <a class="code hl_enumvalue" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b">StrValidation::ValStatus::Invalid</a>};</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        }</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    }</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#aac0836a2ec8dec6d7689710d63250ce1">intPart</a> = str.substr(0, i);</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="keywordflow">if</span> (metPeriod) {</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#a442b35d3af64bb0be53dd0ac966ce6e2">decPart</a> = str.substr(++i);</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    }</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="comment">//decimal part</span></div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    <span class="keywordflow">for</span> (; i &lt; str.size(); i++) {</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        <span class="keywordflow">if</span> (!charIsNum(str[i])) {</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>            <span class="keywordflow">return</span> {.status = <a class="code hl_enumvalue" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b">StrValidation::ValStatus::Invalid</a>};</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        }</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        <span class="keywordflow">if</span> (!result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#ad44f465d6b56491e6786c5dae13b8dd8">hasNonZeroFraction</a>) {</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>            <span class="keywordflow">if</span> (str[i] &gt; <span class="charliteral">&#39;0&#39;</span>) {</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>                <span class="comment">// literally if larger than 0 (now constrained to 0-&gt;9)</span></div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>                result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#ad44f465d6b56491e6786c5dae13b8dd8">hasNonZeroFraction</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>            }</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        }</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    }</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="comment">// check if we even scanned any actual digits</span></div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    <span class="keywordflow">if</span> (result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#aac0836a2ec8dec6d7689710d63250ce1">intPart</a>.empty() &amp;&amp; result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#a442b35d3af64bb0be53dd0ac966ce6e2">decPart</a>.empty()) {</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        <span class="keywordflow">return</span> {.status = <a class="code hl_enumvalue" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b">StrValidation::ValStatus::Invalid</a>};</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    }</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#a575f4ba2686495ae21c51b8459c80209">status</a> = <a class="code hl_enumvalue" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a3ac705f2acd51a4613f9188c05c91d0d">StrValidation::ValStatus::Valid</a>;</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>}</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="keyword">inline</span> <a class="code hl_struct" href="../../d2/da3/structStrValidation.html">StrValidation</a> strIsNum(std::string_view str) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <a class="code hl_struct" href="../../d2/da3/structStrValidation.html">StrValidation</a> result;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    str = trimWhitespace(str);</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <span class="comment">// empty string, for some reason</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="keywordflow">if</span> (str.empty()) {</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keywordflow">return</span> {.status = <a class="code hl_enumvalue" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100ace2c8aed9c2fa0cfbed56cbda4d8bf07">StrValidation::ValStatus::Empty</a>};</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    }</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <span class="comment">//assume that the string is at least 1 non-whitespace char </span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    std::size_t i = 0;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="comment">// sign work</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="keywordtype">bool</span> metPeriod = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="keywordflow">switch</span> (str[i]) {</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="keywordflow">case</span> <span class="charliteral">&#39;-&#39;</span>:</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#a97af08f7dee88181088e6243370440f8">negative</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        [[fallthrough]];</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="keywordflow">case</span> <span class="charliteral">&#39;+&#39;</span>:</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        <span class="keywordflow">if</span> (str.size() == 1) {</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>            <span class="keywordflow">return</span> {.status = <a class="code hl_enumvalue" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b">StrValidation::ValStatus::Invalid</a>};</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        }</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        str.remove_prefix(1); <span class="comment">// move the starting char to the next, if it&#39;s a sign</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    }</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <span class="comment">//integer part</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="keywordflow">for</span> (; i &lt; str.size(); i++) {</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordflow">if</span> (!charIsNum(str[i])) {</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            <span class="keywordflow">if</span> (str[i] == <span class="charliteral">&#39;.&#39;</span>) {</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                metPeriod = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>            }</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            <span class="keywordflow">return</span> {.status = <a class="code hl_enumvalue" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b">StrValidation::ValStatus::Invalid</a>};</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        }</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    }</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#aac0836a2ec8dec6d7689710d63250ce1">intPart</a> = str.substr(0, i);</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="keywordflow">if</span> (metPeriod) {</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#a442b35d3af64bb0be53dd0ac966ce6e2">decPart</a> = str.substr(++i);</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    }</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="comment">//decimal part</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="keywordflow">for</span> (; i &lt; str.size(); i++) {</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        <span class="keywordflow">if</span> (!charIsNum(str[i])) {</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>            <span class="keywordflow">return</span> {.status = <a class="code hl_enumvalue" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b">StrValidation::ValStatus::Invalid</a>};</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        }</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <span class="keywordflow">if</span> (!result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#ad44f465d6b56491e6786c5dae13b8dd8">hasNonZeroFraction</a>) {</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>            <span class="keywordflow">if</span> (str[i] &gt; <span class="charliteral">&#39;0&#39;</span>) {</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>                <span class="comment">// literally if larger than 0 (now constrained to 0-&gt;9)</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>                result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#ad44f465d6b56491e6786c5dae13b8dd8">hasNonZeroFraction</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>            }</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        }</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    }</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="comment">// check if we even scanned any actual digits</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keywordflow">if</span> (result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#aac0836a2ec8dec6d7689710d63250ce1">intPart</a>.empty() &amp;&amp; result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#a442b35d3af64bb0be53dd0ac966ce6e2">decPart</a>.empty()) {</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        <span class="keywordflow">return</span> {.status = <a class="code hl_enumvalue" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b">StrValidation::ValStatus::Invalid</a>};</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    }</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    result.<a class="code hl_variable" href="../../d2/da3/structStrValidation.html#a575f4ba2686495ae21c51b8459c80209">status</a> = <a class="code hl_enumvalue" href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a3ac705f2acd51a4613f9188c05c91d0d">StrValidation::ValStatus::Valid</a>;</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>}</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
 <div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span><span class="preprocessor">#if DEBUGMODE</span></div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="preprocessor">#define dprintf(...) std::printf(&quot;[DEBUG] [%s] [%s()::%llu] -&gt; &quot;, __FILE__, __func__, static_cast&lt;unsigned long long&gt;(__LINE__)); \</span></div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="preprocessor">    std::printf(__VA_ARGS__); \</span></div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span><span class="preprocessor">    std::printf(&quot;\n&quot;);</span></div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span></div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="preprocessor">#define cdbg std::cout &lt;&lt; &quot;[DEBUG] [&quot; __FILE__ &quot;] [&quot; &lt;&lt;__func__&lt;&lt;&quot;()::&quot; &lt;&lt; __LINE__ &lt;&lt;&quot;] -&gt; &quot;</span></div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span><span class="preprocessor">#define dprintf(...)</span></div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span><span class="preprocessor">#define cdbg if constexpr(false) std::cout</span></div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span><span class="preprocessor">#endif </span><span class="comment">// DEBUGMODE </span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span><span class="preprocessor">#if DEBUGMODE</span></div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span><span class="preprocessor">#define dprintf(...) std::printf(&quot;[DEBUG] [%s] [%s()::%llu] -&gt; &quot;, __FILE__, __func__, static_cast&lt;unsigned long long&gt;(__LINE__)); \</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="preprocessor">    std::printf(__VA_ARGS__); \</span></div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="preprocessor">    std::printf(&quot;\n&quot;);</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span></div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span><span class="preprocessor">#define cdbg std::cout &lt;&lt; &quot;[DEBUG] [&quot; __FILE__ &quot;] [&quot; &lt;&lt;__func__&lt;&lt;&quot;()::&quot; &lt;&lt; __LINE__ &lt;&lt;&quot;] -&gt; &quot;</span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span><span class="preprocessor">#define dprintf(...)</span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><span class="preprocessor">#define cdbg if constexpr(false) std::cout</span></div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span><span class="preprocessor">#endif </span><span class="comment">// DEBUGMODE </span></div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
 <div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span><span class="preprocessor">#endif </span><span class="comment">//CSC_481_BIGINT_UTILS_HPP</span></div>
-<div class="ttc" id="astructStrValidation_html"><div class="ttname"><a href="../../d2/da3/structStrValidation.html">StrValidation</a></div><div class="ttdoc">Struct to contain the results of the string validation performed by the function.</div><div class="ttdef"><b>Definition</b> <a href="#l00190">utils.hpp:190</a></div></div>
-<div class="ttc" id="astructStrValidation_html_a2a98b2557943574ad7e3e3709b050100"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100">StrValidation::ValStatus</a></div><div class="ttdeci">ValStatus</div><div class="ttdoc">Enum to communicate the status of the validated string.</div><div class="ttdef"><b>Definition</b> <a href="#l00192">utils.hpp:192</a></div></div>
-<div class="ttc" id="astructStrValidation_html_a2a98b2557943574ad7e3e3709b050100a3ac705f2acd51a4613f9188c05c91d0d"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a3ac705f2acd51a4613f9188c05c91d0d">StrValidation::ValStatus::Valid</a></div><div class="ttdeci">@ Valid</div><div class="ttdoc">String represents a valid number, conforms to all rules.</div><div class="ttdef"><b>Definition</b> <a href="#l00194">utils.hpp:194</a></div></div>
-<div class="ttc" id="astructStrValidation_html_a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b">StrValidation::ValStatus::Invalid</a></div><div class="ttdeci">@ Invalid</div><div class="ttdoc">String doesn&#39;t represent a valid number, some rules failed.</div><div class="ttdef"><b>Definition</b> <a href="#l00198">utils.hpp:198</a></div></div>
-<div class="ttc" id="astructStrValidation_html_a2a98b2557943574ad7e3e3709b050100ace2c8aed9c2fa0cfbed56cbda4d8bf07"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100ace2c8aed9c2fa0cfbed56cbda4d8bf07">StrValidation::ValStatus::Empty</a></div><div class="ttdeci">@ Empty</div><div class="ttdoc">String is empty or full or whitespace characters.</div><div class="ttdef"><b>Definition</b> <a href="#l00196">utils.hpp:196</a></div></div>
-<div class="ttc" id="astructStrValidation_html_a442b35d3af64bb0be53dd0ac966ce6e2"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#a442b35d3af64bb0be53dd0ac966ce6e2">StrValidation::decPart</a></div><div class="ttdeci">std::string_view decPart</div><div class="ttdoc">Decimal fraction part of the number if provided.</div><div class="ttdef"><b>Definition</b> <a href="#l00208">utils.hpp:208</a></div></div>
-<div class="ttc" id="astructStrValidation_html_a575f4ba2686495ae21c51b8459c80209"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#a575f4ba2686495ae21c51b8459c80209">StrValidation::status</a></div><div class="ttdeci">ValStatus status</div><div class="ttdoc">The result/status of the validation.</div><div class="ttdef"><b>Definition</b> <a href="#l00211">utils.hpp:211</a></div></div>
-<div class="ttc" id="astructStrValidation_html_a97af08f7dee88181088e6243370440f8"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#a97af08f7dee88181088e6243370440f8">StrValidation::negative</a></div><div class="ttdeci">bool negative</div><div class="ttdoc">Whether the validated input had a leading minus sign.</div><div class="ttdef"><b>Definition</b> <a href="#l00215">utils.hpp:215</a></div></div>
-<div class="ttc" id="astructStrValidation_html_aac0836a2ec8dec6d7689710d63250ce1"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#aac0836a2ec8dec6d7689710d63250ce1">StrValidation::intPart</a></div><div class="ttdeci">std::string_view intPart</div><div class="ttdoc">Integer part of the number.</div><div class="ttdef"><b>Definition</b> <a href="#l00204">utils.hpp:204</a></div></div>
-<div class="ttc" id="astructStrValidation_html_ad44f465d6b56491e6786c5dae13b8dd8"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#ad44f465d6b56491e6786c5dae13b8dd8">StrValidation::hasNonZeroFraction</a></div><div class="ttdeci">bool hasNonZeroFraction</div><div class="ttdoc">Whether the fractional portion contains any nonzero digit.</div><div class="ttdef"><b>Definition</b> <a href="#l00218">utils.hpp:218</a></div></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="preprocessor">#endif </span><span class="comment">//CSC_481_BIGINT_UTILS_HPP</span></div>
+<div class="ttc" id="astructStrValidation_html"><div class="ttname"><a href="../../d2/da3/structStrValidation.html">StrValidation</a></div><div class="ttdoc">Struct to contain the results of the string validation performed by the function.</div><div class="ttdef"><b>Definition</b> <a href="#l00189">utils.hpp:189</a></div></div>
+<div class="ttc" id="astructStrValidation_html_a2a98b2557943574ad7e3e3709b050100"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100">StrValidation::ValStatus</a></div><div class="ttdeci">ValStatus</div><div class="ttdoc">Enum to communicate the status of the validated string.</div><div class="ttdef"><b>Definition</b> <a href="#l00191">utils.hpp:191</a></div></div>
+<div class="ttc" id="astructStrValidation_html_a2a98b2557943574ad7e3e3709b050100a3ac705f2acd51a4613f9188c05c91d0d"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a3ac705f2acd51a4613f9188c05c91d0d">StrValidation::ValStatus::Valid</a></div><div class="ttdeci">@ Valid</div><div class="ttdoc">String represents a valid number, conforms to all rules.</div><div class="ttdef"><b>Definition</b> <a href="#l00193">utils.hpp:193</a></div></div>
+<div class="ttc" id="astructStrValidation_html_a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100a4bbb8f967da6d1a610596d7257179c2b">StrValidation::ValStatus::Invalid</a></div><div class="ttdeci">@ Invalid</div><div class="ttdoc">String doesn&#39;t represent a valid number, some rules failed.</div><div class="ttdef"><b>Definition</b> <a href="#l00197">utils.hpp:197</a></div></div>
+<div class="ttc" id="astructStrValidation_html_a2a98b2557943574ad7e3e3709b050100ace2c8aed9c2fa0cfbed56cbda4d8bf07"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#a2a98b2557943574ad7e3e3709b050100ace2c8aed9c2fa0cfbed56cbda4d8bf07">StrValidation::ValStatus::Empty</a></div><div class="ttdeci">@ Empty</div><div class="ttdoc">String is empty or full or whitespace characters.</div><div class="ttdef"><b>Definition</b> <a href="#l00195">utils.hpp:195</a></div></div>
+<div class="ttc" id="astructStrValidation_html_a442b35d3af64bb0be53dd0ac966ce6e2"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#a442b35d3af64bb0be53dd0ac966ce6e2">StrValidation::decPart</a></div><div class="ttdeci">std::string_view decPart</div><div class="ttdoc">Decimal fraction part of the number if provided.</div><div class="ttdef"><b>Definition</b> <a href="#l00207">utils.hpp:207</a></div></div>
+<div class="ttc" id="astructStrValidation_html_a575f4ba2686495ae21c51b8459c80209"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#a575f4ba2686495ae21c51b8459c80209">StrValidation::status</a></div><div class="ttdeci">ValStatus status</div><div class="ttdoc">The result/status of the validation.</div><div class="ttdef"><b>Definition</b> <a href="#l00210">utils.hpp:210</a></div></div>
+<div class="ttc" id="astructStrValidation_html_a97af08f7dee88181088e6243370440f8"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#a97af08f7dee88181088e6243370440f8">StrValidation::negative</a></div><div class="ttdeci">bool negative</div><div class="ttdoc">Whether the validated input had a leading minus sign.</div><div class="ttdef"><b>Definition</b> <a href="#l00214">utils.hpp:214</a></div></div>
+<div class="ttc" id="astructStrValidation_html_aac0836a2ec8dec6d7689710d63250ce1"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#aac0836a2ec8dec6d7689710d63250ce1">StrValidation::intPart</a></div><div class="ttdeci">std::string_view intPart</div><div class="ttdoc">Integer part of the number.</div><div class="ttdef"><b>Definition</b> <a href="#l00203">utils.hpp:203</a></div></div>
+<div class="ttc" id="astructStrValidation_html_ad44f465d6b56491e6786c5dae13b8dd8"><div class="ttname"><a href="../../d2/da3/structStrValidation.html#ad44f465d6b56491e6786c5dae13b8dd8">StrValidation::hasNonZeroFraction</a></div><div class="ttdeci">bool hasNonZeroFraction</div><div class="ttdoc">Whether the fractional portion contains any nonzero digit.</div><div class="ttdef"><b>Definition</b> <a href="#l00217">utils.hpp:217</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

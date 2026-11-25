@@ -1,0 +1,18 @@
+<map id="BigInt::operator&#45;" name="BigInt::operator&#45;">
+<area shape="rect" id="Node000001" title="Returns the arithmetic negation of the BigInt." alt="" coords="5,31,120,57"/>
+<area shape="rect" id="Node000002" href="$da/d5b/classBigInt.html#af677021c0987fc2a48da06837ed29c58" title="Default constructor for the class." alt="" coords="319,5,416,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,37,304,21,302,26,120,42"/>
+<area shape="rect" id="Node000005" href="$da/d5b/classBigInt.html#ab691faf20784c2d1548845654ab51d2a" title="Reverses the sign of the BigInt in place." alt="" coords="168,56,270,83"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="120,51,155,58,150,59,120,56"/>
+<area shape="rect" id="Node000003" href="$da/d5b/classBigInt.html#aed7862704019b417cb9754feb5e5edec" title="Set the underlying bigint to 0." alt="" coords="477,5,598,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="417,16,464,18,459,19,417,21"/>
+<area shape="rect" id="Node000004" href="$da/d5b/classBigInt.html#a8edccd25a50ff5ea287c7697973f8f1f" title="Completely clear the underlying bigint: clear containers and remove negativity." alt="" coords="658,5,749,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="598,16,645,18,639,19,599,21"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="260,53,309,38,314,37,261,58"/>
+<area shape="rect" id="Node000006" href="$da/d5b/classBigInt.html#ab090d1656a4ea58f01ab2fdf37b3af9c" title="Checks whether the bigint has magnitude of 0." alt="" coords="318,56,417,83"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="270,67,305,69,300,70,271,72"/>
+<area shape="rect" id="Node000007" href="$da/d5b/classBigInt.html#ab2a52efd44c2e7057cc5397dba711ef8" title="Returns the first, Least Significant, limb of the Bigint." alt="" coords="470,56,605,83"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="418,67,457,69,452,70,418,72"/>
+<area shape="rect" id="Node000008" href="$da/d5b/classBigInt.html#a364f902e99cfe9e85fdb8629f1a36393" title="Returns the limb count of the bigint." alt="" coords="465,107,610,133"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="415,81,479,102,473,102,415,86"/>
+</map>
