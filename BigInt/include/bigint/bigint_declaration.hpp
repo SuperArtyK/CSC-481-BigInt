@@ -349,6 +349,16 @@ private:
 	/// @see BigInt::toString()
 	friend inline std::ostream& operator<<(std::ostream& os, const BigInt& value);
 	
+	/// @brief Extracts a decimal numeric value from an input stream.
+	/// @param is Input stream to read from.
+	/// @param value BigInt to receive the extracted value.
+	/// @return Reference to the input stream.
+	/// @note Reads one whitespace-delimited token using the string-conversion rules.
+	/// @note Fractional digits are truncated toward zero.
+	/// @note Missing or invalid tokens set failbit without modifying the BigInt.
+	/// @note Successful extraction produces a normalised BigInt.
+	/// @throws std::ios_base::failure If stream failure exceptions are enabled.
+	/// @see BigInt::BigInt(const std::string_view)
 	friend inline std::istream& operator>>(std::istream& is, BigInt& value);
 };
 
