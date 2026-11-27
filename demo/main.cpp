@@ -24,8 +24,16 @@ int main()
             break;
         }
 
-        if (showVar(equation)) {
-            std::cout << "ans = " << ans << std::endl;
+        std::string varName;
+        if (showVar(equation,varName)) {
+            try
+            {
+                std::cout <<  varName << "=" << calc.getVariable(varName) << std::endl;
+            }
+            catch (const std::exception& error)
+            {
+                std::cerr << "ERROR:" << error.what() << std::endl;
+            }
             continue;
         }
 

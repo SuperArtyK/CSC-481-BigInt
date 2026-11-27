@@ -9,9 +9,14 @@ bool exitCommand(const std::string& equation) {
     return std::regex_match(equation, exit_pattern);
 }
 
-bool showVar(const std::string& equation) {
-    static const std::regex showVar_pattern(R"(\s*@show[ \t]+ans\s*)", std::regex_constants::icase);
-    return std::regex_match(equation, showVar_pattern);
+bool showVar(const std::string& equation, std::string& varName) {
+    static const std::regex showVar_pattern(R"(\s*@show[ \t]+([a-zA-Z0-9]*)\s*)", std::regex_constants::icase);
+    std::smatch match;
+    if (std::regex_match(equation, match, showVar_pattern)) {
+        varName = match[1].str();
+        return true;
+    }
+    return false;
 }
 
 //filter through allowed symbols
@@ -32,7 +37,20 @@ static int parseNumber(const std::string& text) {
 int Calculator::operationHandle(const std::string& num1, char op, const std::string& num2) {
     if (op == '=') {
         varString = num1;
-        value = parseNumber(num2);
+
+        if (num2 == "ans") {
+            if (!hasAnswer) {
+                throw std::invalid_argument("There is no previous answer");
+            }
+            value = ans;
+        }
+        else if (customVars.contains(num2))
+            {
+                value = customVars[num2];
+            }
+        else {
+            value = parseNumber(num2);
+        }
 
         customVars[varString] = value;
         return value;
@@ -80,4 +98,21 @@ int Calculator::operationHandle(const std::string& num1, char op, const std::str
     ans = result;
     hasAnswer = true;
     return ans;
+}
+
+int Calculator::getVariable(const std::string& name) const{
+    if (name =="ans") {
+        if (!hasAnswer)
+        {
+            throw std::invalid_argument("There is no previous answer");
+        }
+        return ans;
+    }
+    auto it = customVars.find(name);
+
+    if (it == customVars.end())
+    {
+        throw std::invalid_argument("Variable " + name + " does not exist");
+    }
+    return it->second;
 }
