@@ -6,7 +6,7 @@
 #include <map>
 
 //filter through allowed symbols
-inline const std::regex format(R"(^\s*([a-zA-Z][a-zA-Z0-9]*|\d+)\s*([+*%/=-])\s*([a-zA-Z][a-zA-Z0-9]*|\d+)\s*$)");
+inline const std::regex format(R"(^\s*([+-]?(?:[a-zA-Z][a-zA-Z0-9]*|\d+))\s*([+*%/=-])\s*([+-]?(?:[a-zA-Z][a-zA-Z0-9]*|\d+))\s*$)");
 
 bool exitCommand(const std::string& equation);
 bool showVar(const std::string& equation, std::string& varName);

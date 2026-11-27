@@ -34,49 +34,49 @@ static int parseNumber(const std::string& text) {
     }
 }
 
+static int resolveOperand(const std::string& text, int ans, bool hasAnswer,const std::map<std::string, int>& customVars){
+    bool negative = false;
+    std::string name = text;
+
+    if (!name.empty() && (name[0] == '-'|| name[0] == '+'))
+    {
+        negative = (name[0] == '-');
+        name = name.substr(1);
+    }
+    int result;
+
+    if (name == "ans") {
+        if (!hasAnswer) {
+            throw std::invalid_argument("There is no previous answer");
+        }
+        result = ans;
+    }
+    else if (customVars.contains(name)) {
+        result = customVars.at(name);
+    }
+    else {
+        result = parseNumber(name);
+    }
+
+    if (negative) {
+        result = -result;
+    }
+    return result;
+}
 int Calculator::operationHandle(const std::string& num1, char op, const std::string& num2) {
     if (op == '=') {
+        if (!num1.empty() && (num1[0]== '+'|| num1[0] == '-'))
+        {
+            throw std::invalid_argument("Invalid assignment variable");
+        }
         varString = num1;
-
-        if (num2 == "ans") {
-            if (!hasAnswer) {
-                throw std::invalid_argument("There is no previous answer");
-            }
-            value = ans;
-        }
-        else if (customVars.contains(num2))
-            {
-                value = customVars[num2];
-            }
-        else {
-            value = parseNumber(num2);
-        }
+        value =resolveOperand(num2, ans, hasAnswer, customVars);
 
         customVars[varString] = value;
         return value;
     }
-
-    if (num1 == "ans") {
-        if (!hasAnswer) {
-            throw std::invalid_argument("There is no previous answer");
-        }
-        left = ans;
-    } else if (customVars.contains(num1)) {
-        left = customVars[num1];
-    } else {
-        left = parseNumber(num1);
-    }
-
-    if (num2 == "ans") {
-        if (!hasAnswer) {
-            throw std::invalid_argument("There is no previous answer");
-        }
-        right = ans;
-    } else if (customVars.contains(num2)) {
-        right = customVars[num2];
-    } else {
-        right = parseNumber(num2);
-    }
+    left = resolveOperand(num1, ans, hasAnswer, customVars);
+    right = resolveOperand(num2, ans, hasAnswer, customVars);
 
     int result;
 
